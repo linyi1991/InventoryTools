@@ -102,24 +102,24 @@ public class UseInformationTooltip : BaseTooltip
                 {
                     foreach (var line in groupedLine.Take(20))
                     {
-                        textLines.Add(_itemInfoRenderService.GetUseName(line));
+                        textLines.Add(TwUiLocalization.ItemInfoName(_itemInfoRenderService.GetUseName(line)));
                     }
 
                     if (groupedLine.Count() > 20)
                     {
-                        textLines[^1] += " (" + (groupedLine.Count() - 20) + " more)";
+                        textLines[^1] += "（另有 " + (groupedLine.Count() - 20) + " 項）";
                     }
                 }
                 else
                 {
-                    textLines.Add(_itemInfoRenderService.GetUseTypeName(groupedLine.Key).Singular);
+                    textLines.Add(TwUiLocalization.ItemInfoName(_itemInfoRenderService.GetUseTypeName(groupedLine.Key).Singular));
                 }
             }
 
             var newText = "";
             if (textLines.Count != 0)
             {
-                newText = "\nUses: " + string.Join(", ", textLines.Distinct());
+                newText = "\n用途：" + string.Join("、", textLines.Distinct());
             }
 
             newText = newText.TrimEnd('\n');

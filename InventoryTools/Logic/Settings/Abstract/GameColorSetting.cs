@@ -139,7 +139,7 @@ namespace InventoryTools.Logic.Settings.Abstract
 
             if (DefaultValue == null)
             {
-                if (ImGui.Checkbox("Enable##" + Key + "Boolean", ref enabled))
+                if (ImGui.Checkbox("啟用##" + Key + "Boolean", ref enabled))
                 {
                     if (value == null)
                     {
@@ -176,7 +176,7 @@ namespace InventoryTools.Logic.Settings.Abstract
                     {
                         if (tooltip)
                         {
-                            ImGui.Text("Click to open colour selector.");
+                            ImGui.Text("點擊開啟顏色選擇器。");
                         }
                     }
                 }
@@ -200,7 +200,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重設##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

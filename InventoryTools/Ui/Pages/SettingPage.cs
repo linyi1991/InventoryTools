@@ -23,6 +23,7 @@ namespace InventoryTools.Ui.Pages
         public SettingPage(SettingPage.Factory settingPageFactory, SettingCategory settingCategory, ILogger<SettingPage> logger, ImGuiService imGuiService, IEnumerable<ISetting> settings, InventoryToolsConfiguration configuration, SettingSubCategory? subCategory = null, bool forceSubcategories = false) : base(logger, imGuiService)
         {
             _settingPageFactory = settingPageFactory;
+            TwSettingsLocalization.Apply(settings);
             SubCategory = subCategory;
             _settings = settings;
             _configuration = configuration;
@@ -32,6 +33,7 @@ namespace InventoryTools.Ui.Pages
         public SettingPage(SettingPage.Factory settingPageFactory, ILogger<SettingPage> logger, ImGuiService imGuiService, IEnumerable<ISetting> settings, InventoryToolsConfiguration configuration) : base(logger, imGuiService)
         {
             _settingPageFactory = settingPageFactory;
+            TwSettingsLocalization.Apply(settings);
             _settings = settings;
             _configuration = configuration;
         }

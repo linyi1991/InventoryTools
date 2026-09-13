@@ -27,13 +27,13 @@ public class ConfigurationWizard : GenericWindow
     private int _currentFeature;
     public override void Initialize()
     {
-        WindowName = "Configuration Wizard";
+        WindowName = "設定精靈";
         Key = "wizard";
         _availableFeatures = _configurationWizardService.GetNewFeatures();
     }
 
     public override string GenericKey => "wizard";
-    public override string GenericName => "Configuration Wizard";
+    public override string GenericName => "設定精靈";
     public override bool DestroyOnClose => true;
     public override bool SaveState => false;
     public override Vector2? DefaultSize { get; } = new(750, 500);
@@ -81,7 +81,7 @@ public class ConfigurationWizard : GenericWindow
                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen,
                                    _currentFeature == 0))
                         {
-                            ImGui.Text("Welcome");
+                            ImGui.Text("歡迎");
                         }
 
                         for (var index = 0; index < _availableFeatures.Count; index++)
@@ -90,7 +90,7 @@ public class ConfigurationWizard : GenericWindow
                             using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen,
                                        index + 1 == _currentFeature))
                             {
-                                ImGui.Text((index + 1) + ". " + feature.Name);
+                                ImGui.Text((index + 1) + ". " + TwSettingsLocalization.Translate(feature.Name));
                             }
                         }
                     }
@@ -119,22 +119,22 @@ public class ConfigurationWizard : GenericWindow
                         {
                             if (_configurationWizardService.ConfiguredOnce)
                             {
-                                ImGui.TextWrapped("Welcome back to the Allagan Tools configuration wizard.");
+                                ImGui.TextWrapped("歡迎回到 Allagan Tools 設定精靈。");
                                 ImGui.Separator();
                                 ImGui.TextWrapped(
-                                    "There are new features available to configure and you elected to show this window when that occurs.");
+                                    "目前有新功能可供設定；你先前選擇在新增功能時顯示此視窗。");
                                 ImGui.NewLine();
                             }
                             else
                             {
-                                ImGui.TextWrapped("Welcome to the Allagan Tools configuration wizard.");
+                                ImGui.TextWrapped("歡迎使用 Allagan Tools 設定精靈。");
                                 ImGui.Separator();
                                 ImGui.TextWrapped(
-                                    "This will guide you through the setup of the most commonly used features. This wizard, with your permission will show itself again when a new feature gets released as features are normally left for the user to configure and activate.");
+                                    "此精靈會引導你設定最常用的功能。經你允許，未來新增需要手動啟用的功能時也會再次顯示。");
                                 ImGui.NewLine();
-                                ImGui.TextWrapped("If this is your first time using Allagan Tools, I'd recommend opening the help window and reading the General section. It gives you a run down of what the plugin can do.");
-                                ImGui.TextWrapped("If you are a returning user feel free to close this window.");
-                                if (ImGui.Button("Open Help"))
+                                ImGui.TextWrapped("若是第一次使用，建議開啟說明視窗閱讀「一般」章節，快速了解插件功能。");
+                                ImGui.TextWrapped("若已熟悉插件，可以直接關閉此視窗。");
+                                if (ImGui.Button("開啟說明"))
                                 {
                                     MediatorService.Publish(new ToggleGenericWindowMessage(typeof(HelpWindow)));
                                 }
@@ -150,10 +150,10 @@ public class ConfigurationWizard : GenericWindow
                                 var feature = _availableFeatures[index];
                                 if (_currentFeature - 1 == index)
                                 {
-                                    ImGui.Text(feature.Name);
+                                    ImGui.Text(TwSettingsLocalization.Translate(feature.Name));
                                     ImGui.Separator();
                                     ImGui.PushTextWrapPos();
-                                    ImGui.Text(feature.Description);
+                                    ImGui.Text(TwSettingsLocalization.Translate(feature.Description));
                                     ImGui.PopTextWrapPos();
                                     ImGui.Separator();
                                     foreach (var setting in _configurationWizardService.GetApplicableSettings(feature))
@@ -176,13 +176,13 @@ public class ConfigurationWizard : GenericWindow
                         {
                             if (_configurationWizardService.ConfiguredOnce)
                             {
-                                if (ImGui.Button("Continue"))
+                                if (ImGui.Button("繼續"))
                                 {
                                     NextStep();
                                     _configuration.ShowWizardNewFeatures = true;
                                 }
 
-                                if (ImGui.Button("Close (and show next time the plugin loads)"))
+                                if (ImGui.Button("關閉（下次載入時再顯示）"))
                                 {
                                     Close();
                                     _configuration.ShowWizardNewFeatures = true;
@@ -190,27 +190,27 @@ public class ConfigurationWizard : GenericWindow
                             }
                             else
                             {
-                                if (ImGui.Button("Continue (and show on new features)"))
+                                if (ImGui.Button("繼續（有新功能時再顯示）"))
                                 {
                                     NextStep();
                                     _configuration.ShowWizardNewFeatures = true;
                                 }
 
                                 ImGui.SameLine();
-                                if (ImGui.Button("Continue (and never show the wizard again)"))
+                                if (ImGui.Button("繼續（不再自動顯示精靈）"))
                                 {
                                     NextStep();
                                     _configuration.ShowWizardNewFeatures = false;
                                 }
 
-                                if (ImGui.Button("Close (and show next time the plugin loads)"))
+                                if (ImGui.Button("關閉（下次載入時再顯示）"))
                                 {
                                     Close();
                                     _configuration.ShowWizardNewFeatures = true;
                                 }
 
                                 ImGui.SameLine();
-                                if (ImGui.Button("Close (and never show the wizard again)"))
+                                if (ImGui.Button("關閉（不再自動顯示精靈）"))
                                 {
                                     Close();
                                     _configuration.ShowWizardNewFeatures = false;
@@ -222,7 +222,7 @@ public class ConfigurationWizard : GenericWindow
                             var canGoPrevious = CanGoPrevious;
                             using var disabled = ImRaii.Disabled(!canGoPrevious);
 
-                            if (ImGui.Button("Previous"))
+                            if (ImGui.Button("上一步"))
                             {
                                 PreviousStep();
                             }
@@ -232,12 +232,12 @@ public class ConfigurationWizard : GenericWindow
                             ImGui.SameLine();
                             var canGoNext = CanGoNext;
 
-                            if (canGoNext && ImGui.Button("Next"))
+                            if (canGoNext && ImGui.Button("下一步"))
                             {
                                 NextStep();
                             }
 
-                            if (!canGoNext && ImGui.Button("Finish"))
+                            if (!canGoNext && ImGui.Button("完成"))
                             {
                                 Finish();
                             }

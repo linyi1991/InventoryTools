@@ -19,7 +19,7 @@ namespace InventoryTools.Logic.Filters
         }
 
         public override string Key { get; set; } = "Collectible";
-        public override string Name { get; set; } = "Is Collectible?";
+        public override string Name { get; set; } = "收藏品？";
         public override string HelpText { get; set; } = "Is the item Collectible?";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Gathering;

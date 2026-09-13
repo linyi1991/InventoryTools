@@ -48,14 +48,14 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
             if (combo.Success)
             {
                 var searchString = SearchString;
-                ImGui.InputText("Start typing to search..##ItemSearch", ref searchString, 50);
+                ImGui.InputText("輸入文字搜尋…##ItemSearch", ref searchString, 50);
                 if (_searchString != searchString)
                 {
                     SearchString = searchString;
                 }
                 var activeChoices = GetActiveChoices(configuration);
                 ImGui.SameLine();
-                if (ImGui.Button("Add All"))
+                if (ImGui.Button("全部加入"))
                 {
                     foreach (var item in activeChoices)
                     {
@@ -78,7 +78,7 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
                             continue;
                         }
 
-                        if (ImGui.Selectable(item.Value.Replace("\u0002\u001F\u0001\u0003", "-"),
+                        if (ImGui.Selectable(TwSettingsLocalization.Translate(item.Value.Replace("\u0002\u001F\u0001\u0003", "-")),
                                 selectedChoices.Contains(item.Key)))
                         {
                             if (selectedChoices.Contains(item.Key))
@@ -103,7 +103,7 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
         if (disableReset != true && HasValueSet(configuration))
         {
             ImGui.SameLine();
-            if (ImGui.Button("Reset##" + Key + "Reset"))
+            if (ImGui.Button("重設##" + Key + "Reset"))
             {
                 Reset(configuration);
             }
@@ -123,8 +123,8 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
             var selectedChoicesCount = selectedChoices.Count;
             if (actualItem != null)
             {
-                var itemSearchCategoryName = actualItem
-                    .Replace("\u0002\u001F\u0001\u0003", "-");
+                var itemSearchCategoryName = TwSettingsLocalization.Translate(actualItem
+                    .Replace("\u0002\u001F\u0001\u0003", "-"));
                 if (ImGui.Button(itemSearchCategoryName + " X" + "##" + Key + index))
                 {
                     if (selectedChoices.Contains(item))
@@ -179,7 +179,7 @@ public abstract class MultipleChoiceSetting<T> : Setting<List<T>> where T:notnul
 
     public virtual string GetPreviewValue(List<T> items)
     {
-        return items.Count == 0 ? "No items selected" : $"{items.Count} items selected";
+        return items.Count == 0 ? "尚未選擇項目" : $"已選擇 {items.Count} 項";
     }
 
     public virtual int? ResultLimit { get; } = null;

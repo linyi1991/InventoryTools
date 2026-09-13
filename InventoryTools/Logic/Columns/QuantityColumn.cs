@@ -138,8 +138,8 @@ namespace InventoryTools.Logic.Columns
             return base.Draw(configuration, columnConfiguration, searchResult, rowIndex, columnIndex);
         }
 
-        public override string Name { get; set; } = "Quantity/Total Quantity Available";
-        public override string RenderName => "Quantity";
+        public override string Name { get; set; } = "數量／可用總數";
+        public override string RenderName => "數量";
 
         public override float Width { get; set; } = 70.0f;
 

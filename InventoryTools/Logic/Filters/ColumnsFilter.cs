@@ -52,7 +52,8 @@ namespace InventoryTools.Logic.Filters
         {
             (string, string?) GetColumnDetails(ColumnConfiguration c)
             {
-                return (c.Name ?? c.Column.Name, c.Column.HelpText);
+                var name = c.Name ?? c.Column.Name;
+                return (name, TwUiLocalization.ColumnHelp(name, c.Column.HelpText));
             }
 
             return (configuration.Columns ?? new List<ColumnConfiguration>()).ToDictionary(c => c, GetColumnDetails);
@@ -69,7 +70,7 @@ namespace InventoryTools.Logic.Filters
         }
 
         public override string Key { get; set; } = "Columns";
-        public override string Name { get; set; } = "Columns";
+        public override string Name { get; set; } = "欄位";
         public override string HelpText { get; set; } = "Add a new column. Leave the column name blank if you want to use the default.";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Columns;
         public override bool ShowReset { get; set; } = false;
@@ -173,8 +174,8 @@ namespace InventoryTools.Logic.Filters
             _editMode = true;
             _selectedColumnConfiguration = item;
             _selectedColumnKey = item.Key;
-            _selectedColumnName = item.Column.Name;
-            _selectedColumnHelp = item.Column.HelpText;
+            _selectedColumnName = TwUiLocalization.ColumnName(item.Column.Name);
+            _selectedColumnHelp = TwUiLocalization.ColumnHelp(item.Name ?? item.Column.Name, item.Column.HelpText);
             _customName = item.Name ?? "";
             _exportName = item.ExportName ?? "";
         }
@@ -278,7 +279,7 @@ namespace InventoryTools.Logic.Filters
                                     {
                                         ImGui.Separator();
                                         ImGui.PushTextWrapPos();
-                                        ImGui.Text(column.Value.HelpText);
+                                        ImGui.Text(TwUiLocalization.ColumnHelp(column.Value.Name, column.Value.HelpText));
                                         ImGui.PopTextWrapPos();
                                         if (ImGui.Button("Add"))
                                         {

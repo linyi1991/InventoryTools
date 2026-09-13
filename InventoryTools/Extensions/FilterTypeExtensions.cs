@@ -8,14 +8,14 @@ public static class FilterTypeExtensions
     {
         return filterType switch
         {
-            FilterType.None => "None",
-            FilterType.SearchFilter => "Search List",
-            FilterType.SortingFilter => "Sort List",
-            FilterType.GameItemFilter => "Game Item List",
-            FilterType.CraftFilter => "Craft List",
-            FilterType.HistoryFilter => "History List",
-            FilterType.CuratedList => "Curated List",
-            _ => "Unknown"
+            FilterType.None => "無",
+            FilterType.SearchFilter => "搜尋清單",
+            FilterType.SortingFilter => "整理清單",
+            FilterType.GameItemFilter => "遊戲物品清單",
+            FilterType.CraftFilter => "製作清單",
+            FilterType.HistoryFilter => "歷史清單",
+            FilterType.CuratedList => "自訂清單",
+            _ => "未知"
         };
     }
 }

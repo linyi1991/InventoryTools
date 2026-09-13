@@ -102,24 +102,24 @@ public class SourceInformationTooltip : BaseTooltip
                 {
                     foreach (var line in groupedLine.Take(20))
                     {
-                        textLines.Add(_itemInfoRenderService.GetSourceName(line));
+                        textLines.Add(TwUiLocalization.ItemInfoName(_itemInfoRenderService.GetSourceName(line)));
                     }
 
                     if (groupedLine.Count() > 20)
                     {
-                        textLines[^1] += " (" + (groupedLine.Count() - 20) + " more)";
+                        textLines[^1] += "（另有 " + (groupedLine.Count() - 20) + " 項）";
                     }
                 }
                 else
                 {
-                    textLines.Add(_itemInfoRenderService.GetSourceTypeName(groupedLine.Key).Singular);
+                    textLines.Add(TwUiLocalization.ItemInfoName(_itemInfoRenderService.GetSourceTypeName(groupedLine.Key).Singular));
                 }
             }
 
             var newText = "";
             if (textLines.Count != 0)
             {
-                newText = "\nSources: " + string.Join(", ", textLines.Distinct());
+                newText = "\n取得來源：" + string.Join("、", textLines.Distinct());
             }
 
             newText = newText.TrimEnd('\n');

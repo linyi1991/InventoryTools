@@ -21,7 +21,7 @@ namespace InventoryTools.Ui
         }
         public override void Initialize()
         {
-            WindowName = "Help";
+            WindowName = "說明";
             Key = "help";
         }
 
@@ -30,7 +30,7 @@ namespace InventoryTools.Ui
         public override  Vector2? MaxSize { get; } = new Vector2(2000, 2000);
         public override  Vector2? MinSize { get; } = new Vector2(200, 200);
         public override string GenericKey { get; } = "help";
-        public override string GenericName { get; } = "Help";
+        public override string GenericName { get; } = "說明";
         public override bool DestroyOnClose => true;
 
 

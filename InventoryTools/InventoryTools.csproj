@@ -1,6 +1,8 @@
 ﻿<Project Sdk="Dalamud.NET.Sdk/13.1.0">
   <PropertyGroup>
     <AssemblyName>InventoryTools</AssemblyName>
+    <Version>13.1.15</Version>
+    <AssemblyInformationalVersion>13.1.15-api13-tw6-item-info</AssemblyInformationalVersion>
     <NoWarn>IDE0003</NoWarn>
     <OutputType>Library</OutputType>
     <OutputPath>bin\$(Configuration)\</OutputPath>

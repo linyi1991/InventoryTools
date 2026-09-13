@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Columns
             return null;
         }
 
-        public override string Name { get; set; } = "Destination";
+        public override string Name { get; set; } = "目的地";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "Shows where the item should be moved to or where the item was moved to in the case of a history filter.";
         public override bool HasFilter { get; set; } = true;

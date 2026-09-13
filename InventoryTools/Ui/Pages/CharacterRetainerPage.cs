@@ -37,7 +37,7 @@ namespace InventoryTools.Ui.Pages
         {
         }
 
-        public override string Name { get; } = "Characters/Retainers";
+        public override string Name { get; } = "角色／雇員";
 
         private ulong _selectedCharacter = 0;
         private uint _currentWorld = 0;

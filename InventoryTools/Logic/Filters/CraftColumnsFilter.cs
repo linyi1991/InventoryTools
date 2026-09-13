@@ -39,7 +39,8 @@ namespace InventoryTools.Logic.Filters
         {
             (string, string?) GetColumnDetails(ColumnConfiguration c)
             {
-                return (c.Name ?? c.Column.Name, c.Column.HelpText);
+                var name = c.Name ?? c.Column.Name;
+                return (name, TwUiLocalization.ColumnHelp(name, c.Column.HelpText));
             }
 
             return (configuration.CraftColumns ?? new List<ColumnConfiguration>()).ToDictionary(c => c, GetColumnDetails);
@@ -140,8 +141,8 @@ namespace InventoryTools.Logic.Filters
             _editMode = true;
             _selectedColumnConfiguration = item;
             _selectedColumnKey = item.Key;
-            _selectedColumnName = item.Column.Name;
-            _selectedColumnHelp = item.Column.HelpText;
+            _selectedColumnName = TwUiLocalization.ColumnName(item.Column.Name);
+            _selectedColumnHelp = TwUiLocalization.ColumnHelp(item.Name ?? item.Column.Name, item.Column.HelpText);
             _customName = item.Name ?? "";
             _exportName = item.ExportName ?? "";
         }
@@ -246,7 +247,7 @@ namespace InventoryTools.Logic.Filters
                                     {
                                         ImGui.Separator();
                                         ImGui.PushTextWrapPos();
-                                        ImGui.Text(column.Value.HelpText);
+                                        ImGui.Text(TwUiLocalization.ColumnHelp(column.Value.Name, column.Value.HelpText));
                                         ImGui.PopTextWrapPos();
                                         if (ImGui.Button("Add"))
                                         {

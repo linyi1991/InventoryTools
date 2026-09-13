@@ -76,7 +76,7 @@ public class IngredientPatchTooltip : BaseTooltip
             seStr.Payloads.Add(GetLinkPayload());
             seStr.Payloads.Add(RawPayload.LinkTerminator);
 
-            var newText = $"\nIngredient Patch: {patch.ToString(CultureInfo.InvariantCulture)}";
+            var newText = $"\n素材適用版本：{patch.ToString(CultureInfo.InvariantCulture)}";
 
             newText = newText.TrimEnd('\n');
             if (newText != "")

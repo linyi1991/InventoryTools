@@ -64,7 +64,7 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Type";
+        public override string Name { get; set; } = "類型";
         public override float Width { get; set; } = 80.0f;
         public override string HelpText { get; set; } = "The type of the item.";
         public override bool HasFilter { get; set; } = true;

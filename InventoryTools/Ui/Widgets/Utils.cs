@@ -20,7 +20,7 @@ public static class ImGuiUtil
             ImGui.CloseCurrentPopup();
 
         ImGui.SetNextItemWidth(300 * ImGuiHelpers.GlobalScale);
-        var enterPressed = ImGui.InputTextWithHint("##newName", "Enter New Name...", ref newName, 64, ImGuiInputTextFlags.EnterReturnsTrue);
+        var enterPressed = ImGui.InputTextWithHint("##newName", "輸入新名稱…", ref newName, 64, ImGuiInputTextFlags.EnterReturnsTrue);
         if (ImGui.IsWindowAppearing())
             ImGui.SetKeyboardFocusHere(-1);
 
@@ -118,8 +118,8 @@ public static class ImGuiUtil
         if (pop)
         {
             content();
-            const string yesButtonText   = "Yes";
-            const string noButtonText   = "No";
+            const string yesButtonText   = "是";
+            const string noButtonText   = "否";
             var          yesButtonSize   = Math.Max(size.X / 5, ImGui.CalcTextSize(yesButtonText).X + 2 * ImGui.GetStyle().FramePadding.X);
             var          noButtonSize   = Math.Max(size.X / 5, ImGui.CalcTextSize(yesButtonText).X + 2 * ImGui.GetStyle().FramePadding.X);
             ImGui.SetCursorPos(new Vector2(2 * ImGui.GetStyle().FramePadding.X, size.Y - ImGui.GetFrameHeight() * 1.75f));

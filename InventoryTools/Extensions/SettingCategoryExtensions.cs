@@ -9,39 +9,39 @@ namespace InventoryTools.Extensions
             switch (settingCategory)
             {
                 case SettingCategory.General:
-                    return "General";
+                    return "一般";
                 case SettingCategory.Visuals:
-                    return "Visuals";
+                    return "外觀";
                 case SettingCategory.MarketBoard:
-                    return "Marketboard";
+                    return "市場布告板";
                 case SettingCategory.CraftOverlay:
-                    return "Craft Overlay";
+                    return "製作浮動視窗";
                 case SettingCategory.CraftTracker:
-                    return "Craft Tracker (Legacy)";
+                    return "製作追蹤（舊版）";
                 case SettingCategory.ToolTips:
-                    return "Tooltips";
+                    return "物品提示";
                 case SettingCategory.Hotkeys:
-                    return "Hotkeys";
+                    return "快捷鍵";
                 case SettingCategory.History:
-                    return "History";
+                    return "歷史紀錄";
                 case SettingCategory.Windows:
-                    return "Windows";
+                    return "視窗";
                 case SettingCategory.Lists:
-                    return "Lists";
+                    return "清單";
                 case SettingCategory.ContextMenu:
-                    return "Context Menu";
+                    return "右鍵選單";
                 case SettingCategory.MobSpawnTracker:
-                    return "Mob Spawn Tracker";
+                    return "怪物位置追蹤";
                 case SettingCategory.TitleMenuButtons:
-                    return "Title Menu Button";
+                    return "標題畫面按鈕";
                 case SettingCategory.AutoSave:
-                    return "Auto Save";
+                    return "自動儲存";
                 case SettingCategory.Items:
-                    return "Items";
+                    return "物品資訊";
                 case SettingCategory.Highlighting:
-                    return "Highlighting";
+                    return "標示";
                 case SettingCategory.EquipmentRecommendation:
-                    return "Equipment Recommendations";
+                    return "裝備推薦";
             }
             return settingCategory.ToString();
         }

@@ -12,6 +12,7 @@ using InventoryTools.Attributes;
 using InventoryTools.EquipmentSuggest;
 using InventoryTools.Mediator;
 using InventoryTools.Services.Interfaces;
+using InventoryTools.Services;
 using InventoryTools.Ui;
 using Microsoft.Extensions.Logging;
 
@@ -24,39 +25,56 @@ namespace InventoryTools.Commands
         private readonly IChatUtilities _chatUtilities;
         private readonly ItemSheet _itemSheet;
         private readonly IListService _listService;
+        private readonly TwMarketPriceWarmupService _marketPriceWarmupService;
 
-        public PluginCommands(MediatorService mediatorService, IChatUtilities chatUtilities, ItemSheet itemSheet, IListService listService, ILogger<PluginCommands> logger)
+        public PluginCommands(MediatorService mediatorService, IChatUtilities chatUtilities, ItemSheet itemSheet, IListService listService, ILogger<PluginCommands> logger, TwMarketPriceWarmupService marketPriceWarmupService)
         {
             Logger = logger;
             _mediatorService = mediatorService;
             _chatUtilities = chatUtilities;
             _itemSheet = itemSheet;
             _listService = listService;
+            _marketPriceWarmupService = marketPriceWarmupService;
+        }
+
+        [Command("/allaganprice")]
+        [HelpMessage("顯示 Universalis 價格預載狀態；加上 refresh／更新可重新抓取所有持有物品價格。")]
+        public void ShowMarketPriceWarmupStatus(string command, string args)
+        {
+            if (args.Trim().Equals("refresh", StringComparison.OrdinalIgnoreCase) || args.Trim() == "更新")
+            {
+                var queued = _marketPriceWarmupService.RequestRefresh(true);
+                _chatUtilities.Print(queued
+                    ? "已排定重新整理所有持有且可交易物品的市場價格；系統會分批處理以避免 Universalis 限流。"
+                    : "市場價格重新整理已在排程中。");
+                return;
+            }
+            _chatUtilities.Print(_marketPriceWarmupService.GetStatus());
         }
 
         [Command("/allagantools")]
         [Aliases("/atools")]
-        [HelpMessage("Shows the allagan tools items list window.")]
+        [HelpMessage("開啟或關閉 Allagan Tools 物品清單。")]
         public void ShowHideInventoryToolsCommand(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(FiltersWindow)));
         }
         [Command("/duties")]
         [Aliases("/atduties")]
-        [HelpMessage("Shows the allagan tools duties window.")]
+        [HelpMessage("開啟或關閉副本清單。")]
         public void ShowHideDutiesWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(DutiesWindow)));
         }
         [Command("/mobs")]
         [Aliases("/atmobs")]
-        [HelpMessage("Shows the allagan tools mobs window.")]
+        [HelpMessage("開啟或關閉怪物清單。")]
         public void ShowHideMobsWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(BNpcsWindow)));
         }
         [Command("/atnpcs")]
-        [HelpMessage("Shows the allagan tools npcs window.")]
+        [HelpMessage("開啟或關閉 NPC 清單。")]
         public void ShowHideNpcsWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(ENpcsWindow)));
@@ -65,14 +83,14 @@ namespace InventoryTools.Commands
 
         [Command("/athighlight")]
         [Aliases("/atf")]
-        [HelpMessage("Toggles the specified list's highlight on/off, turning off any other highlighting in the process.")]
+        [HelpMessage("切換指定清單的物品醒目提示；同時關閉其他醒目提示。")]
         public  void FilterToggleCommand(string command, string args)
         {
             Logger.LogTrace(command);
             Logger.LogTrace(args);
             if (args.Trim() == "")
             {
-                _chatUtilities.PrintError("You must enter the name of an list.");
+                _chatUtilities.PrintError("請輸入清單名稱。");
             }
             else
             {
@@ -81,12 +99,12 @@ namespace InventoryTools.Commands
         }
 
         [Command("/openlist")]
-        [HelpMessage("Open/closes a window displaying the contents of a single list.")]
+        [HelpMessage("開啟或關閉指定清單的獨立視窗。")]
         public  void OpenFilterCommand(string command, string args)
         {
             if (args.Trim() == "")
             {
-                _chatUtilities.PrintError("You must enter the name of a list.");
+                _chatUtilities.PrintError("請輸入清單名稱。");
             }
             else
             {
@@ -97,48 +115,56 @@ namespace InventoryTools.Commands
                 }
                 else
                 {
-                    _chatUtilities.PrintError("Could not find a list with that name.");
+                    _chatUtilities.PrintError("找不到該名稱的清單。");
                 }
             }
         }
 
         [Command("/crafts")]
-        [HelpMessage("Opens the allagan tools crafts window")]
+        [HelpMessage("開啟 Allagan Tools 製作規劃視窗。")]
         public  void OpenCraftsWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
         }
 
+        [Command("/atcraftable")]
+        [Aliases("/能做什麼")]
+        [HelpMessage("開啟『我的庫存能做什麼』視窗")]
+        public void OpenCraftAvailabilityWindow(string command, string args)
+        {
+            _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftAvailabilityWindow)));
+        }
+
         [Command("/airships")]
-        [HelpMessage("Opens the allagan tools airships window")]
+        [HelpMessage("開啟飛空艇探索視窗。")]
         public  void ToggleAirshipsWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(AirshipsWindow)));
         }
 
         [Command("/submarines")]
-        [HelpMessage("Opens the allagan tools submarines window")]
+        [HelpMessage("開啟潛水艇探索視窗。")]
         public  void ToggleSubmarinesWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(SubmarinesWindow)));
         }
 
         [Command("/retainerventures")]
-        [HelpMessage("Opens the allagan tools retainer ventures window")]
+        [HelpMessage("開啟僱員探險視窗。")]
         public  void ToggleToggleRetainerTasksWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(RetainerTasksWindow)));
         }
 
         [Command("/atconfig")]
-        [HelpMessage("Opens the allagan tools configuration window")]
+        [HelpMessage("開啟 Allagan Tools 設定視窗。")]
         public  void OpenConfigurationWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
         }
 
         [Command("/athelp")]
-        [HelpMessage("Opens the allagan tools help window")]
+        [HelpMessage("開啟 Allagan Tools 說明視窗。")]
         public void OpenHelpWindow(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(HelpWindow)));
@@ -172,7 +198,7 @@ namespace InventoryTools.Commands
         }
 
         [Command("/atcloselists", "/atclosefilters")]
-        [HelpMessage("Closes all list windows.")]
+        [HelpMessage("關閉所有清單視窗。")]
         public void CloseFilterWindows(string command, string args)
         {
             _mediatorService.Publish(new CloseWindowsByTypeMessage(typeof(FilterWindow)));
@@ -187,14 +213,14 @@ namespace InventoryTools.Commands
         }
 
         [Command("/craftoverlay")]
-        [HelpMessage("Toggles the crafting overlay window.")]
+        [HelpMessage("切換製作流程浮動視窗。")]
         public void CraftOverlay(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftOverlayWindow)));
         }
 
         [Command("/atrecommend", "/atr")]
-        [HelpMessage("Toggles the equipment recommendation window.")]
+        [HelpMessage("切換裝備推薦視窗。")]
         public void EquipmentRecommendation(string command, string args)
         {
             _mediatorService.Publish(new ToggleGenericWindowMessage(typeof(EquipmentSuggestWindow)));
@@ -202,7 +228,7 @@ namespace InventoryTools.Commands
 
         [Command("/moreinfo")]
         [Aliases("/itemwindow")]
-        [HelpMessage("Opens the more information window for a specific item. Provide the name of the item or the ID of the item.")]
+        [HelpMessage("依物品名稱或 ID 開啟詳細資訊視窗。")]
         public void MoreInformation(string command, string args)
         {
             args = args.Trim();
@@ -229,7 +255,7 @@ namespace InventoryTools.Commands
             }
             else
             {
-                _chatUtilities.PrintError("The item " + args + " could not be found.");
+                _chatUtilities.PrintError("找不到物品：" + args);
             }
         }
 

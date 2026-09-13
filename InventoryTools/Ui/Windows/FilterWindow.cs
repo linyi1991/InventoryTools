@@ -58,7 +58,7 @@ namespace InventoryTools.Ui
             else
             {
                 Key = "filter_invalid";
-                WindowName = "Invalid List";
+                WindowName = "無效的清單";
             }
 
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
@@ -186,7 +186,7 @@ namespace InventoryTools.Ui
                 {
                     var highlightItems = itemTable.HighlightItems;
                     ImGuiService.CenterElement(20 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.Checkbox("Highlight?" + "###" + itemTable.Key + "VisibilityCheckbox",
+                    ImGui.Checkbox("醒目標示" + "###" + itemTable.Key + "VisibilityCheckbox",
                         ref highlightItems);
                     if (highlightItems != itemTable.HighlightItems)
                     {
@@ -203,7 +203,7 @@ namespace InventoryTools.Ui
                         itemTable.ClearFilters();
                     }
 
-                    ImGuiUtil.HoverTooltip("Clear the current search.");
+                    ImGuiUtil.HoverTooltip("清除目前的搜尋條件。");
 
                 }
             }
@@ -245,16 +245,16 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Refresh Market Prices");
+                    ImGuiUtil.HoverTooltip("重新整理市場價格");
                     ImGui.SameLine();
                     ImGuiService.CenterElement(24 * ImGui.GetIO().FontGlobalScale);
                     if (_csvIcon.Draw(ImGuiService.GetImageTexture("export2").Handle, "exportCsv"))
                     {
-                        _fileDialogManager.SaveFileDialog("Save to csv", "*.csv", "export.csv", ".csv",
+                        _fileDialogManager.SaveFileDialog("儲存為 CSV", "*.csv", "export.csv", ".csv",
                             (b, s) => { SaveCallback(itemTable, b, s); }, null, true);
                     }
 
-                    ImGuiUtil.HoverTooltip("Export to CSV");
+                    ImGuiUtil.HoverTooltip("匯出為 CSV");
                     if (filterConfiguration.FilterType == FilterType.CraftFilter &&
                         _gameUiManager.IsWindowVisible(
                             CriticalCommonLib.Services.Ui.WindowName.SubmarinePartsMenu))
@@ -263,7 +263,7 @@ namespace InventoryTools.Ui
                         if (subMarinePartsMenu != null)
                         {
                             ImGui.SameLine();
-                            if (ImGui.Button("Add Company Craft to List"))
+                            if (ImGui.Button("將部隊製作加入清單"))
                             {
                                 var subAddon = (SubmarinePartsMenuAddon*)subMarinePartsMenu;
                                 for (byte i = 0; i < 6; i++)
@@ -287,13 +287,13 @@ namespace InventoryTools.Ui
                     }
 
                     ImGui.SameLine();
-                    ImGuiService.VerticalCenter("Pending Market Requests: " + _universalis.QueuedCount);
+                    ImGuiService.VerticalCenter("待處理市場請求：" + _universalis.QueuedCount);
                     if (filterConfiguration.FilterType == FilterType.CraftFilter)
                     {
                         ImGui.SameLine();
-                        ImGui.TextUnformatted("Total Cost NQ: " + filterConfiguration.CraftList.MinimumNQCost);
+                        ImGui.TextUnformatted("NQ 總成本：" + filterConfiguration.CraftList.MinimumNQCost);
                         ImGui.SameLine();
-                        ImGui.TextUnformatted("Total Cost HQ: " + filterConfiguration.CraftList.MinimumHQCost);
+                        ImGui.TextUnformatted("HQ 總成本：" + filterConfiguration.CraftList.MinimumHQCost);
                     }
 
                     if (filterConfiguration.FilterType == FilterType.CraftFilter)
@@ -324,7 +324,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the configuration window.");
+                    ImGuiUtil.HoverTooltip("開啟設定視窗。");
 
                     ImGui.SetCursorPosY(0);
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -335,7 +335,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(FiltersWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the items window.");
+                    ImGuiUtil.HoverTooltip("開啟物品視窗。");
 
                     ImGui.SetCursorPosY(0);
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -346,18 +346,18 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the craft window.");
+                    ImGuiUtil.HoverTooltip("開啟製作視窗。");
 
-                    var totalItems =  itemTable.RenderSearchResults.Count + " items";
+                    var totalItems =  itemTable.RenderSearchResults.Count + " 個物品";
 
                     if (SelectedConfiguration != null && SelectedConfiguration.FilterType == FilterType.GameItemFilter)
                     {
-                        totalItems =  itemTable.RenderSearchResults.Count + " items";
+                        totalItems =  itemTable.RenderSearchResults.Count + " 個物品";
                     }
 
                     if (SelectedConfiguration != null && SelectedConfiguration.FilterType == FilterType.HistoryFilter)
                     {
-                        totalItems =  itemTable.RenderSearchResults.Count + " historical records";
+                        totalItems =  itemTable.RenderSearchResults.Count + " 筆歷史紀錄";
                     }
 
                     var calcTextSize = ImGui.CalcTextSize(totalItems);

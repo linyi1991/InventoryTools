@@ -35,7 +35,7 @@ public class SubmarinesWindow : GenericTabbedTable<SubmarineExplorationRow>, IMe
     public override void Initialize()
     {
         Key = "submarines";
-        WindowName = "Submarines";
+        WindowName = "潛水艇探索";
         _columns = new List<TableColumn<SubmarineExplorationRow>>()
         {
             new("Icon", 32, ImGuiTableColumnFlags.WidthFixed)
@@ -201,7 +201,7 @@ public class SubmarinesWindow : GenericTabbedTable<SubmarineExplorationRow>, IMe
     }
 
     public override string GenericKey { get; } = "submarines";
-    public override string GenericName { get; } = "Submarines";
+    public override string GenericName { get; } = "潛水艇探索";
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

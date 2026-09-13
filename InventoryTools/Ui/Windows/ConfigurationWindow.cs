@@ -88,17 +88,17 @@ namespace InventoryTools.Ui
 
         public override void Initialize()
         {
-            WindowName = "Configuration";
+            WindowName = "設定";
             Key = "configuration";
             _configPages = new List<IConfigPage>();
-            _configPages.Add(new SeparatorPageItem("Settings"));
+            _configPages.Add(new SeparatorPageItem("設定"));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.General));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Lists));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Highlighting));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Items));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Windows));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.AutoSave));
-            _configPages.Add(new SeparatorPageItem("Modules", true));
+            _configPages.Add(new SeparatorPageItem("功能模組", true));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.MarketBoard));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.ToolTips));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.ContextMenu));
@@ -110,7 +110,7 @@ namespace InventoryTools.Ui
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.History));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Misc));
             _configPages.Add(_settingPageFactory.Invoke(SettingCategory.Troubleshooting, null, true));
-            _configPages.Add(new SeparatorPageItem("Data", true));
+            _configPages.Add(new SeparatorPageItem("資料", true));
             _configPages.Add(_configPageFactory.Invoke(typeof(FiltersPage)));
             _configPages.Add(_configPageFactory.Invoke(typeof(CraftFiltersPage)));
             _configPages.Add(_configPageFactory.Invoke(typeof(ImportExportPage)));
@@ -119,10 +119,10 @@ namespace InventoryTools.Ui
             _addFilterMenu = new PopupMenu("addFilter", PopupMenu.PopupMenuButtons.LeftRight,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectableAskName("Search List", "adf1", "New Search List", AddSearchFilter, "This will create a new list that let's you search for specific items within your characters and retainers inventories."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("Sort List", "af2", "New Sort Filter", AddSortFilter, "This will create a new list that let's you search for specific items within your characters and retainers inventories then determine where they should be moved to."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("Game Item List", "af3", "New Game Item List", AddGameItemFilter, "This will create a list that lets you search for all items in the game."),
-                    new PopupMenu.PopupMenuItemSelectableAskName("History List", "af4", "New History Item List", AddHistoryFilter, "This will create a list that lets you view historical data of how your inventory has changed."),
+                    new PopupMenu.PopupMenuItemSelectableAskName("搜尋清單", "adf1", "新增搜尋清單", AddSearchFilter, "建立可搜尋角色與雇員庫存中特定物品的清單。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("整理清單", "af2", "新增整理清單", AddSortFilter, "建立可搜尋物品並指定其搬移目的地的整理清單。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("遊戲物品清單", "af3", "新增遊戲物品清單", AddGameItemFilter, "建立可搜尋遊戲內所有物品的清單。"),
+                    new PopupMenu.PopupMenuItemSelectableAskName("歷史清單", "af4", "新增歷史清單", AddHistoryFilter, "建立可查看庫存變動歷史資料的清單。"),
                 });
 
             _addSampleMenu = new PopupMenu("addSampleFilter", PopupMenu.PopupMenuButtons.LeftRight, []);
@@ -161,24 +161,24 @@ namespace InventoryTools.Ui
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Items Window", "filters", OpenFiltersWindow,"Open the items window."),
-                    new PopupMenu.PopupMenuItemSelectable("Craft Window", "crafts", OpenCraftsWindow,"Open the crafts window."),
+                    new PopupMenu.PopupMenuItemSelectable("物品視窗", "filters", OpenFiltersWindow,"開啟物品視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("製作視窗", "crafts", OpenCraftsWindow,"開啟製作視窗。"),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Mob Window", "mobs", OpenMobsWindow,"Open the mobs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Npcs Window", "npcs", OpenNpcsWindow,"Open the npcs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Duties Window", "duties", OpenDutiesWindow,"Open the duties window."),
-                    new PopupMenu.PopupMenuItemSelectable("Airships Window", "airships", OpenAirshipsWindow,"Open the airships window."),
-                    new PopupMenu.PopupMenuItemSelectable("Submarines Window", "submarines", OpenSubmarinesWindow,"Open the submarines window."),
-                    new PopupMenu.PopupMenuItemSelectable("Retainer Ventures Window", "ventures", OpenRetainerVenturesWindow,"Open the retainer ventures window."),
+                    new PopupMenu.PopupMenuItemSelectable("怪物視窗", "mobs", OpenMobsWindow,"開啟怪物視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("NPC 視窗", "npcs", OpenNpcsWindow,"開啟 NPC 視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("任務視窗", "duties", OpenDutiesWindow,"開啟任務視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("飛空艇視窗", "airships", OpenAirshipsWindow,"開啟飛空艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("潛水艇視窗", "submarines", OpenSubmarinesWindow,"開啟潛水艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("雇員探險視窗", "ventures", OpenRetainerVenturesWindow,"開啟雇員探險視窗。"),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Help", "help", OpenHelpWindow,"Open the help window."),
+                    new PopupMenu.PopupMenuItemSelectable("說明", "help", OpenHelpWindow,"開啟說明視窗。"),
                 });
 
             _wizardMenu = new PopupMenu("wizardMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Configure new settings", "configureNew", ConfigureNewSettings,"Configure new settings."),
-                    new PopupMenu.PopupMenuItemSelectable("Configure all settings", "configureAll", ConfigureAllSettings,"Configure all settings."),
+                    new PopupMenu.PopupMenuItemSelectable("設定新功能", "configureNew", ConfigureNewSettings,"設定這次新增的功能。"),
+                    new PopupMenu.PopupMenuItemSelectable("重新設定全部功能", "configureAll", ConfigureAllSettings,"重新執行所有功能設定。"),
                 });
             _menuWindows = _context.Resolve<IEnumerable<IMenuWindow>>().OrderBy(c => c.GenericName).Where(c => c.GetType() != this.GetType());
 
@@ -224,7 +224,7 @@ namespace InventoryTools.Ui
             }
             else
             {
-                _chatUtilities.Print("There are no new settings available to configure.");
+                _chatUtilities.Print("目前沒有需要設定的新功能。");
             }
         }
 
@@ -285,10 +285,10 @@ namespace InventoryTools.Ui
                 _popupMenus[configuration] = new PopupMenu("fm" + configuration.Key, PopupMenu.PopupMenuButtons.Right,
                     new List<PopupMenu.IPopupMenuItem>()
                     {
-                        new PopupMenu.PopupMenuItemSelectableAskName("Duplicate", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "Duplicate the filter."),
-                        new PopupMenu.PopupMenuItemSelectable("Move Up", "mu_" + configuration.Key, MoveFilterUp, "Move the filter up."),
-                        new PopupMenu.PopupMenuItemSelectable("Move Down", "md_" + configuration.Key, MoveFilterDown, "Move the filter down."),
-                        new PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "Are you sure you want to remove this filter?", RemoveFilter, "Remove the filter."),
+                        new PopupMenu.PopupMenuItemSelectableAskName("建立副本", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "複製此清單。"),
+                        new PopupMenu.PopupMenuItemSelectable("上移", "mu_" + configuration.Key, MoveFilterUp, "將清單向上移。"),
+                        new PopupMenu.PopupMenuItemSelectable("下移", "md_" + configuration.Key, MoveFilterDown, "將清單向下移。"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("移除", "rf_" + configuration.Key, "確定要移除此清單嗎？", RemoveFilter, "移除此清單。"),
                     }
                 );
             }
@@ -416,7 +416,7 @@ namespace InventoryTools.Ui
         public override Vector2? MaxSize { get; } = new(2000, 2000);
         public override Vector2? MinSize { get; } = new(200, 200);
         public override string GenericKey => "configuration";
-        public override string GenericName => "Configuration";
+        public override string GenericName => "設定";
         public override bool DestroyOnClose => true;
         private List<IConfigPage> _configPages = null!;
         public Dictionary<string, IConfigPage> _filterPages = new Dictionary<string,IConfigPage>();
@@ -433,26 +433,26 @@ namespace InventoryTools.Ui
             {
                 if (menuBar)
                 {
-                    using (var menu = ImRaii.Menu("File"))
+                    using (var menu = ImRaii.Menu("檔案"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Report a Issue"))
+                            if (ImGui.MenuItem("回報問題"))
                             {
                                 "https://github.com/Critical-Impact/AllaganMarket".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Changelog"))
+                            if (ImGui.MenuItem("更新紀錄"))
                             {
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                             }
 
-                            if (ImGui.MenuItem("Help"))
+                            if (ImGui.MenuItem("說明"))
                             {
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                             }
 
-                            if (ImGui.MenuItem("Enable Verbose Logging", "",
+                            if (ImGui.MenuItem("啟用詳細日誌", "",
                                     this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                             {
                                 if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -470,27 +470,27 @@ namespace InventoryTools.Ui
                                 "https://ko-fi.com/critical_impact".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Close"))
+                            if (ImGui.MenuItem("關閉"))
                             {
                                 this.IsOpen = false;
                             }
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Wizard"))
+                    using (var menu = ImRaii.Menu("設定精靈"))
                     {
                         if (menu)
                         {
                             var hasNewFeatures = this._configurationWizardService.HasNewFeatures;
                             using var disabled = ImRaii.Disabled(!hasNewFeatures);
-                            if (ImGui.MenuItem("Configure New Features"))
+                            if (ImGui.MenuItem("設定新功能"))
                             {
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWizard)));
                             }
 
                             disabled.Dispose();
 
-                            if (ImGui.MenuItem("Reconfigure All Features"))
+                            if (ImGui.MenuItem("重新設定全部功能"))
                             {
                                 this._configurationWizardService.ClearFeaturesSeen();
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWizard)));
@@ -498,7 +498,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Windows"))
+                    using (var menu = ImRaii.Menu("視窗"))
                     {
                         if (menu)
                         {
@@ -663,7 +663,7 @@ namespace InventoryTools.Ui
                     }
 
                     ImGui.NewLine();
-                    ImGui.TextUnformatted("Item Lists");
+                    ImGui.TextUnformatted("物品清單");
                     ImGui.Separator();
 
                     var filterIndex = count;
@@ -711,7 +711,7 @@ namespace InventoryTools.Ui
                     }
 
                     _addFilterMenu.Draw();
-                    ImGuiUtil.HoverTooltip("Add a new filter");
+                    ImGuiUtil.HoverTooltip("新增清單");
 
                     ImGui.SetCursorPosY(height - 24 * ImGui.GetIO().FontGlobalScale);
                     ImGui.SetCursorPosX(26 * ImGui.GetIO().FontGlobalScale);
@@ -722,7 +722,7 @@ namespace InventoryTools.Ui
                     }
 
                     _addSampleMenu.Draw();
-                    ImGuiUtil.HoverTooltip("Add a sample filter");
+                    ImGuiUtil.HoverTooltip("新增範例清單");
 
                     var width = ImGui.GetWindowSize().X;
                     width -= 24 * ImGui.GetIO().FontGlobalScale;
@@ -750,7 +750,7 @@ namespace InventoryTools.Ui
                     _wizardMenu.Draw();
 
 
-                    ImGuiUtil.HoverTooltip("Start configuration wizard.");
+                    ImGuiUtil.HoverTooltip("啟動設定精靈。保持目前設定不變，逐項引導調整功能。");
                 }
             }
         }

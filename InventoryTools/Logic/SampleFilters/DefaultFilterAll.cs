@@ -39,11 +39,11 @@ public class DefaultFilterAll : ISampleFilter
         return allItemsFilter;
     }
 
-    public string Name => "All";
-    public string SampleDefaultName => "All";
+    public string Name => "全部庫存";
+    public string SampleDefaultName => "全部庫存";
 
     public string SampleDescription =>
-        "This will add a list that will be preconfigured to show all the items in bags related to your character. This includes owned retainers, free company, saddle bags, etc";
+        "建立顯示目前角色所有關聯庫存的清單，包括雇員、部隊倉庫、陸行鳥鞍囊等。";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Default;
 }

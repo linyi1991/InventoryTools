@@ -10,59 +10,59 @@ namespace InventoryTools.Extensions
             switch (settingSubCategory)
             {
                 case SettingSubCategory.Experimental:
-                    return "Experimental";
+                    return "實驗性功能";
                 case SettingSubCategory.Fun:
-                    return "Fun";
+                    return "娛樂功能";
                 case SettingSubCategory.Highlighting:
-                    return "Highlighting";
+                    return "標示";
                 case SettingSubCategory.DestinationHighlighting:
-                    return "Destination Highlighting";
+                    return "目的地標示";
                 case SettingSubCategory.RetainerHighlighting:
-                    return "Retainer Highlighting";
+                    return "雇員標示";
                 case SettingSubCategory.Market:
-                    return "Market";
+                    return "市場價格";
                 case SettingSubCategory.General:
-                    return "General";
+                    return "一般";
                 case SettingSubCategory.Subsetting:
-                    return "Settings";
+                    return "詳細設定";
                 case SettingSubCategory.Visuals:
-                    return "Visuals";
+                    return "外觀";
                 case SettingSubCategory.WindowLayout:
-                    return "Window Layout";
+                    return "視窗版面";
                 case SettingSubCategory.AutoSave:
-                    return "Auto Save";
+                    return "自動儲存";
                 case SettingSubCategory.FilterSettings:
-                    return "List Settings";
+                    return "清單設定";
                 case SettingSubCategory.ActiveLists:
-                    return "Active Lists";
+                    return "目前清單";
                 case SettingSubCategory.ContextMenus:
-                    return "Context/Right Click Menu";
+                    return "右鍵選單";
                 case SettingSubCategory.Hotkeys:
-                    return "Hotkeys";
+                    return "快捷鍵";
                 case SettingSubCategory.IgnoreEscape:
-                    return "Ignore Escape Key";
+                    return "忽略 Esc 鍵";
                 case SettingSubCategory.SourceGrouping:
-                    return "Source Grouping";
+                    return "取得來源分組";
                 case SettingSubCategory.UseGrouping:
-                    return "Use Grouping";
+                    return "用途分組";
                 case SettingSubCategory.Colours:
-                    return "Colours";
+                    return "顏色";
                 case SettingSubCategory.AddItemLocations:
-                    return "Add Item Locations";
+                    return "物品持有位置";
                 case SettingSubCategory.MarketPricing:
-                    return "Market Pricing";
+                    return "市場價格";
                 case SettingSubCategory.AmountToRetrieve:
-                    return "Amount To Retrieve";
+                    return "需取出數量";
                 case SettingSubCategory.ItemUnlockStatus:
-                    return "Item Unlock Status";
+                    return "物品解鎖狀態";
                 case SettingSubCategory.SourceInformation:
-                    return "Source Information";
+                    return "取得來源資訊";
                 case SettingSubCategory.UseInformation:
-                    return "Use Information";
+                    return "用途資訊";
                 case SettingSubCategory.AcquisitionTracker:
-                    return "Acquisition Tracker";
+                    return "取得追蹤器";
                 case SettingSubCategory.IngredientPatch:
-                    return "Ingredient Patch";
+                    return "素材版本";
             }
             return settingSubCategory.ToString();
         }

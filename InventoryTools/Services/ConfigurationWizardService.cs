@@ -14,6 +14,7 @@ public class ConfigurationWizardService : IConfigurationWizardService
     {
         _configuration = configuration;
         _availableFeatures = features.ToList();
+        TwSettingsLocalization.Apply(_availableFeatures.SelectMany(feature => feature.RelatedSettings));
     }
 
     /// <summary>

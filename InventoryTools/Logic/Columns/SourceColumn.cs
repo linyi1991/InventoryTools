@@ -26,7 +26,7 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Source";
+        public override string Name { get; set; } = "來源";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "Shows the character/retainer an item is located in.";
         public override bool HasFilter { get; set; } = true;

@@ -74,7 +74,9 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
                 var defaultGrouping = sourceRenderer.Value.ShouldGroup;
 
                 ImGui.SetNextItemWidth(InputSize);
-                var previewValue = sourceIconGrouping == SourceIconGrouping.Default ? $"{_choices[sourceIconGrouping]} ({_choices[defaultGrouping ? SourceIconGrouping.Grouped : SourceIconGrouping.Ungrouped]})" : _choices[sourceIconGrouping];
+                var previewValue = sourceIconGrouping == SourceIconGrouping.Default
+                    ? $"{TwSettingsLocalization.Translate(_choices[sourceIconGrouping])} ({TwSettingsLocalization.Translate(_choices[defaultGrouping ? SourceIconGrouping.Grouped : SourceIconGrouping.Ungrouped])})"
+                    : TwSettingsLocalization.Translate(_choices[sourceIconGrouping]);
 
                 using (var combo = ImRaii.Combo("##Combo",  previewValue))
                 {
@@ -82,7 +84,7 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
                     {
                         foreach (var item in _choices)
                         {
-                            var text = item.Value.Replace("\u0002\u001F\u0001\u0003", "-");
+                            var text = TwSettingsLocalization.Translate(item.Value.Replace("\u0002\u001F\u0001\u0003", "-"));
                             if (text == "")
                             {
                                 continue;
@@ -114,7 +116,7 @@ public class SourceIconGroupingSetting : Setting<Dictionary<Type, bool>?>
                 if (disableReset != true && hasValueSet)
                 {
                     ImGui.SameLine();
-                    if (ImGui.Button("Reset##Reset"))
+                    if (ImGui.Button("重設##Reset"))
                     {
                         currentSettings.Remove(sourceRenderer.Key);
                         UpdateFilterConfiguration(configuration, currentSettings);

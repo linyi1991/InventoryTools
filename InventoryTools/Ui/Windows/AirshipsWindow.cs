@@ -269,7 +269,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
     }
 
     public override string GenericKey => "airships";
-    public override string GenericName => "Airships";
+    public override string GenericName => "飛空艇探索";
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

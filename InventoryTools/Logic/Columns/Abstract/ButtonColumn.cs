@@ -3,6 +3,7 @@ using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using Dalamud.Bindings.ImGui;
 using InventoryTools.Logic.Columns.Abstract.ColumnSettings;
+using InventoryTools.Services;
 
 namespace InventoryTools.Logic.Columns.Abstract;
 
@@ -105,7 +106,8 @@ public abstract class ButtonColumn : IColumn
                     : ImGuiTableColumnFlags.PreferSortDescending;
             }
         }
-        ImGui.TableSetupColumn(columnConfiguration.Name ?? (RenderName ?? Name), imGuiTableColumnFlags, Width, (uint)columnIndex);
+        var displayName = columnConfiguration.Name ?? (RenderName ?? Name);
+        ImGui.TableSetupColumn(TwUiLocalization.ColumnName(displayName), imGuiTableColumnFlags, Width, (uint)columnIndex);
     }
 
     public bool? DrawFilter(ColumnConfiguration columnConfiguration, int columnIndex)

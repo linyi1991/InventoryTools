@@ -12,7 +12,7 @@ namespace InventoryTools.Logic.Filters
     public class NameFilter : StringFilter
     {
         public override string Key { get; set; } = "Name";
-        public override string Name { get; set; } = "Name";
+        public override string Name { get; set; } = "名稱";
         public override string HelpText { get; set; } = "Searches by the name of the item.";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;

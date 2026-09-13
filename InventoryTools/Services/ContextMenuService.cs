@@ -79,7 +79,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_configuration.AddMoreInformationContextMenu)
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "More Information";
+                menuItem.Name = "更多資訊";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += clickedArgs => MoreInformationClicked(clickedArgs, itemId);
                 args.AddMenuItem(menuItem);
@@ -88,7 +88,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_configuration.ItemSearchContextMenu)
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "Search";
+                menuItem.Name = "搜尋此物品";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += clickedArgs => ItemSearchClicked(clickedArgs, itemId);
                 args.AddMenuItem(menuItem);
@@ -100,7 +100,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
                 if (activeList != null)
                 {
                     var menuItem = new MenuItem();
-                    menuItem.Name = "Add to Active Craft List";
+                    menuItem.Name = "加入目前製作清單";
                     menuItem.PrefixChar = 'A';
                     menuItem.OnClicked += clickedArgs => AddToCraftList(activeList, clickedArgs, itemId);
                     args.AddMenuItem(menuItem);
@@ -110,7 +110,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_configuration.AddToCraftListContextMenu)
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "Add to Craft List";
+                menuItem.Name = "加入製作清單";
                 menuItem.PrefixChar = 'A';
                 menuItem.IsSubmenu = true;
                 menuItem.OnClicked += clickedArgs => OpenAddCraftListSubmenu(clickedArgs, itemId);
@@ -120,7 +120,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_curatedListSetting.CurrentValue(_configuration))
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = "Add to Curated List";
+                menuItem.Name = "加入自訂清單";
                 menuItem.PrefixChar = 'A';
                 menuItem.IsSubmenu = true;
                 menuItem.OnClicked += clickedArgs => OpenAddCuratedListSubmenu(clickedArgs, itemId);
@@ -130,7 +130,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
             if (_addToFavouritesSetting.CurrentValue(_configuration))
             {
                 var menuItem = new MenuItem();
-                menuItem.Name = _configuration.IsFavouriteItem(itemId.Value) ? "Remove from Favourites" : "Add to Favourites";
+                menuItem.Name = _configuration.IsFavouriteItem(itemId.Value) ? "取消最愛" : "加入最愛";
                 menuItem.PrefixChar = 'A';
                 menuItem.OnClicked += _ => _configuration.ToggleFavouriteItem(itemId.Value);
                 args.AddMenuItem(menuItem);
@@ -142,7 +142,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
                 if (item != null && item.CanOpenCraftingLog)
                 {
                     var menuItem = new MenuItem();
-                    menuItem.Name = "Open Crafting Log";
+                    menuItem.Name = "開啟製作筆記";
                     menuItem.PrefixChar = 'A';
                     menuItem.OnClicked += _ => _gameInterface.OpenCraftingLog(itemId.Value);
                     args.AddMenuItem(menuItem);
@@ -155,7 +155,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
                 if (item != null && item.CanOpenGatheringLog)
                 {
                     var menuItem = new MenuItem();
-                    menuItem.Name = "Open Gathering Log";
+                    menuItem.Name = "開啟採集筆記";
                     menuItem.PrefixChar = 'A';
                     menuItem.OnClicked += _ => _gameInterface.OpenGatheringLog(itemId.Value);
                     args.AddMenuItem(menuItem);
@@ -167,7 +167,7 @@ public class ContextMenuService : DisposableMediatorSubscriberBase, IHostedServi
                 if (item != null && item.CanOpenFishingLog)
                 {
                     var menuItem = new MenuItem();
-                    menuItem.Name = "Open Fishing Log";
+                    menuItem.Name = "開啟釣魚手冊";
                     menuItem.PrefixChar = 'A';
                     menuItem.OnClicked += _ => _gameInterface.OpenFishingLog(itemId.Value, item.ObtainedSpearFishing);
                     args.AddMenuItem(menuItem);

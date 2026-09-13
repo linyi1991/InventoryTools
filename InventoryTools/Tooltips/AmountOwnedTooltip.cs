@@ -12,6 +12,7 @@ using FFXIVClientStructs.FFXIV.Component.GUI;
 using InventoryTools.Localizers;
 using InventoryTools.Logic.Editors;
 using InventoryTools.Logic.Settings;
+using InventoryTools.Services;
 using Microsoft.Extensions.Logging;
 using OtterGui;
 using OtterGui.Extensions;
@@ -147,7 +148,7 @@ public class AmountOwnedTooltip : BaseTooltip
                 }
                 if (ownedItems.Count > Configuration.TooltipLocationLimit)
                 {
-                    locations.Add(ownedItems.Count - Configuration.TooltipLocationLimit + " other locations.");
+                    locations.Add("另有 " + (ownedItems.Count - Configuration.TooltipLocationLimit) + " 個位置。");
                 }
             }
             if (Configuration.TooltipLocationDisplayMode ==
@@ -173,7 +174,7 @@ public class AmountOwnedTooltip : BaseTooltip
                 }
                 if (ownedItems.Count > Configuration.TooltipLocationLimit)
                 {
-                    locations.Add(ownedItems.Count - Configuration.TooltipLocationLimit + " other locations.");
+                    locations.Add("另有 " + (ownedItems.Count - Configuration.TooltipLocationLimit) + " 個位置。");
                 }
             }
             else if (Configuration.TooltipLocationDisplayMode == TooltipLocationDisplayMode.CharacterCategoryQuantityQuality)
@@ -210,7 +211,7 @@ public class AmountOwnedTooltip : BaseTooltip
                 }
                 if (groupedItems.Count > Configuration.TooltipLocationLimit)
                 {
-                    locations.Add(groupedItems.Count - Configuration.TooltipLocationLimit + " other locations.");
+                    locations.Add("另有 " + (groupedItems.Count - Configuration.TooltipLocationLimit) + " 個位置。");
                 }
             }
             else if (Configuration.TooltipLocationDisplayMode == TooltipLocationDisplayMode.CharacterQuantityQuality)
@@ -247,18 +248,18 @@ public class AmountOwnedTooltip : BaseTooltip
                 }
                 if (groupedItems.Count > Configuration.TooltipLocationLimit)
                 {
-                    locations.Add(groupedItems.Count - Configuration.TooltipLocationLimit + " other locations.");
+                    locations.Add("另有 " + (groupedItems.Count - Configuration.TooltipLocationLimit) + " 個位置。");
                 }
             }
 
             if (storageCount > 0)
             {
-                textLines.Add($"Owned: {storageCount}\n");
-                textLines.Add($"Locations:\n");
+                textLines.Add($"持有總數：{storageCount}\n");
+                textLines.Add($"持有位置：\n");
                 for (var index = 0; index < locations.Count; index++)
                 {
                     var location = locations[index];
-                    textLines.Add($"{indentation}{location}\n");
+                    textLines.Add($"{indentation}{TwUiLocalization.TooltipLocation(location)}\n");
                 }
             }
 

@@ -29,7 +29,7 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 1;
         public override string Key { get; set; } = "Sources";
-        public override string Name { get; set; } = "Sources";
+        public override string Name { get; set; } = "來源";
 
         public override string HelpText { get; set; } =
             "This lists all the sources that are applicable given the sources picked above.";

@@ -111,7 +111,7 @@ namespace InventoryTools.Ui.Pages
             }
         }
 
-        public override string Name { get; } = "Item Lists";
+        public override string Name { get; } = "物品清單";
         public override List<MessageBase>? Draw()
         {
             var messages = new List<MessageBase>();

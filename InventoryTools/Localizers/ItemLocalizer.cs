@@ -90,203 +90,203 @@ public class ItemLocalizer
     {
         if(inventoryItem.SortedContainer is InventoryType.Bag0 or InventoryType.RetainerBag0)
         {
-            return "Bag 1";
+            return "背包 1";
         }
         if(inventoryItem.SortedContainer is InventoryType.Bag1 or InventoryType.RetainerBag1)
         {
-            return "Bag 2";
+            return "背包 2";
         }
         if(inventoryItem.SortedContainer is InventoryType.Bag2 or InventoryType.RetainerBag2)
         {
-            return "Bag 3";
+            return "背包 3";
         }
         if(inventoryItem.SortedContainer is InventoryType.Bag3 or InventoryType.RetainerBag3)
         {
-            return "Bag 4";
+            return "背包 4";
         }
         if(inventoryItem.SortedContainer is InventoryType.RetainerBag4)
         {
-            return "Bag 5";
+            return "背包 5";
         }
         if(inventoryItem.SortedContainer is InventoryType.SaddleBag0)
         {
-            return "Saddlebag Left";
+            return "陸行鳥鞍囊（左）";
         }
         if(inventoryItem.SortedContainer is InventoryType.SaddleBag1)
         {
-            return "Saddlebag Right";
+            return "陸行鳥鞍囊（右）";
         }
         if(inventoryItem.SortedContainer is InventoryType.PremiumSaddleBag0)
         {
-            return "Premium Saddlebag Left";
+            return "付費陸行鳥鞍囊（左）";
         }
         if(inventoryItem.SortedContainer is InventoryType.PremiumSaddleBag1)
         {
-            return "Premium Saddlebag Right";
+            return "付費陸行鳥鞍囊（右）";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryBody)
         {
-            return "Armory - Body";
+            return "兵裝庫－身體";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryEar)
         {
-            return "Armory - Ear";
+            return "兵裝庫－耳飾";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryFeet)
         {
-            return "Armory - Feet";
+            return "兵裝庫－腳部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryHand)
         {
-            return "Armory - Hand";
+            return "兵裝庫－手部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryHead)
         {
-            return "Armory - Head";
+            return "兵裝庫－頭部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryLegs)
         {
-            return "Armory - Legs";
+            return "兵裝庫－腿部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryMain)
         {
-            return "Armory - Main";
+            return "兵裝庫－主手";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryNeck)
         {
-            return "Armory - Neck";
+            return "兵裝庫－頸飾";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryOff)
         {
-            return "Armory - Offhand";
+            return "兵裝庫－副手";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryRing)
         {
-            return "Armory - Ring";
+            return "兵裝庫－戒指";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryWaist)
         {
-            return "Armory - Waist";
+            return "兵裝庫－腰部";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmoryWrist)
         {
-            return "Armory - Wrist";
+            return "兵裝庫－腕飾";
         }
         if(inventoryItem.SortedContainer is InventoryType.ArmorySoulCrystal)
         {
-            return "Armory - Soul Crystal";
+            return "兵裝庫－靈魂水晶";
         }
         if(inventoryItem.SortedContainer is InventoryType.GearSet0)
         {
-            return "Equipped Gear";
+            return "已裝備";
         }
         if(inventoryItem.SortedContainer is InventoryType.RetainerEquippedGear)
         {
-            return "Equipped Gear";
+            return "已裝備";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag0)
         {
-            return "Free Company Chest - 1";
+            return "部隊倉庫－1";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag1)
         {
-            return "Free Company Chest - 2";
+            return "部隊倉庫－2";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag2)
         {
-            return "Free Company Chest - 3";
+            return "部隊倉庫－3";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag3)
         {
-            return "Free Company Chest - 4";
+            return "部隊倉庫－4";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag4)
         {
-            return "Free Company Chest - 5";
+            return "部隊倉庫－5";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag5)
         {
-            return "Free Company Chest - 6";
+            return "部隊倉庫－6";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag6)
         {
-            return "Free Company Chest - 7";
+            return "部隊倉庫－7";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag7)
         {
-            return "Free Company Chest - 8";
+            return "部隊倉庫－8";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag8)
         {
-            return "Free Company Chest - 9";
+            return "部隊倉庫－9";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag9)
         {
-            return "Free Company Chest - 10";
+            return "部隊倉庫－10";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyBag10)
         {
-            return "Free Company Chest - 11";
+            return "部隊倉庫－11";
         }
         if(inventoryItem.SortedContainer is InventoryType.RetainerMarket)
         {
-            return "Market";
+            return "市場出售欄";
         }
         if(inventoryItem.SortedContainer is InventoryType.GlamourChest)
         {
-            return "Glamour Chest";
+            return "投影台";
         }
         if(inventoryItem.SortedContainer is InventoryType.Armoire)
         {
-            return "Armoire - " + CabinetName(inventoryItem);
+            return "收藏櫃－" + CabinetName(inventoryItem);
         }
         if(inventoryItem.SortedContainer is InventoryType.Currency)
         {
-            return "Currency";
+            return "貨幣";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyGil)
         {
-            return "Free Company - Gil";
+            return "部隊－金幣";
         }
         if(inventoryItem.SortedContainer is InventoryType.RetainerGil)
         {
-            return "Currency";
+            return "貨幣";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyCrystal)
         {
-            return "Free Company - Crystals";
+            return "部隊－水晶";
         }
         if(inventoryItem.SortedContainer is InventoryType.FreeCompanyCurrency)
         {
-            return "Free Company - Currency";
+            return "部隊－貨幣";
         }
         if(inventoryItem.SortedContainer is InventoryType.Crystal or InventoryType.RetainerCrystal)
         {
-            return "Crystals";
+            return "水晶";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingExteriorAppearance)
         {
-            return "Housing Exterior Appearance";
+            return "房屋外觀";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingInteriorAppearance)
         {
-            return "Housing Interior Appearance";
+            return "房屋內裝";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingExteriorStoreroom)
         {
-            return "Housing Exterior Storeroom";
+            return "房屋外部倉庫";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingInteriorStoreroom1 or InventoryType.HousingInteriorStoreroom2 or InventoryType.HousingInteriorStoreroom2 or InventoryType.HousingInteriorStoreroom3 or InventoryType.HousingInteriorStoreroom4 or InventoryType.HousingInteriorStoreroom5 or InventoryType.HousingInteriorStoreroom6 or InventoryType.HousingInteriorStoreroom7 or InventoryType.HousingInteriorStoreroom8)
         {
-            return "Housing Interior Storeroom";
+            return "房屋內部倉庫";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingInteriorPlacedItems1 or InventoryType.HousingInteriorPlacedItems2 or InventoryType.HousingInteriorPlacedItems2 or InventoryType.HousingInteriorPlacedItems3 or InventoryType.HousingInteriorPlacedItems4 or InventoryType.HousingInteriorPlacedItems5 or InventoryType.HousingInteriorPlacedItems6 or InventoryType.HousingInteriorPlacedItems7 or InventoryType.HousingInteriorPlacedItems8)
         {
-            return "Housing Interior Placed Items";
+            return "房屋內部擺設";
         }
         if(inventoryItem.SortedContainer is InventoryType.HousingExteriorPlacedItems)
         {
-            return "Housing Exterior Placed Items";
+            return "房屋外部擺設";
         }
 
         return inventoryItem.SortedContainer.ToString();

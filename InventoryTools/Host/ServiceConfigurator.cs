@@ -49,7 +49,10 @@ public class ServiceConfigurator : IHostedService
             _mobTracker.SetEntries(entries);
         }
 
-        _marketCacheConfiguration.AutoRequest = _configuration.AutomaticallyDownloadMarketPrices;
+        // The private TW build always enables on-demand Universalis pricing.
+        // The upstream default is false, which leaves an empty cache and makes
+        // the enabled market-price tooltip appear to do nothing.
+        _marketCacheConfiguration.AutoRequest = true;
         _marketCacheConfiguration.CacheMaxAgeHours = _configuration.MarketRefreshTimeHours;
         _hostedUniversalisConfiguration.SaleHistoryLimit = _configuration.MarketSaleHistoryLimit;
         if (_configuration.HistoryEnabled)

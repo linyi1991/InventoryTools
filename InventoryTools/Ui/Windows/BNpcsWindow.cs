@@ -57,7 +57,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
     }
     public override void Initialize()
     {
-        WindowName = "Mobs";
+        WindowName = "怪物";
         Key = "mobs";
         var mobSpawns = _mobSpawnPositions;
         var availableTerritories = mobSpawns.Select(c => c.TerritoryTypeId).ToHashSet();
@@ -345,7 +345,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
     public override string TableName => _tableName;
 
     public override string GenericKey => "mobs";
-    public override string GenericName => "Mobs";
+    public override string GenericName => "怪物";
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

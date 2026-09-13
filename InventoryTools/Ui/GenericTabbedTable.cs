@@ -42,7 +42,7 @@ public abstract class GenericTabbedTable<T> : GenericWindow, IGenericTabbedTable
         {
             if (tabBar.Success)
             {
-                using (var tabItem = ImRaii.TabItem("All"))
+                using (var tabItem = ImRaii.TabItem("全部"))
                 {
                     if (tabItem.Success)
                     {

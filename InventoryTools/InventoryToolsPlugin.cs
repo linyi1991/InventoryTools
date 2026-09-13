@@ -35,6 +35,7 @@ using Dalamud.Interface.ImGuiFileDialog;
 using Dalamud.Plugin;
 using Dalamud.Plugin.Services;
 using InventoryTools.Commands;
+using InventoryTools.CraftAvailability;
 using InventoryTools.EquipmentSuggest;
 using InventoryTools.Highlighting;
 using InventoryTools.Host;
@@ -169,6 +170,7 @@ namespace InventoryTools
             this.RegisterHostedService(typeof(ServiceConfigurator));
             this.RegisterHostedService(typeof(TableService));
             this.RegisterHostedService(typeof(TeleporterService));
+            this.RegisterHostedService(typeof(TwMarketPriceWarmupService));
             this.RegisterHostedService(typeof(WindowService));
             this.RegisterHostedService(typeof(WotsitIpc));
             this.RegisterHostedService(typeof(ShopMonitorService));
@@ -243,6 +245,8 @@ namespace InventoryTools
             builder.RegisterSingletonSelfAndInterfaces<VersionInfo>();
             builder.RegisterSingletonSelfAndInterfaces<WindowSystemFactory>();
             builder.RegisterSingletonSelfAndInterfaces<CsvLoaderService>();
+            builder.RegisterSingletonSelfAndInterfaces<CraftAvailabilityService>();
+            builder.RegisterSingletonSelfAndInterfaces<ArtisanCraftService>();
             builder.RegisterSingletonSelfAndInterfaces<BackgroundTaskCollector>();
 
             //Transient registrations

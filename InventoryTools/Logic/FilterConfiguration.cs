@@ -14,6 +14,7 @@ using InventoryTools.Attributes;
 using InventoryTools.Converters;
 using InventoryTools.Logic.Editors;
 using InventoryTools.Logic.Filters;
+using InventoryTools.Services;
 using Newtonsoft.Json;
 
 namespace InventoryTools.Logic
@@ -342,7 +343,7 @@ namespace InventoryTools.Logic
         {
             get
             {
-                var actualName = Name == "" ? "Untitled" : Name;
+                var actualName = TwUiLocalization.ListName(Name == "" ? "Untitled" : Name);
                 if (IsEphemeralCraftList)
                 {
                     actualName += " (*)";

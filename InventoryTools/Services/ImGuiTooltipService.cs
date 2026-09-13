@@ -15,6 +15,7 @@ namespace InventoryTools.Services;
 
 public class ImGuiTooltipService
 {
+    private readonly IInventoryMonitor _inventoryMonitor;
     private readonly IKeyState _keyState;
     private readonly ITextureProvider _textureProvider;
     private readonly TryOn _tryOn;
@@ -24,18 +25,20 @@ public class ImGuiTooltipService
     public ItemInfoRenderService InfoRenderService { get; set; }
 
     public ImGuiTooltipService(
+        IInventoryMonitor inventoryMonitor,
         IKeyState keyState,
         ITextureProvider textureProvider,
         TryOn tryOn,
         IChatUtilities chatUtilities)
     {
+        _inventoryMonitor = inventoryMonitor;
         _keyState = keyState;
         _textureProvider = textureProvider;
         _tryOn = tryOn;
         _chatUtilities = chatUtilities;
     }
 
-    public void DrawItemTooltip(SearchResult searchResult)
+    public void DrawItemTooltip(SearchResult searchResult, bool includeDescription = false)
     {
         //need to include setting inside this instead of other way around
         var item = searchResult.Item;
@@ -71,6 +74,17 @@ public class ImGuiTooltipService
                     ImGui.SetCursorPosX(ImGui.GetCursorPosX() + ImGui.GetContentRegionAvail().X - 32);
                     ImGui.Image(this._textureProvider.GetFromGameIcon(new(item.Base.Icon)).GetWrapOrEmpty().Handle, new Vector2(32, 32));
                     ImGui.TextUnformatted(item.Base.ItemUICategory.Value.Name.ExtractText());
+                    if (includeDescription)
+                    {
+                        var description = item.Base.Description.ExtractText();
+                        if (!string.IsNullOrWhiteSpace(description))
+                        {
+                            ImGui.Separator();
+                            ImGui.PushTextWrapPos();
+                            ImGui.TextUnformatted(description);
+                            ImGui.PopTextWrapPos();
+                        }
+                    }
                     ImGui.Separator();
                     if (item.ClassJobCategory != null)
                     {
@@ -123,7 +137,7 @@ public class ImGuiTooltipService
                                     {
                                         ImGui.NewLine();
                                         ImGui.Separator();
-                                        ImGui.Text("When HQ:");
+                                        ImGui.Text("HQ 額外屬性：");
                                         for (var index = 0; index < searchResult.Item.Base.BaseParamSpecial.Count; index++)
                                         {
                                             var baseParamSpecial = searchResult.Item.Base.BaseParamSpecial[index];
@@ -162,11 +176,11 @@ public class ImGuiTooltipService
                     if (item.Sources.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.TextUnformatted("Available From: ");
+                        ImGui.TextUnformatted("取得來源：");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         var sources = item.Sources.Select(c => c.Type).Distinct().Select(
-                                              c => this.InfoRenderService.GetSourceTypeName(c).Singular).Select(c => c!);
+                                              c => this.InfoRenderService.GetSourceTypeName(c).Singular).Select(c => TwUiLocalization.ItemInfoName(c!));
                         ImGui.TextUnformatted(string.Join(", ", sources));
                         ImGui.PopTextWrapPos();
                     }
@@ -175,22 +189,31 @@ public class ImGuiTooltipService
                     if (item.Uses.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.TextUnformatted("Used In: ");
+                        ImGui.TextUnformatted("用途：");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
                         var uses = item.Uses.Select(c => c.Type).Distinct().Select(
-                                              c => this.InfoRenderService.GetUseTypeName(c).Singular).Select(c => c!);
+                                              c => this.InfoRenderService.GetUseTypeName(c).Singular).Select(c => TwUiLocalization.ItemInfoName(c!));
                         ImGui.TextUnformatted(string.Join(", ", uses));
                         ImGui.PopTextWrapPos();
+                    }
+
+                    var owned = _inventoryMonitor.AllItems
+                        .Where(ownedItem => ownedItem.ItemId == searchResult.ItemId)
+                        .Sum(ownedItem => ownedItem.Quantity);
+                    if (owned > 0)
+                    {
+                        ImGui.Separator();
+                        ImGui.TextUnformatted($"持有總數：{owned:N0}");
                     }
 
                     ImGui.Separator();
                     using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudGrey))
                     {
-                        ImGui.TextUnformatted("Ctrl: Link");
+                        ImGui.TextUnformatted("Ctrl：貼到聊天頻道");
                         if (item.CanTryOn)
                         {
-                            ImGui.TextUnformatted("Shift: Try on");
+                            ImGui.TextUnformatted("Shift：試穿");
                         }
                     }
                 }
@@ -200,37 +223,37 @@ public class ImGuiTooltipService
 
     private static void DrawBaseAttributes(ItemRow item)
     {
-        ImGui.TextUnformatted($"Item Level {item.Base.LevelItem.RowId}");
+        ImGui.TextUnformatted($"品級 {item.Base.LevelItem.RowId}");
         if (item.ClassJobCategory != null)
         {
-            ImGui.TextUnformatted($"Equip Level {item.Base.LevelEquip}");
+            ImGui.TextUnformatted($"裝備等級 {item.Base.LevelEquip}");
         }
 
         ImGui.TextUnformatted(item.FormattedRarity);
 
         if (item.EquipRace != CharacterRace.Any && item.EquipRace != CharacterRace.None)
         {
-            ImGui.TextUnformatted($"Only equippable by {item.EquipRace}");
+            ImGui.TextUnformatted($"限定種族：{item.EquipRace}");
         }
 
         if (item.EquippableByGender != CharacterSex.Both && item.EquippableByGender != CharacterSex.NotApplicable)
         {
-            ImGui.TextUnformatted($"Only equippable by {item.EquippableByGender.ToString()}");
+            ImGui.TextUnformatted($"限定性別：{item.EquippableByGender}");
         }
 
         if (item.Base.CanBeHq)
         {
-            ImGui.TextUnformatted("Can be HQ");
+            ImGui.TextUnformatted("可製作為 HQ");
         }
 
         if (item.Base.IsUnique)
         {
-            ImGui.TextUnformatted("Unique");
+            ImGui.TextUnformatted("獨一無二");
         }
 
         if (item.Base.IsUntradable)
         {
-            ImGui.TextUnformatted("Untradable");
+            ImGui.TextUnformatted("不可交易");
         }
     }
 }

@@ -130,7 +130,7 @@ namespace InventoryTools.Ui
         }
         public override void Initialize()
         {
-            WindowName = "Crafts";
+            WindowName = "製作規劃";
             Key = "crafts";
             _throttleDispatcher = new ThrottleDispatcher(5000, true);
             _splitter = new(_configuration.CraftWindowSplitterPosition, new(100, 100), true);
@@ -191,7 +191,7 @@ namespace InventoryTools.Ui
         public override Vector2? MaxSize => new Vector2(5000, 5000);
         public override Vector2? MinSize => new Vector2(300, 300);
         public override string GenericKey => "crafts";
-        public override string GenericName => "Crafts";
+        public override string GenericName => "製作規劃";
         public override bool DestroyOnClose => false;
         private int _selectedFilterTab;
         private bool _addItemBarOpen;
@@ -276,11 +276,11 @@ namespace InventoryTools.Ui
                 _popupMenus[configuration] = new Widgets.PopupMenu("fm" + configuration.Key, Widgets.PopupMenu.PopupMenuButtons.Right,
                     new List<Widgets.PopupMenu.IPopupMenuItem>()
                     {
-                        new Widgets.PopupMenu.PopupMenuItemSelectable("Edit", "ef_" + configuration.Key, EditFilter, "Edit the craft list."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectableAskName("Duplicate", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "Duplicate the craft list."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectable(layout == WindowLayout.Tabs ? "Move Left" : "Move Up", "mu_" + configuration.Key, MoveFilterUp, layout == WindowLayout.Tabs ? "Move the craft list left." : "Move the craft list up."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectable(layout == WindowLayout.Tabs ? "Move Right" : "Move Down", "md_" + configuration.Key, MoveFilterDown, layout == WindowLayout.Tabs ? "Move the craft list right." : "Move the craft list down."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "Are you sure you want to remove this craft list?", RemoveFilter, "Remove the craft list."),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable("編輯", "ef_" + configuration.Key, EditFilter, "編輯製作清單。"),
+                        new Widgets.PopupMenu.PopupMenuItemSelectableAskName("複製", "df_" + configuration.Key, configuration.Name, DuplicateFilter, "複製製作清單。"),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable(layout == WindowLayout.Tabs ? "向左移" : "向上移", "mu_" + configuration.Key, MoveFilterUp, layout == WindowLayout.Tabs ? "將製作清單向左移。" : "將製作清單向上移。"),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable(layout == WindowLayout.Tabs ? "向右移" : "向下移", "md_" + configuration.Key, MoveFilterDown, layout == WindowLayout.Tabs ? "將製作清單向右移。" : "將製作清單向下移。"),
+                        new Widgets.PopupMenu.PopupMenuItemSelectableConfirm("移除", "rf_" + configuration.Key, "確定要移除此製作清單嗎？", RemoveFilter, "移除製作清單。"),
                     }
                 );
             }
@@ -406,26 +406,26 @@ namespace InventoryTools.Ui
             {
                 if (menuBar)
                 {
-                    using (var menu = ImRaii.Menu("File"))
+                    using (var menu = ImRaii.Menu("檔案"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Configuration"))
+                            if (ImGui.MenuItem("設定"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                             }
 
-                            if (ImGui.MenuItem("Changelog"))
+                            if (ImGui.MenuItem("更新紀錄"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                             }
 
-                            if (ImGui.MenuItem("Help"))
+                            if (ImGui.MenuItem("說明"))
                             {
                                 this.MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                             }
 
-                            if (ImGui.MenuItem("Report a Issue"))
+                            if (ImGui.MenuItem("回報問題"))
                             {
                                 "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                             }
@@ -435,7 +435,7 @@ namespace InventoryTools.Ui
                                 "https://ko-fi.com/critical_impact".OpenBrowser();
                             }
 
-                            if (ImGui.MenuItem("Close"))
+                            if (ImGui.MenuItem("關閉"))
                             {
                                 this.IsOpen = false;
                             }
@@ -444,22 +444,22 @@ namespace InventoryTools.Ui
 
                     if (this.SelectedConfiguration != null)
                     {
-                        using(var editMenu = ImRaii.Menu("Edit"))
+                        using(var editMenu = ImRaii.Menu("編輯"))
                         {
                             if (editMenu)
                             {
-                                if (ImGui.MenuItem("Clear Search"))
+                                if (ImGui.MenuItem("清除搜尋"))
                                 {
                                     _tableService.GetListTable(SelectedConfiguration).ClearFilters();
                                 }
 
                                 ImGui.Separator();
 
-                                using (var menu = ImRaii.Menu("Copy List Contents"))
+                                using (var menu = ImRaii.Menu("複製清單內容"))
                                 {
                                     if (menu)
                                     {
-                                        if (ImGui.MenuItem("Craft List (All)"))
+                                        if (ImGui.MenuItem("製作清單（全部）"))
                                         {
                                             var searchResults = SelectedConfiguration.CraftList
                                                 .GetFlattenedMergedMaterials()
@@ -470,7 +470,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's contents were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Outputs)"))
+                                        if (ImGui.MenuItem("製作清單（成品）"))
                                         {
                                             var searchResults = SelectedConfiguration.CraftList
                                                 .GetFlattenedMergedMaterials()
@@ -483,7 +483,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's outputs were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                        if (ImGui.MenuItem("製作清單（預製品）"))
                                         {
                                             var searchResults = SelectedConfiguration.CraftList
                                                 .GetFlattenedMergedMaterials()
@@ -500,7 +500,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's outputs were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                        if (ImGui.MenuItem("製作清單（可採集物）"))
                                         {
                                             var searchResults = SelectedConfiguration.CraftList
                                                 .GetFlattenedMergedMaterials()
@@ -513,7 +513,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's gatherables were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                        if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                         {
                                             var searchResults = SelectedConfiguration.CraftList
                                                 .GetFlattenedMergedMaterials()
@@ -527,7 +527,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's gatherables were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Retainer/Bag List"))
+                                        if (ImGui.MenuItem("雇員／背包清單"))
                                         {
                                             var searchResults = _tableService.GetListTable(SelectedConfiguration)
                                                 .SearchResults
@@ -539,11 +539,11 @@ namespace InventoryTools.Ui
                                     }
                                 }
 
-                                using (var menu = ImRaii.Menu("Copy List Contents (JSON)"))
+                                using (var menu = ImRaii.Menu("複製清單內容（JSON）"))
                                 {
                                     if (menu)
                                     {
-                                        if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                         {
                                             var craftTable = _tableService.GetCraftTable(SelectedConfiguration);
                                             var searchResults = craftTable.CraftItems
@@ -553,7 +553,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's contents were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                         {
                                             var craftTable = _tableService.GetCraftTable(SelectedConfiguration);
                                             var searchResults = craftTable.CraftItems
@@ -564,7 +564,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's outputs were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                         {
                                             var craftTable = _tableService.GetCraftTable(SelectedConfiguration);
                                             var searchResults = craftTable.CraftItems
@@ -579,7 +579,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's outputs were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                         {
                                             var craftTable = _tableService.GetCraftTable(SelectedConfiguration);
                                             var searchResults = craftTable.CraftItems
@@ -591,7 +591,7 @@ namespace InventoryTools.Ui
                                                 "The craft list's gatherables were copied to your clipboard.");
                                         }
 
-                                        if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                         {
                                             var itemTable = _tableService.GetListTable(SelectedConfiguration);
                                             _clipboardService.CopyToClipboard(itemTable.ExportToJson());
@@ -599,7 +599,7 @@ namespace InventoryTools.Ui
                                     }
                                 }
 
-                                if (ImGui.MenuItem("Paste List Contents"))
+                                if (ImGui.MenuItem("貼上清單內容"))
                                 {
                                     var pasteFromClipboard = _clipboardService.PasteFromClipboard();
                                     var importedList = _importExportService.FromTCString(pasteFromClipboard, false);
@@ -637,7 +637,7 @@ namespace InventoryTools.Ui
                                     }
                                 }
 
-                                if (ImGui.MenuItem("Clear List"))
+                                if (ImGui.MenuItem("清空清單"))
                                 {
                                     _popupService.AddPopup(new ConfirmPopup(GetType(), "craftListDelete",
                                         "Are you sure you want to clear your craft list?",
@@ -653,7 +653,7 @@ namespace InventoryTools.Ui
                                 }
 
                                 ImGui.Separator();
-                                using (var addToCraftListMenu = ImRaii.Menu("Add to Craft List"))
+                                using (var addToCraftListMenu = ImRaii.Menu("加入製作清單"))
                                 {
                                     if (addToCraftListMenu)
                                     {
@@ -669,7 +669,7 @@ namespace InventoryTools.Ui
                                             {
                                                 if (menu)
                                                 {
-                                                    if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                                     {
                                                         var searchResults = SelectedConfiguration.CraftList
                                                             .GetFlattenedMergedMaterials()
@@ -689,7 +689,7 @@ namespace InventoryTools.Ui
                                                             craft));
                                                     }
 
-                                                    if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                                     {
                                                         var searchResults = SelectedConfiguration.CraftList
                                                             .GetFlattenedMergedMaterials()
@@ -710,7 +710,7 @@ namespace InventoryTools.Ui
                                                             craft));
                                                     }
 
-                                                    if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                                     {
                                                         var searchResults = SelectedConfiguration.CraftList
                                                             .GetFlattenedMergedMaterials()
@@ -736,7 +736,7 @@ namespace InventoryTools.Ui
                                                             craft));
                                                     }
 
-                                                    if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                                     {
                                                         var searchResults = SelectedConfiguration.CraftList
                                                             .GetFlattenedMergedMaterials()
@@ -757,7 +757,7 @@ namespace InventoryTools.Ui
                                                             craft));
                                                     }
 
-                                                    if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                                     {
                                                         var searchResults = SelectedConfiguration.CraftList
                                                             .GetFlattenedMergedMaterials()
@@ -778,7 +778,7 @@ namespace InventoryTools.Ui
                                                             craft));
                                                     }
 
-                                                    if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                                     {
                                                         var searchResults = _tableService
                                                             .GetListTable(SelectedConfiguration)
@@ -806,11 +806,11 @@ namespace InventoryTools.Ui
                                             ImGui.Separator();
                                         }
 
-                                        using (var menu = ImRaii.Menu("New Craft List"))
+                                        using (var menu = ImRaii.Menu("新增製作清單"))
                                         {
                                             if (menu)
                                             {
-                                                if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -836,7 +836,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -863,7 +863,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -893,7 +893,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -919,7 +919,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -945,7 +945,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                                 {
                                                     var searchResults = _tableService
                                                         .GetListTable(SelectedConfiguration)
@@ -974,11 +974,11 @@ namespace InventoryTools.Ui
                                             }
                                         }
 
-                                        using (var menu = ImRaii.Menu("New Craft List (Ephemeral)"))
+                                        using (var menu = ImRaii.Menu("新增暫時製作清單"))
                                         {
                                             if (menu)
                                             {
-                                                if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1004,7 +1004,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1031,7 +1031,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1061,7 +1061,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1087,7 +1087,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1113,7 +1113,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                                 {
                                                     var searchResults = _tableService
                                                         .GetListTable(SelectedConfiguration)
@@ -1144,7 +1144,7 @@ namespace InventoryTools.Ui
                                     }
                                 }
 
-                                using (var menu = ImRaii.Menu("Add to Curated List"))
+                                using (var menu = ImRaii.Menu("加入自訂清單"))
                                 {
                                     if (menu)
                                     {
@@ -1157,7 +1157,7 @@ namespace InventoryTools.Ui
                                         {
                                             if (ImGui.MenuItem(curatedList.Name))
                                             {
-                                                if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1171,7 +1171,7 @@ namespace InventoryTools.Ui
                                                     }
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1186,7 +1186,7 @@ namespace InventoryTools.Ui
                                                     }
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1205,7 +1205,7 @@ namespace InventoryTools.Ui
                                                     }
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1220,7 +1220,7 @@ namespace InventoryTools.Ui
                                                     }
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1235,7 +1235,7 @@ namespace InventoryTools.Ui
                                                     }
                                                 }
 
-                                                if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                                 {
                                                     var searchResults = _tableService
                                                         .GetListTable(SelectedConfiguration)
@@ -1257,11 +1257,11 @@ namespace InventoryTools.Ui
                                             ImGui.Separator();
                                         }
 
-                                        using (var newCuratedListMenu = ImRaii.Menu("New Curated List"))
+                                        using (var newCuratedListMenu = ImRaii.Menu("新增自訂清單"))
                                         {
                                             if (newCuratedListMenu)
                                             {
-                                                if (ImGui.MenuItem("Craft List (All)"))
+                                                if (ImGui.MenuItem("製作清單（全部）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1292,7 +1292,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Outputs)"))
+                                                if (ImGui.MenuItem("製作清單（成品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1324,7 +1324,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Precrafts)"))
+                                                if (ImGui.MenuItem("製作清單（預製品）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1359,7 +1359,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1390,7 +1390,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Craft List (Missing Gatherables)"))
+                                                if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
                                                 {
                                                     var searchResults = SelectedConfiguration.CraftList
                                                         .GetFlattenedMergedMaterials()
@@ -1421,7 +1421,7 @@ namespace InventoryTools.Ui
                                                         }));
                                                 }
 
-                                                if (ImGui.MenuItem("Retainer/Bag List"))
+                                                if (ImGui.MenuItem("雇員／背包清單"))
                                                 {
                                                     var searchResults = _tableService
                                                         .GetListTable(SelectedConfiguration)
@@ -1460,23 +1460,23 @@ namespace InventoryTools.Ui
                     }
 
 
-                    using (var menu = ImRaii.Menu("View"))
+                    using (var menu = ImRaii.Menu("檢視"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Tabs", "",
+                            if (ImGui.MenuItem("分頁", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Tabs))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Tabs);
                             }
 
-                            if (ImGui.MenuItem("Sidebar", "",
+                            if (ImGui.MenuItem("側欄", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Sidebar))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Sidebar);
                             }
 
-                            if (ImGui.MenuItem("Single", "",
+                            if (ImGui.MenuItem("單一清單", "",
                                     _layoutSetting.CurrentValue(_configuration) == WindowLayout.Single))
                             {
                                 _layoutSetting.UpdateFilterConfiguration(_configuration, WindowLayout.Single);
@@ -1484,20 +1484,20 @@ namespace InventoryTools.Ui
 
                             ImGui.Separator();
 
-                            if (ImGui.MenuItem("Crafts", "",
+                            if (ImGui.MenuItem("製作", "",
                                     _craftWindowViewSetting.CurrentValue(_configuration) == CraftWindowView.Crafts))
                             {
                                 _craftWindowViewSetting.UpdateFilterConfiguration(_configuration,
                                     CraftWindowView.Crafts);
                             }
 
-                            if (ImGui.MenuItem("Tree View", "",
+                            if (ImGui.MenuItem("樹狀檢視", "",
                                     _craftWindowViewSetting.CurrentValue(_configuration) == CraftWindowView.Tree))
                             {
                                 _craftWindowViewSetting.UpdateFilterConfiguration(_configuration, CraftWindowView.Tree);
                             }
 
-                            if (ImGui.MenuItem("Configuration", "",
+                            if (ImGui.MenuItem("設定", "",
                                     _craftWindowViewSetting.CurrentValue(_configuration) ==
                                     CraftWindowView.Configuration))
                             {
@@ -1507,11 +1507,11 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Export"))
+                    using (var menu = ImRaii.Menu("匯出"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Craft List (CSV)"))
+                            if (ImGui.MenuItem("製作清單（CSV）"))
                             {
                                 if (SelectedConfiguration != null)
                                 {
@@ -1525,7 +1525,7 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            if (ImGui.MenuItem("Retainer/Bag List (CSV)"))
+                            if (ImGui.MenuItem("雇員／背包清單（CSV）"))
                             {
                                 if (SelectedConfiguration != null)
                                 {
@@ -1537,11 +1537,11 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Market"))
+                    using (var menu = ImRaii.Menu("市場"))
                     {
                         if (menu)
                         {
-                            if (ImGui.MenuItem("Refresh All Prices (Craft List)"))
+                            if (ImGui.MenuItem("重新整理所有價格（製作清單）"))
                             {
                                 var activeCharacter = _characterMonitor.ActiveCharacter;
                                 if (activeCharacter != null && SelectedConfiguration != null)
@@ -1554,7 +1554,7 @@ namespace InventoryTools.Ui
                                 }
                             }
 
-                            if (ImGui.MenuItem("Refresh All Prices (Retainer/Bags)"))
+                            if (ImGui.MenuItem("重新整理所有價格（雇員／背包）"))
                             {
                                 var activeCharacter = _characterMonitor.ActiveCharacter;
                                 if (activeCharacter != null && SelectedConfiguration != null)
@@ -1569,15 +1569,15 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Lists"))
+                    using (var menu = ImRaii.Menu("清單"))
                     {
                         if (menu)
                         {
-                            using (var addMenu = ImRaii.Menu("Add"))
+                            using (var addMenu = ImRaii.Menu("新增"))
                             {
                                 if (addMenu)
                                 {
-                                    if (ImGui.MenuItem("Craft List"))
+                                    if (ImGui.MenuItem("製作清單"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addCraftList", "", result =>
                                         {
@@ -1588,7 +1588,7 @@ namespace InventoryTools.Ui
                                         }));
                                     }
 
-                                    if (ImGui.MenuItem("Craft List (Ephemeral)"))
+                                    if (ImGui.MenuItem("暫時製作清單"))
                                     {
                                         _popupService.AddPopup(new NamePopup(GetType(), "addCraftListEphemeral", "",
                                             result =>
@@ -1617,7 +1617,7 @@ namespace InventoryTools.Ui
                                 foreach (var window in windowGroup.OrderBy(c => c.CraftListDefault)
                                              .ThenBy(c => c.Order))
                                 {
-                                    if (ImGui.MenuItem(window.Name, "",
+                                    if (ImGui.MenuItem(window.NameFormatted, "",
                                             SelectedConfiguration == window ||
                                             (SelectedConfiguration == null && window.CraftListDefault)))
                                     {
@@ -1661,7 +1661,7 @@ namespace InventoryTools.Ui
                                         }
                                     }
 
-                                    ImGuiUtil.HoverTooltip("[CTRL] to open in a new window.");
+                                    ImGuiUtil.HoverTooltip("按住 [CTRL] 可在新視窗開啟。");
                                 }
 
                                 if (index != windowGroups.Count - 1)
@@ -1672,7 +1672,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    using (var menu = ImRaii.Menu("Windows"))
+                    using (var menu = ImRaii.Menu("視窗"))
                     {
                         if (menu)
                         {
@@ -1689,7 +1689,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    if (ImGui.MenuItem("Toggle Crafting Overlay"))
+                    if (ImGui.MenuItem("切換製作浮動視窗"))
                     {
                         this.MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftOverlayWindow)));
                     }
@@ -1710,12 +1710,12 @@ namespace InventoryTools.Ui
 
             ImGuiUtil.HelpPopup("notification", new Vector2(750,340) * ImGui.GetIO().FontGlobalScale, () =>
             {
-                ImGui.TextUnformatted("Craft System Notice");
+                ImGui.TextUnformatted("製作系統通知");
                 ImGui.Separator();
                 ImGui.NewLine();
                 ImGui.PushTextWrapPos();
                 ImGui.Bullet();
-                ImGui.Text("The craft system has received an update, and your default configuration has been reset. Please readjust it according to your preferences.");
+                ImGui.Text("製作系統已更新，預設設定已重設。請依需求重新調整。");
                 ImGui.PopTextWrapPos();
 
                 ImGui.BulletText("You can now copy configurations between your craft lists.");
@@ -1791,14 +1791,14 @@ namespace InventoryTools.Ui
                         _ephemeralList = false;
                         openNewFilterNamePopup = true;
                     }
-                    ImGuiUtil.HoverTooltip("Add a new craft list.");
+                    ImGuiUtil.HoverTooltip("新增製作清單。");
 
                     if (ImGui.Selectable("Ephemeral List"))
                     {
                         _ephemeralList = true;
                         openNewFilterNamePopup = true;
                     }
-                    ImGuiUtil.HoverTooltip("Add a new ephemeral craft list that will be deleted once all the items in it are completed.");
+                    ImGuiUtil.HoverTooltip("新增暫時製作清單；所有項目完成後會自動刪除。");
                 }
             }
 
@@ -1841,7 +1841,7 @@ namespace InventoryTools.Ui
                     {
                         openNewTypePopup = true;
                     }
-                    ImGuiUtil.HoverTooltip("Add a new craft list");
+                    ImGuiUtil.HoverTooltip("新增製作清單");
                 }
             }
         }
@@ -1955,7 +1955,7 @@ namespace InventoryTools.Ui
                                 var filterConfiguration = filterConfigurations[index];
                                 if (filterConfiguration.FilterType == FilterType.CraftFilter)
                                 {
-                                    ImGui.TextUnformatted("Add new Item");
+                                    ImGui.TextUnformatted("新增物品");
                                     var searchString = SearchString;
                                     ImGui.InputText("##ItemSearch", ref searchString, 50);
                                     if (_searchString != searchString)
@@ -1969,12 +1969,12 @@ namespace InventoryTools.Ui
                                         SearchString = "";
                                     }
 
-                                    ImGuiUtil.HoverTooltip("Clear the current search.");
+                                    ImGuiUtil.HoverTooltip("清除目前的搜尋條件。");
 
                                     ImGui.Separator();
                                     if (_searchString == "")
                                     {
-                                        ImGui.TextUnformatted("Start typing to search...");
+                                        ImGui.TextUnformatted("輸入文字以搜尋……");
                                     }
 
                                     using var table = ImRaii.Table("", 2, ImGuiTableFlags.SizingStretchProp);
@@ -2005,7 +2005,7 @@ namespace InventoryTools.Ui
         {
             if (filterConfiguration.CraftList.CraftItems.Count == 0)
             {
-                ImGui.TextUnformatted("No craft data available.");
+                ImGui.TextUnformatted("沒有可用的製作資料。");
                 return;
             }
 
@@ -2078,7 +2078,7 @@ namespace InventoryTools.Ui
             {
                 if (popup.Success)
                 {
-                    ImGui.Text("Configure Sourcing:");
+                    ImGui.Text("設定取得來源：");
                     ImGui.Separator();
 
                     _craftSettingsColumn.DrawRecipeSelector(SelectedConfiguration, item, index);
@@ -2259,7 +2259,7 @@ namespace InventoryTools.Ui
 
                             if (filterConfigurations.Count == 0)
                             {
-                                ImGui.TextUnformatted("No craft lists created.");
+                                ImGui.TextUnformatted("尚未建立製作清單。");
                             }
 
                             ImGui.Separator();
@@ -2282,7 +2282,7 @@ namespace InventoryTools.Ui
                                 _pluginLogic.AddNewCraftFilter();
                             }
 
-                            ImGuiUtil.HoverTooltip("Add a new craft list.");
+                            ImGuiUtil.HoverTooltip("新增製作清單。");
                         }
                     }
                 }
@@ -2303,7 +2303,7 @@ namespace InventoryTools.Ui
                 {
                     var highlightItems = itemTable.HighlightItems;
                     ImGuiService.CenterElement(22 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.Checkbox("Highlight?" + "###" + itemTable.Key + "VisibilityCheckbox", ref highlightItems);
+                    ImGui.Checkbox("醒目標示" + "###" + itemTable.Key + "VisibilityCheckbox", ref highlightItems);
                     if (highlightItems != itemTable.HighlightItems)
                     {
                         _framework.RunOnFrameworkThread(() =>
@@ -2311,7 +2311,7 @@ namespace InventoryTools.Ui
                             _listService.ToggleActiveUiList(itemTable.FilterConfiguration);
                         });
                     }
-                    ImGuiUtil.HoverTooltip("When checked, any items you need to retrieve from external sources will be highlighted.");
+                    ImGuiUtil.HoverTooltip("啟用後，需從外部來源取得的物品會以醒目方式顯示。");
 
                     ImGui.SameLine();
                     if (_clearIcon.Draw(ImGuiService.GetIconTexture(66308).Handle, "tb_cf"))
@@ -2319,19 +2319,19 @@ namespace InventoryTools.Ui
                         itemTable.ClearFilters();
                     }
 
-                    ImGuiUtil.HoverTooltip("Clear the current search.");
+                    ImGuiUtil.HoverTooltip("清除目前的搜尋條件。");
 
                     ImGui.SameLine();
                     ImGuiService.CenterElement(22 * ImGui.GetIO().FontGlobalScale);
                     var hideCompleted = filterConfiguration.CraftList.HideComplete;
-                    ImGui.Checkbox("Hide Completed?" + "###" + itemTable.Key + "HideCompleted", ref hideCompleted);
+                    ImGui.Checkbox("隱藏已完成" + "###" + itemTable.Key + "HideCompleted", ref hideCompleted);
                     if (hideCompleted != filterConfiguration.CraftList.HideComplete)
                     {
                         filterConfiguration.CraftList.HideComplete = hideCompleted;
                         filterConfiguration.NeedsRefresh = true;
                     }
 
-                    ImGuiUtil.HoverTooltip("Hide any precrafts/gather/buy items once completed?");
+                    ImGuiUtil.HoverTooltip("完成後隱藏預製、採集或購買項目。");
 
                     ImGui.SameLine();
                     float width = ImGui.GetWindowSize().X;
@@ -2342,7 +2342,7 @@ namespace InventoryTools.Ui
                         _addItemBarOpen = !_addItemBarOpen;
                     }
 
-                    ImGuiUtil.HoverTooltip("Toggles the add item side bar.");
+                    ImGuiUtil.HoverTooltip("顯示或隱藏新增物品側欄。");
 
                     ImGui.SameLine();
                     width -= 28 * ImGui.GetIO().FontGlobalScale;
@@ -2360,7 +2360,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Edit the craft list's configuration.");
+                    ImGuiUtil.HoverTooltip("編輯製作清單設定。");
 
                     ImGui.SameLine();
                     width -= 28 * ImGui.GetIO().FontGlobalScale;
@@ -2369,7 +2369,7 @@ namespace InventoryTools.Ui
                     {
                         _listService.ToggleActiveCraftList(filterConfiguration);
                     }
-                    ImGuiUtil.HoverTooltip("Toggle the current craft list.");
+                    ImGuiUtil.HoverTooltip("啟用或停用目前的製作清單。");
 
                     ImGui.SameLine();
                     width -= 28 * ImGui.GetIO().FontGlobalScale;
@@ -2385,37 +2385,37 @@ namespace InventoryTools.Ui
                             _craftWindowViewSetting.UpdateFilterConfiguration(_configuration, CraftWindowView.Tree);
                         }
                     }
-                    ImGuiUtil.HoverTooltip("Open the craft list's tree view.");
+                    ImGuiUtil.HoverTooltip("開啟製作清單樹狀檢視。");
 
                     ImGui.SameLine();
                     width -= 156 * ImGui.GetIO().FontGlobalScale;
                     ImGui.SetCursorPosX(width);
                     ImGui.SetNextItemWidth(150);
                     var activeCraftList = _listService.GetActiveCraftList();
-                    using (var combo = ImRaii.Combo("##ActiveCraftList",activeCraftList != null ? activeCraftList.Name : "None"))
+                    using (var combo = ImRaii.Combo("##ActiveCraftList",activeCraftList != null ? activeCraftList.NameFormatted : "無"))
                     {
                         if (combo.Success)
                         {
-                            if (ImGui.Selectable("None"))
+                            if (ImGui.Selectable("無"))
                             {
                                 _listService.ClearActiveCraftList();
                             }
                             foreach (var filter in _listService.Lists.Where(c =>
                                          c.FilterType == FilterType.CraftFilter && !c.CraftListDefault))
                             {
-                                if (ImGui.Selectable(filter.Name + "##" + filter.Key))
+                                if (ImGui.Selectable(filter.NameFormatted + "##" + filter.Key))
                                 {
                                     _listService.SetActiveCraftList(filter);
                                 }
                             }
                         }
                     }
-                    ImGuiUtil.HoverTooltip("This is the craft list that finished crafts will count towards.");
+                    ImGuiUtil.HoverTooltip("完成的製作品會計入此製作清單。");
                     ImGui.SameLine();
                     var textSize = ImGui.CalcTextSize("Active: ");
                     width -= textSize.X * ImGui.GetIO().FontGlobalScale;
                     ImGui.SetCursorPosX(width);
-                    ImGui.Text("Active: ");
+                    ImGui.Text("使用中：");
                     if (SelectedConfiguration?.IsEphemeralCraftList ?? false)
                     {
                         ImGui.SameLine();
@@ -2423,7 +2423,7 @@ namespace InventoryTools.Ui
                         ImGui.SetCursorPosX(width);
                         ImGui.Image(ImGuiService.GetImageTexture("recycle").Handle,
                             new Vector2(22, 22));
-                        ImGuiUtil.HoverTooltip("This is the ephemeral craft list, once all items in it are completed, the list will delete itself.");
+                        ImGuiUtil.HoverTooltip("這是暫時製作清單；其中所有項目完成後會自動刪除。");
                     }
                 }
             }
@@ -2441,7 +2441,7 @@ namespace InventoryTools.Ui
                                 MediatorService.Publish(craftTable.Draw(new Vector2(0, 0), shouldDraw));
                             },
                             (shouldDraw) => { MediatorService.Publish(itemTable.Draw(new Vector2(0, 0), shouldDraw)); },
-                            "To Craft", "Items in Retainers/Bags");
+                            "待製作", "雇員／背包中的物品");
                         if (result != null)
                         {
                             _configuration.CraftWindowSplitterPosition = (int)result.Value;
@@ -2510,7 +2510,7 @@ namespace InventoryTools.Ui
                         }
                     }
 
-                    ImGuiUtil.HoverTooltip("Refresh Market Prices");
+                    ImGuiUtil.HoverTooltip("重新整理市場價格");
                     ImGui.SameLine();
 
                     if (_gameUiManager.IsWindowVisible(
@@ -2519,7 +2519,7 @@ namespace InventoryTools.Ui
                         var subMarinePartsMenu = _gameUiManager.GetWindow("SubmarinePartsMenu");
                         if (subMarinePartsMenu != null)
                         {
-                            if (ImGui.Button("Add Company Craft to List"))
+                            if (ImGui.Button("將部隊製作加入清單"))
                             {
                                 var subAddon = (SubmarinePartsMenuAddon*)subMarinePartsMenu;
                                 for (byte i = 0; i < 6; i++)
@@ -2544,14 +2544,14 @@ namespace InventoryTools.Ui
                         ImGui.SameLine();
                     }
 
-                    ImGuiService.VerticalCenter("Pending Market Requests: " + _universalis.QueuedCount);
+                    ImGuiService.VerticalCenter("待處理市場請求：" + _universalis.QueuedCount);
 
                     if (_universalis.LastFailure != null)
                     {
                         ImGui.SameLine();
                         ImGui.Image(ImGuiService.GetIconTexture(Icons.ExclamationIcon).Handle,
                             new Vector2(22, 22));
-                        ImGuiUtil.HoverTooltip($"There was an error when contacting Universalis at {_universalis.LastFailure.Value.ToString(CultureInfo.CurrentCulture)}. This likely means Universalis is having issues. Allagan Tools will back off requests for 30 seconds whenever this happens.");
+                        ImGuiUtil.HoverTooltip($"於 {_universalis.LastFailure.Value.ToString(CultureInfo.CurrentCulture)} 連線 Universalis 時發生錯誤。服務可能暫時異常；Allagan Tools 會暫停 30 秒後再嘗試。");
                     }
 
                     if (_universalis.TooManyRequests)
@@ -2559,7 +2559,7 @@ namespace InventoryTools.Ui
                         ImGui.SameLine();
                         ImGui.Image(ImGuiService.GetIconTexture(Icons.ExclamationIcon).Handle,
                             new Vector2(22, 22));
-                        ImGuiUtil.HoverTooltip($"It appears you are sending too many requests to Universalis, if you have multiple plugins requesting marketboard data, this is the most likely cause.");
+                        ImGuiUtil.HoverTooltip("送往 Universalis 的請求過多。若有多個插件同時查詢市場價格，可能是主要原因。");
                     }
 
                     craftTable?.DrawFooterItems();
@@ -2585,7 +2585,7 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the configuration window.");
+                    ImGuiUtil.HoverTooltip("開啟設定視窗。");
 
                     ImGui.SetCursorPosY(0);
                     width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -2596,11 +2596,11 @@ namespace InventoryTools.Ui
                         MediatorService.Publish(new ToggleGenericWindowMessage(typeof(FiltersWindow)));
                     }
 
-                    ImGuiUtil.HoverTooltip("Open the items window.");
+                    ImGuiUtil.HoverTooltip("開啟物品視窗。");
 
                     if (craftTable != null)
                     {
-                        var totalItems =  itemTable.RenderSearchResults.Count + " items / " + craftTable.GetCraftListCount() + " craft items";
+                        var totalItems =  itemTable.RenderSearchResults.Count + " 個物品／" + craftTable.GetCraftListCount() + " 個製作項目";
                         var calcTextSize = ImGui.CalcTextSize(totalItems);
                         width -= calcTextSize.X + 15;
                         ImGui.SetCursorPosX(width);
@@ -2636,7 +2636,7 @@ namespace InventoryTools.Ui
                             if (_newName != null)
                             {
                                 ImGui.SameLine();
-                                if (ImGui.Button("Save"))
+                                if (ImGui.Button("儲存"))
                                 {
                                     filterConfiguration.Name = _newName;
                                     Invalidate();
@@ -2645,7 +2645,7 @@ namespace InventoryTools.Ui
                             }
 
                             ImGui.NewLine();
-                            if (ImGui.Button("Export Configuration to Clipboard"))
+                            if (ImGui.Button("將設定匯出到剪貼簿"))
                             {
                                 var base64 = _importExportService.ToBase64(filterConfiguration);
                                 _clipboardService.CopyToClipboard(base64);
@@ -2833,7 +2833,7 @@ namespace InventoryTools.Ui
                             var currentViewMode = _craftWindowViewSetting.CurrentValue(_configuration);
                             _craftWindowViewSetting.UpdateFilterConfiguration(_configuration, CraftWindowView.Crafts);
                         }
-                        ImGuiUtil.HoverTooltip("Return to the craft list.");
+                        ImGuiUtil.HoverTooltip("返回製作清單。");
 
                         ImGui.SameLine();
                         width -= 30 * ImGui.GetIO().FontGlobalScale;
@@ -2852,7 +2852,7 @@ namespace InventoryTools.Ui
                         {
                             _listService.ResetFilter(_filterService.AvailableFilters, filterConfiguration);
                         }
-                        ImGuiUtil.HoverTooltip("Reset craft list to default configuration (keeps items).");
+                        ImGuiUtil.HoverTooltip("將製作清單重設為預設設定（保留物品）。");
                     }
                     else
                     {
@@ -2865,7 +2865,7 @@ namespace InventoryTools.Ui
                             ImGui.OpenPopup("Reset the default craft list?##defaultReset");
                         }
 
-                        ImGuiUtil.HoverTooltip("Reset to the default settings.");
+                        ImGuiUtil.HoverTooltip("重設為預設設定。");
 
                         using (var popup = ImRaii.Popup("Reset the default craft list?##defaultReset"))
                         {
@@ -2875,7 +2875,7 @@ namespace InventoryTools.Ui
                                     "Are you sure you want to reset the default craft list?.\nThis operation cannot be undone!\n\n");
                                 ImGui.Separator();
 
-                                if (ImGui.Button("OK", new Vector2(120, 0) * ImGui.GetIO().FontGlobalScale))
+                                if (ImGui.Button("確定", new Vector2(120, 0) * ImGui.GetIO().FontGlobalScale))
                                 {
                                     _listService.ResetFilter(_filterService.AvailableFilters, DefaultConfiguration);
                                     ImGui.CloseCurrentPopup();
@@ -2883,7 +2883,7 @@ namespace InventoryTools.Ui
 
                                 ImGui.SetItemDefaultFocus();
                                 ImGui.SameLine();
-                                if (ImGui.Button("Cancel", new Vector2(120, 0) * ImGui.GetIO().FontGlobalScale))
+                                if (ImGui.Button("取消", new Vector2(120, 0) * ImGui.GetIO().FontGlobalScale))
                                 {
                                     ImGui.CloseCurrentPopup();
                                 }
@@ -2898,7 +2898,7 @@ namespace InventoryTools.Ui
                     {
                         ImGui.OpenPopup("copyFilter");
                     }
-                    ImGuiUtil.HoverTooltip("Copy existing filter's settings");
+                    ImGuiUtil.HoverTooltip("複製現有清單的設定");
 
                     using (var popup = ImRaii.ContextPopup("copyFilter"))
                     {
@@ -2915,7 +2915,7 @@ namespace InventoryTools.Ui
 
                             if (filterConfigurations.Count == 0)
                             {
-                                ImGui.Text("No other configurations available to copy from.");
+                                ImGui.Text("沒有其他可供複製的設定。");
                             }
                         }
                     }

@@ -37,7 +37,7 @@ namespace InventoryTools.Ui.Pages
 
         }
 
-        public override string Name { get; } =  "Import/Export";
+        public override string Name { get; } =  "匯入／匯出";
         public override List<MessageBase>? Draw()
         {
             ImGui.PushID("ImportSection");

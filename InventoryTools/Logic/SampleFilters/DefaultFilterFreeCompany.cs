@@ -39,11 +39,11 @@ public class DefaultFilterFreeCompany : ISampleFilter
         return allItemsFilter;
     }
 
-    public string Name => "Free Company";
-    public string SampleDefaultName => "Free Company";
+    public string Name => "部隊倉庫";
+    public string SampleDefaultName => "部隊倉庫";
 
     public string SampleDescription =>
-        "This will add a list that will be preconfigured to show all the items in your free company chest for your active character.";
+        "建立顯示目前角色所屬部隊倉庫物品的清單。";
 
     public SampleFilterType SampleFilterType => SampleFilterType.Default;
 }

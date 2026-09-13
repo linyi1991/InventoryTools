@@ -45,7 +45,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
 
     public override void Initialize()
     {
-        WindowName = "NPCs";
+        WindowName = "NPC";
         Key = "enpcs";
          _columns = new List<TableColumn<ENpcResidentRow>>()
         {
@@ -302,7 +302,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
 
     public override bool UseClipper => _useClipper;
     public override string GenericKey => "npcs";
-    public override string GenericName => "Npcs";
+    public override string GenericName => "NPC";
     public override bool DestroyOnClose => false;
     public override bool SaveState => true;
     public override Vector2? MaxSize { get; } = new(2000, 2000);

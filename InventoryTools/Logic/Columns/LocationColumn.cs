@@ -26,8 +26,8 @@ namespace InventoryTools.Logic.Columns
 
             return null;
         }
-        public override string Name { get; set; } = "Inventory Location";
-        public override string RenderName => "Location";
+        public override string Name { get; set; } = "庫存位置";
+        public override string RenderName => "位置";
         public override float Width { get; set; } = 100.0f;
         public override string HelpText { get; set; } = "Shows the location of the item in your inventory.";
         public override bool HasFilter { get; set; } = true;

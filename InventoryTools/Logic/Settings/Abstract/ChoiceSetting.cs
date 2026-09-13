@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.Settings.Abstract
 
         public virtual string GetFormattedChoice(T choice)
         {
-            return Choices.SingleOrDefault(c => c.Key!.Equals(choice)).Value;
+            return TwSettingsLocalization.Translate(Choices.SingleOrDefault(c => c.Key!.Equals(choice)).Value);
         }
 
         public override void Draw(InventoryToolsConfiguration configuration, string? customName, bool? disableReset,
@@ -46,7 +46,7 @@ namespace InventoryTools.Logic.Settings.Abstract
                 {
                     foreach (var item in choices)
                     {
-                        var text = item.Value.Replace("\u0002\u001F\u0001\u0003", "-");
+                        var text = TwSettingsLocalization.Translate(item.Value.Replace("\u0002\u001F\u0001\u0003", "-"));
                         if (text == "")
                         {
                             continue;
@@ -65,7 +65,7 @@ namespace InventoryTools.Logic.Settings.Abstract
             if (disableReset != true && HasValueSet(configuration))
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重設##" + Key + "Reset"))
                 {
                     Reset(configuration);
                 }

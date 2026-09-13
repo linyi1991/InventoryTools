@@ -49,3 +49,4 @@ public record RequestTeleportToGatheringPointRowMessage(GatheringPointRow gather
 public record OverlaysRequestRefreshMessage() : MessageBase;
 public record ItemSearchRequestedMessage(uint ItemId, InventoryItem.ItemFlags Flags) : MessageBase;
 public record NewColumnSetNameMessage(string? name, string? exportName) : MessageBase;
+public record FilterCraftAvailabilityByIngredientMessage(uint ItemId) : MessageBase;

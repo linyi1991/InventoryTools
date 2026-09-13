@@ -8,6 +8,68 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [13.1.15-api13-tw6-item-info] - 2026-09-13
+
+### Changed
+- 完整繁中化「更多資訊」物品視窗：物品品級、版本、取得狀態、商店價格、來源、用途、持有位置、市場價格、配方、採集、雇員探險、商店與怪物掉落。
+- 繁中化遊戲物品右鍵選單中的 Allagan Tools 項目，以及採集、傳送、地圖、購買與狩獵子選單。
+- 將 ImGui 物品提示的動態來源／用途名稱導向繁中顯示層，並翻譯清單數量與 Universalis 錯誤提示。
+
+### Compatibility
+- 僅修改顯示文字；保留清單名稱、設定鍵、序列化資料、ImGui ID、指令、IPC、市場快取與 API13／net9 行為。
+
+## [13.1.14-api13-tw5-tooltips] - 2026-09-12
+
+### Changed
+- 完整繁中化物品提示內的持有總數、持有位置、素材適用版本、取得來源、用途與市場價格資料。
+- 翻譯製作、採集、雇員探險、軍隊交納、商店、迷宮等常見來源／用途類型。
+- 翻譯物品解鎖狀態、缺少數量、需購買數量、應取出數量及額外位置提示。
+
+### Compatibility
+- 僅修改提示顯示文字；保留設定鍵、庫存資料、價格快取、來源分類、IPC 與 API13／net9 行為。
+
+## [13.1.13-api13-tw4-column-help] - 2026-09-12
+
+### Changed
+- 將物品清單、製作清單與欄位編輯器中的欄位 `?` 說明統一導向繁中顯示層。
+- 為常用欄位提供完整繁中解釋；其他欄位使用不含英文的安全繁中說明。
+
+### Compatibility
+- 保留欄位 Key、HelpText 原始資料、篩選邏輯、設定檔、IPC 與 API13／net9 行為。
+
+## [13.1.12-api13-tw3-mainui] - 2026-09-12
+
+### Changed
+- 完成主物品清單常用介面繁中：頂部選單、分頁、清單操作、狀態列、提示文字與表格欄名。
+- 對既有英文預設清單名稱套用顯示層翻譯，不變更使用者設定檔或自訂清單名稱。
+- 翻譯背包、兵裝庫、部隊倉庫、房屋、貨幣等庫存位置。
+
+### Compatibility
+- 保留 API13／net9、台灣世界市場價格、製作可用性、IPC、指令與既有設定。
+
+## [13.1.11-api13-tw2-settings] - 2026-09-12
+
+### Changed
+- 完整繁中化設定分類、子分類、約 90 個設定名稱與靜態說明提示。
+- 繁中化設定選項、重設按鈕、設定精靈、清單建立選單與確認視窗。
+- 繁中化所有預設／範例清單名稱及說明，並修正「素材整理」範例的錯誤預設名稱。
+
+### Compatibility
+- 保留所有設定鍵、序列化值、ImGui ID、IPC、指令與既有設定檔；只變更顯示文字。
+
+## [13.1.10-api13-tw1] - 2026-09-12
+
+### Added
+- 回植上游 14.0.2 的提示持有總數概念，保留 API13 資料模型。
+- /allaganprice refresh（或 /allaganprice 更新）可安全分批重抓持有物品價格。
+
+### Changed
+- 主要視窗、物品右鍵選單、提示與指令說明改為繁體中文。
+- Universalis 改為每批最多 10 項，並對 429、502、503、504 與暫時網路／JSON 錯誤做指數退避重試。
+
+### Preserved
+- 保留既有庫存、篩選、提示、IPC、設定鍵、台灣世界 ID 與獨立製作可用性功能。
+
 ## [13.1.9] - 2025-11-25
 
 ### Fixed
@@ -1194,4 +1256,3 @@ Mini update, one new feature and a refresh on some of the data sourced from garl
 - People with higher font sizes and ui scales should hopefully be able to see all the buttons
 - Collapsing either of the craft window sections will have the other section take the available space.
 - The inventory scanning process now runs in the thread pool, hopefully this should reduce stuttering when any item movement occurs(and a rescan needs to happen).
-

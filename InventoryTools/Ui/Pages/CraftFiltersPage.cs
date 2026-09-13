@@ -110,7 +110,7 @@ namespace InventoryTools.Ui.Pages
             }
         }
 
-        public override string Name { get; } = "Craft Lists";
+        public override string Name { get; } = "製作清單";
         public override List<MessageBase>? Draw()
         {
             var messages = new List<MessageBase>();

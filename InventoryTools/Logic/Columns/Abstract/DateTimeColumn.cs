@@ -84,7 +84,8 @@ namespace InventoryTools.Logic.Columns.Abstract
         public override void Setup(FilterConfiguration filterConfiguration, ColumnConfiguration columnConfiguration,
             int columnIndex)
         {
-            ImGui.TableSetupColumn(columnConfiguration.Name ?? (RenderName ?? Name) ?? Name, ImGuiTableColumnFlags.WidthFixed, Width, (uint)columnIndex);
+            var displayName = columnConfiguration.Name ?? (RenderName ?? Name) ?? Name;
+            ImGui.TableSetupColumn(InventoryTools.Services.TwUiLocalization.ColumnName(displayName), ImGuiTableColumnFlags.WidthFixed, Width, (uint)columnIndex);
         }
     }
 }

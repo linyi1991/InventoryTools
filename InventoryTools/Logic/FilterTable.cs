@@ -261,7 +261,8 @@ namespace InventoryTools.Logic
                             {
                                 ImGuiUtil.RightAlign("?", SortColumn == index ? 8 : 0);
                             }
-                            ImGuiUtil.HoverTooltip(column.Column.HelpText);
+                            ImGuiUtil.HoverTooltip(TwUiLocalization.ColumnHelp(
+                                column.Name ?? column.Column.Name, column.Column.HelpText));
                         }
 
                         var currentSortSpecs = ImGui.TableGetSortSpecs();
