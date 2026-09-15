@@ -129,6 +129,24 @@ public sealed class CraftAvailabilityService : IDisposable
 
         return _inventoryMonitor.AllItems
             .Where(c => c.ItemId != 0 && c.Quantity != 0 && allowedOwners.Contains(c.RetainerId))
+            // MAX must only count locations Artisan can consume directly or
+            // retrieve through the summoning-bell workflow. Retainer market,
+            // equipped gear, saddlebags, housing and other characters are
+            // visible to AllaganTools but cannot satisfy an Artisan list.
+            .Where(c => c.RetainerId == activeCharacterId
+                ? c.SortedContainer is CriticalCommonLib.Enums.InventoryType.Bag0
+                    or CriticalCommonLib.Enums.InventoryType.Bag1
+                    or CriticalCommonLib.Enums.InventoryType.Bag2
+                    or CriticalCommonLib.Enums.InventoryType.Bag3
+                    or CriticalCommonLib.Enums.InventoryType.Crystal
+                : c.SortedContainer is CriticalCommonLib.Enums.InventoryType.RetainerBag0
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag1
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag2
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag3
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag4
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag5
+                    or CriticalCommonLib.Enums.InventoryType.RetainerBag6
+                    or CriticalCommonLib.Enums.InventoryType.RetainerCrystal)
             .GroupBy(c => c.ItemId)
             .ToDictionary(c => c.Key, c => c.Sum(i => (long)i.Quantity));
     }

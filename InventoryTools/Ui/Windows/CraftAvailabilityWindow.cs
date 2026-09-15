@@ -84,7 +84,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         ImGui.Checkbox("忽略水晶", ref _ignoreCrystals);
 
         ImGui.TextDisabled($"庫存或選項改變時才重新計算；已建立 {_service.IndexedIngredientCount:N0} 個素材反向索引。");
-        ImGui.TextWrapped("開啟「遞迴製作半成品」後，會把庫存原料可先做出的半成品繼續投入下一層配方，計算每種成品各自最多可製作的次數。每列都是獨立估算，同一批材料不能同時完成所有列；MAX 只會填入該列上限，仍要再按「製作」才會交給 Artisan，Artisan 會先處理需要的子配方。");
+        ImGui.TextWrapped("開啟「遞迴製作半成品」後，會把庫存原料可先做出的半成品繼續投入下一層配方，計算每種成品各自最多可製作的次數。只計入角色四頁背包／水晶與僱員七頁背包／水晶；販售欄、鞍囊、裝備庫及住宅等 Artisan 無法自動取用的位置不列入。每列都是獨立估算，同一批材料不能同時完成所有列；MAX 填的是製作次數，例如 33 次、每次產出 3 個就是 99 個成品，Artisan 會領取 33 次配方實際需要的材料，再處理子配方。");
         ImGui.TextColored(new Vector4(0.35f, 0.9f, 0.45f, 1f),
             "品質安全鎖：Craftimizer 2.11 為主求解器；HQ 須從 0 初始品質達 100%，收藏品須達 Artisan 所選檔位。計算失敗時 Artisan 可安全備援，但未達標不會開始製作。");
         ImGui.Separator();
