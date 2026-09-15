@@ -30,6 +30,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
     private readonly ImGuiTooltipService _tooltipService;
     private readonly System.Collections.Generic.Dictionary<uint, int> _craftAmounts = new();
     private readonly System.Collections.Generic.Dictionary<uint, string> _hqPredictions = new();
+    private DateTime _nextPredictionPoll = DateTime.MinValue;
     private CraftAvailabilityCategory _category = CraftAvailabilityCategory.All;
     private bool _craftableOnly = true;
     private bool _includeRetainers = true;
@@ -57,6 +58,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
 
     public override void Draw()
     {
+        PollPendingPredictions();
         var selectedLabel = Array.Find(Categories, c => c.Category == _category).Label;
         ImGui.SetNextItemWidth(150 * ImGui.GetIO().FontGlobalScale);
         if (ImGui.BeginCombo("分類", selectedLabel))
@@ -84,7 +86,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         ImGui.TextDisabled($"庫存或選項改變時才重新計算；已建立 {_service.IndexedIngredientCount:N0} 個素材反向索引。");
         ImGui.TextWrapped("開啟「遞迴製作半成品」後，會把庫存原料可先做出的半成品繼續投入下一層配方，計算每種成品各自最多可製作的次數。每列都是獨立估算，同一批材料不能同時完成所有列；MAX 只會填入該列上限，仍要再按「製作」才會交給 Artisan，Artisan 會先處理需要的子配方。");
         ImGui.TextColored(new Vector4(0.35f, 0.9f, 0.45f, 1f),
-            "品質安全鎖已啟用：HQ 成品須達 100%；收藏品須達 Artisan 所選檔位；固定品質成品可正常製作。 ");
+            "品質安全鎖：Craftimizer 2.11 為主求解器；HQ 須從 0 初始品質達 100%，收藏品須達 Artisan 所選檔位。計算失敗時 Artisan 可安全備援，但未達標不會開始製作。");
         ImGui.Separator();
 
         var results = _service.GetResults(_includeRetainers, _includeSubrecipes, _ignoreCrystals, _craftableOnly, _category);
@@ -121,18 +123,19 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                 if (canBeHq || isCollectable)
                 {
                     var hasPrediction = _hqPredictions.TryGetValue(result.RecipeId, out var prediction);
+                    var pending = hasPrediction && prediction!.StartsWith("PENDING|", StringComparison.Ordinal);
                     var safe = hasPrediction && prediction!.StartsWith("SAFE|", StringComparison.Ordinal);
-                    var label = !hasPrediction ? (isCollectable ? "收藏品待預測" : "待預測") :
+                    var label = pending ? "Craftimizer 計算中" : !hasPrediction ? (isCollectable ? "收藏品待預測" : "待預測") :
                         safe ? (isCollectable ? "收藏價值達標" : "保證 HQ") :
                         (isCollectable ? "收藏價值未達" : "無法保證");
-                    ImGui.TextColored(safe ? new Vector4(0.35f, 0.9f, 0.45f, 1f) :
+                    ImGui.TextColored(pending ? new Vector4(0.55f, 0.75f, 1f, 1f) : safe ? new Vector4(0.35f, 0.9f, 0.45f, 1f) :
                         hasPrediction ? new Vector4(1f, 0.45f, 0.35f, 1f) : new Vector4(0.8f, 0.8f, 0.8f, 1f), label);
                     if (hasPrediction && ImGui.IsItemHovered())
                         ImGui.SetTooltip(prediction!.Contains('|') ? prediction[(prediction.IndexOf('|') + 1)..] : prediction);
                     if (ImGui.SmallButton($"模擬製作##predict-hq-{result.RecipeId}"))
-                        _hqPredictions[result.RecipeId] = _artisanCraftService.PredictHq(result.RecipeId);
+                        _hqPredictions[result.RecipeId] = _artisanCraftService.StartHqPrediction(result.RecipeId);
                     if (ImGui.IsItemHovered())
-                        ImGui.SetTooltip("只執行 Artisan 求解器模擬，不會取料、切換職業、使用食藥或開始製作。修改裝備／食藥／求解器設定後可再次模擬。");
+                        ImGui.SetTooltip("在背景執行 Craftimizer 2.11 Next Action 全流程模擬，不會取料、切換職業、實際使用食藥或開始製作。會採用目前裝備及 Artisan 已設定的食藥數值；修改後請重新模擬。");
                 }
                 else
                 {
@@ -164,14 +167,25 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                     _artisanCraftService.PrepareAndCraft(result.RecipeId, amount, _includeSubrecipes);
                 if (ImGui.IsItemHovered())
                     ImGui.SetTooltip(isCollectable
-                        ? "真正取料、切換職業並製作；會重新模擬並確認達到 Artisan 設定的收藏品目標檔位。"
+                        ? "交給 Artisan 背景執行 Craftimizer 2.11 預測；達到 Artisan 設定的收藏品檔位後，才取料、切換職業並以 Craftimizer 實際製作。"
                         : !canBeHq
-                        ? "真正取料、切換職業並製作；此成品為固定品質，不需要 HQ 判斷。"
-                        : "真正取料、切換職業並製作；按下後會重新模擬，只有預測品質 100% 且技能成功率皆為 100% 才會開始。");
+                        ? "交給 Artisan 取料、切換職業並以 Craftimizer 2.11 實際製作；此成品為固定品質，不需要 HQ 判斷。"
+                        : "交給 Artisan 背景執行 Craftimizer 2.11 預測；只有從 0 初始品質達到 100%，且模擬技能成功率皆為 100%，才會取料並開始製作。若 Craftimizer 中途失敗，Artisan 只會使用安全備援。");
                 if (result.MaxCrafts == 0) ImGui.EndDisabled();
             }
             ImGui.EndTable();
         }
+    }
+
+    private void PollPendingPredictions()
+    {
+        if (DateTime.UtcNow < _nextPredictionPoll)
+            return;
+        _nextPredictionPoll = DateTime.UtcNow.AddMilliseconds(250);
+        foreach (var recipeId in System.Linq.Enumerable.ToArray(
+                     System.Linq.Enumerable.Where(_hqPredictions,
+                         pair => pair.Value.StartsWith("PENDING|", StringComparison.Ordinal))))
+            _hqPredictions[recipeId.Key] = _artisanCraftService.PollHqPrediction(recipeId.Key);
     }
 
     public override bool SaveState => true;
