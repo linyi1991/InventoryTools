@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.Numerics;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
@@ -30,6 +32,10 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
     private readonly ImGuiTooltipService _tooltipService;
     private readonly System.Collections.Generic.Dictionary<uint, int> _craftAmounts = new();
     private readonly System.Collections.Generic.Dictionary<uint, string> _hqPredictions = new();
+    private IReadOnlyList<CraftAvailabilityResult> _results = Array.Empty<CraftAvailabilityResult>();
+    private long _analyzedInventoryRevision = -1;
+    private bool _hasAnalysis;
+    private bool _analysisStale;
     private DateTime _nextPredictionPoll = DateTime.MinValue;
     private CraftAvailabilityCategory _category = CraftAvailabilityCategory.All;
     private bool _craftableOnly = true;
@@ -66,7 +72,10 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
             foreach (var entry in Categories)
             {
                 if (ImGui.Selectable(entry.Label, entry.Category == _category))
+                {
                     _category = entry.Category;
+                    _analysisStale = true;
+                }
             }
             ImGui.EndCombo();
         }
@@ -75,21 +84,47 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         ImGui.SetNextItemWidth(220 * ImGui.GetIO().FontGlobalScale);
         ImGui.InputTextWithHint("##craftAvailabilitySearch", "搜尋配方名稱", ref _search, 100);
 
-        ImGui.Checkbox("只顯示目前能做", ref _craftableOnly);
+        if (ImGui.Checkbox("只顯示目前能做", ref _craftableOnly))
+            _analysisStale = true;
         ImGui.SameLine();
-        ImGui.Checkbox("計算所有僱員庫存", ref _includeRetainers);
+        if (ImGui.Checkbox("計算所有僱員庫存", ref _includeRetainers))
+            _analysisStale = true;
         ImGui.SameLine();
-        ImGui.Checkbox("遞迴製作半成品", ref _includeSubrecipes);
+        if (ImGui.Checkbox("遞迴製作半成品", ref _includeSubrecipes))
+            _analysisStale = true;
         ImGui.SameLine();
-        ImGui.Checkbox("忽略水晶", ref _ignoreCrystals);
+        if (ImGui.Checkbox("忽略水晶", ref _ignoreCrystals))
+            _analysisStale = true;
 
-        ImGui.TextDisabled($"庫存或選項改變時才重新計算；已建立 {_service.IndexedIngredientCount:N0} 個素材反向索引。");
+        if (_hasAnalysis && _analyzedInventoryRevision != _service.InventoryRevision)
+            _analysisStale = true;
+
+        if (ImGui.Button("分析目前庫存"))
+        {
+            var stopwatch = Stopwatch.StartNew();
+            _results = _service.GetResults(_includeRetainers, _includeSubrecipes, _ignoreCrystals, _craftableOnly, _category);
+            stopwatch.Stop();
+            _analyzedInventoryRevision = _service.InventoryRevision;
+            _hasAnalysis = true;
+            _analysisStale = false;
+            Logger.LogInformation("Manual craft availability analysis completed with {ResultCount} results in {ElapsedMilliseconds} ms.",
+                _results.Count, stopwatch.ElapsedMilliseconds);
+        }
+        ImGui.SameLine();
+        if (!_hasAnalysis)
+            ImGui.TextDisabled("尚未分析；開啟視窗與切換選項不會自動計算。");
+        else if (_analysisStale)
+            ImGui.TextColored(new Vector4(1f, 0.75f, 0.25f, 1f), "庫存或選項已改變；目前顯示上次結果，請按分析更新。");
+        else
+            ImGui.TextDisabled($"顯示上次手動分析結果：{_results.Count:N0} 筆");
+
+        ImGui.TextDisabled($"只有按下「分析目前庫存」才會計算；已建立 {_service.IndexedIngredientCount:N0} 個素材反向索引。");
         ImGui.TextWrapped("開啟「遞迴製作半成品」後，會把庫存原料可先做出的半成品繼續投入下一層配方，計算每種成品各自最多可製作的次數。只計入角色四頁背包／水晶與僱員七頁背包／水晶；販售欄、鞍囊、裝備庫及住宅等 Artisan 無法自動取用的位置不列入。每列都是獨立估算，同一批材料不能同時完成所有列；MAX 填的是製作次數，例如 33 次、每次產出 3 個就是 99 個成品，Artisan 會領取 33 次配方實際需要的材料，再處理子配方。");
         ImGui.TextColored(new Vector4(0.35f, 0.9f, 0.45f, 1f),
             "品質安全鎖：Craftimizer 2.11 為主求解器；HQ 須從 0 初始品質達 100%，收藏品須達 Artisan 所選檔位。計算失敗時 Artisan 可安全備援，但未達標不會開始製作。");
         ImGui.Separator();
 
-        var results = _service.GetResults(_includeRetainers, _includeSubrecipes, _ignoreCrystals, _craftableOnly, _category);
+        var results = _results;
         if (ImGui.BeginTable("craftAvailabilityTable", 6,
                 ImGuiTableFlags.Borders | ImGuiTableFlags.RowBg | ImGuiTableFlags.ScrollY |
                 ImGuiTableFlags.Resizable | ImGuiTableFlags.SizingStretchProp))

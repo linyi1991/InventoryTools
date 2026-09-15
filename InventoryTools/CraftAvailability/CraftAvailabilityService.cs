@@ -44,6 +44,7 @@ public sealed class CraftAvailabilityService : IDisposable
     }
 
     public int IndexedIngredientCount => _recipesByIngredient.Count;
+    public long InventoryRevision => _inventoryRevision;
 
     public IReadOnlyList<CraftAvailabilityResult> GetResults(bool includeRetainers, bool includeSubrecipes,
         bool ignoreCrystals, bool craftableOnly, CraftAvailabilityCategory category)

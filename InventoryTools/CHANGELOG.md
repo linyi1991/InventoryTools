@@ -8,6 +8,16 @@ Instead the changelog reader and automation surrounding plugin PRs will add the 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.html).
 
+## [13.1.19-api13-tw10-manual-analysis] - 2026-09-15
+
+### Fixed
+- 「我的庫存能做什麼」不再於開啟視窗、切換選項或庫存更新時同步掃描全部配方。
+- 改為只在使用者按下「分析目前庫存」後計算，避免 UI 執行緒因大量遞迴庫存模擬而長時間停頓或遭系統終止。
+- 分析完成後保留結果；庫存或選項變動時標記為過期，直到使用者再次手動分析。
+
+### Compatibility
+- 保留既有配方分類、HQ／水晶選項、Craftimizer／Artisan 計算邏輯、API13／net9 與繁中介面。
+
 ## [13.1.15-api13-tw6-item-info] - 2026-09-13
 
 ### Changed
