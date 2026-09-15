@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AllaganLib.GameSheets.Sheets;
 using AllaganLib.GameSheets.Sheets.Rows;
 using AllaganLib.Shared.Extensions;
@@ -24,9 +25,9 @@ public sealed class CraftAvailabilityService : IDisposable
     private readonly RecipeSheet _recipeSheet;
     private readonly ItemSheet _itemSheet;
     private readonly ILogger<CraftAvailabilityService> _logger;
-    private readonly Dictionary<uint, List<RecipeRow>> _recipesByIngredient = new();
-    private readonly Dictionary<uint, List<RecipeRow>> _recipesByResult = new();
-    private List<RecipeRow> _recipes = new();
+    private readonly Dictionary<uint, List<RecipeData>> _recipesByIngredient = new();
+    private readonly Dictionary<uint, List<RecipeData>> _recipesByResult = new();
+    private List<RecipeData> _recipes = new();
     private IReadOnlyList<CraftAvailabilityResult> _cachedResults = Array.Empty<CraftAvailabilityResult>();
     private CacheKey? _cacheKey;
     private long _inventoryRevision;
@@ -54,15 +55,32 @@ public sealed class CraftAvailabilityService : IDisposable
             return _cachedResults;
 
         var inventory = BuildInventorySnapshot(includeRetainers);
+        return CalculateResults(key, inventory, includeSubrecipes, ignoreCrystals, craftableOnly, category);
+    }
+
+    /// <summary>
+    /// Captures the live inventory on the Dalamud/UI thread, then performs the
+    /// expensive recipe traversal only against immutable recipe data and the
+    /// detached inventory snapshot on a worker thread.
+    /// </summary>
+    public Task<IReadOnlyList<CraftAvailabilityResult>> GetResultsAsync(bool includeRetainers, bool includeSubrecipes,
+        bool ignoreCrystals, bool craftableOnly, CraftAvailabilityCategory category)
+    {
+        var key = new CacheKey(_inventoryRevision, includeRetainers, includeSubrecipes, ignoreCrystals, craftableOnly, category);
+        if (_cacheKey == key)
+            return Task.FromResult(_cachedResults);
+
+        var inventory = BuildInventorySnapshot(includeRetainers);
+        return Task.Run(() => CalculateResults(key, inventory, includeSubrecipes, ignoreCrystals, craftableOnly, category));
+    }
+
+    private IReadOnlyList<CraftAvailabilityResult> CalculateResults(CacheKey key, Dictionary<uint, long> inventory,
+        bool includeSubrecipes, bool ignoreCrystals, bool craftableOnly, CraftAvailabilityCategory category)
+    {
         var results = new List<CraftAvailabilityResult>();
         foreach (var recipe in _recipes)
         {
-            var item = _itemSheet.GetRowOrDefault(recipe.Base.ItemResult.RowId);
-            if (item == null || string.IsNullOrWhiteSpace(item.NameString))
-                continue;
-
-            var recipeCategory = Classify(item);
-            if (category != CraftAvailabilityCategory.All && recipeCategory != category)
+            if (category != CraftAvailabilityCategory.All && recipe.Category != category)
                 continue;
 
             var maxCrafts = CalculateMaxCrafts(recipe, inventory, includeSubrecipes, ignoreCrystals);
@@ -71,16 +89,14 @@ public sealed class CraftAvailabilityService : IDisposable
 
             results.Add(new CraftAvailabilityResult(
                 recipe.RowId,
-                item.RowId,
-                item.NameString,
-                recipe.Base.CraftType.ValueNullable?.Name.ExtractText() ?? "未知",
-                recipe.RecipeLevelTable?.Base.ClassJobLevel ?? recipe.Base.RecipeLevelTable.RowId,
+                recipe.ItemId,
+                recipe.Name,
+                recipe.CraftType,
+                recipe.RecipeLevel,
                 maxCrafts,
-                Math.Max(1u, recipe.Base.AmountResult),
-                recipeCategory,
-                recipe.IngredientCounts
-                    .Where(c => c.Key != 0 && c.Value != 0)
-                    .ToDictionary(c => (uint)c.Key, c => (uint)c.Value),
+                recipe.Yield,
+                recipe.Category,
+                recipe.Ingredients,
                 new Dictionary<uint, uint>()));
         }
 
@@ -101,17 +117,28 @@ public sealed class CraftAvailabilityService : IDisposable
 
     private void BuildRecipeIndexes()
     {
-        _recipes = _recipeSheet.Where(c => c.RowId != 0 && c.Base.ItemResult.RowId != 0 && c.IngredientCounts.Any(i => i.Key != 0 && i.Value != 0)).ToList();
-        foreach (var recipe in _recipes)
+        foreach (var row in _recipeSheet.Where(c => c.RowId != 0 && c.Base.ItemResult.RowId != 0 && c.IngredientCounts.Any(i => i.Key != 0 && i.Value != 0)))
         {
-            if (!_recipesByResult.TryGetValue(recipe.Base.ItemResult.RowId, out var resultRecipes))
-                _recipesByResult[recipe.Base.ItemResult.RowId] = resultRecipes = new List<RecipeRow>();
+            var item = _itemSheet.GetRowOrDefault(row.Base.ItemResult.RowId);
+            if (item == null || string.IsNullOrWhiteSpace(item.NameString))
+                continue;
+            var ingredients = row.IngredientCounts
+                .Where(c => c.Key != 0 && c.Value != 0)
+                .ToDictionary(c => (uint)c.Key, c => (uint)c.Value);
+            var recipe = new RecipeData(row.RowId, item.RowId, item.NameString,
+                row.Base.CraftType.ValueNullable?.Name.ExtractText() ?? "未知",
+                row.RecipeLevelTable?.Base.ClassJobLevel ?? row.Base.RecipeLevelTable.RowId,
+                Math.Max(1u, row.Base.AmountResult), Classify(item), ingredients);
+            _recipes.Add(recipe);
+
+            if (!_recipesByResult.TryGetValue(recipe.ItemId, out var resultRecipes))
+                _recipesByResult[recipe.ItemId] = resultRecipes = new List<RecipeData>();
             resultRecipes.Add(recipe);
 
-            foreach (var ingredientId in recipe.IngredientCounts.Where(c => c.Key != 0 && c.Value != 0).Select(c => (uint)c.Key).Distinct())
+            foreach (var ingredientId in recipe.Ingredients.Keys)
             {
                 if (!_recipesByIngredient.TryGetValue(ingredientId, out var ingredientRecipes))
-                    _recipesByIngredient[ingredientId] = ingredientRecipes = new List<RecipeRow>();
+                    _recipesByIngredient[ingredientId] = ingredientRecipes = new List<RecipeData>();
                 ingredientRecipes.Add(recipe);
             }
         }
@@ -152,7 +179,7 @@ public sealed class CraftAvailabilityService : IDisposable
             .ToDictionary(c => c.Key, c => c.Sum(i => (long)i.Quantity));
     }
 
-    private uint CalculateMaxCrafts(RecipeRow recipe, Dictionary<uint, long> inventory, bool includeSubrecipes, bool ignoreCrystals)
+    private uint CalculateMaxCrafts(RecipeData recipe, Dictionary<uint, long> inventory, bool includeSubrecipes, bool ignoreCrystals)
     {
         if (!CanCraft(recipe, 1, inventory, includeSubrecipes, ignoreCrystals))
             return 0;
@@ -176,11 +203,11 @@ public sealed class CraftAvailabilityService : IDisposable
         return low;
     }
 
-    private bool CanCraft(RecipeRow recipe, uint craftCount, Dictionary<uint, long> inventory, bool includeSubrecipes, bool ignoreCrystals)
+    private bool CanCraft(RecipeData recipe, uint craftCount, Dictionary<uint, long> inventory, bool includeSubrecipes, bool ignoreCrystals)
     {
         var remaining = new Dictionary<uint, long>(inventory);
-        var stack = new HashSet<uint> { recipe.Base.ItemResult.RowId };
-        foreach (var ingredient in recipe.IngredientCounts)
+        var stack = new HashSet<uint> { recipe.ItemId };
+        foreach (var ingredient in recipe.Ingredients)
         {
             if (ingredient.Key == 0 || ingredient.Value == 0 || ignoreCrystals && IsCrystal((uint)ingredient.Key))
                 continue;
@@ -203,11 +230,11 @@ public sealed class CraftAvailabilityService : IDisposable
             return false;
 
         var recipe = recipes[0];
-        var yield = Math.Max(1u, recipe.Base.AmountResult);
+        var yield = recipe.Yield;
         var crafts = (required + yield - 1) / yield;
         var branchInventory = new Dictionary<uint, long>(inventory);
         var branchStack = new HashSet<uint>(stack) { itemId };
-        foreach (var ingredient in recipe.IngredientCounts)
+        foreach (var ingredient in recipe.Ingredients)
         {
             if (ingredient.Key == 0 || ingredient.Value == 0 || ignoreCrystals && IsCrystal((uint)ingredient.Key))
                 continue;
@@ -243,4 +270,7 @@ public sealed class CraftAvailabilityService : IDisposable
 
     private sealed record CacheKey(long Revision, bool Retainers, bool Subrecipes, bool IgnoreCrystals,
         bool CraftableOnly, CraftAvailabilityCategory Category);
+
+    private sealed record RecipeData(uint RowId, uint ItemId, string Name, string CraftType, uint RecipeLevel,
+        uint Yield, CraftAvailabilityCategory Category, IReadOnlyDictionary<uint, uint> Ingredients);
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 13.1.20 - 2026-09-15
+
+- 「我的庫存能做什麼」改為背景分析，按下分析後不再阻塞遊戲 UI 執行緒。
+- 啟動分析前只在主執行緒擷取庫存快照；背景工作僅使用預先索引的純配方資料，避免跨執行緒讀取 Dalamud/Lumina 狀態。
+- 分析進行中停用重複提交，並在失敗時安全記錄錯誤，不讓例外中斷 UI。
+
 All notable changes to this project will be documented in this file.
 
 The log versioning the plugin versioning will not match as 1.0.0.0 technically does not match semantic versioning but the headache of trying to change this would be too much.

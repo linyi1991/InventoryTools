@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Dalamud.NET.Sdk/13.1.0">
   <PropertyGroup>
     <AssemblyName>InventoryTools</AssemblyName>
-    <Version>13.1.19</Version>
+    <Version>13.1.20</Version>
     <AssemblyInformationalVersion>13.1.19-api13-tw10-manual-analysis</AssemblyInformationalVersion>
     <NoWarn>IDE0003</NoWarn>
     <OutputType>Library</OutputType>

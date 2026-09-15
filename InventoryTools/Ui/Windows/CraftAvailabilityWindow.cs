@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+using System.Threading.Tasks;
 using CriticalCommonLib.Services.Mediator;
 using DalaMock.Host.Mediator;
 using Dalamud.Bindings.ImGui;
@@ -36,6 +37,9 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
     private long _analyzedInventoryRevision = -1;
     private bool _hasAnalysis;
     private bool _analysisStale;
+    private Task<IReadOnlyList<CraftAvailabilityResult>>? _analysisTask;
+    private Stopwatch? _analysisStopwatch;
+    private long _pendingInventoryRevision;
     private DateTime _nextPredictionPoll = DateTime.MinValue;
     private CraftAvailabilityCategory _category = CraftAvailabilityCategory.All;
     private bool _craftableOnly = true;
@@ -64,6 +68,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
 
     public override void Draw()
     {
+        PollPendingAnalysis();
         PollPendingPredictions();
         var selectedLabel = Array.Find(Categories, c => c.Category == _category).Label;
         ImGui.SetNextItemWidth(150 * ImGui.GetIO().FontGlobalScale);
@@ -99,19 +104,18 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         if (_hasAnalysis && _analyzedInventoryRevision != _service.InventoryRevision)
             _analysisStale = true;
 
+        if (_analysisTask != null) ImGui.BeginDisabled();
         if (ImGui.Button("分析目前庫存"))
         {
-            var stopwatch = Stopwatch.StartNew();
-            _results = _service.GetResults(_includeRetainers, _includeSubrecipes, _ignoreCrystals, _craftableOnly, _category);
-            stopwatch.Stop();
-            _analyzedInventoryRevision = _service.InventoryRevision;
-            _hasAnalysis = true;
-            _analysisStale = false;
-            Logger.LogInformation("Manual craft availability analysis completed with {ResultCount} results in {ElapsedMilliseconds} ms.",
-                _results.Count, stopwatch.ElapsedMilliseconds);
+            _pendingInventoryRevision = _service.InventoryRevision;
+            _analysisStopwatch = Stopwatch.StartNew();
+            _analysisTask = _service.GetResultsAsync(_includeRetainers, _includeSubrecipes, _ignoreCrystals, _craftableOnly, _category);
         }
+        if (_analysisTask != null) ImGui.EndDisabled();
         ImGui.SameLine();
-        if (!_hasAnalysis)
+        if (_analysisTask != null)
+            ImGui.TextColored(new Vector4(0.55f, 0.75f, 1f, 1f), "背景分析中；視窗與遊戲不會被計算阻塞。");
+        else if (!_hasAnalysis)
             ImGui.TextDisabled("尚未分析；開啟視窗與切換選項不會自動計算。");
         else if (_analysisStale)
             ImGui.TextColored(new Vector4(1f, 0.75f, 0.25f, 1f), "庫存或選項已改變；目前顯示上次結果，請按分析更新。");
@@ -221,6 +225,33 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                      System.Linq.Enumerable.Where(_hqPredictions,
                          pair => pair.Value.StartsWith("PENDING|", StringComparison.Ordinal))))
             _hqPredictions[recipeId.Key] = _artisanCraftService.PollHqPrediction(recipeId.Key);
+    }
+
+    private void PollPendingAnalysis()
+    {
+        if (_analysisTask == null || !_analysisTask.IsCompleted)
+            return;
+
+        _analysisStopwatch?.Stop();
+        try
+        {
+            _results = _analysisTask.GetAwaiter().GetResult();
+            _analyzedInventoryRevision = _pendingInventoryRevision;
+            _hasAnalysis = true;
+            _analysisStale = _analyzedInventoryRevision != _service.InventoryRevision;
+            Logger.LogInformation("Background craft availability analysis completed with {ResultCount} results in {ElapsedMilliseconds} ms.",
+                _results.Count, _analysisStopwatch?.ElapsedMilliseconds ?? 0);
+        }
+        catch (Exception ex)
+        {
+            _analysisStale = true;
+            Logger.LogError(ex, "Background craft availability analysis failed safely.");
+        }
+        finally
+        {
+            _analysisTask = null;
+            _analysisStopwatch = null;
+        }
     }
 
     public override bool SaveState => true;
