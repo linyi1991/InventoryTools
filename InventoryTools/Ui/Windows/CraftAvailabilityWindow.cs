@@ -33,6 +33,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
     private readonly ImGuiTooltipService _tooltipService;
     private readonly System.Collections.Generic.Dictionary<uint, int> _craftAmounts = new();
     private readonly System.Collections.Generic.Dictionary<uint, string> _hqPredictions = new();
+    private readonly System.Collections.Generic.Dictionary<uint, (int Amount, bool IncludeRetainers)> _predictionRequests = new();
     private IReadOnlyList<CraftAvailabilityResult> _results = Array.Empty<CraftAvailabilityResult>();
     private long _analyzedInventoryRevision = -1;
     private bool _hasAnalysis;
@@ -93,7 +94,11 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
             _analysisStale = true;
         ImGui.SameLine();
         if (ImGui.Checkbox("計算所有僱員庫存", ref _includeRetainers))
+        {
             _analysisStale = true;
+            _hqPredictions.Clear();
+            _predictionRequests.Clear();
+        }
         ImGui.SameLine();
         if (ImGui.Checkbox("遞迴製作半成品", ref _includeSubrecipes))
             _analysisStale = true;
@@ -125,7 +130,7 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         ImGui.TextDisabled($"只有按下「分析目前庫存」才會計算；已建立 {_service.IndexedIngredientCount:N0} 個素材反向索引。");
         ImGui.TextWrapped("開啟「遞迴製作半成品」後，會把庫存原料可先做出的半成品繼續投入下一層配方，計算每種成品各自最多可製作的次數。只計入角色四頁背包／水晶與僱員七頁背包／水晶；販售欄、鞍囊、裝備庫及住宅等 Artisan 無法自動取用的位置不列入。每列都是獨立估算，同一批材料不能同時完成所有列；MAX 填的是製作次數，例如 33 次、每次產出 3 個就是 99 個成品，Artisan 會領取 33 次配方實際需要的材料，再處理子配方。");
         ImGui.TextColored(new Vector4(0.35f, 0.9f, 0.45f, 1f),
-            "品質安全鎖：Craftimizer 2.11 為主求解器；HQ 須從 0 初始品質達 100%，收藏品須達 Artisan 所選檔位。計算失敗時 Artisan 可安全備援，但未達標不會開始製作。");
+            "品質安全鎖：使用 Artisan 模擬器同一求解路徑；材料按 HQ 優先分段，每種 HQ/NQ 起始品質只分析一次，全部達標才開始大量製作。");
         ImGui.Separator();
 
         var results = _results;
@@ -146,6 +151,9 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
             {
                 if (!string.IsNullOrWhiteSpace(_search) && !result.Name.Contains(_search, StringComparison.CurrentCultureIgnoreCase))
                     continue;
+                if (!_craftAmounts.TryGetValue(result.RecipeId, out var amount))
+                    amount = 1;
+                amount = Math.Clamp(amount, 1, (int)Math.Max(1u, result.MaxCrafts));
                 ImGui.TableNextRow();
                 ImGui.TableNextColumn();
                 ImGui.TextUnformatted(result.Name);
@@ -172,9 +180,13 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                     if (hasPrediction && ImGui.IsItemHovered())
                         ImGui.SetTooltip(prediction!.Contains('|') ? prediction[(prediction.IndexOf('|') + 1)..] : prediction);
                     if (ImGui.SmallButton($"模擬製作##predict-hq-{result.RecipeId}"))
-                        _hqPredictions[result.RecipeId] = _artisanCraftService.StartHqPrediction(result.RecipeId);
+                    {
+                        _predictionRequests[result.RecipeId] = (amount, _includeRetainers);
+                        _hqPredictions[result.RecipeId] = _artisanCraftService.StartHqPrediction(
+                            result.RecipeId, amount, _includeRetainers);
+                    }
                     if (ImGui.IsItemHovered())
-                        ImGui.SetTooltip("在背景執行 Craftimizer 2.11 Next Action 全流程模擬，不會取料、切換職業、實際使用食藥或開始製作。會採用目前裝備及 Artisan 已設定的食藥數值；修改後請重新模擬。");
+                        ImGui.SetTooltip("使用 Artisan 右側模擬器同一求解路徑；按目前指定次數先用角色／僱員 HQ，HQ 用盡後再分析新的混合或全 NQ 配料。每種起始品質只算一次，不會按 999 次重複求解。");
                 }
                 else
                 {
@@ -185,12 +197,13 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                 ImGui.TableNextColumn();
                 ImGui.TextUnformatted(result.MaxCrafts == 0 ? "—" : $"{result.MaxCrafts:N0} 次 / {result.MaxCrafts * result.Yield:N0} 個");
                 ImGui.TableNextColumn();
-                if (!_craftAmounts.TryGetValue(result.RecipeId, out var amount))
-                    amount = 1;
-                amount = Math.Clamp(amount, 1, (int)Math.Max(1u, result.MaxCrafts));
                 ImGui.SetNextItemWidth(70 * ImGui.GetIO().FontGlobalScale);
                 if (ImGui.InputInt($"##amount-{result.RecipeId}", ref amount, 1, 10))
+                {
                     amount = Math.Clamp(amount, 1, (int)Math.Max(1u, result.MaxCrafts));
+                    _hqPredictions.Remove(result.RecipeId);
+                    _predictionRequests.Remove(result.RecipeId);
+                }
                 _craftAmounts[result.RecipeId] = amount;
                 ImGui.SameLine();
                 if (result.MaxCrafts == 0) ImGui.BeginDisabled();
@@ -198,18 +211,20 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
                 {
                     amount = checked((int)result.MaxCrafts);
                     _craftAmounts[result.RecipeId] = amount;
+                    _hqPredictions.Remove(result.RecipeId);
+                    _predictionRequests.Remove(result.RecipeId);
                 }
                 if (ImGui.IsItemHovered())
                     ImGui.SetTooltip("將數量填成此配方依目前庫存獨立估算的最大製作次數；不會立即開始製作。");
                 ImGui.SameLine();
                 if (ImGui.SmallButton($"製作##craft-{result.RecipeId}"))
-                    _artisanCraftService.PrepareAndCraft(result.RecipeId, amount, _includeSubrecipes);
+                    _artisanCraftService.PrepareAndCraft(result.RecipeId, amount, _includeSubrecipes, _includeRetainers);
                 if (ImGui.IsItemHovered())
                     ImGui.SetTooltip(isCollectable
                         ? "交給 Artisan 背景執行 Craftimizer 2.11 預測；達到 Artisan 設定的收藏品檔位後，才取料、切換職業並以 Craftimizer 實際製作。"
                         : !canBeHq
                         ? "交給 Artisan 取料、切換職業並以 Craftimizer 2.11 實際製作；此成品為固定品質，不需要 HQ 判斷。"
-                        : "交給 Artisan 背景執行 Craftimizer 2.11 預測；只有從 0 初始品質達到 100%，且模擬技能成功率皆為 100%，才會取料並開始製作。若 Craftimizer 中途失敗，Artisan 只會使用安全備援。");
+                        : "交給 Artisan 依 HQ 優先分段預演；相同配料重用結果，HQ 耗盡才重新分析下一種 HQ/NQ 配料，全部都能達到 100% 才取料並開始製作。");
                 if (result.MaxCrafts == 0) ImGui.EndDisabled();
             }
             ImGui.EndTable();
@@ -224,7 +239,15 @@ public sealed class CraftAvailabilityWindow : GenericWindow, IMenuWindow
         foreach (var recipeId in System.Linq.Enumerable.ToArray(
                      System.Linq.Enumerable.Where(_hqPredictions,
                          pair => pair.Value.StartsWith("PENDING|", StringComparison.Ordinal))))
-            _hqPredictions[recipeId.Key] = _artisanCraftService.PollHqPrediction(recipeId.Key);
+        {
+            if (!_predictionRequests.TryGetValue(recipeId.Key, out var request))
+            {
+                _hqPredictions.Remove(recipeId.Key);
+                continue;
+            }
+            _hqPredictions[recipeId.Key] = _artisanCraftService.PollHqPrediction(
+                recipeId.Key, request.Amount, request.IncludeRetainers);
+        }
     }
 
     private void PollPendingAnalysis()

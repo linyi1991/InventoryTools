@@ -8,28 +8,29 @@ namespace InventoryTools.CraftAvailability;
 
 public sealed class ArtisanCraftService
 {
-    private readonly ICallGateSubscriber<ushort, int, bool, object> _prepareAndCraftWithCraftimizer;
-    private readonly ICallGateSubscriber<ushort, string> _startCraftimizerPrediction;
-    private readonly ICallGateSubscriber<ushort, string> _getCraftimizerPrediction;
+    private readonly ICallGateSubscriber<ushort, int, bool, bool, object> _prepareAndCraftWithCraftimizer;
+    private readonly ICallGateSubscriber<ushort, int, bool, string> _startCraftimizerPrediction;
+    private readonly ICallGateSubscriber<ushort, int, bool, string> _getCraftimizerPrediction;
     private readonly IChatUtilities _chatUtilities;
     private readonly ILogger<ArtisanCraftService> _logger;
 
     public ArtisanCraftService(IDalamudPluginInterface pluginInterface, IChatUtilities chatUtilities,
         ILogger<ArtisanCraftService> logger)
     {
-        _prepareAndCraftWithCraftimizer = pluginInterface.GetIpcSubscriber<ushort, int, bool, object>("Artisan.PrepareAndCraftWithCraftimizer");
-        _startCraftimizerPrediction = pluginInterface.GetIpcSubscriber<ushort, string>("Artisan.StartCraftimizerHqPrediction");
-        _getCraftimizerPrediction = pluginInterface.GetIpcSubscriber<ushort, string>("Artisan.GetCraftimizerHqPrediction");
+        _prepareAndCraftWithCraftimizer = pluginInterface.GetIpcSubscriber<ushort, int, bool, bool, object>("Artisan.PrepareAndCraftWithCraftimizerWithInventory");
+        _startCraftimizerPrediction = pluginInterface.GetIpcSubscriber<ushort, int, bool, string>("Artisan.StartCraftimizerHqPredictionWithInventory");
+        _getCraftimizerPrediction = pluginInterface.GetIpcSubscriber<ushort, int, bool, string>("Artisan.GetCraftimizerHqPredictionWithInventory");
         _chatUtilities = chatUtilities;
         _logger = logger;
     }
 
-    public void PrepareAndCraft(uint recipeId, int amount, bool includeSubcrafts)
+    public void PrepareAndCraft(uint recipeId, int amount, bool includeSubcrafts, bool includeRetainers)
     {
         try
         {
-            _prepareAndCraftWithCraftimizer.InvokeAction(checked((ushort)recipeId), amount, includeSubcrafts);
-            _chatUtilities.Print($"已交給 Artisan／Craftimizer 2.11：背景預測通過後，才會補充僱員材料、切換職業並製作 {amount} 次。");
+            _prepareAndCraftWithCraftimizer.InvokeAction(checked((ushort)recipeId), amount,
+                includeSubcrafts, includeRetainers);
+            _chatUtilities.Print($"已交給 Artisan／Craftimizer 2.11：HQ 優先分段預演通過後，才會補充僱員材料、切換職業並製作 {amount} 次。");
         }
         catch (Exception ex)
         {
@@ -38,11 +39,11 @@ public sealed class ArtisanCraftService
         }
     }
 
-    public string StartHqPrediction(uint recipeId)
+    public string StartHqPrediction(uint recipeId, int amount, bool includeRetainers)
     {
         try
         {
-            return _startCraftimizerPrediction.InvokeFunc(checked((ushort)recipeId));
+            return _startCraftimizerPrediction.InvokeFunc(checked((ushort)recipeId), amount, includeRetainers);
         }
         catch (Exception ex)
         {
@@ -51,11 +52,11 @@ public sealed class ArtisanCraftService
         }
     }
 
-    public string PollHqPrediction(uint recipeId)
+    public string PollHqPrediction(uint recipeId, int amount, bool includeRetainers)
     {
         try
         {
-            return _getCraftimizerPrediction.InvokeFunc(checked((ushort)recipeId));
+            return _getCraftimizerPrediction.InvokeFunc(checked((ushort)recipeId), amount, includeRetainers);
         }
         catch (Exception ex)
         {
