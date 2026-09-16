@@ -70,12 +70,12 @@ public class MarketboardWorldSetting : ChoiceColumnSetting<(uint,string)?>
     }
 
     public override string Key { get; set; } = "MBWorld";
-    public override string Name { get; set; } = "World";
-    public override string HelpText { get; set; } = "The world for this column to display?";
+    public override string Name { get; set; } = "伺服器";
+    public override string HelpText { get; set; } = "此欄位要顯示哪個伺服器的資料？";
     public override (uint,string)? DefaultValue { get; set; } = null;
     public override List<(uint,string)?> GetChoices(ColumnConfiguration configuration)
     {
-        List<(uint RowId, string FormattedName)?> worlds = _worldSheet.Where(c => c.IsPublic).Select(c =>((uint, string)?)(c.RowId, c.Name.ExtractText())).ToList();
+        List<(uint RowId, string FormattedName)?> worlds = _worldSheet.Where(c => TwMarketWorlds.IsAvailableForMarket(c.RowId, c.IsPublic)).Select(c =>((uint, string)?)(c.RowId, c.Name.ExtractText())).ToList();
         worlds.Insert(0,(0,"Active World"));
         return worlds;
     }

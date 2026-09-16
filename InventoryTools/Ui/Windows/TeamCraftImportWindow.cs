@@ -42,11 +42,11 @@ public class TeamCraftImportWindow : GenericWindow
     {
         ImGui.Text("匯入製作清單：");
         ImGui.SameLine();
-        ImGuiService.HelpMarker("Guide to importing lists.\r\n\r\n" +
-                                "Step 1. Open a list on Teamcraft with the items you wish to craft.\r\n\r\n" +
-                                "Step 2. Find the 'Items' \"Copy as Text\" button. You only want to copy the output items.\r\n\r\n" +
-                                "Step 3. Paste into the text box below in this window.\r\n\r\n" +
-                                "Step 4. Click import.");
+        ImGuiService.HelpMarker("清單匯入說明。\r\n\r\n" +
+                                "步驟 1：在 Teamcraft 開啟包含待製作物品的清單。\r\n\r\n" +
+                                "步驟 2：在 Items 區段使用 Copy as Text，只複製成品項目。\r\n\r\n" +
+                                "步驟 3：貼到此視窗下方的文字方塊。\r\n\r\n" +
+                                "步驟 4：按「匯入」。");
         ImGui.Text("請在此貼上文字");
         ImGui.InputTextMultiline("###FinalItems", ref _importListItems, 10000000, new Vector2(ImGui.GetContentRegionAvail().X, 100));
 

@@ -29,10 +29,10 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 2;
         public override string Key { get; set; } = "Destinations";
-        public override string Name { get; set; } = "目的地";
+        public override string Name { get; set; } = "顯示整理時應移往的位置；歷史清單則顯示物品曾移往的位置。";
 
         public override string HelpText { get; set; } =
-            "This lists all the destinations that are applicable given the destinations picked above.";
+            "列出符合上方目的地設定的所有庫存。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 
@@ -46,7 +46,7 @@ namespace InventoryTools.Logic.Filters
         public override void Draw(FilterConfiguration configuration)
         {
             ImGui.NewLine();
-            ImGui.Text("Destination Information: ");
+            ImGui.Text("目的地資訊：");
             ImGui.SameLine();
             ImGuiService.HelpMarker(GetHelpText(configuration));
             var allCharacters = _characterMonitor.Characters;

@@ -41,7 +41,7 @@ namespace InventoryTools.Ui.Pages
         public override List<MessageBase>? Draw()
         {
             ImGui.PushID("ImportSection");
-            if (ImGui.CollapsingHeader("Export", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("匯出###Export", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 var filterConfigurations = _listService.Lists;
                 ImGui.PushStyleVar(ImGuiStyleVar.CellPadding, new Vector2(5, 5) * ImGui.GetIO().FontGlobalScale);
@@ -54,15 +54,15 @@ namespace InventoryTools.Ui.Pages
                 {
                     if (table)
                     {
-                        ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)0);
-                        ImGui.TableSetupColumn("Type", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)1);
+                        ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)0);
+                        ImGui.TableSetupColumn("類型###Type", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)1);
                         ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)2);
                         ImGui.TableHeadersRow();
                         if (filterConfigurations.Count == 0)
                         {
                             ImGui.TableNextRow();
                             ImGui.TableNextColumn();
-                            ImGui.TextUnformatted("No lists created yet!");
+                            ImGui.TextUnformatted("尚未建立清單！");
                             ImGui.TableNextColumn();
                             ImGui.TableNextColumn();
                         }
@@ -88,11 +88,11 @@ namespace InventoryTools.Ui.Pages
                             ImGui.TableNextColumn();
                             ImGui.TextUnformatted(filterConfiguration.FormattedFilterType);
                             ImGui.TableNextColumn();
-                            if (ImGui.SmallButton("Export Configuration##" + index))
+                            if (ImGui.SmallButton("匯出設定###Export Configuration##" + index))
                             {
                                 var base64 = _importExportService.ToBase64(filterConfiguration);
                                 _clipboardService.CopyToClipboard(base64);
-                                _chatUtilities.PrintClipboardMessage("[Export] ", "Filter Configuration");
+                                _chatUtilities.PrintClipboardMessage("[匯出] ", "清單設定");
                             }
                         }
                     }
@@ -101,22 +101,22 @@ namespace InventoryTools.Ui.Pages
                 ImGui.PopStyleVar();
             }
 
-            if (ImGui.CollapsingHeader("Import", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("匯入###Import", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 var importData = ImportData;
-                if (ImGui.InputTextMultiline("Paste list here",ref importData, 10000, new Vector2(400, 200) * ImGui.GetIO().FontGlobalScale))
+                if (ImGui.InputTextMultiline("在此貼上清單###Paste list here",ref importData, 10000, new Vector2(400, 200) * ImGui.GetIO().FontGlobalScale))
                 {
                     ImportData = importData;
                     ImportFailed = false;
                 }
 
-                if (ImGui.Button("Import##ImportBtn"))
+                if (ImGui.Button("匯入###Import##ImportBtn"))
                 {
                     if (ImportData == "")
                     {
                         ImportFailed = true;
                         FailedReason =
-                            "You must paste a list generated via the export function before pressing import.";
+                            "請先貼上透過匯出功能產生的清單，再按匯入。";
                     }
                     else
                     {
@@ -130,14 +130,14 @@ namespace InventoryTools.Ui.Pages
                             {
                                 ImportFailed = true;
                                 FailedReason =
-                                    "Invalid data detected in import string. Please make sure this string is valid.";
+                                    "匯入資料無效，請確認已完整複製清單內容。";
                             }
                         }
                         catch (ListImportVersionException e)
                         {
                             ImportFailed = true;
                             FailedReason =
-                                $"This list is no longer valid. It's version is {(e.ImportingVersion?.ToString() ?? "0")} and it's required version is {e.RequiredVersion}.";
+                                $"此清單版本不相容。目前版本：{(e.ImportingVersion?.ToString() ?? "0")}；所需版本：{e.RequiredVersion}.";
                         }
                     }
                 }

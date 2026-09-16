@@ -23,7 +23,7 @@ public class ItemCalamitySalvagerShopUseRenderer : ItemCalamitySalvagerShopSourc
     private readonly ItemSheet _itemSheet;
     private readonly ITextureProvider _textureProvider;
 
-    public override string HelpText => "Can the item be spent at the calamity salvager?";
+    public override string HelpText => "此物品是否可用於失物管理人交換物品？";
 
     public ItemCalamitySalvagerShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
@@ -58,10 +58,10 @@ public class ItemCalamitySalvagerShopSourceRenderer : ItemInfoRenderer<ItemCalam
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CalamitySalvagerShop;
-    public override string SingularName => "Calamity Salvager";
-    public override string PluralName => "Calamity Salvagers";
+    public override string SingularName => "失物管理人";
+    public override string PluralName => "失物管理人";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be purchased from the Calamity Salvager?";
+    public override string HelpText => "此物品是否可向失物管理人購買？";
 
     public override byte MaxColumns => 1;
 
@@ -71,9 +71,9 @@ public class ItemCalamitySalvagerShopSourceRenderer : ItemInfoRenderer<ItemCalam
         var firstItem = asSources[0];
 
         var costItems = asSources.SelectMany(c => c.CostItems).DistinctBy(d => d.ItemId).ToList();
-        DrawItems("Costs: ", costItems);
+        DrawItems("費用：", costItems);
         var rewardItems = asSources.SelectMany(c => c.RewardItems).DistinctBy(d => d.ItemId).ToList();
-        DrawItems("Rewards: ", rewardItems);
+        DrawItems("獎勵：", rewardItems);
 
         if (firstItem.GilShopItem.Base.AchievementRequired.RowId != 0)
         {
@@ -97,8 +97,8 @@ public class ItemCalamitySalvagerShopSourceRenderer : ItemInfoRenderer<ItemCalam
     {
         var asSource = AsSource(source);
 
-        DrawItems("Costs: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("費用：", asSource.CostItems);
+        DrawItems("獎勵：", asSource.RewardItems);
 
         if (asSource.GilShopItem.Base.AchievementRequired.RowId != 0)
         {

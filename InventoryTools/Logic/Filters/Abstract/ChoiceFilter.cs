@@ -45,7 +45,7 @@ namespace InventoryTools.Logic.Filters.Abstract
 
             var currentSearchCategory = activeChoice != null ? GetFormattedChoice(configuration, activeChoice) : "";
             ImGui.SetNextItemWidth(InputSize);
-            using (var combo = ImRaii.Combo("##" + Key + "Combo", currentSearchCategory))
+            using (var combo = ImRaii.Combo("##" + Key + "Combo", TwSettingsLocalization.Translate(currentSearchCategory)))
             {
                 if (combo.Success)
                 {
@@ -65,7 +65,7 @@ namespace InventoryTools.Logic.Filters.Abstract
                             continue;
                         }
 
-                        if (ImGui.Selectable(text, currentSearchCategory == text))
+                        if (ImGui.Selectable(TwSettingsLocalization.Translate(text) + "###" + text, currentSearchCategory == text))
                         {
                             UpdateFilterConfiguration(configuration, item);
                         }
@@ -76,7 +76,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重設###Reset##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }

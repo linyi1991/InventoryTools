@@ -27,10 +27,10 @@ public class CraftCraftCompletionModeFilter : ChoiceFilter<CraftCompletionMode>
     }
 
     public override string Key { get; set; } = "HideCompletedMode";
-    public override string Name { get; set; } = "Craft Completion Mode";
+    public override string Name { get; set; } = "製作完成處理方式";
 
     public override string HelpText { get; set; } =
-        "When an output reaches 0, should it be deleted or just be hidden(when Hide Completed is checked).";
+        "成品需求歸零後，刪除此項目，或僅在勾選「隱藏已完成」時隱藏。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override CraftCompletionMode DefaultValue { get; set; } = CraftCompletionMode.Delete;

@@ -52,25 +52,25 @@ namespace InventoryTools.Ui
                     {
                         if (textChild.Success)
                         {
-                            ImGui.TextWrapped("Welcome to Allagan Tools.");
+                            ImGui.TextWrapped("歡迎使用 Allagan Tools。");
                             ImGui.TextWrapped(
-                                "Allagan Tools is a plugin for Final Fantasy XIV that provides the following features:");
+                                "Allagan Tools 是 FINAL FANTASY XIV 插件，提供下列功能：");
                             using (ImRaii.PushIndent())
                             {
                                 ImGui.Bullet();
-                                ImGui.Text("Track your inventories");
+                                ImGui.Text("追蹤所有庫存");
                                 ImGui.Bullet();
-                                ImGui.Text("Plan your crafts");
+                                ImGui.Text("規劃製作清單");
                                 ImGui.Bullet();
-                                ImGui.Text("Provide information about items, monsters, duties and much more");
+                                ImGui.Text("查詢物品、怪物、任務等豐富資訊");
                             }
 
                             ImGui.TextWrapped(
-                                "You can open various new windows using command shortcuts(the main filter  or from the main window.");
+                                "可透過指令捷徑或主視窗開啟各項功能視窗。");
                             ImGui.TextWrapped(
-                                "If you're unsure, right-click on an item or a table row for more options!");
+                                "對物品或表格列按右鍵，即可查看更多操作！");
                             ImGui.TextWrapped(
-                                "To learn about the different features, I recommend going to the settings section and reading the information provided by the ? icons.");
+                                "想了解各項功能，請前往設定並查看「?」圖示提供的說明。");
                         }
                     }
 
@@ -78,13 +78,13 @@ namespace InventoryTools.Ui
                     {
                         if (buttonsChild.Success)
                         {
-                            if (ImGui.Button("Close"))
+                            if (ImGui.Button("關閉###Close"))
                             {
                                 Close();
                             }
 
                             ImGui.SameLine(0, 4);
-                            if (ImGui.Button("Close & Open Main Window"))
+                            if (ImGui.Button("關閉並開啟主視窗###Close & Open Main Window"))
                             {
                                 Close();
                                 MediatorService.Publish(new OpenGenericWindowMessage(typeof(FiltersWindow)));

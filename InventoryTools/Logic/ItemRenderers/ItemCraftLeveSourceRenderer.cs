@@ -32,9 +32,9 @@ public class ItemCraftLeveSourceRenderer : ItemInfoRenderer<ItemCraftLeveSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CraftLeve;
-    public override string SingularName => "Craft Leve";
-    public override string PluralName => "Craft Leves";
-    public override string HelpText => "Is this item obtained from a craft leve?";
+    public override string SingularName => "製作理符";
+    public override string PluralName => "製作理符";
+    public override string HelpText => "此物品是否可從製作理符取得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
     public override Action<ItemSource> DrawTooltip => source =>
@@ -42,12 +42,12 @@ public class ItemCraftLeveSourceRenderer : ItemInfoRenderer<ItemCraftLeveSource>
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
 
-        ImGui.TextUnformatted("Leve: " + leveRow.Name.ExtractText());
-        ImGui.TextUnformatted("Class: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
-        ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
-        ImGui.TextUnformatted("Allowance Cost: " + leveRow.AllowanceCost);
-        ImGui.TextUnformatted("Loot Chance: " + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
-        DrawItems("Possible Reward Items: ", asSource.RewardItems);
+        ImGui.TextUnformatted("理符：" + leveRow.Name.ExtractText());
+        ImGui.TextUnformatted("職業：" + leveRow.ClassJobCategory.Value.Name.ExtractText());
+        ImGui.TextUnformatted("經驗值獎勵：" + asSource.ExpReward);
+        ImGui.TextUnformatted("消耗理符受理權：" + leveRow.AllowanceCost);
+        ImGui.TextUnformatted("掉落機率：" + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
+        DrawItems("可能獲得的物品：", asSource.RewardItems);
         DrawMaps(source);
     };
 
@@ -64,6 +64,6 @@ public class ItemCraftLeveSourceRenderer : ItemInfoRenderer<ItemCraftLeveSource>
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
         return
-            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} xp) ({leveRow.AllowanceCost} allowances)";
+            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} 經驗值) ({leveRow.AllowanceCost} allowances)";
     };
 }

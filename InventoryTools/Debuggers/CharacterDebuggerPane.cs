@@ -102,30 +102,30 @@ public class CharacterDebuggerPane : DebugLogPane
 
     public override unsafe void DrawInfo()
     {
-        if (ImGui.CollapsingHeader("Session / Active State"))
+        if (ImGui.CollapsingHeader("工作階段／目前狀態###Session / Active State"))
         {
             ImGui.TextUnformatted($"Is Logged In: {_characterMonitor.IsLoggedIn}");
             ImGui.TextUnformatted($"Local Content ID: {_characterMonitor.LocalContentId}");
             ImGui.TextUnformatted($"Internal Character ID: {_characterMonitor.InternalCharacterId}");
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Active Character:");
+            ImGui.TextUnformatted("目前角色：");
             ImGui.TextUnformatted(_characterMonitor.ActiveCharacter != null
                 ? $"{_characterMonitor.ActiveCharacter.Name} ({_characterMonitor.ActiveCharacterId})"
                 : "<none>");
 
-            ImGui.TextUnformatted("Active Retainer:");
+            ImGui.TextUnformatted("目前雇員：");
             ImGui.TextUnformatted(_characterMonitor.ActiveRetainer != null
                 ? $"{_characterMonitor.ActiveRetainer.Name} ({_characterMonitor.ActiveRetainerId})"
                 : "<none>");
 
-            ImGui.TextUnformatted("Active Free Company:");
+            ImGui.TextUnformatted("目前部隊：");
             ImGui.TextUnformatted(_characterMonitor.ActiveFreeCompany != null
                 ? $"{_characterMonitor.ActiveFreeCompany.Name} ({_characterMonitor.ActiveFreeCompanyId})"
                 : "<none>");
         }
 
-        if (ImGui.CollapsingHeader("Housing"))
+        if (ImGui.CollapsingHeader("房屋###Housing"))
         {
             ImGui.TextUnformatted($"Active House ID: {_characterMonitor.ActiveHouseId}");
             ImGui.TextUnformatted($"Cached Ward Id: {_characterMonitor.InternalWardId}");
@@ -147,11 +147,11 @@ public class CharacterDebuggerPane : DebugLogPane
             }
 
             ImGui.Separator();
-            ImGui.TextUnformatted("Owned Houses:");
+            ImGui.TextUnformatted("擁有的房屋：");
             foreach (var id in _characterMonitor.GetOwnedHouseIds())
                 ImGui.BulletText(id.ToString());
 
-            ImGui.TextUnformatted("Has Housing Permission: " +
+            ImGui.TextUnformatted("具有房屋權限：" +
                 (_characterMonitor.InternalHasHousePermission ||
                  _characterMonitor.GetOwnedHouseIds().Contains(_characterMonitor.InternalHouseId)
                     ? "Yes"
@@ -161,30 +161,30 @@ public class CharacterDebuggerPane : DebugLogPane
         //
         // Worlds
         //
-        if (ImGui.CollapsingHeader("Worlds"))
+        if (ImGui.CollapsingHeader("伺服器###Worlds"))
         {
             foreach (var wid in _characterMonitor.GetWorldIds())
                 ImGui.BulletText($"World {wid}");
         }
 
-        if (ImGui.CollapsingHeader("Characters"))
+        if (ImGui.CollapsingHeader("角色###Characters"))
         {
             foreach (var kv in _characterMonitor.Characters)
                 ImGui.BulletText($"{kv.Key}: {kv.Value.Name}");
         }
 
-        if (ImGui.CollapsingHeader("Retainers"))
+        if (ImGui.CollapsingHeader("雇員###Retainers"))
         {
             using (var table = ImRaii.Table("retainerTable", 6))
             {
                 if (table)
                 {
-                    ImGui.TableSetupColumn("Hire Order");
-                    ImGui.TableSetupColumn("Name");
-                    ImGui.TableSetupColumn("Type");
-                    ImGui.TableSetupColumn("Gil");
+                    ImGui.TableSetupColumn("雇用順序###Hire Order");
+                    ImGui.TableSetupColumn("名稱###Name");
+                    ImGui.TableSetupColumn("類型###Type");
+                    ImGui.TableSetupColumn("金幣###Gil");
                     ImGui.TableSetupColumn("ID");
-                    ImGui.TableSetupColumn("Owner ID");
+                    ImGui.TableSetupColumn("持有者 ID###Owner ID");
                     ImGui.TableHeadersRow();
 
                     foreach (var retainer in _characterMonitor.GetRetainerCharacters())
@@ -216,7 +216,7 @@ public class CharacterDebuggerPane : DebugLogPane
             }
         }
 
-        if (ImGui.CollapsingHeader("Character Objects"))
+        if (ImGui.CollapsingHeader("角色物件###Character Objects"))
         {
             foreach (var kv in _characterMonitor.Characters)
             {
@@ -232,7 +232,7 @@ public class CharacterDebuggerPane : DebugLogPane
             }
         }
 
-        if (ImGui.CollapsingHeader("Acquired Items"))
+        if (ImGui.CollapsingHeader("已取得物品###Acquired Items"))
         {
             foreach (var characterPair in _configuration.AcquiredItems)
             {

@@ -20,7 +20,7 @@ public class ItemGilShopUseRenderer : ItemGilShopSourceRenderer
 {
     private readonly MapSheet _mapSheet;
     private readonly ItemSheet _itemSheet;
-    public override string HelpText => "Can the item be spent at a gil shop?";
+    public override string HelpText => "此物品是否可用於金幣商店交換物品？";
 
     public ItemGilShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
@@ -59,9 +59,9 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GilShop;
-    public override string SingularName => "Gil Shop";
-    public override string PluralName => "Gil Shops";
-    public override string HelpText => "Can the item be purchased at a gil shop?";
+    public override string SingularName => "金幣商店";
+    public override string PluralName => "金幣商店";
+    public override string HelpText => "此物品是否可向金幣商店購買？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 
@@ -72,7 +72,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
         var asSources = AsSource(sources);
         var firstItem = asSources[0];
 
-        ImGui.Text("Costs:");
+        ImGui.Text("費用：");
 
         using (ImRaii.PushIndent())
         {
@@ -107,7 +107,7 @@ public class ItemGilShopSourceRenderer : ItemInfoRenderer<ItemGilShopSource>
         var asSource = AsSource(source);
         var maps = source.MapIds?.Select(c => _mapSheet.GetRow(c).FormattedName).ToList() ?? new List<string>();
 
-        ImGui.Text("Costs:");
+        ImGui.Text("費用：");
 
         using (ImRaii.PushIndent())
         {

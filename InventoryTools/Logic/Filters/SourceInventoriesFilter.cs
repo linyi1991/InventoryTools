@@ -19,9 +19,9 @@ namespace InventoryTools.Logic.Filters
         }
         public override int LabelSize { get; set; } = 240;
         public override string Key { get; set; } = "SourceInventories";
-        public override string Name { get; set; } = "Source - Inventories";
+        public override string Name { get; set; } = "來源－庫存";
         public override string HelpText { get; set; } =
-            "This is a list of source inventories to sort items from based on the filter configuration";
+            "依篩選設定列出要整理物品的來源庫存。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 
         public override List<InventorySearchScope>? DefaultValue { get; set; } = null;
@@ -33,9 +33,9 @@ namespace InventoryTools.Logic.Filters
             {
                 case FilterType.SearchFilter:
                 case FilterType.HistoryFilter:
-                    return "Search Inventories";
+                    return "搜尋庫存";
                 case FilterType.SortingFilter:
-                    return "Source Inventories";
+                    return "來源庫存";
             }
 
             return Name;

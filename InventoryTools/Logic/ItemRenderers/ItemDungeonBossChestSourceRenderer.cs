@@ -26,16 +26,16 @@ public class ItemDungeonBossChestSourceRenderer : ItemInfoRenderer<ItemDungeonBo
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.DungeonBossChest;
-    public override string SingularName => "Dungeon Boss Chest";
-    public override string PluralName => "Dungeon Boss Chests";
-    public override string HelpText => "Can the item appear in a dungeon boss chest?";
+    public override string SingularName => "迷宮首領寶箱";
+    public override string PluralName => "迷宮首領寶箱";
+    public override string HelpText => "此物品是否出現在迷宮首領寶箱中？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Dungeon: " + asSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("迷宮：" + asSource.ContentFinderCondition.FormattedName);
         using (ImRaii.PushIndent())
         {
             ImGui.Text(asSource.BNpcName.Base.Singular.ExtractText().ToTitleCase() + " (Boss " + (asSource.DungeonBoss.FightNo + 1) + ")");
@@ -55,7 +55,7 @@ public class ItemDungeonBossChestSourceRenderer : ItemInfoRenderer<ItemDungeonBo
         var groupedByDungeon = asSources.GroupBy(c => c.DungeonBoss.ContentFinderCondition.RowId);
         foreach (var dungeon in groupedByDungeon)
         {
-            ImGui.Text("Dungeon: " + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
+            ImGui.Text("迷宮：" + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
             using (ImRaii.PushIndent())
             {
                 foreach (var itemSource in dungeon.DistinctBy(c => c.DungeonBoss.BNpcName.RowId))

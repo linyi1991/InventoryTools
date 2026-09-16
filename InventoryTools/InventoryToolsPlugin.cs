@@ -87,7 +87,7 @@ namespace InventoryTools
         {
             Stopwatch loadConfigStopwatch = new Stopwatch();
             loadConfigStopwatch.Start();
-            pluginLog.Verbose("Starting Allagan Tools.");
+            pluginLog.Information("Allagan Tools 13.1.24-api13-tw15-tw-world-visibility: API13/net9, TW display localization and compatible upstream fixes.");
             _pluginLog = pluginLog;
             _framework = framework;
             PluginInterface = pluginInterface;

@@ -32,19 +32,19 @@ public class IngredientPreferenceLocalizer
                         {
                             itemName3 =
                                 (_itemSheet.GetRow(ingredientPreference.LinkedItem3Id.Value)
-                                    ?.NameString ?? "Unknown Item") + " - " +
+                                    ?.NameString ?? "未知物品") + " - " +
                                 ingredientPreference.LinkedItem3Quantity.Value;
                         }
 
                         itemName2 =
                             (_itemSheet.GetRow(ingredientPreference.LinkedItem2Id.Value)
-                                ?.NameString ?? "Unknown Item") + " - " +
+                                ?.NameString ?? "未知物品") + " - " +
                             ingredientPreference.LinkedItem2Quantity.Value;
                     }
 
                     var itemName =
                         _itemSheet.GetRow(ingredientPreference.LinkedItemId.Value)?.NameString ??
-                        "Unknown Item";
+                        "未知物品";
                     if (itemName3 != null)
                     {
                         itemName = itemName + "," + itemName2 + "," + itemName3;
@@ -57,27 +57,27 @@ public class IngredientPreferenceLocalizer
                     return itemName + " - " + ingredientPreference.LinkedItemQuantity.Value;
                 }
 
-                return "No item selected";
+                return "尚未選擇物品";
             case IngredientPreferenceType.Reduction:
                 if (ingredientPreference.LinkedItemId != null && ingredientPreference.LinkedItemQuantity != null)
                 {
                     var itemName =
                         _itemSheet.GetRow(ingredientPreference.LinkedItemId.Value)?.NameString ??
-                        "Unknown Item";
-                    return "Reduction (" + itemName + " - " + ingredientPreference.LinkedItemQuantity.Value + ")";
+                        "未知物品";
+                    return "以太還原（" + itemName + " - " + ingredientPreference.LinkedItemQuantity.Value + ")";
                 }
 
-                return "No item selected";
+                return "尚未選擇物品";
             case IngredientPreferenceType.Desynthesis:
                 if (ingredientPreference.LinkedItemId != null && ingredientPreference.LinkedItemQuantity != null)
                 {
                     var itemName =
                         _itemSheet.GetRow(ingredientPreference.LinkedItemId.Value)?.NameString ??
-                        "Unknown Item";
-                    return "Desynthesis (" + itemName + " - " + ingredientPreference.LinkedItemQuantity.Value + ")";
+                        "未知物品";
+                    return "分解（" + itemName + " - " + ingredientPreference.LinkedItemQuantity.Value + ")";
                 }
 
-                return "No item selected";
+                return "尚未選擇物品";
         }
 
         return ingredientPreference.Type.FormattedName();

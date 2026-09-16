@@ -43,11 +43,11 @@ namespace InventoryTools.Ui.Pages
                 _popupMenus[configuration] = new Widgets.PopupMenu("fm" + configuration.Key, Widgets.PopupMenu.PopupMenuButtons.LeftRight,
                     new List<Widgets.PopupMenu.IPopupMenuItem>()
                     {
-                        new Widgets.PopupMenu.PopupMenuItemSelectableAskName("Duplicate", "df_" + configuration.Key, configuration.Name, DuplicateList, "Duplicate the list."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectable("Export Configuration", "ef_" + configuration.Key,ExportList, "Exports the list."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectable( "Move Up", "mu_" + configuration.Key, MoveListUp,  "Move the list up."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectable( "Move Down", "md_" + configuration.Key, MoveListDown, "Move the list down."),
-                        new Widgets.PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "Are you sure you want to remove this list?", RemoveList, "Remove the list."),
+                        new Widgets.PopupMenu.PopupMenuItemSelectableAskName("複製", "df_" + configuration.Key, configuration.Name, DuplicateList, "複製此清單。"),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable("匯出設定###Export Configuration", "ef_" + configuration.Key,ExportList, "Exports the list."),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable( "上移###Move Up", "mu_" + configuration.Key, MoveListUp,  "Move the list up."),
+                        new Widgets.PopupMenu.PopupMenuItemSelectable( "下移###Move Down", "md_" + configuration.Key, MoveListDown, "Move the list down."),
+                        new Widgets.PopupMenu.PopupMenuItemSelectableConfirm("Remove", "rf_" + configuration.Key, "確定要移除此清單嗎？", RemoveList, "移除此清單。"),
                     }
                 );
             }
@@ -96,7 +96,7 @@ namespace InventoryTools.Ui.Pages
             {
                 var base64 = _importExportService.ToBase64(existingFilter);
                 _clipboardService.CopyToClipboard(base64);
-                _chatUtilities.PrintClipboardMessage("[Export] ", "Filter Configuration");
+                _chatUtilities.PrintClipboardMessage("[匯出] ", "清單設定");
             }
         }
 
@@ -115,7 +115,7 @@ namespace InventoryTools.Ui.Pages
         {
             var messages = new List<MessageBase>();
             var filterConfigurations = _listService.Lists.Where(c => c.FilterType == FilterType.CraftFilter && !c.CraftListDefault).ToList();
-            if (ImGui.CollapsingHeader("Craft Lists", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+            if (ImGui.CollapsingHeader("製作清單###Craft Lists", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
             {
                 ImGui.PushStyleVar(ImGuiStyleVar.CellPadding, new Vector2(5, 5) * ImGui.GetIO().FontGlobalScale);
                 using (var table = ImRaii.Table("FilterConfigTable", 3, ImGuiTableFlags.BordersV |
@@ -127,15 +127,15 @@ namespace InventoryTools.Ui.Pages
                 {
                     if (table)
                     {
-                        ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)0);
-                        ImGui.TableSetupColumn("Order", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)1);
+                        ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)0);
+                        ImGui.TableSetupColumn("順序###Order", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)1);
                         ImGui.TableSetupColumn("", ImGuiTableColumnFlags.WidthStretch, 100.0f, (uint)2);
                         ImGui.TableHeadersRow();
                         if (filterConfigurations.Count == 0)
                         {
                             ImGui.TableNextRow();
                             ImGui.TableNextColumn();
-                            ImGui.TextUnformatted("No craft lists created yet!");
+                            ImGui.TextUnformatted("尚未建立製作清單！");
                             ImGui.TableNextColumn();
                             ImGui.TableNextColumn();
                         }
@@ -152,13 +152,13 @@ namespace InventoryTools.Ui.Pages
                             }
 
                             ImGui.TableNextColumn();
-                            if (ImGui.SmallButton("Up##" + index))
+                            if (ImGui.SmallButton("上移###Up##" + index))
                             {
                                 _listService.MoveListUp(filterConfiguration);
                             }
 
                             ImGui.SameLine();
-                            if (ImGui.SmallButton("Down##" + index))
+                            if (ImGui.SmallButton("下移###Down##" + index))
                             {
                                 _listService.MoveListDown(filterConfiguration);
                             }

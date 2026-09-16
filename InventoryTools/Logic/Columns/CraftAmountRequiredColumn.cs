@@ -156,22 +156,22 @@ namespace InventoryTools.Logic.Columns
             if (itemHovered || ImGui.IsItemHovered(ImGuiHoveredFlags.None))
             {
                 using var tt = ImRaii.Tooltip();
-                ImGui.Text("Ingredient Breakdown:");
-                ImGui.TextUnformatted("Amount Originally Required: " + searchResult.CraftItem.QuantityRequired);
-                ImGui.TextUnformatted("Amount Required: " + searchResult.CraftItem.QuantityNeededPreUpdate);
-                ImGui.TextUnformatted("Amount in Inventory: " + searchResult.CraftItem.QuantityReady);
-                ImGui.TextUnformatted("Amount to Retrieve: " + searchResult.CraftItem.QuantityAvailable);
+                ImGui.Text("素材明細：");
+                ImGui.TextUnformatted("原始需求數量：" + searchResult.CraftItem.QuantityRequired);
+                ImGui.TextUnformatted("需求數量：" + searchResult.CraftItem.QuantityNeededPreUpdate);
+                ImGui.TextUnformatted("庫存數量：" + searchResult.CraftItem.QuantityReady);
+                ImGui.TextUnformatted("待取出數量：" + searchResult.CraftItem.QuantityAvailable);
                 ImGui.Separator();
-                ImGui.TextUnformatted("Amount Missing: " + searchResult.CraftItem.QuantityMissingOverall);
+                ImGui.TextUnformatted("缺少數量：" + searchResult.CraftItem.QuantityMissingOverall);
                 if (searchResult.Item.CanBeCrafted)
                 {
-                    ImGui.TextUnformatted("Amount Craftable: " + searchResult.CraftItem.QuantityCanCraft);
+                    ImGui.TextUnformatted("可製作數量：" + searchResult.CraftItem.QuantityCanCraft);
                     if (searchResult.CraftItem.Yield != 1)
                     {
                         ImGui.Separator();
-                        ImGui.TextUnformatted("Craft Operations Required: " +
+                        ImGui.TextUnformatted("所需製作次數：" +
                                               searchResult.CraftItem.QuantityNeeded / searchResult.CraftItem.Yield);
-                        ImGui.TextUnformatted("Recipe Yield: " + searchResult.CraftItem.Yield);
+                        ImGui.TextUnformatted("每次製作產量：" + searchResult.CraftItem.Yield);
                     }
                 }
 
@@ -179,7 +179,7 @@ namespace InventoryTools.Logic.Columns
                 if (searchResult.CraftItem.Recipe != null)
                 {
                     ImGui.Separator();
-                    ImGui.TextUnformatted("Ingredients: ");
+                    ImGui.TextUnformatted("素材：");
                     using (ImRaii.PushIndent())
                     {
                         foreach (var ingredient in searchResult.CraftItem.Recipe.IngredientCounts)

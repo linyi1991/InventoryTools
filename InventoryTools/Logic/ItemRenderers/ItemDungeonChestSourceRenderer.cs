@@ -26,16 +26,16 @@ public class ItemDungeonChestSourceRenderer : ItemInfoRenderer<ItemDungeonChestS
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.DungeonChest;
-    public override string SingularName => "Dungeon Chest";
-    public override string PluralName => "Dungeon Chests";
-    public override string HelpText => "Can the item appear in a dungeon chest?";
+    public override string SingularName => "迷宮寶箱";
+    public override string PluralName => "迷宮寶箱";
+    public override string HelpText => "此物品是否出現在迷宮寶箱中？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Dungeon: " + asSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("迷宮：" + asSource.ContentFinderCondition.FormattedName);
         using (ImRaii.PushIndent())
         {
             ImGui.Text(
@@ -56,7 +56,7 @@ public class ItemDungeonChestSourceRenderer : ItemInfoRenderer<ItemDungeonChestS
         var groupedByDungeon = asSources.GroupBy(c => c.DungeonChest.ContentFinderCondition.RowId);
         foreach (var dungeon in groupedByDungeon)
         {
-            ImGui.Text("Dungeon: " + dungeon.First().ContentFinderCondition.Base.Name.ExtractText());
+            ImGui.Text("迷宮：" + dungeon.First().ContentFinderCondition.Base.Name.ExtractText());
             using (ImRaii.PushIndent())
             {
                 foreach (var chest in dungeon.OrderBy(c => c.DungeonChest.ChestNo))

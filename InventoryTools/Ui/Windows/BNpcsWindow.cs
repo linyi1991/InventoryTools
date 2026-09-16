@@ -174,7 +174,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                             if (ImGui.IsItemHovered())
                             {
                                 using var tt = ImRaii.Tooltip();
-                                ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown") + " - " +
+                                ImGui.TextUnformatted((territory.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知") + " - " +
                                                       position.Position.X +
                                                       " : " + position.Position.Y);
                             }
@@ -244,7 +244,7 @@ public class BNpcsWindow : GenericTabbedTable<BNpcNameRow>, IMenuWindow
                 }
             },
         };
-        _tabs = _territoryTypeSheet.Where(c => availableTerritories.Contains(c.RowId)).OrderBy(c => c.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown").ToDictionary(c => c.RowId, c =>c.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown");
+        _tabs = _territoryTypeSheet.Where(c => availableTerritories.Contains(c.RowId)).OrderBy(c => c.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知").ToDictionary(c => c.RowId, c =>c.Base.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知");
         _items = new Dictionary<uint, List<BNpcNameRow>>();
         _filteredItems = new Dictionary<uint, List<BNpcNameRow>>();
     }

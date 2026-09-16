@@ -39,10 +39,10 @@ public class CraftEverythingElseGroupFilter : ChoiceFilter<EverythingElseGroupSe
     }
 
     public override string Key { get; set; } = "CraftEverythingElseGroupFilter";
-    public override string Name { get; set; } = "Group Everything Else By";
+    public override string Name { get; set; } = "其他物品分組方式";
 
     public override string HelpText { get; set; } =
-        "How should everything else not in it's own group be grouped?";
+        "尚未歸入獨立群組的物品應如何分組？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override EverythingElseGroupSetting DefaultValue { get; set; } = EverythingElseGroupSetting.ByClosestZone;

@@ -1196,7 +1196,7 @@ namespace InventoryTools.Ui
                             if (!table || !table.Success)
                                 return;
 
-                            ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.None, 200);
+                            ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.None, 200);
                             ImGui.TableSetupColumn("", ImGuiTableColumnFlags.None, 16);
 
                             foreach (var datum in SearchItems)

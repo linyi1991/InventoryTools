@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Globalization;
@@ -121,13 +121,13 @@ namespace InventoryTools.Logic
 
 
 
-                        if (ImGui.Selectable("Yes", currentItem == "Yes"))
+                        if (ImGui.Selectable("是###Yes", currentItem == "Yes"))
                         {
                             columnConfiguration.FilterText = "true";
                             hasChanged = true;
                         }
 
-                        if (ImGui.Selectable("No", currentItem == "No"))
+                        if (ImGui.Selectable("否###No", currentItem == "No"))
                         {
                             columnConfiguration.FilterText = "false";
                             hasChanged = true;
@@ -181,8 +181,8 @@ namespace InventoryTools.Logic
                             using var tooltip = ImRaii.Tooltip();
                             if (tooltip)
                             {
-                                ImGui.Text("Extra Filters");
-                                ImGui.Text("Right Click: Clear All");
+                                ImGui.Text("其他篩選條件");
+                                ImGui.Text("右鍵：全部清除");
                             }
                         }
                     }

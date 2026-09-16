@@ -146,7 +146,7 @@ public class SubmarinesWindow : GenericTabbedTable<SubmarineExplorationRow>, IMe
                 Draw = (ex, contentTypeId) =>
                 {
                     var drops = ex.DropItems;
-                    _imGuiService.WrapTableColumnElements("Drops" + ex.RowId, drops,
+                    _imGuiService.WrapTableColumnElements("掉落物" + ex.RowId, drops,
                     RowSize * ImGui.GetIO().FontGlobalScale - ImGui.GetStyle().FramePadding.X,
                     drop =>
                     {

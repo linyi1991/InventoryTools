@@ -18,10 +18,10 @@ public class ItemAchievementSourceRenderer : ItemInfoRenderer<ItemAchievementSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.Achievement;
-    public override string SingularName => "Achievement";
+    public override string SingularName => "成就";
 
-    public override string? PluralName => "Achievements";
-    public override string HelpText => "Can the item be earned via an achievement?";
+    public override string? PluralName => "成就";
+    public override string HelpText => "此物品是否可透過成就取得？";
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>

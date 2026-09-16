@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Columns
                 if (searchResult.Item.CanTryOn)
                 {
                     ImGui.SameLine();
-                    if (ImGui.SmallButton("Try On##TO" + rowIndex))
+                    if (ImGui.SmallButton("試穿###Try On##TO" + rowIndex))
                     {
                         if (_tryOn.CanUseTryOn)
                         {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using AllaganLib.GameSheets.Caches;
@@ -33,9 +33,9 @@ public class IngredientSearchFilter : UintMultipleChoiceFilter
         _craftListFactory = craftListFactory;
     }
     public override string Key { get; set; } = "IngredientSearchFilter";
-    public override string Name { get; set; } = "Ingredient Search Filter";
+    public override string Name { get; set; } = "素材搜尋篩選";
 
-    public override string HelpText { get; set; } = "Select craftable items and the filter will determine the ingredients used in the craft and will only list those ingredients. The add all from filter button will add all the items from the selected filter to the list.";
+    public override string HelpText { get; set; } = "選擇可製作物品後，只列出該配方所需素材。「加入此篩選的全部物品」可批次加入選定篩選的所有物品。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
 
@@ -71,7 +71,7 @@ public class IngredientSearchFilter : UintMultipleChoiceFilter
     {
         base.DrawSearchBox(configuration);
         ImGui.SameLine();
-        if (ImGui.Button("Add all from filter"))
+        if (ImGui.Button("加入此篩選的全部物品###Add all from filter"))
         {
             ImGui.OpenPopup("AddAllFilterSelect");
         }
@@ -86,7 +86,7 @@ public class IngredientSearchFilter : UintMultipleChoiceFilter
                         c.FilterType is Logic.FilterType.SearchFilter or FilterType.SortingFilter or FilterType.GameItemFilter && c != configuration).ToArray();
                 foreach (var filter in filters)
                 {
-                    if (ImGui.Selectable("Add all from " + filter.Name))
+                    if (ImGui.Selectable("加入全部物品，來源：###Add all from " + filter.Name))
                     {
                         var filterResult = _listFilterService.Value.RefreshList(filter);
                         foreach (var item in filterResult)

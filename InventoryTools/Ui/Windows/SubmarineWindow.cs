@@ -65,18 +65,18 @@ namespace InventoryTools.Ui
         {
             if (SubmarineExploration == null)
             {
-                ImGui.TextUnformatted("Submarine Exploration Point with the ID " + _submarineExplorationPointId + " could not be found.");
+                ImGui.TextUnformatted("找不到潛水艇探索地點，ID：" + _submarineExplorationPointId + "，無對應資料。");
             }
             else
             {
                 ImGui.TextUnformatted(SubmarineExploration.Base.Location.ExtractText());
-                ImGui.TextUnformatted("Unlocked Via: " + SubmarineExploration.Unlock?.Base.Location.ExtractText() ?? "N/A");
-                ImGui.TextUnformatted("Rank Required: " + SubmarineExploration.Base.RankReq);
+                ImGui.TextUnformatted("解鎖來源：" + SubmarineExploration.Unlock?.Base.Location.ExtractText() ?? "N/A");
+                ImGui.TextUnformatted("所需階級：" + SubmarineExploration.Base.RankReq);
                 ;
                 ImGui.Image(ImGuiService.GetIconTexture(Icons.AirshipIcon).Handle, new Vector2(100, 100) * ImGui.GetIO().FontGlobalScale);
 
 
-                if (ImGui.CollapsingHeader("Rewards (" + _drops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (ImGui.CollapsingHeader("獎勵（###Rewards (" + _drops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -121,9 +121,9 @@ namespace InventoryTools.Ui
                 }
 
                 #if DEBUG
-                if (ImGui.CollapsingHeader("Debug"))
+                if (ImGui.CollapsingHeader("偵錯###Debug"))
                 {
-                    ImGui.TextUnformatted("Duty ID: " + _submarineExplorationPointId);
+                    ImGui.TextUnformatted("任務 ID：" + _submarineExplorationPointId);
                     Utils.PrintOutObject(SubmarineExploration, 0, new List<string>());
                 }
                 #endif

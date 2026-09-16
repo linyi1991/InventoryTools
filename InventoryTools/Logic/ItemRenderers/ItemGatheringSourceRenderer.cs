@@ -17,204 +17,204 @@ namespace InventoryTools.Logic.ItemRenderers;
 public class ItemMiningSourceRenderer : ItemGatheringSourceRenderer<ItemMiningSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining];
-    public override string HelpText => "Can the item be gathered from a regular mining node?";
+    public override string HelpText => "此物品是否可在一般採礦採集點取得？";
     public ItemMiningSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.Mining, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Mining";
+    public override string SingularName => "採礦";
 }
 
 public class ItemQuarryingSourceRenderer : ItemGatheringSourceRenderer<ItemQuarryingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining];
-    public override string HelpText => "Can the item be gathered from a regular quarrying node?";
+    public override string HelpText => "此物品是否可在一般碎石採集點取得？";
     public ItemQuarryingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.Quarrying, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Quarrying";
+    public override string SingularName => "碎石";
 }
 
 public class ItemLoggingSourceRenderer : ItemGatheringSourceRenderer<ItemLoggingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany];
-    public override string HelpText => "Can the item be gathered from a regular logging node?";
+    public override string HelpText => "此物品是否可在一般伐木採集點取得？";
     public ItemLoggingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet,mapSheet, seTime, ItemInfoType.Logging, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Logging";
+    public override string SingularName => "伐木";
 }
 
 public class ItemHarvestingSourceRenderer : ItemGatheringSourceRenderer<ItemHarvestingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany];
-    public override string HelpText => "Can the item be gathered from a regular harvesting node?";
+    public override string HelpText => "此物品是否可在一般割草採集點取得？";
 
     public ItemHarvestingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.Harvesting, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Harvesting";
+    public override string SingularName => "割草";
 }
 
 public class ItemHiddenMiningSourceRenderer : ItemGatheringSourceRenderer<ItemHiddenMiningSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.HiddenGathering];
-    public override string HelpText => "Can the item be gathered from a hidden mining node?";
+    public override string HelpText => "此物品是否可在隱藏採礦採集點取得？";
 
     public ItemHiddenMiningSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.HiddenMining, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Mining (Hidden)";
+    public override string SingularName => "採礦（隱藏）";
 }
 
 public class ItemHiddenQuarryingSourceRenderer : ItemGatheringSourceRenderer<ItemHiddenQuarryingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.HiddenGathering];
-    public override string HelpText => "Can the item be gathered from a hidden quarrying node?";
+    public override string HelpText => "此物品是否可在隱藏碎石採集點取得？";
 
     public ItemHiddenQuarryingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.HiddenQuarrying, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Quarrying (Hidden)";
+    public override string SingularName => "碎石（隱藏）";
 }
 
 public class ItemHiddenLoggingSourceRenderer : ItemGatheringSourceRenderer<ItemHiddenLoggingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany, ItemInfoRenderCategory.HiddenGathering];
-    public override string HelpText => "Can the item be gathered from a hidden logging node?";
+    public override string HelpText => "此物品是否可在隱藏伐木採集點取得？";
 
     public ItemHiddenLoggingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.HiddenLogging, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Logging (Hidden)";
+    public override string SingularName => "伐木（隱藏）";
 }
 
 public class ItemHiddenHarvestingSourceRenderer : ItemGatheringSourceRenderer<ItemHiddenHarvestingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany, ItemInfoRenderCategory.HiddenGathering];
-    public override string HelpText => "Can the item be gathered from a hidden harvesting node?";
+    public override string HelpText => "此物品是否可在隱藏割草採集點取得？";
 
     public ItemHiddenHarvestingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.HiddenHarvesting, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Harvesting (Hidden)";
+    public override string SingularName => "割草（隱藏）";
 }
 
 public class ItemTimedMiningSourceRenderer : ItemGatheringSourceRenderer<ItemTimedMiningSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.TimedGathering];
-    public override string HelpText => "Can the item be gathered from a timed mining node?";
+    public override string HelpText => "此物品是否可在定時採礦採集點取得？";
 
     public ItemTimedMiningSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.TimedMining, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Mining (Timed)";
+    public override string SingularName => "採礦（定時）";
 }
 
 public class ItemTimedQuarryingSourceRenderer : ItemGatheringSourceRenderer<ItemTimedQuarryingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.TimedGathering];
-    public override string HelpText => "Can the item be gathered from a timed quarrying node?";
+    public override string HelpText => "此物品是否可在定時碎石採集點取得？";
 
     public ItemTimedQuarryingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.TimedQuarrying, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Quarrying (Timed)";
+    public override string SingularName => "碎石（定時）";
 }
 
 public class ItemTimedLoggingSourceRenderer : ItemGatheringSourceRenderer<ItemTimedLoggingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany, ItemInfoRenderCategory.TimedGathering];
-    public override string HelpText => "Can the item be gathered from a timed logging node?";
+    public override string HelpText => "此物品是否可在定時伐木採集點取得？";
 
     public ItemTimedLoggingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.TimedLogging, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Logging (Timed)";
+    public override string SingularName => "伐木（定時）";
 }
 
 public class ItemTimedHarvestingSourceRenderer : ItemGatheringSourceRenderer<ItemTimedHarvestingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany, ItemInfoRenderCategory.TimedGathering];
-    public override string HelpText => "Can the item be gathered from a timed harvesting node?";
+    public override string HelpText => "此物品是否可在定時割草採集點取得？";
 
     public ItemTimedHarvestingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.TimedHarvesting, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Harvesting (Timed)";
+    public override string SingularName => "割草（定時）";
 }
 
 public class ItemEphemeralMiningSourceRenderer : ItemGatheringSourceRenderer<ItemEphemeralMiningSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.EphemeralGathering];
-    public override string HelpText => "Can the item be gathered from a ephemeral mining node?";
+    public override string HelpText => "此物品是否可在限時採礦採集點取得？";
 
     public ItemEphemeralMiningSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.EphemeralMining, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Mining (Ephemeral)";
+    public override string SingularName => "採礦（限時）";
 }
 
 public class ItemEphemeralQuarryingSourceRenderer : ItemGatheringSourceRenderer<ItemEphemeralQuarryingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Mining, ItemInfoRenderCategory.EphemeralGathering];
-    public override string HelpText => "Can the item be gathered from a ephemeral quarrying node?";
+    public override string HelpText => "此物品是否可在限時碎石採集點取得？";
     public ItemEphemeralQuarryingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.EphemeralQuarrying, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Quarrying (Ephemeral)";
+    public override string SingularName => "碎石（限時）";
 }
 
 public class ItemEphemeralLoggingSourceRenderer : ItemGatheringSourceRenderer<ItemEphemeralLoggingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.Botany, ItemInfoRenderCategory.EphemeralGathering];
-    public override string HelpText => "Can the item be gathered from a ephemeral logging node?";
+    public override string HelpText => "此物品是否可在限時伐木採集點取得？";
     public ItemEphemeralLoggingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.EphemeralLogging, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Logging (Ephemeral)";
+    public override string SingularName => "伐木（限時）";
 }
 
 public class ItemEphemeralHarvestingSourceRenderer : ItemGatheringSourceRenderer<ItemEphemeralHarvestingSource>
 {
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Gathering, ItemInfoRenderCategory.EphemeralGathering];
-    public override string HelpText => "Can the item be gathered from a ephemeral harvesting node?";
+    public override string HelpText => "此物品是否可在限時割草採集點取得？";
 
     public ItemEphemeralHarvestingSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet, ISeTime seTime,
         ITextureProvider textureProvider, IDalamudPluginInterface dalamudPluginInterface) : base(itemSheet, mapSheet, seTime, ItemInfoType.EphemeralHarvesting, textureProvider, dalamudPluginInterface)
     {
     }
 
-    public override string SingularName => "Harvesting (Ephemeral)";
+    public override string SingularName => "割草（限時）";
 }
 
 public abstract class ItemGatheringSourceRenderer<T> : ItemInfoRenderer<T> where T : ItemGatheringSource
@@ -240,15 +240,15 @@ public abstract class ItemGatheringSourceRenderer<T> : ItemInfoRenderer<T> where
         var asSource = (ItemGatheringSource)source;
 
          var level = asSource.GatheringItem.Base.GatheringItemLevel.Value.GatheringItemLevel;
-         ImGui.Text("Level:" + (level == 0 ? "N/A" : level));
+         ImGui.Text("等級：" + (level == 0 ? "不適用" : level));
          var stars = asSource.GatheringItem.Base.GatheringItemLevel.Value.Stars;
-         ImGui.Text("Stars:" + (stars == 0 ? "N/A" : stars));
+         ImGui.Text("星級：" + (stars == 0 ? "不適用" : stars));
          var perceptionRequired = asSource.GatheringItem.Base.PerceptionReq;
-         ImGui.Text("Perception Required:" + (perceptionRequired == 0 ? "N/A" : stars));
+         ImGui.Text("所需鑑別力：" + (perceptionRequired == 0 ? "不適用" : stars));
 
          if (asSource.GatheringItem.AvailableAtTimedNode)
          {
-             ImGui.Text("Maps:");
+             ImGui.Text("地圖：");
              using (ImRaii.PushIndent())
              {
                  foreach (var gatheringPoint in asSource.GatheringItem.GatheringPoints)
@@ -336,6 +336,6 @@ public abstract class ItemGatheringSourceRenderer<T> : ItemInfoRenderer<T> where
             starsString += "*";
         }
 
-        return $"Level {(level == 0 ? "N/A" : level)} ({starsString}) ({perceptionRequired} perception required)";
+        return $"Level {(level == 0 ? "不適用" : level)} ({starsString}) ({perceptionRequired} perception required)";
     };
 }

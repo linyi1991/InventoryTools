@@ -28,17 +28,17 @@ public abstract class ItemFieldOpCofferSourceRenderer<T> : ItemInfoRenderer<T> w
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Drops from " + asSource.CofferType + " coffer");
+        ImGui.Text("掉落來源：" + asSource.CofferType + " coffer");
         if (asSource.Min != null && asSource.Max != null)
         {
             ImGui.SameLine();
             if (asSource.Min == asSource.Max)
             {
-                ImGui.Text("(Drops 1)");
+                ImGui.Text("（掉落 1 個）");
             }
             else
             {
-                ImGui.Text("(Drops " + asSource.Min.Value + " - " + asSource.Max.Value + ")");
+                ImGui.Text("（掉落數量：" + asSource.Min.Value + " - " + asSource.Max.Value + ")");
             }
         }
 
@@ -69,8 +69,8 @@ public class ItemPagosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     {
     }
 
-    public override string SingularName => "Eureka Pagos (Treasure Coffer)";
-    public override string HelpText => "Does this item drop from a pagos treasure coffer?";
+    public override string SingularName => "優雷卡恆冰之地（寶箱）";
+    public override string HelpText => "此物品是否來自優雷卡恆冰之地的寶箱？";
 }
 
 public class ItemPyrosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemPyrosTreasureCofferSource>
@@ -82,8 +82,8 @@ public class ItemPyrosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<I
     {
     }
 
-    public override string SingularName => "Eureka Pyros (Treasure Coffer)";
-    public override string HelpText => "Does this item drop from a pyros treasure coffer?";
+    public override string SingularName => "優雷卡湧火之地（寶箱）";
+    public override string HelpText => "此物品是否來自優雷卡湧火之地的寶箱？";
 }
 
 public class ItemHydatosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemHydatosTreasureCofferSource>
@@ -95,8 +95,8 @@ public class ItemHydatosTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer
     {
     }
 
-    public override string SingularName => "Eureka Hydatos (Treasure Coffer)";
-    public override string HelpText => "Does this item drop from a hydatos treasure coffer?";
+    public override string SingularName => "優雷卡豐水之地（寶箱）";
+    public override string HelpText => "此物品是否來自優雷卡豐水之地的寶箱？";
 }
 
 public class ItemOccultTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultTreasureCofferSource>
@@ -108,8 +108,8 @@ public class ItemOccultTreasureSourceRenderer : ItemFieldOpCofferSourceRenderer<
     {
     }
 
-    public override string SingularName => "Occult Crescent (Treasure Coffer)";
-    public override string HelpText => "Does this item drop from a occult crescent treasure coffer?";
+    public override string SingularName => "新月島（寶箱）";
+    public override string HelpText => "此物品是否來自新月島的寶箱？";
 }
 
 public class ItemOccultPotSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultPotSource>
@@ -121,8 +121,8 @@ public class ItemOccultPotSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemO
     {
     }
 
-    public override string SingularName => "Occult Crescent (Pot)";
-    public override string HelpText => "Does this item drop from a occult crescent pot?";
+    public override string SingularName => "新月島（陶罐）";
+    public override string HelpText => "此物品是否來自新月島的陶罐？";
 }
 
 public class ItemOccultGoldenCofferSourceRenderer : ItemFieldOpCofferSourceRenderer<ItemOccultGoldenCofferSource>
@@ -134,6 +134,6 @@ public class ItemOccultGoldenCofferSourceRenderer : ItemFieldOpCofferSourceRende
     {
     }
 
-    public override string SingularName => "Occult Crescent (Golden Coffer)";
-    public override string HelpText => "Does this item drop from a occult crescent golden coffer?";
+    public override string SingularName => "新月島（金色寶箱）";
+    public override string HelpText => "此物品是否來自新月島的金色寶箱？";
 }

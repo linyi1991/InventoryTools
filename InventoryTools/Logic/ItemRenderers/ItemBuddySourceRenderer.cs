@@ -19,9 +19,9 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.BuddyItem;
-    public override string SingularName => "Used on Chocobo Companion";
+    public override string SingularName => "陸行鳥夥伴使用";
     public override bool ShouldGroup => false;
-    public override string HelpText => "Can the item be used on your chocobo companion?";
+    public override string HelpText => "此物品是否可對陸行鳥夥伴使用？";
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
@@ -32,17 +32,17 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
         if (usedField)
         {
-            ImGui.Text("Battle: Increases EXP earned by your chocobo companion.");
+            ImGui.Text("戰鬥：增加陸行鳥夥伴獲得的經驗值。");
         }
 
         if (usedTraining)
         {
-            ImGui.Text("Stable: Training food for a stabled Chocobo companion.");
+            ImGui.Text("鳥房：訓練寄養陸行鳥夥伴的飼料。");
         }
 
         if (usedDyeing)
         {
-            ImGui.Text("Dying: Used in Chocobo Dyeing.");
+            ImGui.Text("染色：用於改變陸行鳥羽毛顏色。");
         }
     };
     public override Func<ItemSource, string> GetName => source =>
@@ -56,20 +56,20 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
         if (usedField)
         {
-            name.Add("battle");
+            name.Add("戰鬥");
         }
 
         if (usedTraining)
         {
-            name.Add("training");
+            name.Add("訓練");
         }
 
         if (usedDyeing)
         {
-            name.Add("dyeing");
+            name.Add("染色");
         }
 
-        return "chocobo " + string.Join(", ", name);
+        return "陸行鳥：" + string.Join(", ", name);
     };
 
     public override Func<ItemSource, int> GetIcon => _ => Icons.ChocoboIcon;
@@ -84,19 +84,19 @@ public class ItemBuddySourceRenderer : ItemInfoRenderer<ItemBuddySource>
 
         if (usedField)
         {
-            name.Add("battle");
+            name.Add("戰鬥");
         }
 
         if (usedTraining)
         {
-            name.Add("training");
+            name.Add("訓練");
         }
 
         if (usedDyeing)
         {
-            name.Add("dyeing");
+            name.Add("染色");
         }
 
-        return "Used for " + string.Join(", ", name);
+        return "用途：" + string.Join(", ", name);
     };
 }

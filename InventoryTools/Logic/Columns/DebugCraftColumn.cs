@@ -27,13 +27,13 @@ namespace InventoryTools.Logic.Columns
 
             ImGui.TableNextColumn();
             if (!ImGui.TableGetColumnFlags().HasFlag(ImGuiTableColumnFlags.IsEnabled)) return null;
-            ImGui.Text("Required: " +  searchResult.CraftItem.QuantityRequired);
-            ImGui.Text("Needed: " +  searchResult.CraftItem.QuantityNeeded);
-            ImGui.Text("Needed Pre Update: " +  searchResult.CraftItem.QuantityNeededPreUpdate);
-            ImGui.Text("Available: " +  searchResult.CraftItem.QuantityAvailable);
-            ImGui.Text("Ready: " +  searchResult.CraftItem.QuantityReady);
-            ImGui.Text("Can Craft: " +  searchResult.CraftItem.QuantityCanCraft);
-            ImGui.Text("Will Retrieve: " + searchResult.CraftItem.QuantityWillRetrieve);
+            ImGui.Text("需要：" +  searchResult.CraftItem.QuantityRequired);
+            ImGui.Text("尚需：" +  searchResult.CraftItem.QuantityNeeded);
+            ImGui.Text("更新前尚需：" +  searchResult.CraftItem.QuantityNeededPreUpdate);
+            ImGui.Text("可用：" +  searchResult.CraftItem.QuantityAvailable);
+            ImGui.Text("已備妥：" +  searchResult.CraftItem.QuantityReady);
+            ImGui.Text("可製作：" +  searchResult.CraftItem.QuantityCanCraft);
+            ImGui.Text("將取出：" + searchResult.CraftItem.QuantityWillRetrieve);
             return null;
         }
 

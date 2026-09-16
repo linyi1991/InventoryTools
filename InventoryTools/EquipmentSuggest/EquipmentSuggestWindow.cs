@@ -77,26 +77,26 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
         {
             if (menuBar)
             {
-                using (var menu = ImRaii.Menu("File"))
+                using (var menu = ImRaii.Menu("檔案###File"))
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Configuration"))
+                        if (ImGui.MenuItem("設定###Configuration"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(ConfigurationWindow)));
                         }
 
-                        if (ImGui.MenuItem("Changelog"))
+                        if (ImGui.MenuItem("更新紀錄###Changelog"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(ChangelogWindow)));
                         }
 
-                        if (ImGui.MenuItem("Help"))
+                        if (ImGui.MenuItem("說明###Help"))
                         {
                             MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow)));
                         }
 
-                        if (ImGui.MenuItem("Enable Verbose Logging", "",
+                        if (ImGui.MenuItem("啟用詳細日誌###Enable Verbose Logging", "",
                                 this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose))
                         {
                             if (this._pluginLog.MinimumLogLevel == LogEventLevel.Verbose)
@@ -109,7 +109,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                             }
                         }
 
-                        if (ImGui.MenuItem("Report a Issue"))
+                        if (ImGui.MenuItem("回報問題###Report a Issue"))
                         {
                             "https://github.com/Critical-Impact/InventoryTools".OpenBrowser();
                         }
@@ -119,24 +119,24 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                             "https://ko-fi.com/critical_impact".OpenBrowser();
                         }
 
-                        if (ImGui.MenuItem("Close"))
+                        if (ImGui.MenuItem("關閉###Close"))
                         {
                             this.IsOpen = false;
                         }
                     }
                 }
 
-                using (var menu = ImRaii.Menu("Mode"))
+                using (var menu = ImRaii.Menu("模式###Mode"))
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Class/Job", "",
+                        if (ImGui.MenuItem("職業／特職###Class/Job", "",
                                 _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Class))
                         {
                             _modeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestMode.Class);
                         }
 
-                        if (ImGui.MenuItem("Tool/Weapon", "",
+                        if (ImGui.MenuItem("工具／武器###Tool/Weapon", "",
                                 _modeSetting.CurrentValue(_configuration) == EquipmentSuggestMode.Tool))
                         {
                             _modeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestMode.Tool);
@@ -144,24 +144,24 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                     }
                 }
 
-                using (var menu = ImRaii.Menu("View"))
+                using (var menu = ImRaii.Menu("檢視###View"))
                 {
                     if (menu)
                     {
-                        if (ImGui.MenuItem("Normal", "",
+                        if (ImGui.MenuItem("一般###Normal", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Normal))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration, EquipmentSuggestViewMode.Normal);
                         }
 
-                        if (ImGui.MenuItem("Expanded", "",
+                        if (ImGui.MenuItem("展開###Expanded", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Expanded))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration,
                                 EquipmentSuggestViewMode.Expanded);
                         }
 
-                        if (ImGui.MenuItem("Compact", "",
+                        if (ImGui.MenuItem("精簡###Compact", "",
                                 _viewModeSetting.CurrentValue(_configuration) == EquipmentSuggestViewMode.Compact))
                         {
                             _viewModeSetting.UpdateFilterConfiguration(_configuration,
@@ -170,7 +170,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                     }
                 }
 
-                using (var menu = ImRaii.Menu("Windows"))
+                using (var menu = ImRaii.Menu("視窗###Windows"))
                 {
                     if (menu)
                     {
@@ -341,7 +341,7 @@ public class EquipmentSuggestWindow : GenericWindow, IMenuWindow
                                 if (tooltip.Success)
                                 {
                                     ImGui.Text(
-                                        "Hitting this will pick the highest iLvl items while also factoring in the relevant stats for the seleted class/item.");
+                                        "按下後會依所選職業／物品的相關屬性，選擇物品等級最高的合適裝備。");
                                 }
                             }
                         }

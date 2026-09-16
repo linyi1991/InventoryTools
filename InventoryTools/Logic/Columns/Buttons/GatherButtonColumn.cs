@@ -25,7 +25,7 @@ public class GatherButtonColumn : ButtonColumn
         ImGui.TableNextColumn();
         if (!ImGui.TableGetColumnFlags().HasFlag(ImGuiTableColumnFlags.IsEnabled)) return null;
 
-        if (ImGui.Button("Log##" + rowIndex + "_" + columnIndex))
+        if (ImGui.Button("筆記###Log##" + rowIndex + "_" + columnIndex))
         {
             if (searchResult.Item.ObtainedFishing)
             {

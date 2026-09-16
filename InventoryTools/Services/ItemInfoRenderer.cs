@@ -126,34 +126,46 @@ public class ItemInfoRenderService : IDisposable
     {
         switch (renderCategory)
         {
+            case ItemInfoRenderCategory.FieldOperation:
+                return "特殊探索";
+            case ItemInfoRenderCategory.OccultCrescent:
+                return "新月島";
+            case ItemInfoRenderCategory.Pagos:
+                return "優雷卡恆冰之地";
+            case ItemInfoRenderCategory.Pyros:
+                return "優雷卡湧火之地";
+            case ItemInfoRenderCategory.Hydatos:
+                return "優雷卡豐水之地";
+            case ItemInfoRenderCategory.DeepDungeon:
+                return "深層迷宮";
             case ItemInfoRenderCategory.Gathering:
-                return "Gathering";
+                return "採集";
             case ItemInfoRenderCategory.Mining:
-                return "Mining";
+                return "採礦";
             case ItemInfoRenderCategory.Botany:
-                return "Botany";
+                return "園藝";
             case ItemInfoRenderCategory.EphemeralGathering:
-                return "Gathering (Ephemeral)";
+                return "採集（限時）";
             case ItemInfoRenderCategory.TimedGathering:
-                return "Gathering (Timed)";
+                return "採集（定時）";
             case ItemInfoRenderCategory.HiddenGathering:
-                return "Gathering (Hidden)";
+                return "採集（隱藏）";
             case ItemInfoRenderCategory.Fishing:
-                return "Fishing";
+                return "釣魚";
             case ItemInfoRenderCategory.Venture:
-                return "Venture";
+                return "雇員探險";
             case ItemInfoRenderCategory.ExplorationVenture:
-                return "Venture (Exploration)";
+                return "雇員探索";
             case ItemInfoRenderCategory.Crafting:
-                return "Crafting";
+                return "製作";
             case ItemInfoRenderCategory.Leve:
-                return "Leves";
+                return "理符";
             case ItemInfoRenderCategory.Duty:
-                return "Duties";
+                return "任務";
             case ItemInfoRenderCategory.Shop:
-                return "Shops";
+                return "商店";
             case ItemInfoRenderCategory.House:
-                return "Housing";
+                return "房屋";
         }
 
         return renderCategory.ToString().Titleize();
@@ -221,7 +233,7 @@ public class ItemInfoRenderService : IDisposable
             return renderer.HelpText;
         }
 
-        return "Can this item be sourced via " + type.ToString();
+        return "物品是否可透過此方式取得：" + type.ToString();
     }
 
     public (string Singular, string? Plural) GetSourceTypeName(Type type)
@@ -251,7 +263,7 @@ public class ItemInfoRenderService : IDisposable
             return renderer.HelpText;
         }
 
-        return "Can this item be used for " + type.ToString();
+        return "物品是否可用於：" + type.ToString();
     }
 
 
@@ -452,7 +464,7 @@ public class ItemInfoRenderService : IDisposable
 
                 if (rendererType == RendererType.Source)
                 {
-                    ImGui.Text("Item");
+                    ImGui.Text("物品");
                     ImGui.Separator();
                     foreach (var item in items)
                     {
@@ -472,7 +484,7 @@ public class ItemInfoRenderService : IDisposable
                     if (costItems.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.Text("Related Items:");
+                        ImGui.Text("相關物品：");
                         ImGui.Separator();
                         foreach (var item in costItems)
                         {
@@ -494,7 +506,7 @@ public class ItemInfoRenderService : IDisposable
                 {
                     if (costItems.Count > 0)
                     {
-                        ImGui.Text("Items:");
+                        ImGui.Text("物品：");
                         ImGui.Separator();
                         foreach (var item in costItems)
                         {
@@ -515,7 +527,7 @@ public class ItemInfoRenderService : IDisposable
                     if (items.Count > 0)
                     {
                         ImGui.NewLine();
-                        ImGui.Text("Related Items");
+                        ImGui.Text("相關物品");
                         ImGui.Separator();
                         foreach (var item in items)
                         {
@@ -543,14 +555,14 @@ public class ItemInfoRenderService : IDisposable
                 if (popup.Success)
                 {
                     var typeName = (rendererType == RendererType.Source ? this.GetSourceTypeName(firstItem.GetType()) : this.GetUseTypeName(firstItem.GetType()));
-                    ImGui.Text("Pick a " + (typeName.Plural ?? typeName.Singular));
+                    ImGui.Text("選擇：" + (typeName.Plural ?? typeName.Singular));
                     ImGui.Separator();
                     for (var index = 0; index < itemSources.Count; index++)
                     {
                         var source = itemSources[index];
                         using (ImRaii.PushId(index))
                         {
-                            if (ImGui.Selectable(sourceRenderer?.GetName(source) ?? "No Name"))
+                            if (ImGui.Selectable(sourceRenderer?.GetName(source) ?? "未命名"))
                             {
                                 var newMessages = sourceRenderer?.OnClick?.Invoke(source);
                                 if (newMessages != null)
@@ -605,7 +617,7 @@ public class ItemInfoRenderService : IDisposable
                     {
                         if (rendererType == RendererType.Source)
                         {
-                            ImGui.Text(items.Count == 1 ? "Item" : "Items");
+                            ImGui.Text("物品");
                             ImGui.Separator();
                             foreach (var item in items)
                             {
@@ -626,7 +638,7 @@ public class ItemInfoRenderService : IDisposable
                             if (costItems.Count > 0)
                             {
                                 ImGui.NewLine();
-                                ImGui.Text("Related Items");
+                                ImGui.Text("相關物品");
                                 ImGui.Separator();
                                 foreach (var item in costItems)
                                 {
@@ -649,7 +661,7 @@ public class ItemInfoRenderService : IDisposable
                         {
                             if (costItems.Count > 0)
                             {
-                                ImGui.Text("Items:");
+                                ImGui.Text("物品：");
                                 ImGui.Separator();
                                 foreach (var item in costItems)
                                 {
@@ -675,7 +687,7 @@ public class ItemInfoRenderService : IDisposable
                                     ImGui.NewLine();
                                 }
 
-                                ImGui.Text("Related Items");
+                                ImGui.Text("相關物品");
                                 ImGui.Separator();
                                 foreach (var item in items)
                                 {
@@ -834,7 +846,7 @@ public class ItemInfoRenderService : IDisposable
             using var tt = ImRaii.Tooltip();
             if (tt.Success)
             {
-                ImGui.Text("No tooltip configured for " + (rendererType == RendererType.Source
+                ImGui.Text("尚未設定提示：" + (rendererType == RendererType.Source
                     ? this.GetSourceTypeName(firstItem.GetType())
                     : this.GetUseTypeName(firstItem.GetType())).Singular + ", please report this!");
             }

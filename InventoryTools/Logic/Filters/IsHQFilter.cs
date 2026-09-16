@@ -11,7 +11,7 @@ namespace InventoryTools.Logic.Filters
     {
         public override string Key { get; set; } = "HQ";
         public override string Name { get; set; } = "HQ？";
-        public override string HelpText { get; set; } = "Is the item High Quality?";
+        public override string HelpText { get; set; } = "此物品是否為 HQ？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
 
         public override bool? FilterItem(FilterConfiguration configuration,InventoryItem item)

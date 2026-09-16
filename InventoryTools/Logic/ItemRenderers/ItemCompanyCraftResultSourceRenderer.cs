@@ -28,16 +28,16 @@ public class ItemCompanyCraftResultSourceRenderer : ItemInfoRenderer<ItemCompany
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.FreeCompanyCraftRecipe;
-    public override string SingularName => "Company Craft";
+    public override string SingularName => "部隊製作";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Crafting];
-    public override string HelpText => "Is the item crafted at the company workshop as a company craft recipe?";
+    public override string HelpText => "此物品是否在部隊工房透過部隊製作完成？";
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Craft Type: {asSource.CompanyCraftSequence.Base.CompanyCraftType.Value.Name}");
-        ImGui.Text($"Parts: {asSource.CompanyCraftSequence.CompanyCraftParts.Length}");
-        DrawItems("Ingredients: ", asSource.CostItems);
+        ImGui.Text($"製作職業：{asSource.CompanyCraftSequence.Base.CompanyCraftType.Value.Name}");
+        ImGui.Text($"部件數量：{asSource.CompanyCraftSequence.CompanyCraftParts.Length}");
+        DrawItems("素材：", asSource.CostItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>

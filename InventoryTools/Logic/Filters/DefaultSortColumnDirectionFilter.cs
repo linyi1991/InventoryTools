@@ -30,8 +30,8 @@ public class DefaultSortColumnDirectionFilter : ChoiceFilter<ImGuiSortDirection?
     }
 
     public override string Key { get; set; } = "DefaultSortColumnOrder";
-    public override string Name { get; set; } = "Default Sort Column Order";
-    public override string HelpText { get; set; } = "The direction to sort the list in by default.";
+    public override string Name { get; set; } = "預設排序方向";
+    public override string HelpText { get; set; } = "清單預設使用的排序方向。";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Columns;
 
     public override ImGuiSortDirection? DefaultValue { get; set; } = null;

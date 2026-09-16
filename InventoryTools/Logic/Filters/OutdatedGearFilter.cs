@@ -21,8 +21,8 @@ public class OutdatedGearFilter : BooleanFilter
 
 
     public override string Key { get; set; } = "OutdatedGearFilter";
-    public override string Name { get; set; } = "Outdated Gear?";
-    public override string HelpText { get; set; } = "Will show any gear considered to be outdated. This will compare the item level of each item with the level of your classes. It will use the lowest level you have applicable to the weapon to determine if it's outdated. Any classes you do not have are not taken into consideration.";
+    public override string Name { get; set; } = "過時裝備？";
+    public override string HelpText { get; set; } = "比較裝備物品等級與可使用職業的等級，找出過時裝備。以已解鎖的適用職業中最低等級判斷，不計入尚未解鎖的職業。";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
 
     public override FilterType AvailableIn { get; set; } = FilterType.SearchFilter | FilterType.SortingFilter | FilterType.GameItemFilter | FilterType.HistoryFilter;

@@ -149,7 +149,7 @@ public class InventoryScopePicker
         {
             if (combo)
             {
-                ImGui.Text("Inventory Scope Editor");
+                ImGui.Text("庫存範圍編輯器");
                 using(var child = ImRaii.Child("selected", new Vector2(200, 0) * ImGui.GetIO().FontGlobalScale , true, ImGuiWindowFlags.NoScrollbar))
                 {
                     if (child)
@@ -160,7 +160,7 @@ public class InventoryScopePicker
                             {
                                 if (searchScopes.Count == 0)
                                 {
-                                    ImGui.TextWrapped("No scopes defined yet. Press add to start.");
+                                    ImGui.TextWrapped("尚未設定範圍。按「新增」開始設定。");
                                 }
 
                                 for (var index = 0; index < searchScopes.Count; index++)
@@ -202,14 +202,14 @@ public class InventoryScopePicker
                         {
                             if (commandBar)
                             {
-                                if (ImGui.Button("Add"))
+                                if (ImGui.Button("新增###Add"))
                                 {
                                     _selectedScope = new InventorySearchScope();
                                     searchScopes.Add(_selectedScope);
                                     changed = true;
                                 }
                                 ImGui.SameLine();
-                                if (ImGui.Button("Save"))
+                                if (ImGui.Button("儲存###Save"))
                                 {
                                     ImGui.CloseCurrentPopup();
                                 }
@@ -223,9 +223,9 @@ public class InventoryScopePicker
                 {
                     if (_selectedScope == null)
                     {
-                        ImGui.TextWrapped("The inventory scope editor allows you define which inventories you want to search across.");
-                        ImGui.TextWrapped("By default, every inventory Allagan Tools knows about is searched.");
-                        ImGui.TextWrapped("By providing a set of scopes, you are narrowing down which inventories are displayed.");
+                        ImGui.TextWrapped("庫存範圍編輯器可設定要搜尋哪些庫存。");
+                        ImGui.TextWrapped("預設會搜尋 Allagan Tools 已記錄的所有庫存。");
+                        ImGui.TextWrapped("設定範圍後，只會顯示範圍內的庫存。");
                     }
                     else
                     {
@@ -238,23 +238,23 @@ public class InventoryScopePicker
                                     var isCharacter = _selectedScope.CharacterId != null;
                                     var isWorld = _selectedScope.WorldId != null;
                                     var isActiveCharacter = _selectedScope.ActiveCharacter != null;
-                                    ImGui.Text("Search Scope:");
+                                    ImGui.Text("搜尋範圍：");
                                     ImGui.Separator();
-                                    if (ImGui.RadioButton("All",!isCharacter && !isWorld && !isActiveCharacter))
+                                    if (ImGui.RadioButton("全部###All",!isCharacter && !isWorld && !isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                     }
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("Match against all inventories");
+                                    _imGuiService.HelpMarker("搜尋所有庫存");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("Character",isCharacter))
+                                    if (ImGui.RadioButton("角色###Character",isCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.CharacterId = 0;
                                     }
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("Match against a specific character(player character, retainer, free company, etc)");
+                                    _imGuiService.HelpMarker("搜尋指定角色（玩家角色、雇員、部隊等）");
 
                                     if (_selectedScope.CharacterId != null)
                                     {
@@ -283,22 +283,22 @@ public class InventoryScopePicker
                                         }
                                     }
                                     ImGui.NewLine();
-                                    if (ImGui.RadioButton("Active Character",isActiveCharacter))
+                                    if (ImGui.RadioButton("目前角色###Active Character",isActiveCharacter))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.ActiveCharacter = true;
                                     }
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("Match against the currently logged in character. This includes all retainers/free companies/etc owned by the character. Use categories or character types to filter down further.");
+                                    _imGuiService.HelpMarker("搜尋目前登入角色及其所屬的雇員、部隊等。可透過分類或角色類型進一步篩選。");
                                     ImGui.NewLine();
 
-                                    if (ImGui.RadioButton("World",isWorld))
+                                    if (ImGui.RadioButton("伺服器###World",isWorld))
                                     {
                                         _selectedScope.Reset();
                                         _selectedScope.WorldId = 0;
                                     }
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("Match against a specific world");
+                                    _imGuiService.HelpMarker("搜尋指定伺服器");
                                     if (_selectedScope.WorldId != null)
                                     {
                                         var selectedWorld = _selectedScope.WorldId == 0 ? null : _worldSheet.GetRowOrDefault(_selectedScope.WorldId.Value);
@@ -374,7 +374,7 @@ public class InventoryScopePicker
                                     }
 
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("When a category is selected, only items from this category will be shown. Select an item again to unselect it.");
+                                    _imGuiService.HelpMarker("選取分類後，只顯示該分類的物品。再次選取即可取消。");
 
                                     if (_selectedScope.CharacterId == null)
                                     {
@@ -426,20 +426,20 @@ public class InventoryScopePicker
                                             }
                                         }
                                         ImGui.SameLine();
-                                        _imGuiService.HelpMarker("When 'All' or 'World' is selected, choose the types of characters you want to filter against. Select an item again to unselect it.");
+                                        _imGuiService.HelpMarker("選擇「全部」或「伺服器」時，可指定角色類型；再次選取即可取消。");
                                     }
 
                                     ImGui.Separator();
                                     ImGui.NewLine();
                                     var invert = _selectedScope.Invert;
-                                    if (ImGui.Checkbox("Invert", ref invert))
+                                    if (ImGui.Checkbox("反向選取###Invert", ref invert))
                                     {
                                         _selectedScope.Invert = invert;
                                         changed = true;
                                     }
 
                                     ImGui.SameLine();
-                                    _imGuiService.HelpMarker("When checked, match against the opposite of what is selected.");
+                                    _imGuiService.HelpMarker("勾選後，改為搜尋所選條件以外的結果。");
                                 }
                             }
 
@@ -447,13 +447,13 @@ public class InventoryScopePicker
                             {
                                 if (commandBar)
                                 {
-                                    if (ImGui.Button("Save"))
+                                    if (ImGui.Button("儲存###Save"))
                                     {
                                         _selectedScope = null;
                                         changed = true;
                                     }
                                     ImGui.SameLine();
-                                    if (ImGui.Button("Delete"))
+                                    if (ImGui.Button("刪除###Delete"))
                                     {
                                         searchScopes.Remove(_selectedScope);
                                         _selectedScope = null;

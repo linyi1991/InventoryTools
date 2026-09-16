@@ -54,7 +54,7 @@ public class OverlayServiceDebuggerPane : IDebugPane
             ImGui.Text($"{(tabHighlights2.HasValue ? "Will Highlight Tab 2" : "No Highlight")}");
         }
 
-        ImGui.Text("Overlays: ");
+        ImGui.Text("覆蓋介面：");
         foreach (var overlay in OverlayService.Overlays)
         {
             ImGui.Text($"{overlay.GetType()}");
@@ -62,7 +62,7 @@ public class OverlayServiceDebuggerPane : IDebugPane
             ImGui.Text($"Should Draw: {(overlay.ShouldDraw ? "Yes" : "No")}");
         }
 
-        if (ImGui.CollapsingHeader("Current State:") && OverlayService.LastState != null)
+        if (ImGui.CollapsingHeader("目前狀態：###Current State:") && OverlayService.LastState != null)
         {
             Utils.PrintOutObject(OverlayService.LastState, 0, new List<string>());
             if (OverlayService.LastState.FilterResult != null)

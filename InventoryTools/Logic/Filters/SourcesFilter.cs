@@ -29,10 +29,10 @@ namespace InventoryTools.Logic.Filters
         }
         public override int Order { get; set; } = 1;
         public override string Key { get; set; } = "Sources";
-        public override string Name { get; set; } = "來源";
+        public override string Name { get; set; } = "顯示持有此物品的角色、雇員或庫存來源。";
 
         public override string HelpText { get; set; } =
-            "This lists all the sources that are applicable given the sources picked above.";
+            "列出符合上方來源設定的所有庫存。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 
@@ -48,7 +48,7 @@ namespace InventoryTools.Logic.Filters
             ImGui.NewLine();
             ImGui.Separator();
             ImGui.NewLine();
-            ImGui.Text("Source Information: ");
+            ImGui.Text("來源資訊：");
             ImGui.SameLine();
             ImGuiService.HelpMarker(GetHelpText(configuration));
             var allCharacters = _characterMonitor.Characters;

@@ -10,8 +10,8 @@ namespace InventoryTools.Logic.Filters.Stats
     public class ItemLevelFilter : StringFilter
     {
         public override string Key { get; set; } = "ILvl";
-        public override string Name { get; set; } = "iLevel";
-        public override string HelpText { get; set; } = "The iLevel of the item.";
+        public override string Name { get; set; } = "物品等級";
+        public override string HelpText { get; set; } = "物品等級。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Stats;
 

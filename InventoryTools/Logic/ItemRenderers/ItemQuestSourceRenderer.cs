@@ -24,7 +24,7 @@ public class ItemQuestUseRenderer : ItemQuestSourceRenderer
     {
     }
 
-    public override string HelpText { get; } = "Is this item required for a quest?";
+    public override string HelpText { get; } = "此物品是否為任務所需物品？";
 
     public override RendererType RendererType { get; } = RendererType.Use;
 }
@@ -36,8 +36,8 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
     private readonly Dictionary<uint,string> _festivalNames;
     public override RendererType RendererType { get; } = RendererType.Source;
     public override ItemInfoType Type { get; } = ItemInfoType.Quest;
-    public override string SingularName { get; } = "Quest";
-    public override string HelpText { get; } = "Does this item come from a quest?";
+    public override string SingularName { get; } = "任務";
+    public override string HelpText { get; } = "此物品是否來自任務？";
     public override bool ShouldGroup { get; } = true;
 
     public ItemQuestSourceRenderer(ITextureProvider textureProvider, ItemSheet itemSheet, MapSheet mapSheet,
@@ -54,21 +54,21 @@ public class ItemQuestSourceRenderer : ItemInfoRenderer<ItemQuestSource>
         var quest = asSource.Quest.Value;
 
         var questName = quest.Name.ToImGuiString();
-        ImGui.Text("Name: " + questName);
-        ImGui.Text("Expansion: " + quest.Expansion.Value.Name.ToImGuiString());
+        ImGui.Text("名稱：" + questName);
+        ImGui.Text("資料片：" + quest.Expansion.Value.Name.ToImGuiString());
         if (quest.BeastTribe.RowId != 0)
         {
-            ImGui.Text("Allied Society: " + quest.BeastTribe.Value.Name.ToImGuiString());
+            ImGui.Text("友好部族：" + quest.BeastTribe.Value.Name.ToImGuiString());
         }
         if (quest.Festival.RowId != 0 && _festivalNames.ContainsKey(quest.Festival.RowId))
         {
             ImGui.PushTextWrapPos();
-            ImGui.Text("Only available from " + _festivalNames[quest.Festival.RowId]);
+            ImGui.Text("僅可取得於：" + _festivalNames[quest.Festival.RowId]);
             ImGui.PopTextWrapPos();
         }
 
-        DrawItems("Required Items: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("所需物品：", asSource.CostItems);
+        DrawItems("獎勵：", asSource.RewardItems);
     };
 
     public override Func<ItemSource, string> GetName => source =>

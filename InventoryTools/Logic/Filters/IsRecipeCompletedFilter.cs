@@ -12,8 +12,8 @@ public class IsRecipeCompletedFilter : BooleanFilter
 {
     private readonly IQuestManagerService _questManagerService;
     public override string Key { get; set; } = "IsRecipeCompleted";
-    public override string Name { get; set; } = "Are Recipes Completed?";
-    public override string HelpText { get; set; } = "Have the recipes that make this item been completed?";
+    public override string Name { get; set; } = "是否已完成配方？";
+    public override string HelpText { get; set; } = "製作此物品的配方是否已完成？";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Crafting;
 
     public IsRecipeCompletedFilter(ILogger<IsRecipeCompletedFilter> logger, ImGuiService imGuiService, IQuestManagerService questManagerService) : base(logger, imGuiService)

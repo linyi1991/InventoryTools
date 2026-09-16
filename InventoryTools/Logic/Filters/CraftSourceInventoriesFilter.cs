@@ -14,10 +14,10 @@ public class CraftSourceInventoriesFilter : InventoryScopeFilter
     }
 
     public override string Key { get; set; } = "CraftSourceInventories";
-    public override string Name { get; set; } = "Inventories to Retrieve From";
+    public override string Name { get; set; } = "取物來源庫存";
 
     public override string HelpText { get; set; } =
-        "Which inventories should the crafting list check for materials to withdraw? Items found in the selected inventories will appear in the 'Items in Retainers/Bags' list and you will need to retrieve them either before gathering or after gathering depending on your craft list's configuration.";
+        "製作清單應從哪些庫存查找可取出的素材？找到的物品會列於「雇員／背包中的物品」，並依清單設定在採集前或採集後取出。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Inventories;
 

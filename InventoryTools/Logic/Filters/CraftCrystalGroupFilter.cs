@@ -40,10 +40,10 @@ public class CraftCrystalGroupFilter : ChoiceFilter<CrystalGroupSetting>
     }
 
     public override string Key { get; set; } = "CraftCrystalGroupFilter";
-    public override string Name { get; set; } = "Group Crystals By";
+    public override string Name { get; set; } = "水晶分組方式";
 
     public override string HelpText { get; set; } =
-        "Should the crystals be grouped together or show up in the Gather/Buy list?";
+        "將水晶獨立分組，或顯示於採集／購買清單？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override CrystalGroupSetting DefaultValue { get; set; } = CrystalGroupSetting.Separate;

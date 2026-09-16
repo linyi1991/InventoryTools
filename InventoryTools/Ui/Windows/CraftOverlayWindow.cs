@@ -172,8 +172,8 @@ public class CraftOverlayWindow : OverlayWindow
                             nextState = "Collapse";
                             break;
                     }
-                    ImGui.TextUnformatted($"Left Click: {nextState}");
-                    ImGui.TextUnformatted("Right Click: Menu");
+                    ImGui.TextUnformatted($"左鍵：{nextState}");
+                    ImGui.TextUnformatted("右鍵：開啟選單");
                 }
             }
 
@@ -187,7 +187,7 @@ public class CraftOverlayWindow : OverlayWindow
         {
             if (popup)
             {
-                if (ImGui.MenuItem("Close"))
+                if (ImGui.MenuItem("關閉###Close"))
                 {
                     this.Close();
                 }
@@ -274,7 +274,7 @@ public class CraftOverlayWindow : OverlayWindow
         }
         else
         {
-            ImGui.Text("Nothing to do.");
+            ImGui.Text("沒有待辦事項。");
             ImGui.SetCursorPosX(ImGui.GetCursorPosX() + (150 + 70 + 80 * ImGui.GetIO().FontGlobalScale));
         }
 
@@ -286,7 +286,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Hammer,
                 ref currentCursorPosX,
-                "Open the Allagan Tools crafts window.",
+                "開啟 Allagan Tools 製作視窗。",
                 true))
         {
             this.MediatorService.Publish(new ToggleGenericWindowMessage(typeof(CraftsWindow)));
@@ -298,7 +298,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Cog,
                 ref currentCursorPosX,
-                "Open the Allagan Tools configuration window.",
+                "開啟 Allagan Tools 設定視窗。",
                 true))
         {
             this.MediatorService.Publish(new ToggleGenericWindowMessage(typeof(ConfigurationWindow)));
@@ -324,7 +324,7 @@ public class CraftOverlayWindow : OverlayWindow
                 _font,
                 FontAwesomeIcon.Bars,
                 ref currentCursorPosX,
-                "Select active craft list",
+                "選擇目前製作清單",
                 true))
         {
             ImGui.OpenPopup("SelectCraftList");
@@ -349,7 +349,7 @@ public class CraftOverlayWindow : OverlayWindow
 
         if (SelectedConfiguration == null)
         {
-            ImGui.Text("No craft list active.");
+            ImGui.Text("尚未啟用製作清單。");
         }
         else if(craftList != null)
         {
@@ -357,17 +357,17 @@ public class CraftOverlayWindow : OverlayWindow
             {
                 using (ImRaii.Table("CraftList", 6, ImGuiTableFlags.SizingFixedFit))
                 {
-                    ImGui.TableSetupColumn("Icon", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("圖示###Icon", ImGuiTableColumnFlags.WidthFixed,
                         20 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.WidthFixed,
                         150 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Step", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("步驟###Step", ImGuiTableColumnFlags.WidthFixed,
                         80 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Icon", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("圖示###Icon", ImGuiTableColumnFlags.WidthFixed,
                         10 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Bell", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("傳喚鈴###Bell", ImGuiTableColumnFlags.WidthFixed,
                         20 * ImGui.GetIO().FontGlobalScale);
-                    ImGui.TableSetupColumn("Action", ImGuiTableColumnFlags.WidthFixed,
+                    ImGui.TableSetupColumn("操作###Action", ImGuiTableColumnFlags.WidthFixed,
                         70 * ImGui.GetIO().FontGlobalScale);
                     var index = 1;
                     foreach (var currentItem in nextItems.Take(WindowState == CraftOverlayWindowState.Single ? 1 : maxItems))
@@ -435,7 +435,7 @@ public class CraftOverlayWindow : OverlayWindow
                                                 .Distinct().ToList();
                                             foreach (var result in sortingResults)
                                             {
-                                                ImGui.Text($"{result.Quantity} available to retrieve from {_characterMonitor.GetCharacterById(result.SourceRetainerId)?.FormattedName ?? "Unknown Retainer"} in {result.SourceBag.FormattedName()} at {result.BagLocation.X + 1}/{result.BagLocation.Y + 1}");
+                                                ImGui.Text($"{result.Quantity} 個可取出，來源：{_characterMonitor.GetCharacterById(result.SourceRetainerId)?.FormattedName ?? "Unknown Retainer"}，{result.SourceBag.FormattedName()}，格位：{result.BagLocation.X + 1}/{result.BagLocation.Y + 1}");
                                             }
                                         }
                                     }
@@ -483,7 +483,7 @@ public class CraftOverlayWindow : OverlayWindow
                             {
                                 if (popup.Success)
                                 {
-                                    if (ImGui.MenuItem("More Information"))
+                                    if (ImGui.MenuItem("更多資訊###More Information"))
                                     {
                                         this.MediatorService.Publish(new OpenUintWindowMessage(typeof(ItemWindow), currentItem.ItemId));
                                     }

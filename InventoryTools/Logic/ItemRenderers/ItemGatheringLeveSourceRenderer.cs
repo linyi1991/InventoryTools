@@ -37,9 +37,9 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GatheringLeve;
-    public override string SingularName => "Gathering Leve";
-    public override string PluralName => "Gathering Leves";
-    public override string HelpText => "Is this item obtained from a gathering leve?";
+    public override string SingularName => "採集理符";
+    public override string PluralName => "採集理符";
+    public override string HelpText => "此物品是否可從採集理符取得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
     public override Action<ItemSource> DrawTooltip => source =>
@@ -47,13 +47,13 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
 
-        ImGui.TextUnformatted("Leve: " + leveRow.Name.ExtractText());
-        ImGui.TextUnformatted("Class: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
-        ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
-        ImGui.TextUnformatted("Allowance Cost: " + leveRow.AllowanceCost);
-        ImGui.TextUnformatted("Loot Chance: " + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
+        ImGui.TextUnformatted("理符：" + leveRow.Name.ExtractText());
+        ImGui.TextUnformatted("職業：" + leveRow.ClassJobCategory.Value.Name.ExtractText());
+        ImGui.TextUnformatted("經驗值獎勵：" + asSource.ExpReward);
+        ImGui.TextUnformatted("消耗理符受理權：" + leveRow.AllowanceCost);
+        ImGui.TextUnformatted("掉落機率：" + asSource.LeveRewardItem.Value.ProbabilityPercent[asSource.RewardItemIndex] + "%");
 
-        ImGui.TextUnformatted("Reward Items: ");
+        ImGui.TextUnformatted("獎勵物品：");
         using (ImRaii.PushIndent())
         {
             for (var itemGroupIndex = 0; itemGroupIndex < asSource.Leve.Value.LeveRewardItem.Value.LeveRewardItemGroup.Count; itemGroupIndex++)
@@ -63,7 +63,7 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
                 {
                     continue;
                 }
-                ImGui.TextUnformatted("Loot Chance: " + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
+                ImGui.TextUnformatted("掉落機率：" + asSource.Leve.Value.LeveRewardItem.Value.ProbabilityPercent[itemGroupIndex] + "%");
                 for (var index = 0; index < itemGroup.Value.Item.Count; index++)
                 {
                     var itemId = itemGroup.Value.Item[index].RowId;
@@ -108,6 +108,6 @@ public class ItemGatheringLeveSourceRenderer : ItemInfoRenderer<ItemGatheringLev
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
         return
-            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} xp) ({leveRow.AllowanceCost} allowances)";
+            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} 經驗值) ({leveRow.AllowanceCost} allowances)";
     };
 }

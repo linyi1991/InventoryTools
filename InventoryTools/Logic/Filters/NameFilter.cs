@@ -12,8 +12,8 @@ namespace InventoryTools.Logic.Filters
     public class NameFilter : StringFilter
     {
         public override string Key { get; set; } = "Name";
-        public override string Name { get; set; } = "名稱";
-        public override string HelpText { get; set; } = "Searches by the name of the item.";
+        public override string Name { get; set; } = "顯示物品名稱；可在欄位下方輸入文字篩選物品。";
+        public override string HelpText { get; set; } = "依物品名稱搜尋。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
 

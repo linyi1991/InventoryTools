@@ -23,7 +23,7 @@ public class ItemFateShopUseRenderer : ItemFateShopSourceRenderer
     {
     }
 
-    public override string HelpText => "Can the item be spent at a bicolor gemstone shop?";
+    public override string HelpText => "此物品是否可用於雙色寶石商店交換物品？";
 
     public override RendererType RendererType => RendererType.Use;
 
@@ -49,9 +49,9 @@ public class ItemFateShopSourceRenderer : ItemInfoRenderer<ItemFateShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.FateShop;
-    public override string SingularName => "Bicolor Gemstone Shop";
-    public override string PluralName => "Bicolor Gemstone Shops";
-    public override string HelpText => "Can the item be purchased from a bicolour gem shop?";
+    public override string SingularName => "雙色寶石商店";
+    public override string PluralName => "雙色寶石商店";
+    public override string HelpText => "此物品是否可向雙色寶石商店購買？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 
@@ -66,8 +66,8 @@ public class ItemFateShopSourceRenderer : ItemInfoRenderer<ItemFateShopSource>
     {
         var asSource = AsSource(source);
 
-        ImGui.Text($"Shop: {asSource.Shop.Name}");
-        ImGui.Text("Rewards:");
+        ImGui.Text($"商店：{asSource.Shop.Name}");
+        ImGui.Text("獎勵：");
         using (ImRaii.PushIndent())
         {
             foreach (var reward in asSource.ShopListing.Rewards)
@@ -86,7 +86,7 @@ public class ItemFateShopSourceRenderer : ItemInfoRenderer<ItemFateShopSource>
                 }
             }
         }
-        ImGui.Text("Costs:");
+        ImGui.Text("費用：");
         using (ImRaii.PushIndent())
         {
             foreach (var cost in asSource.ShopListing.Costs)
@@ -118,10 +118,10 @@ public class ItemFateShopSourceRenderer : ItemInfoRenderer<ItemFateShopSource>
         {
             var rewards = String.Join(", ",
                 asSource.ShopListing.Rewards.Select(c => c.Item.NameString + " (" + c.Count + ")"));
-            return $"Costs {costs} - Rewards {rewards}";
+            return $"費用：{costs}－獎勵：{rewards}";
         }
 
-        return $"Costs {costs}";
+        return $"費用：{costs}";
     };
 
     public override Func<ItemSource, int> GetIcon => source =>

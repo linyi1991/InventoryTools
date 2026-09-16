@@ -12,8 +12,8 @@ namespace InventoryTools.Logic.Filters
         public override FilterType AvailableIn { get; set; } =
             FilterType.SearchFilter | FilterType.CraftFilter | FilterType.SortingFilter | FilterType.GameItemFilter | FilterType.HistoryFilter | FilterType.CuratedList;
         public override string Key { get; set; } = "InvertHighlighting";
-        public override string Name { get; set; } = "Invert Highlighting?";
-        public override string HelpText { get; set; } = "Should all the items not matching the filter be highlighted instead? If set to N/A will use the 'Invert Highlighting' setting inside the general configuration.";
+        public override string Name { get; set; } = "反向物品標示？";
+        public override string HelpText { get; set; } = "是否改為標示不符合篩選的物品？設為不適用時沿用一般設定中的反向標示選項。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Display;
 
         public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)

@@ -71,7 +71,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
             var containerSize = _viewModeSetting.GetIconContainerSize(_configuration);
             if (item.SelectedItem == null)
             {
-                ImGui.Text("No item selected");
+                ImGui.Text("尚未選擇物品");
             }
             else
             {
@@ -158,7 +158,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                 //         {
                 //             var sources = item.SelectedItem.Item.Sources;
                 //             var groupedSources = _renderService.GetGroupedSources(sources);
-                //             ImGuiService.WrapTableColumnElements("Items", groupedSources,
+                //             ImGuiService.WrapTableColumnElements("物品", groupedSources,
                 //                 iconSize * ImGui.GetIO().FontGlobalScale, containerSize * ImGui.GetIO().FontGlobalScale,
                 //                 groupedSource =>
                 //                 {
@@ -228,7 +228,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                         c.FilterType == Logic.FilterType.CraftFilter && !c.CraftListDefault).ToArray();
                 if (craftFilters.Length != 0)
                 {
-                    using var menu = ImRaii.Menu("Add to Craft List");
+                    using var menu = ImRaii.Menu("加入製作清單###Add to Craft List");
                     if(menu)
                     {
                         foreach (var filter in craftFilters)
@@ -250,7 +250,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     }
                 }
 
-                if (ImGui.Selectable("Add to new Craft List"))
+                if (ImGui.Selectable("加入新的製作清單###Add to new Craft List"))
                 {
                     Task.Run(() =>
                     {
@@ -265,7 +265,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                         filter.NeedsRefresh = true;
                     });
                 }
-                if (ImGui.Selectable("Add to new Craft List (ephemeral)"))
+                if (ImGui.Selectable("加入新的暫存製作清單###Add to new Craft List (ephemeral)"))
                 {
                     Task.Run(() =>
                     {
@@ -285,7 +285,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     _listService.Lists.Where(c => c.FilterType == FilterType.CuratedList).ToArray();
                 if (curatedLists.Length != 0)
                 {
-                    using var menu = ImRaii.Menu("Add to Curated List");
+                    using var menu = ImRaii.Menu("加入自訂清單###Add to Curated List");
                     if(menu)
                     {
                         foreach (var filter in curatedLists)
@@ -305,7 +305,7 @@ public class EquipmentSuggestSelectedItemColumn  : StringFormField<EquipmentSugg
                     }
                 }
 
-                if (ImGui.Selectable("Add to new Curated List"))
+                if (ImGui.Selectable("加入新的自訂清單###Add to new Curated List"))
                 {
                     Task.Run(() =>
                     {

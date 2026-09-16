@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.ItemRenderers;
 public class ItemFccShopUseRenderer : ItemFccShopSourceRenderer
 {
     private readonly ItemSheet _itemSheet;
-    public override string HelpText => "Can the item be spent at a free company shop?";
+    public override string HelpText => "此物品是否可用於部隊商店交換物品？";
     public ItemFccShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
     {
@@ -33,7 +33,7 @@ public class ItemFccShopUseRenderer : ItemFccShopSourceRenderer
             ? new List<string>()
             : shopSource.MapIds.Select(c => MapSheet.GetRow(c).FormattedName)).Distinct().ToList();
 
-        ImGui.Text("Items that can be purchased:");
+        ImGui.Text("可購買的物品：");
 
         using (ImRaii.PushIndent())
         {
@@ -63,9 +63,9 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.FCShop;
-    public override string SingularName => "Free Company Shop";
-    public override string PluralName => "Free Company Shops";
-    public override string HelpText => "Can the item be purchased from a free company shop?";
+    public override string SingularName => "部隊商店";
+    public override string PluralName => "部隊商店";
+    public override string HelpText => "此物品是否可向部隊商店購買？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 1;
@@ -77,7 +77,7 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
         using (ImRaii.PushIndent())
         {
-            ImGui.Text($"Cost: Company Credit x {asSources.First().FccShopListing.Cost.Count}");
+            ImGui.Text($"費用：部隊戰績 × {asSources.First().FccShopListing.Cost.Count}");
         }
 
         DrawMaps(sources);
@@ -89,7 +89,7 @@ public class ItemFccShopSourceRenderer : ItemInfoRenderer<ItemFccShopSource>
 
         using (ImRaii.PushIndent())
         {
-            ImGui.Text($"Cost: Company Credit x {asSource.FccShopListing.Cost.Count}");
+            ImGui.Text($"費用：部隊戰績 × {asSource.FccShopListing.Cost.Count}");
         }
 
         DrawMaps(source);

@@ -84,6 +84,10 @@ namespace InventoryTools.Ui
         private readonly TeleporterService _teleporterService;
         private readonly CraftList.Factory _craftListFactory;
         private HashSet<uint> _marketRefreshing = new();
+        private readonly Dictionary<uint, DateTime> _marketRequestStarted = new();
+        private List<uint> _availableMarketWorlds = new();
+        private bool _showAllTwWorlds = true;
+        private DateTime _nextMarketRefresh = DateTime.MinValue;
         private HoverButton _refreshPricesButton = new();
 
         public ItemWindow(ILogger<ItemWindow> logger, MediatorService mediator, ImGuiService imGuiService,
@@ -127,6 +131,7 @@ namespace InventoryTools.Ui
             {
                 GetMarketPrices();
                 _marketRefreshing.Remove(obj.worldId);
+                _marketRequestStarted.Remove(obj.worldId);
             }
         }
 
@@ -135,8 +140,9 @@ namespace InventoryTools.Ui
             base.Initialize(itemId);
              Flags = ImGuiWindowFlags.NoSavedSettings;
             _itemId = itemId;
-            var worlds = _worldSheet.Where(c => c.IsPublic).ToList();
+            var worlds = _worldSheet.Where(c => TwMarketWorlds.IsAvailableForMarket(c.RowId, c.IsPublic)).ToList();
             _picker = new WorldPicker(worlds, true, _otterLogger);
+            _availableMarketWorlds = worlds.Select(world => world.RowId).ToList();
             MediatorService.Subscribe<MarketCacheUpdatedMessage>(this, MarketCacheUpdated);
             if (Item != null)
             {
@@ -215,35 +221,32 @@ namespace InventoryTools.Ui
         private Dictionary<uint, string>? _craftTypes;
         private uint? _craftTypeId;
 
+        private List<uint> GetMarketWorldIds() => TwMarketWorlds.ForItem(
+            _marketBoardService.GetDefaultWorlds(), _picker.SelectedWorldIds,
+            _availableMarketWorlds, _showAllTwWorlds);
+
         private void GetMarketPrices()
         {
-            var defaultWorlds = _marketBoardService.GetDefaultWorlds();
-            var worldIds = _picker.SelectedWorldIds.ToHashSet();
-            foreach (var world in defaultWorlds)
-            {
-                worldIds.Add(world);
-            }
-
-            _marketPrices = _marketCache.GetPricing(_itemId, worldIds.ToList(), true);
+            _marketPrices = _marketCache.GetPricing(_itemId, GetMarketWorldIds(), false);
         }
 
         private void RequestMarketPrices(bool forceCheck = true)
         {
-            if (Item != null)
-            {
-                var defaultWorlds = _marketBoardService.GetDefaultWorlds();
-                var worldIds = _picker.SelectedWorldIds.ToHashSet();
-                foreach (var world in defaultWorlds)
-                {
-                    worldIds.Add(world);
-                }
+            if (Item == null || (forceCheck && DateTime.UtcNow < _nextMarketRefresh))
+                return;
+            if (forceCheck)
+                _nextMarketRefresh = DateTime.UtcNow.AddSeconds(5);
 
-                foreach (var worldId in worldIds)
+            GetMarketPrices();
+            foreach (var worldId in GetMarketWorldIds())
+            {
+                // Cached worlds need no pending spinner when simply opening/changing scope.
+                if (!forceCheck && _marketPrices.Any(price => price.WorldId == worldId && price.listings != null))
+                    continue;
+                if (_marketCache.RequestCheck(Item.RowId, worldId, forceCheck))
                 {
-                    if (_marketCache.RequestCheck(Item.RowId, worldId, forceCheck))
-                    {
-                        _marketRefreshing.Add(worldId);
-                    }
+                    _marketRefreshing.Add(worldId);
+                    _marketRequestStarted[worldId] = DateTime.UtcNow;
                 }
             }
         }
@@ -514,10 +517,10 @@ namespace InventoryTools.Ui
 
 
 #if DEBUG
-                if (ImGui.CollapsingHeader("Debug"))
+                if (ImGui.CollapsingHeader("偵錯###Debug"))
                 {
-                    ImGui.TextUnformatted("Item ID: " + _itemId);
-                    if (ImGui.Button("Copy"))
+                    ImGui.TextUnformatted("物品 ID：" + _itemId);
+                    if (ImGui.Button("複製###Copy"))
                     {
                         _clipboardService.CopyToClipboard(_itemId.ToString());
                     }
@@ -948,6 +951,13 @@ namespace InventoryTools.Ui
         {
             if (Item is { CanBePlacedOnMarket: true })
             {
+                // A failed/limited HTTP request does not send a cache-update event.
+                foreach (var worldId in _marketRequestStarted.Where(pair =>
+                             DateTime.UtcNow - pair.Value > TimeSpan.FromMinutes(2)).Select(pair => pair.Key).ToArray())
+                {
+                    _marketRequestStarted.Remove(worldId);
+                    _marketRefreshing.Remove(worldId);
+                }
                 var prePosition = ImGui.GetCursorPos();
                 if (ImGui.CollapsingHeader("市場價格",
                         ImGuiTreeNodeFlags.CollapsingHeader | ImGuiTreeNodeFlags.DefaultOpen))
@@ -968,12 +978,23 @@ namespace InventoryTools.Ui
                     }
 
 
+                    if (ImGui.Checkbox("顯示全部繁中伺服器##twMarketWorlds", ref _showAllTwWorlds))
+                    {
+                        GetMarketPrices();
+                        if (Configuration.AutomaticallyDownloadMarketPrices)
+                            RequestMarketPrices(false);
+                    }
+                    ImGuiUtil.HoverTooltip("只比較此物品在各繁中服的價格，不改動全域估價、庫存預載或製作成本設定。無資料時可按右側重新整理。");
+                    if (_showAllTwWorlds && !_availableMarketWorlds.Any(TwMarketWorlds.IsTraditionalChinese))
+                        ImGui.TextWrapped("遊戲資料中沒有可用的繁中伺服器；仍顯示原查價範圍。");
+
                     var selected = 0;
                     if (_picker.Draw("世界", "", "", ref selected, 100, 20, ImGuiComboFlags.None))
                     {
                         var world = _picker.Items[selected];
                         _picker.SelectedWorldIds.Add(world.RowId);
-                        RequestMarketPrices();
+                        GetMarketPrices();
+                        RequestMarketPrices(false);
                     }
 
                     if (_picker.SelectedWorldIds.Count != 0)
@@ -1014,6 +1035,8 @@ namespace InventoryTools.Ui
                             if (ImGui.Button(selectedWorldFormattedName))
                             {
                                 _picker.SelectedWorldIds.Remove(selectedWorldId);
+                                GetMarketPrices();
+                                break;
                             }
                         }
                     }
@@ -1024,17 +1047,27 @@ namespace InventoryTools.Ui
                     {
                         RequestMarketPrices();
                     }
-                    ImGuiUtil.HoverTooltip("重新整理目前的市場價格。");
-                    ImGuiTable.DrawTable("MarketPrices", _marketPrices, DrawMarketRow, ImGuiTableFlags.None,
-                        new[] { "伺服器","更新時間", "在售數量", "最低價（NQ／HQ）" });
+                    ImGuiUtil.HoverTooltip("重新整理表格中所有伺服器的價格（每 5 秒可送出一次）。價格由 Universalis 玩家回報，並非即時完整市場。");
+                    ImGuiTable.DrawTable("MarketPrices", GetMarketWorldIds(), DrawMarketRow, ImGuiTableFlags.None,
+                        new[] { "伺服器","快取更新", "在售筆數", "最低價（NQ／HQ）" });
                 }
             }
 
-            void DrawMarketRow(MarketPricing obj)
+            void DrawMarketRow(uint worldId)
             {
+                var obj = _marketPrices.FirstOrDefault(price => price.WorldId == worldId);
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped(_worldSheet.GetRowOrDefault(obj.WorldId)?.Name.ExtractText() ?? "未知");
+                ImGui.TextWrapped(_worldSheet.GetRowOrDefault(worldId)?.Name.ExtractText() ?? $"世界 {worldId}");
                 ImGui.TableNextColumn();
+                if (obj == null)
+                {
+                    ImGui.TextWrapped(_marketRefreshing.Contains(worldId) ? "查詢中…" : "尚無資料／請重新整理");
+                    ImGui.TableNextColumn();
+                    ImGui.TextUnformatted("—");
+                    ImGui.TableNextColumn();
+                    ImGui.TextUnformatted("—／—");
+                    return;
+                }
                 var elapsed = DateTime.Now - obj.LastUpdate;
                 ImGui.TextWrapped(elapsed.TotalMinutes < 60
                     ? $"{Math.Max(0, (int)Math.Round(elapsed.TotalMinutes))} 分鐘前"
@@ -1042,7 +1075,9 @@ namespace InventoryTools.Ui
                 ImGui.TableNextColumn();
                 ImGui.TextWrapped(obj.Available.ToString());
                 ImGui.TableNextColumn();
-                ImGui.TextWrapped(obj.MinPriceNq.ToString("N0", CultureInfo.InvariantCulture) + SeIconChar.Gil.ToIconString() + "/" + obj.MinPriceHq.ToString("N0", CultureInfo.InvariantCulture) + SeIconChar.Gil.ToIconString());
+                var nq = obj.MinPriceNq > 0 ? obj.MinPriceNq.ToString("N0", CultureInfo.InvariantCulture) + SeIconChar.Gil.ToIconString() : "—";
+                var hq = obj.MinPriceHq > 0 ? obj.MinPriceHq.ToString("N0", CultureInfo.InvariantCulture) + SeIconChar.Gil.ToIconString() : "—";
+                ImGui.TextWrapped(nq + "／" + hq);
             }
         }
 

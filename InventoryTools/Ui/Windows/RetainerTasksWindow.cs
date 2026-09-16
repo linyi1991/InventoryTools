@@ -232,7 +232,7 @@ public class RetainerTasksWindow : GenericTabbedTable<RetainerTaskRow>, IMenuWin
                 Draw = (ex, contentTypeId) =>
                 {
                     var drops = ex.Drops;
-                    ImGuiService.WrapTableColumnElements("Drops" + ex.RowId, drops,
+                    ImGuiService.WrapTableColumnElements("掉落物" + ex.RowId, drops,
                     RowSize * ImGui.GetIO().FontGlobalScale - ImGui.GetStyle().FramePadding.X,
                     drop =>
                     {

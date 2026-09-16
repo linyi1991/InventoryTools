@@ -1,0 +1,4304 @@
+[
+  {
+    "file": "Highlighting/ShopHighlighting.cs",
+    "call": "InputText",
+    "original": "Item",
+    "translated": "物品###Item"
+  },
+  {
+    "file": "Highlighting/ShopHighlighting.cs",
+    "call": "Button",
+    "original": "Add Item",
+    "translated": "新增物品###Add Item"
+  },
+  {
+    "file": "Highlighting/ShopHighlighting.cs",
+    "call": "Button",
+    "original": "Remove Item",
+    "translated": "移除物品###Remove Item"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSuggestionColumn.cs",
+    "call": "Text",
+    "original": "This item is from outside the range visible as it's the closest item that matches, it has a lower level than the level of this column.",
+    "translated": "此物品是最接近條件的結果，但等級低於此欄位的範圍，因此顯示在範圍外。"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Configuration",
+    "translated": "設定###Configuration"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Changelog",
+    "translated": "更新紀錄###Changelog"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Help",
+    "translated": "說明###Help"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Enable Verbose Logging",
+    "translated": "啟用詳細日誌###Enable Verbose Logging"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Report a Issue",
+    "translated": "回報問題###Report a Issue"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Close",
+    "translated": "關閉###Close"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Class/Job",
+    "translated": "職業／特職###Class/Job"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Tool/Weapon",
+    "translated": "工具／武器###Tool/Weapon"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Normal",
+    "translated": "一般###Normal"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Expanded",
+    "translated": "展開###Expanded"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "MenuItem",
+    "original": "Compact",
+    "translated": "精簡###Compact"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "Text",
+    "original": "Hitting this will pick the highest iLvl items while also factoring in the relevant stats for the seleted class/item.",
+    "translated": "按下後會依所選職業／物品的相關屬性，選擇物品等級最高的合適裝備。"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Text",
+    "original": "No item selected",
+    "translated": "尚未選擇物品"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Selectable",
+    "original": "Add to new Craft List",
+    "translated": "加入新的製作清單###Add to new Craft List"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Selectable",
+    "original": "Add to new Craft List (ephemeral)",
+    "translated": "加入新的暫存製作清單###Add to new Craft List (ephemeral)"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Selectable",
+    "original": "Add to new Curated List",
+    "translated": "加入新的自訂清單###Add to new Curated List"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedSecondaryItemColumn.cs",
+    "call": "Text",
+    "original": "No item selected",
+    "translated": "尚未選擇物品"
+  },
+  {
+    "file": "Logic/FilterTable.cs",
+    "call": "Selectable",
+    "original": "Yes",
+    "translated": "是###Yes"
+  },
+  {
+    "file": "Logic/FilterTable.cs",
+    "call": "Selectable",
+    "original": "No",
+    "translated": "否###No"
+  },
+  {
+    "file": "Logic/FilterTable.cs",
+    "call": "Text",
+    "original": "Extra Filters",
+    "translated": "其他篩選條件"
+  },
+  {
+    "file": "Logic/FilterTable.cs",
+    "call": "Text",
+    "original": "Right Click: Clear All",
+    "translated": "右鍵：全部清除"
+  },
+  {
+    "file": "Logic/CraftItemTable.cs",
+    "call": "TextWrapped",
+    "original": "No items have been added to the list. Add items via the search menu button at the top right of the screen or by right clicking on an item anywhere within the plugin.",
+    "translated": "清單尚無物品。請使用右上角的搜尋選單，或在插件中的物品上按右鍵加入。"
+  },
+  {
+    "file": "Logic/CraftItemTable.cs",
+    "call": "TextWrapped",
+    "original": "No items have been added to the list. Add items via the search menu button at the top right of the screen or by right clicking on an item anywhere within the plugin.",
+    "translated": "清單尚無物品。請使用右上角的搜尋選單，或在插件中的物品上按右鍵加入。"
+  },
+  {
+    "file": "Debuggers/ArmoireDebuggerPane.cs",
+    "call": "Text",
+    "original": "UIState not found.",
+    "translated": "找不到介面狀態。"
+  },
+  {
+    "file": "Debuggers/AddonOffsetFinderDebuggerPane.cs",
+    "call": "InputText",
+    "original": "Addon Name",
+    "translated": "介面名稱###Addon Name"
+  },
+  {
+    "file": "Debuggers/AddonOffsetFinderDebuggerPane.cs",
+    "call": "InputInt",
+    "original": "Component ID",
+    "translated": "元件 ID###Component ID"
+  },
+  {
+    "file": "Debuggers/AddonOffsetFinderDebuggerPane.cs",
+    "call": "InputInt",
+    "original": "Max Scan Size",
+    "translated": "最大掃描範圍###Max Scan Size"
+  },
+  {
+    "file": "Debuggers/AddonOffsetFinderDebuggerPane.cs",
+    "call": "Button",
+    "original": "Scan",
+    "translated": "掃描###Scan"
+  },
+  {
+    "file": "Debuggers/ListServiceDebuggerPane.cs",
+    "call": "Button",
+    "original": "Request Refresh",
+    "translated": "要求重新整理###Request Refresh"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Session / Active State",
+    "translated": "工作階段／目前狀態###Session / Active State"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Active Character:",
+    "translated": "目前角色："
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Active Retainer:",
+    "translated": "目前雇員："
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Active Free Company:",
+    "translated": "目前部隊："
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Housing",
+    "translated": "房屋###Housing"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Owned Houses:",
+    "translated": "擁有的房屋："
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Has Housing Permission: ",
+    "translated": "具有房屋權限："
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Worlds",
+    "translated": "伺服器###Worlds"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Characters",
+    "translated": "角色###Characters"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Retainers",
+    "translated": "雇員###Retainers"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TableSetupColumn",
+    "original": "Hire Order",
+    "translated": "雇用順序###Hire Order"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TableSetupColumn",
+    "original": "Type",
+    "translated": "類型###Type"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TableSetupColumn",
+    "original": "Gil",
+    "translated": "金幣###Gil"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "TableSetupColumn",
+    "original": "Owner ID",
+    "translated": "持有者 ID###Owner ID"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Character Objects",
+    "translated": "角色物件###Character Objects"
+  },
+  {
+    "file": "Debuggers/CharacterDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Acquired Items",
+    "translated": "已取得物品###Acquired Items"
+  },
+  {
+    "file": "Debuggers/OverlayServiceDebuggerPane.cs",
+    "call": "Text",
+    "original": "Overlays: ",
+    "translated": "覆蓋介面："
+  },
+  {
+    "file": "Debuggers/OverlayServiceDebuggerPane.cs",
+    "call": "CollapsingHeader",
+    "original": "Current State:",
+    "translated": "目前狀態：###Current State:"
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Is Trial Synthesis: ",
+    "translated": "是否為練習製作："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Progress: ",
+    "translated": "進展："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Total Progress Required: ",
+    "translated": "所需總進展："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Quality: ",
+    "translated": "品質："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Status: ",
+    "translated": "狀態："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Step: ",
+    "translated": "步驟："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Durability: ",
+    "translated": "耐久："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "HQ Chance: ",
+    "translated": "HQ 機率："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Item: ",
+    "translated": "物品："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Current Recipe: ",
+    "translated": "目前配方："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Recipe Difficulty: ",
+    "translated": "配方難度："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Recipe Difficulty Factor: ",
+    "translated": "配方難度係數："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Recipe Durability: ",
+    "translated": "配方耐久："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Suggested Craftsmanship: ",
+    "translated": "建議作業精度："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Current Craft Type: ",
+    "translated": "目前製作類型："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "NQ Complete: ",
+    "translated": "NQ 完成："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "HQ Complete: ",
+    "translated": "HQ 完成："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Failed: ",
+    "translated": "失敗："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Total Completed: ",
+    "translated": "完成總數："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Total: ",
+    "translated": "總計："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Item: ",
+    "translated": "物品："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Current Recipe: ",
+    "translated": "目前配方："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Current Craft Type: ",
+    "translated": "目前製作類型："
+  },
+  {
+    "file": "Debuggers/CraftMonitorDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Not crafting.",
+    "translated": "目前未在製作。"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Inventories Seen via Network Traffic",
+    "translated": "透過網路封包偵測到的庫存"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TextUnformatted",
+    "original": "Retainer Inventories Seen via Network Traffic",
+    "translated": "透過網路封包偵測到的雇員庫存"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Bags 1##characterBags1",
+    "translated": "角色背包 1###Character Bags 1##characterBags1"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Bags 2##characterBags2",
+    "translated": "角色背包 2###Character Bags 2##characterBags2"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Bags 3##characterBags3",
+    "translated": "角色背包 3###Character Bags 3##characterBags3"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Bags 4##characterBags4",
+    "translated": "角色背包 4###Character Bags 4##characterBags4"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Equipped##characterEquipped",
+    "translated": "角色裝備###Character Equipped##characterEquipped"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Crystals##characterCrystals",
+    "translated": "角色水晶###Character Crystals##characterCrystals"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Character Currency##characterCurrency",
+    "translated": "角色貨幣###Character Currency##characterCurrency"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Saddlebag Left##saddlebagLeft",
+    "translated": "陸行鳥鞍囊左側###Saddlebag Left##saddlebagLeft"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Saddlebag Right##saddlebagRight",
+    "translated": "陸行鳥鞍囊右側###Saddlebag Right##saddlebagRight"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Premium Saddlebag Left##premiumSaddleBagLeft",
+    "translated": "額外陸行鳥鞍囊左側###Premium Saddlebag Left##premiumSaddleBagLeft"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Premium Saddlebag Right##premiumSaddleBagRight",
+    "translated": "額外陸行鳥鞍囊右側###Premium Saddlebag Right##premiumSaddleBagRight"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Head##armouryHead",
+    "translated": "兵裝庫－頭部###Armoury - Head##armouryHead"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - MainHand##armouryMainHand",
+    "translated": "兵裝庫－主手###Armoury - MainHand##armouryMainHand"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Body##armouryBody",
+    "translated": "兵裝庫－身體###Armoury - Body##armouryBody"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Hands##armouryHands",
+    "translated": "兵裝庫－手部###Armoury - Hands##armouryHands"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Legs##armouryLegs",
+    "translated": "兵裝庫－腿部###Armoury - Legs##armouryLegs"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Feet##armouryFeet",
+    "translated": "兵裝庫－腳部###Armoury - Feet##armouryFeet"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Off Hand##armouryOffHand",
+    "translated": "兵裝庫－副手###Armoury - Off Hand##armouryOffHand"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Ears##armouryEars",
+    "translated": "兵裝庫－耳飾###Armoury - Ears##armouryEars"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Neck##armouryNeck",
+    "translated": "兵裝庫－項鍊###Armoury - Neck##armouryNeck"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Wrists##armouryWrists",
+    "translated": "兵裝庫－手環###Armoury - Wrists##armouryWrists"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - Rings##armouryRings",
+    "translated": "兵裝庫－戒指###Armoury - Rings##armouryRings"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoury - SoulCrystals##armourySoulCrystals",
+    "translated": "兵裝庫－靈魂水晶###Armoury - SoulCrystals##armourySoulCrystals"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Chest 1##freeCompanyBags1",
+    "translated": "部隊倉庫 1###Free Company Chest 1##freeCompanyBags1"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Chest 2##freeCompanyBags2",
+    "translated": "部隊倉庫 2###Free Company Chest 2##freeCompanyBags2"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Chest 3##freeCompanyBags3",
+    "translated": "部隊倉庫 3###Free Company Chest 3##freeCompanyBags3"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Chest 4##freeCompanyBags4",
+    "translated": "部隊倉庫 4###Free Company Chest 4##freeCompanyBags4"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Chest 5##freeCompanyBags5",
+    "translated": "部隊倉庫 5###Free Company Chest 5##freeCompanyBags5"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Free Company Currency##freeCompanyCurrency",
+    "translated": "部隊貨幣###Free Company Currency##freeCompanyCurrency"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Armoire##armoire",
+    "translated": "收藏櫃###Armoire##armoire"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Glamour Chest##glamourChest",
+    "translated": "投影台###Glamour Chest##glamourChest"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag 1##retainerBag1",
+    "translated": "雇員背包 1###Retainer Bag 1##retainerBag1"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag ",
+    "translated": "雇員背包 ###Retainer Bag "
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag 2##retainerBag2",
+    "translated": "雇員背包 2###Retainer Bag 2##retainerBag2"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag ",
+    "translated": "雇員背包 ###Retainer Bag "
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag 3##retainerBag3",
+    "translated": "雇員背包 3###Retainer Bag 3##retainerBag3"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag ",
+    "translated": "雇員背包 ###Retainer Bag "
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag 4##retainerBag4",
+    "translated": "雇員背包 4###Retainer Bag 4##retainerBag4"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag ",
+    "translated": "雇員背包 ###Retainer Bag "
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag 5##retainerBag5",
+    "translated": "雇員背包 5###Retainer Bag 5##retainerBag5"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Bag ",
+    "translated": "雇員背包 ###Retainer Bag "
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Equipped##retainerEquipped",
+    "translated": "雇員裝備###Retainer Equipped##retainerEquipped"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Equipped",
+    "translated": "雇員裝備###Retainer Equipped"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Market##retainerMarket",
+    "translated": "雇員販售物品###Retainer Market##retainerMarket"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Market",
+    "translated": "雇員販售物品###Retainer Market"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Market Prices##retainerMarketPrices",
+    "translated": "雇員販售價格###Retainer Market Prices##retainerMarketPrices"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Market",
+    "translated": "雇員販售物品###Retainer Market"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Crystals##retainerCrystals",
+    "translated": "雇員水晶###Retainer Crystals##retainerCrystals"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Crystals",
+    "translated": "雇員水晶###Retainer Crystals"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Gil##retainerGil",
+    "translated": "雇員金幣###Retainer Gil##retainerGil"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Retainer Gil",
+    "translated": "雇員金幣###Retainer Gil"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Gearsets##gearsets",
+    "translated": "套裝###Gearsets##gearsets"
+  },
+  {
+    "file": "Debuggers/InventoryScannerDebuggerPane.cs",
+    "call": "TreeNode",
+    "original": "Housing Inventories",
+    "translated": "房屋庫存###Housing Inventories"
+  },
+  {
+    "file": "Services/ImGuiService.cs",
+    "call": "Text",
+    "original": "Invalid Icon ID",
+    "translated": "無效的圖示 ID"
+  },
+  {
+    "file": "Services/PopupService.cs",
+    "call": "Button",
+    "original": "OK",
+    "translated": "確定###OK"
+  },
+  {
+    "file": "Services/PopupService.cs",
+    "call": "Button",
+    "original": "Cancel",
+    "translated": "取消###Cancel"
+  },
+  {
+    "file": "Services/PopupService.cs",
+    "call": "Button",
+    "original": "OK",
+    "translated": "確定###OK"
+  },
+  {
+    "file": "Services/PopupService.cs",
+    "call": "Button",
+    "original": "Cancel",
+    "translated": "取消###Cancel"
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Item",
+    "translated": "物品"
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Related Items:",
+    "translated": "相關物品："
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Items:",
+    "translated": "物品："
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Related Items",
+    "translated": "相關物品"
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Pick a ",
+    "translated": "選擇："
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Related Items",
+    "translated": "相關物品"
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Items:",
+    "translated": "物品："
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Related Items",
+    "translated": "相關物品"
+  },
+  {
+    "file": "Services/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "No tooltip configured for ",
+    "translated": "尚未設定提示："
+  },
+  {
+    "file": "Logic/Filters/CraftWorldPricePreferenceFilter.cs",
+    "call": "TextUnformatted",
+    "original": "Start typing to search...",
+    "translated": "輸入文字以搜尋…"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "Button",
+    "original": "Edit##Column",
+    "translated": "編輯###Edit##Column"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "Text",
+    "original": "Add Column",
+    "translated": "新增欄位"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "TextUnformatted",
+    "original": "Start typing to search...",
+    "translated": "輸入文字以搜尋…"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "HoverTooltip",
+    "original": "Default Column",
+    "translated": "預設欄位"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "HoverTooltip",
+    "original": "Configurable",
+    "translated": "可自訂"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "Button",
+    "original": "Add",
+    "translated": "新增###Add"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "Button",
+    "original": "Cancel",
+    "translated": "取消###Cancel"
+  },
+  {
+    "file": "Logic/Filters/CraftColumnsFilter.cs",
+    "call": "Text",
+    "original": "Current Columns:",
+    "translated": "目前欄位："
+  },
+  {
+    "file": "Logic/Filters/SourcesFilter.cs",
+    "call": "Text",
+    "original": "Source Information: ",
+    "translated": "來源資訊："
+  },
+  {
+    "file": "Logic/Filters/CraftIngredientPreferenceFilter.cs",
+    "call": "Selectable",
+    "original": "None",
+    "translated": "無###None"
+  },
+  {
+    "file": "Logic/Filters/CraftIngredientPreferenceFilter.cs",
+    "call": "TextUnformatted",
+    "original": "Start typing to search...",
+    "translated": "輸入文字以搜尋…"
+  },
+  {
+    "file": "Logic/Filters/DestinationsFilter.cs",
+    "call": "Text",
+    "original": "Destination Information: ",
+    "translated": "目的地資訊："
+  },
+  {
+    "file": "Logic/Filters/IngredientSearchFilter.cs",
+    "call": "Button",
+    "original": "Add all from filter",
+    "translated": "加入此篩選的全部物品###Add all from filter"
+  },
+  {
+    "file": "Logic/Filters/IngredientSearchFilter.cs",
+    "call": "Selectable",
+    "original": "Add all from ",
+    "translated": "加入全部物品，來源：###Add all from "
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "Button",
+    "original": "Edit##Column",
+    "translated": "編輯###Edit##Column"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "Text",
+    "original": "Add Column",
+    "translated": "新增欄位"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "TextUnformatted",
+    "original": "Start typing to search...",
+    "translated": "輸入文字以搜尋…"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "HoverTooltip",
+    "original": "Default Column",
+    "translated": "預設欄位"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "HoverTooltip",
+    "original": "Configurable",
+    "translated": "可自訂"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "Button",
+    "original": "Add",
+    "translated": "新增###Add"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "Button",
+    "original": "Cancel",
+    "translated": "取消###Cancel"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "Text",
+    "original": "Current Columns:",
+    "translated": "目前欄位："
+  },
+  {
+    "file": "Logic/Filters/ZonePreferenceFilter.cs",
+    "call": "TextUnformatted",
+    "original": "Start typing to search...",
+    "translated": "輸入文字以搜尋…"
+  },
+  {
+    "file": "Logic/Settings/TooltipSourceInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Settings",
+    "translated": "設定###Settings"
+  },
+  {
+    "file": "Logic/Settings/TooltipSourceInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Logic/Settings/TooltipSourceInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Show",
+    "translated": "顯示###Show"
+  },
+  {
+    "file": "Logic/Settings/TooltipSourceInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Group Mode",
+    "translated": "分組模式###Group Mode"
+  },
+  {
+    "file": "Logic/Settings/TrackMobSpawnSetting.cs",
+    "call": "Button",
+    "original": "Export CSV",
+    "translated": "匯出 CSV###Export CSV"
+  },
+  {
+    "file": "Logic/Settings/TrackMobSpawnSetting.cs",
+    "call": "HoverTooltip",
+    "original": "Export a CSV containing the mob spawn IDs and their positions.",
+    "translated": "匯出包含怪物生成 ID 與座標的 CSV。"
+  },
+  {
+    "file": "Logic/Settings/TooltipUseInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Settings",
+    "translated": "設定###Settings"
+  },
+  {
+    "file": "Logic/Settings/TooltipUseInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Logic/Settings/TooltipUseInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Show",
+    "translated": "顯示###Show"
+  },
+  {
+    "file": "Logic/Settings/TooltipUseInformationSetting.cs",
+    "call": "TableSetupColumn",
+    "original": "Group Mode",
+    "translated": "分組模式###Group Mode"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Text",
+    "original": "Inventory Scope Editor",
+    "translated": "庫存範圍編輯器"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "No scopes defined yet. Press add to start.",
+    "translated": "尚未設定範圍。按「新增」開始設定。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Button",
+    "original": "Add",
+    "translated": "新增###Add"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Button",
+    "original": "Save",
+    "translated": "儲存###Save"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "The inventory scope editor allows you define which inventories you want to search across.",
+    "translated": "庫存範圍編輯器可設定要搜尋哪些庫存。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "By default, every inventory Allagan Tools knows about is searched.",
+    "translated": "預設會搜尋 Allagan Tools 已記錄的所有庫存。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "By providing a set of scopes, you are narrowing down which inventories are displayed.",
+    "translated": "設定範圍後，只會顯示範圍內的庫存。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Text",
+    "original": "Search Scope:",
+    "translated": "搜尋範圍："
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Checkbox",
+    "original": "Invert",
+    "translated": "反向選取###Invert"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Button",
+    "original": "Save",
+    "translated": "儲存###Save"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "Button",
+    "original": "Delete",
+    "translated": "刪除###Delete"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Text",
+    "original": "Character Scope Editor",
+    "translated": "角色範圍編輯器"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "No scopes defined yet. Press add to start.",
+    "translated": "尚未設定範圍。按「新增」開始設定。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Button",
+    "original": "Add",
+    "translated": "新增###Add"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Button",
+    "original": "Save",
+    "translated": "儲存###Save"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "The character scope editor allows you define which characters you want to search across.",
+    "translated": "角色範圍編輯器可設定要搜尋哪些角色。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "By default, every character Allagan Tools knows about is searched.",
+    "translated": "預設會搜尋 Allagan Tools 已記錄的所有角色。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "TextWrapped",
+    "original": "By providing a set of scopes, you are narrowing down from which characters are displayed/counted.",
+    "translated": "設定範圍後，只會顯示與計算範圍內的角色。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Text",
+    "original": "Search Scope:",
+    "translated": "搜尋範圍："
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Checkbox",
+    "original": "Invert",
+    "translated": "反向選取###Invert"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Button",
+    "original": "Save",
+    "translated": "儲存###Save"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "Button",
+    "original": "Delete",
+    "translated": "刪除###Delete"
+  },
+  {
+    "file": "Logic/Columns/CraftMarketPriceColumn.cs",
+    "call": "HoverTooltip",
+    "original": "The market price of this item is cheaper than buying it from a vendor and you prefer vendors over the current ingredient preference.",
+    "translated": "此物品的市場價格低於商店售價，而你設定的商店優先順序高於目前素材來源。"
+  },
+  {
+    "file": "Logic/Columns/CraftMarketPriceColumn.cs",
+    "call": "Text",
+    "original": "N/A",
+    "translated": "不適用"
+  },
+  {
+    "file": "Logic/Columns/CraftMarketPriceColumn.cs",
+    "call": "Text",
+    "original": "Available: ",
+    "translated": "可用："
+  },
+  {
+    "file": "Logic/Columns/CraftMarketPriceColumn.cs",
+    "call": "Text",
+    "original": "Missing: ",
+    "translated": "缺少："
+  },
+  {
+    "file": "Logic/Columns/CraftCalculatorColumn.cs",
+    "call": "Button",
+    "original": "Calculate Crafts",
+    "translated": "計算可製作數量###Calculate Crafts"
+  },
+  {
+    "file": "Logic/Columns/CraftCalculatorColumn.cs",
+    "call": "Button",
+    "original": "Stop Calculating Crafts",
+    "translated": "停止計算可製作數量###Stop Calculating Crafts"
+  },
+  {
+    "file": "Logic/Columns/ShortcutColumn.cs",
+    "call": "SmallButton",
+    "original": "Try On##TO",
+    "translated": "試穿###Try On##TO"
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Required: ",
+    "translated": "需要："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Needed: ",
+    "translated": "尚需："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Needed Pre Update: ",
+    "translated": "更新前尚需："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Available: ",
+    "translated": "可用："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Ready: ",
+    "translated": "已備妥："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Can Craft: ",
+    "translated": "可製作："
+  },
+  {
+    "file": "Logic/Columns/DebugCraftColumn.cs",
+    "call": "Text",
+    "original": "Will Retrieve: ",
+    "translated": "將取出："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "Text",
+    "original": "Ingredient Breakdown:",
+    "translated": "素材明細："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount Originally Required: ",
+    "translated": "原始需求數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount Required: ",
+    "translated": "需求數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount in Inventory: ",
+    "translated": "庫存數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount to Retrieve: ",
+    "translated": "待取出數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount Missing: ",
+    "translated": "缺少數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Amount Craftable: ",
+    "translated": "可製作數量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Craft Operations Required: ",
+    "translated": "所需製作次數："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Recipe Yield: ",
+    "translated": "每次製作產量："
+  },
+  {
+    "file": "Logic/Columns/CraftAmountRequiredColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Ingredients: ",
+    "translated": "素材："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Configure Sourcing:",
+    "translated": "設定來源："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Configure Recipe:",
+    "translated": "設定配方："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Configure HQ Required:",
+    "translated": "設定 HQ 需求："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Retrieve from Retainer:",
+    "translated": "從雇員取出："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Prefer Market World:",
+    "translated": "優先市場伺服器："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Market Price:",
+    "translated": "市場價格："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Sourcing: ",
+    "translated": "取得來源："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Retainer: ",
+    "translated": "雇員："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Zone: ",
+    "translated": "區域："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Market World Preference: ",
+    "translated": "市場伺服器偏好："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "TextUnformatted",
+    "original": "Market Price Override: ",
+    "translated": "自訂市場價格："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Retainer Retrieval: ",
+    "translated": "雇員取物："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Retainer Retrieval: ",
+    "translated": "雇員取物："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Item Quality: ",
+    "translated": "物品品質："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Collectable",
+    "translated": "收藏品"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "HQ Only (Overridden)",
+    "translated": "僅 HQ（個別設定）"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "NQ Only (Overridden)",
+    "translated": "僅 NQ（個別設定）"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "NQ Only (List Default)",
+    "translated": "僅 NQ（清單預設）"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Left Click: Next Recipe",
+    "translated": "左鍵：下一個配方"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Right Click: Select Recipe",
+    "translated": "右鍵：選擇配方"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Source Preference:",
+    "translated": "來源偏好："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Use Default",
+    "translated": "使用預設###Use Default"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Market Price Override:",
+    "translated": "自訂市場價格："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Market World Preference:",
+    "translated": "市場伺服器偏好："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Use Default",
+    "translated": "使用預設###Use Default"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Zone Preference:",
+    "translated": "區域偏好："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Use Default",
+    "translated": "使用預設###Use Default"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Retrieve from Retainer:",
+    "translated": "從雇員取出："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Use Default",
+    "translated": "使用預設###Use Default"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Yes",
+    "translated": "是###Yes"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "No",
+    "translated": "否###No"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "HQ Only",
+    "translated": "僅 HQ###HQ Only"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "NQ Only",
+    "translated": "僅 NQ###NQ Only"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Collectable Only",
+    "translated": "僅收藏品###Collectable Only"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "HQ Required:",
+    "translated": "需要 HQ："
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Use Default",
+    "translated": "使用預設###Use Default"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "Yes",
+    "translated": "是###Yes"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Selectable",
+    "original": "No",
+    "translated": "否###No"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "Text",
+    "original": "Recipe:",
+    "translated": "配方："
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "HoverTooltip",
+    "original": "Delete item",
+    "translated": "刪除物品"
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "HoverTooltip",
+    "original": "The market price of this item is cheaper than buying it from a vendor and you prefer vendors over the current ingredient preference.",
+    "translated": "此物品的市場價格低於商店售價，而你設定的商店優先順序高於目前素材來源。"
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "Text",
+    "original": "N/A",
+    "translated": "不適用"
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "Text",
+    "original": "Available: ",
+    "translated": "可用："
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "Text",
+    "original": "Missing: ",
+    "translated": "缺少："
+  },
+  {
+    "file": "Logic/Columns/CraftSimpleColumn.cs",
+    "call": "Text",
+    "original": "Missing Ingredients: ",
+    "translated": "缺少素材："
+  },
+  {
+    "file": "Logic/Columns/UptimeColumn.cs",
+    "call": "Text",
+    "original": "Up in ",
+    "translated": "距離出現："
+  },
+  {
+    "file": "Logic/Columns/UptimeColumn.cs",
+    "call": "Text",
+    "original": "Up for ",
+    "translated": "剩餘時間："
+  },
+  {
+    "file": "Logic/Columns/UptimeColumn.cs",
+    "call": "Text",
+    "original": " (Up in ",
+    "translated": "（距離出現："
+  },
+  {
+    "file": "Logic/Columns/UptimeColumn.cs",
+    "call": "Text",
+    "original": " (Up for ",
+    "translated": "（剩餘時間："
+  },
+  {
+    "file": "Logic/Columns/MarketBoardPriceColumn.cs",
+    "call": "Text",
+    "original": "No data available",
+    "translated": "暫無資料"
+  },
+  {
+    "file": "Logic/Columns/MarketBoardPriceColumn.cs",
+    "call": "Text",
+    "original": "Listings: ",
+    "translated": "在售筆數："
+  },
+  {
+    "file": "Logic/Columns/MarketBoardPriceColumn.cs",
+    "call": "Text",
+    "original": "History: ",
+    "translated": "歷史紀錄："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Name: ",
+    "translated": "名稱："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Expansion: ",
+    "translated": "資料片："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Allied Society: ",
+    "translated": "友好部族："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Only available from ",
+    "translated": "僅可取得於："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonChestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonChestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCExpertDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "Seals rewarded: ",
+    "translated": "軍票獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemTripleTriadSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Match Cost: ",
+    "translated": "對戰費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemTripleTriadSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Uses Regional Rules: ",
+    "translated": "使用地區規則："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level:",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringSourceRenderer.cs",
+    "call": "Text",
+    "original": "Stars:",
+    "translated": "星級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringSourceRenderer.cs",
+    "call": "Text",
+    "original": "Perception Required:",
+    "translated": "所需鑑別力："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringSourceRenderer.cs",
+    "call": "Text",
+    "original": "Maps:",
+    "translated": "地圖："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCSupplyDutySourceRenderer.cs",
+    "call": "Text",
+    "original": "Level: ",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCSupplyDutySourceRenderer.cs",
+    "call": "Text",
+    "original": "Exp: ",
+    "translated": "經驗值："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCSupplyDutySourceRenderer.cs",
+    "call": "Text",
+    "original": "Seals: ",
+    "translated": "軍票："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCSupplyDutySourceRenderer.cs",
+    "call": "Text",
+    "original": "Unknown rewards",
+    "translated": "未知獎勵"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemStainUseRenderer.cs",
+    "call": "Text",
+    "original": "Colour: ",
+    "translated": "顏色："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGilShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Costs:",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGilShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Costs:",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Leve: ",
+    "translated": "理符："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "EXP Reward: ",
+    "translated": "經驗值獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Allowance Cost: ",
+    "translated": "消耗理符受理權："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Loot Chance: ",
+    "translated": "掉落機率："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSpecialShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Rewards:",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSpecialShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Costs:",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGardeningCrossbreedSourceRenderer.cs",
+    "call": "Text",
+    "original": "Crossbreeds:",
+    "translated": "雜交組合："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBuddySourceRenderer.cs",
+    "call": "Text",
+    "original": "Battle: Increases EXP earned by your chocobo companion.",
+    "translated": "戰鬥：增加陸行鳥夥伴獲得的經驗值。"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBuddySourceRenderer.cs",
+    "call": "Text",
+    "original": "Stable: Training food for a stabled Chocobo companion.",
+    "translated": "鳥房：訓練寄養陸行鳥夥伴的飼料。"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBuddySourceRenderer.cs",
+    "call": "Text",
+    "original": "Dying: Used in Chocobo Dyeing.",
+    "translated": "染色：用於改變陸行鳥羽毛顏色。"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemZodiacWeaponSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemHouseSourceRenderer.cs",
+    "call": "Text",
+    "original": "Not default in any house.",
+    "translated": "不是任何房屋的預設物品。"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemHouseSourceRenderer.cs",
+    "call": "Text",
+    "original": "Default in ",
+    "translated": "預設使用於："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops 1)",
+    "translated": "（掉落 1 個）"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops ",
+    "translated": "（掉落數量："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops 1)",
+    "translated": "（掉落 1 個）"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops ",
+    "translated": "（掉落數量："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCollectablesShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Items that can be purchased:",
+    "translated": "可購買的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Leve: ",
+    "translated": "理符："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "EXP Reward: ",
+    "translated": "經驗值獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Allowance Cost: ",
+    "translated": "消耗理符受理權："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Loot Chance: ",
+    "translated": "掉落機率："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAquariumUseRenderer.cs",
+    "call": "Text",
+    "original": "Size: ",
+    "translated": "尺寸："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAquariumUseRenderer.cs",
+    "call": "Text",
+    "original": "Water Type: ",
+    "translated": "水域類型："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGlamourReadySetSourceRenderer.cs",
+    "call": "Text",
+    "original": "Set Items:",
+    "translated": "套裝物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftResultSourceRenderer.cs",
+    "call": "Text",
+    "original": "Ingredients:",
+    "translated": "素材："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonDropSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFishingSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level:",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFishingSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level:",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFieldOpCofferSourceRenderer.cs",
+    "call": "Text",
+    "original": "Drops from ",
+    "translated": "掉落來源："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFieldOpCofferSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops 1)",
+    "translated": "（掉落 1 個）"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFieldOpCofferSourceRenderer.cs",
+    "call": "Text",
+    "original": "(Drops ",
+    "translated": "（掉落數量："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFccShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Items that can be purchased:",
+    "translated": "可購買的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Leve: ",
+    "translated": "理符："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "EXP Reward: ",
+    "translated": "經驗值獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Allowance Cost: ",
+    "translated": "消耗理符受理權："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Loot Chance: ",
+    "translated": "掉落機率："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Reward Items: ",
+    "translated": "獎勵物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGatheringLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Loot Chance: ",
+    "translated": "掉落機率："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemMonsterDropSourceRenderer.cs",
+    "call": "Text",
+    "original": "Monster: ",
+    "translated": "怪物："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemMonsterDropSourceRenderer.cs",
+    "call": "Text",
+    "original": "Locations: ",
+    "translated": "地點："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Leve: ",
+    "translated": "理符："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "EXP Reward: ",
+    "translated": "經驗值獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Allowance Cost: ",
+    "translated": "消耗理符受理權："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Required Items: ",
+    "translated": "所需物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Reward Items: ",
+    "translated": "獎勵物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveUseRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Loot Chance: ",
+    "translated": "掉落機率："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonBossDropSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonBossDropSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemArmoireSourceRenderer.cs",
+    "call": "Text",
+    "original": "Category: ",
+    "translated": "分類："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGCShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Items that can be purchased:",
+    "translated": "可購買的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCustomDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "NPC: ",
+    "translated": "NPC："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCustomDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "Collectability (Low): ",
+    "translated": "收藏價值（低）："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCustomDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "Collectability (Mid): ",
+    "translated": "收藏價值（中）："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCustomDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "Collectability (High): ",
+    "translated": "收藏價值（高）："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCustomDeliverySourceRenderer.cs",
+    "call": "Text",
+    "original": "Unknown Npc",
+    "translated": "未知 NPC"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGlamourReadySourceRenderer.cs",
+    "call": "Text",
+    "original": "Transforms into: ",
+    "translated": "轉換為："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemGlamourReadySourceRenderer.cs",
+    "call": "Text",
+    "original": "Set Items:",
+    "translated": "套裝物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFateShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Rewards:",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemFateShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Costs:",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level: ",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Max Level: ",
+    "translated": "最高等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Rewards:",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Exp: ",
+    "translated": "經驗值："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Script: ",
+    "translated": "腳本："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSkybuilderHandInSourceRenderer.cs",
+    "call": "Text",
+    "original": "Points: ",
+    "translated": "點數："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSpearFishingSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level:",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSpearFishingSourceRenderer.cs",
+    "call": "Text",
+    "original": "Level:",
+    "translated": "等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAnimaShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Rewards:",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAnimaShopSourceRenderer.cs",
+    "call": "Text",
+    "original": "Costs:",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemPvpSeriesSourceRenderer.cs",
+    "call": "Text",
+    "original": "Reward in PVP Series ",
+    "translated": "PvP 系列獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemPvpSeriesSourceRenderer.cs",
+    "call": "Text",
+    "original": "Unlocks at level ",
+    "translated": "解鎖等級："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAnimaWeaponSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Leve: ",
+    "translated": "理符："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Class: ",
+    "translated": "職業："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "EXP Reward: ",
+    "translated": "經驗值獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Seals Rewarded: ",
+    "translated": "軍票獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyLeveSourceRenderer.cs",
+    "call": "TextUnformatted",
+    "original": "Allowance Cost: ",
+    "translated": "消耗理符受理權："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "(Drops 1)",
+    "translated": "（掉落 1 個）"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "(Drops ",
+    "translated": "（掉落數量："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Maps:",
+    "translated": "地圖："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemInfoRenderer.cs",
+    "call": "Text",
+    "original": "Maps:",
+    "translated": "地圖："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonBossChestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemDungeonBossChestSourceRenderer.cs",
+    "call": "Text",
+    "original": "Dungeon: ",
+    "translated": "迷宮："
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Button",
+    "original": "Teleport##",
+    "translated": "傳送###Teleport##"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Text",
+    "original": " (Up in ",
+    "translated": "（距離出現："
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Text",
+    "original": " (Up for ",
+    "translated": "（剩餘時間："
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Text",
+    "original": " (Up in ",
+    "translated": "（距離出現："
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Text",
+    "original": " (Up for ",
+    "translated": "（剩餘時間："
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Button",
+    "original": "Gather##Gather",
+    "translated": "採集###Gather##Gather"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Button",
+    "original": "Gather##Gather",
+    "translated": "採集###Gather##Gather"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftGatherColumn.cs",
+    "call": "Button",
+    "original": "Buy##Buy",
+    "translated": "購買###Buy##Buy"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftButtonColumn.cs",
+    "call": "Button",
+    "original": "Craft##",
+    "translated": "製作###Craft##"
+  },
+  {
+    "file": "Logic/Columns/Buttons/GatherButtonColumn.cs",
+    "call": "Button",
+    "original": "Log##",
+    "translated": "筆記###Log##"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftBuyColumn.cs",
+    "call": "Button",
+    "original": "Teleport##",
+    "translated": "傳送###Teleport##"
+  },
+  {
+    "file": "Logic/Columns/Buttons/CraftBuyColumn.cs",
+    "call": "Button",
+    "original": "Buy##Buy",
+    "translated": "購買###Buy##Buy"
+  },
+  {
+    "file": "Logic/Columns/Buttons/RemoveButtonColumn.cs",
+    "call": "HoverTooltip",
+    "original": "Remove this item",
+    "translated": "移除此物品"
+  },
+  {
+    "file": "Logic/Columns/ColumnSettings/CharacterScopePickerColumnSetting.cs",
+    "call": "Button",
+    "original": "Test Scopes",
+    "translated": "測試範圍###Test Scopes"
+  },
+  {
+    "file": "Logic/Columns/ColumnSettings/CharacterScopePickerColumnSetting.cs",
+    "call": "Text",
+    "original": "The following characters will be searched in: ",
+    "translated": "將搜尋下列角色："
+  },
+  {
+    "file": "Logic/Columns/ColumnSettings/ScopePickerColumnSetting.cs",
+    "call": "HoverTooltip",
+    "original": "Please make sure you include at least one inventory that contains crystals otherwise the craft calculator will not work.",
+    "translated": "請務必納入至少一個含有水晶的庫存，否則製作計算器無法正常運作。"
+  },
+  {
+    "file": "Logic/Columns/ColumnSettings/ScopePickerColumnSetting.cs",
+    "call": "Button",
+    "original": "Test Scopes",
+    "translated": "測試範圍###Test Scopes"
+  },
+  {
+    "file": "Logic/Columns/ColumnSettings/ScopePickerColumnSetting.cs",
+    "call": "Text",
+    "original": "The following inventories will be searched in: ",
+    "translated": "將搜尋下列庫存："
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/MultiChoiceColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/MultiChoiceColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/ChoiceColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/ChoiceColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/StringColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Columns/Abstract/ColumnSettings/StringColumnSetting.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/IntegerFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/SortedListFilter.cs",
+    "call": "Button",
+    "original": "Top##Column",
+    "translated": "置頂###Top##Column"
+  },
+  {
+    "file": "Logic/Filters/Abstract/SortedListFilter.cs",
+    "call": "Button",
+    "original": "Up##Column",
+    "translated": "上移###Up##Column"
+  },
+  {
+    "file": "Logic/Filters/Abstract/SortedListFilter.cs",
+    "call": "Button",
+    "original": "Down##Column",
+    "translated": "下移###Down##Column"
+  },
+  {
+    "file": "Logic/Filters/Abstract/SortedListFilter.cs",
+    "call": "Button",
+    "original": "Bottom##Column",
+    "translated": "置底###Bottom##Column"
+  },
+  {
+    "file": "Logic/Filters/Abstract/SortedListFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/BooleanFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/CharacterScopeFilter.cs",
+    "call": "Button",
+    "original": "Test Scopes",
+    "translated": "測試範圍###Test Scopes"
+  },
+  {
+    "file": "Logic/Filters/Abstract/CharacterScopeFilter.cs",
+    "call": "Text",
+    "original": "The following characters will be searched in: ",
+    "translated": "將搜尋下列角色："
+  },
+  {
+    "file": "Logic/Filters/Abstract/MultipleChoiceFilter.cs",
+    "call": "InputText",
+    "original": "Start typing to search..##ItemSearch",
+    "translated": "輸入文字以搜尋…###Start typing to search..##ItemSearch"
+  },
+  {
+    "file": "Logic/Filters/Abstract/MultipleChoiceFilter.cs",
+    "call": "Button",
+    "original": "Add All",
+    "translated": "全部加入###Add All"
+  },
+  {
+    "file": "Logic/Filters/Abstract/MultipleChoiceFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/StringFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/DecimalFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/ChoiceFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/InventoryScopeFilter.cs",
+    "call": "Button",
+    "original": "Reset##Reset",
+    "translated": "重設###Reset##Reset"
+  },
+  {
+    "file": "Logic/Filters/Abstract/ColorFilter.cs",
+    "call": "Checkbox",
+    "original": "Override Color##",
+    "translated": "自訂顏色###Override Color##"
+  },
+  {
+    "file": "Logic/Filters/Abstract/ColorFilter.cs",
+    "call": "Button",
+    "original": "Clear Color",
+    "translated": "清除顏色###Clear Color"
+  },
+  {
+    "file": "Logic/Filters/Abstract/ColorFilter.cs",
+    "call": "Button",
+    "original": "Reset##",
+    "translated": "重設###Reset##"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This will paste the contents of items copied via the 'Copy List Contents' menu above, it also will attempt to parse Teamcraft lists if one is in your clipboard. If you have a garland tools URL in your clipboard that points to a group, it will also attempt to parse that add it to your craft list.",
+    "translated": "貼上透過上方「複製清單內容」複製的物品。也會嘗試解析剪貼簿中的 Teamcraft 清單或 Garland Tools 群組網址，將物品加入製作清單。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "You can now copy configurations between your craft lists.",
+    "translated": "現在可以在製作清單之間複製設定。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "Two new columns have been added to your craft lists: 'Next Step' and 'Settings'.",
+    "translated": "製作清單新增「下一步」與「設定」兩個欄位。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "The 'Next Step' column provides guidance on what you should do next.",
+    "translated": "「下一步」欄位會提示接下來應執行的操作。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "The 'Settings' column allows you to configure item sourcing, retainer settings, and recipes.",
+    "translated": "「設定」欄位可調整物品來源、雇員設定與配方。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "The update includes the following changes:",
+    "translated": "本次更新包含下列變更："
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "You can now change groupings for crafts based on class or required crafting order.",
+    "translated": "現在可依職業或製作先後順序分組。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "Retrievable items can be prioritized in their own group.",
+    "translated": "可取出的物品能優先顯示於獨立群組。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "Gatherable and purchasable items can be grouped by zone.",
+    "translated": "可採集與可購買的物品能依區域分組。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "Improved handling of items that can be purchased with seals, poetics, and scrip currencies.",
+    "translated": "改善以軍票、詩學神典石及工票購買物品的處理方式。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "BulletText",
+    "original": "You can customize these options further by clicking the pencil icon in the top right corner of a list.",
+    "translated": "點擊清單右上角的鉛筆圖示，可進一步調整這些選項。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "Selectable",
+    "original": "Normal List",
+    "translated": "一般清單###Normal List"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "Selectable",
+    "original": "Ephemeral List",
+    "translated": "暫存清單###Ephemeral List"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Get started by adding a craft list by hitting the + button on the bottom left.",
+    "translated": "按左下角的 + 按鈕新增製作清單，即可開始使用。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "Selectable",
+    "original": "Default Configuration",
+    "translated": "預設設定###Default Configuration"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "General",
+    "translated": "一般###General"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TextWrapped",
+    "original": "This is the default configuration for new craft lists. Any new craft list will inherit this lists settings.",
+    "translated": "這是新製作清單的預設設定，之後新增的製作清單會沿用這些設定。"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TextWrapped",
+    "original": "Are you sure you want to reset your configuration to the default?",
+    "translated": "確定要將設定重設為預設值嗎？"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Are you sure you want to reset the default craft list?.\\nThis operation cannot be undone!\\n\\n",
+    "translated": "確定要重設預設製作清單嗎？\\n此操作無法復原！\\n\\n"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "Selectable",
+    "original": "Copy configuration from '",
+    "translated": "複製設定，來源：'###Copy configuration from '"
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "TextUnformatted",
+    "original": "bNpc with the ID ",
+    "translated": "找不到戰鬥 NPC，ID："
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "Text",
+    "original": "Type: ",
+    "translated": "類型："
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "Text",
+    "original": "Rank: ",
+    "translated": "階級："
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "HoverTooltip",
+    "original": "Open in Garland Tools",
+    "translated": "在 Garland Tools 開啟"
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "HoverTooltip",
+    "original": "Open in Teamcraft",
+    "translated": "在 Teamcraft 開啟"
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Drops (",
+    "translated": "掉落物（###Drops ("
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Locations (",
+    "translated": "地點（###Locations ("
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "TextUnformatted",
+    "original": "bNpc ID: ",
+    "translated": "戰鬥 NPC ID："
+  },
+  {
+    "file": "Ui/Windows/BNpcWindow.cs",
+    "call": "Button",
+    "original": "Copy",
+    "translated": "複製###Copy"
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Submarine Exploration Point with the ID ",
+    "translated": "找不到潛水艇探索地點，ID："
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Unlocked Via: ",
+    "translated": "解鎖來源："
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Rank Required: ",
+    "translated": "所需階級："
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Rewards (",
+    "translated": "獎勵（###Rewards ("
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/SubmarineWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Duty ID: ",
+    "translated": "任務 ID："
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Right Click: Menu",
+    "translated": "右鍵：開啟選單"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "MenuItem",
+    "original": "Close",
+    "translated": "關閉###Close"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "Text",
+    "original": "Nothing to do.",
+    "translated": "沒有待辦事項。"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "Text",
+    "original": "No craft list active.",
+    "translated": "尚未啟用製作清單。"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Icon",
+    "translated": "圖示###Icon"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Step",
+    "translated": "步驟###Step"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Icon",
+    "translated": "圖示###Icon"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Bell",
+    "translated": "傳喚鈴###Bell"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Action",
+    "translated": "操作###Action"
+  },
+  {
+    "file": "Ui/Windows/CraftOverlayWindow.cs",
+    "call": "MenuItem",
+    "original": "More Information",
+    "translated": "更多資訊###More Information"
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Dungeon with the ID ",
+    "translated": "找不到迷宮，ID："
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Level Required: ",
+    "translated": "所需等級："
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Item Level Required: ",
+    "translated": "所需物品等級："
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Coffer ",
+    "translated": "寶箱：###Coffer "
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Drops",
+    "translated": "掉落物###Drops"
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Other Chests (",
+    "translated": "其他寶箱（###Other Chests ("
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Rewards (",
+    "translated": "獎勵（###Rewards ("
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/DutyWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Duty ID: ",
+    "translated": "任務 ID："
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Airship Exploration Point with the ID ",
+    "translated": "找不到飛空艇探索地點，ID："
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Unlocked Via: ",
+    "translated": "解鎖來源："
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Rank Required: ",
+    "translated": "所需階級："
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Rewards (",
+    "translated": "獎勵（###Rewards ("
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/AirshipWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Duty ID: ",
+    "translated": "任務 ID："
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "TextWrapped",
+    "original": "Welcome to Allagan Tools.",
+    "translated": "歡迎使用 Allagan Tools。"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "TextWrapped",
+    "original": "Allagan Tools is a plugin for Final Fantasy XIV that provides the following features:",
+    "translated": "Allagan Tools 是 FINAL FANTASY XIV 插件，提供下列功能："
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "Text",
+    "original": "Track your inventories",
+    "translated": "追蹤所有庫存"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "Text",
+    "original": "Plan your crafts",
+    "translated": "規劃製作清單"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "Text",
+    "original": "Provide information about items, monsters, duties and much more",
+    "translated": "查詢物品、怪物、任務等豐富資訊"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "TextWrapped",
+    "original": "You can open various new windows using command shortcuts(the main filter  or from the main window.",
+    "translated": "可透過指令捷徑或主視窗開啟各項功能視窗。"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "TextWrapped",
+    "original": "If you're unsure, right-click on an item or a table row for more options!",
+    "translated": "對物品或表格列按右鍵，即可查看更多操作！"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "TextWrapped",
+    "original": "To learn about the different features, I recommend going to the settings section and reading the information provided by the ? icons.",
+    "translated": "想了解各項功能，請前往設定並查看「?」圖示提供的說明。"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "Button",
+    "original": "Close",
+    "translated": "關閉###Close"
+  },
+  {
+    "file": "Ui/Windows/IntroWindow.cs",
+    "call": "Button",
+    "original": "Close & Open Main Window",
+    "translated": "關閉並開啟主視窗###Close & Open Main Window"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Selectable",
+    "original": "1. General",
+    "translated": "1. 一般說明###1. General"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Selectable",
+    "original": "2. Filter Basics",
+    "translated": "2. 篩選基礎###2. Filter Basics"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Selectable",
+    "original": "3. Filtering",
+    "translated": "3. 篩選語法###3. Filtering"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Selectable",
+    "original": "4. About",
+    "translated": "4. 關於###4. About"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "Allagan Tools is a mult-purpose plugin providing 3 primary features, tracking/displaying your inventory data, helping you plan crafts and providing information about items. There are other features, and they are covered in 'Features'",
+    "translated": "Allagan Tools 提供三項主要功能：追蹤與顯示庫存、規劃製作，以及查詢物品資訊。其他功能請參閱功能說明。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "If you've used Teamcraft or Garland Tools, it takes some inspiration from both.",
+    "translated": "本插件參考了 Teamcraft 與 Garland Tools 的部分設計。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Inventory Tracking:",
+    "translated": "庫存追蹤："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "The plugin will do it's best to keep track of your inventories. Some inventories are only cached when they are first accessed. If you aren't seeing your retainer/free company/glamour chest/etc then please be sure to view them first otherwise the plugin will not be able to cache them.",
+    "translated": "插件會盡可能追蹤庫存，但部分庫存必須先在遊戲中開啟一次才能記錄。若看不到雇員、部隊倉庫或投影台等資料，請先開啟對應介面。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "Once the plugin knows about the items, you can create lists to narrow down searches for specific items, help you sort the items and a myriad of other things.",
+    "translated": "庫存記錄完成後，可建立清單縮小搜尋範圍、整理物品，並使用其他功能。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Craft Planning:",
+    "translated": "製作規劃："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "The plugin has a dedicated crafts window that lets you create lists of items you want to craft. It'll create a plan that breaks each item down into it's individual parts and will tell you what you're missing. It'll tell you where everything you need is and if you are missing anything, it'll direct you to the place to find/buy the missing items.",
+    "translated": "製作視窗可建立待製作物品清單，將物品拆解成各項素材，列出缺少的數量、現有素材的位置，以及缺少素材的採集或購買地點。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "If you've ever used Teamcraft, you should be right at home.",
+    "translated": "如果使用過 Teamcraft，應該很快就能上手。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Item Information:",
+    "translated": "物品資訊："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "The plugin has a fairly comprehensive database of information about each item. If you've used garland tools, the information provided is very similar. Clicking on an item's icon within the plugin will always open the item's information window.",
+    "translated": "插件提供完整的物品資料，內容與 Garland Tools 類似。在插件中點擊物品圖示即可開啟詳細資訊視窗。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Highlighting:",
+    "translated": "醒目標示："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "When using either an item list or a craft list, you can toggle highlighting. This will highlight the items in game so that you can see exactly where the items are. When the plugins windows are active, you can hit the 'Highlight' checkbox to activate highlighting for that list. If you want to trigger this with a macro, please have a look at the commands section of help, you can toggle 'background' highlighting.",
+    "translated": "物品清單與製作清單皆可啟用醒目標示，在遊戲庫存中標出物品位置。視窗開啟時勾選「標示」即可啟用；若要使用巨集切換背景標示，請參閱指令說明。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This is a very basic guide, for more information please see the wiki.",
+    "translated": "此處提供基本操作說明，更多資訊請參閱 Wiki。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Button",
+    "original": "Open Wiki",
+    "translated": "開啟 Wiki###Open Wiki"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Text",
+    "original": "Lists are the core way the plugin provides a way for you to view the items you are looking for or are attempting to sort.",
+    "translated": "清單是查看、搜尋與整理物品的主要方式。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Text",
+    "original": "There are currently 3 types of list that can be created.",
+    "translated": "目前可建立三種類型的清單。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Text",
+    "original": "Search List",
+    "translated": "搜尋清單"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This type of list allows you search for specific items across all your inventories. If you just need to find an item, but don't want help sorting it, this is the list type you want.",
+    "translated": "此類清單可搜尋所有庫存中的特定物品。若只需要找物品而不需要整理，請使用此類型。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Example Usages:",
+    "translated": "使用範例："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Finding materials for a craft.",
+    "translated": "尋找製作所需的素材。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Finding a housing item you put somewhere.",
+    "translated": "尋找存放在某處的家具。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Seeing how much an item you just picked up is worth.",
+    "translated": "查看剛取得物品的價值。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Seeing if a specific item is already in your glamour chest or armoire.",
+    "translated": "確認投影台或收藏櫃是否已存有特定物品。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Checking your retainers equipment without actually going to a retainer bell.",
+    "translated": "不必前往傳喚鈴即可查看雇員裝備。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Checking if any items you have can go into the armoire.",
+    "translated": "檢查持有的物品是否可存入收藏櫃。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Text",
+    "original": "Sort Filter",
+    "translated": "整理篩選"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This type of list builds on top of the 'Search List' but also lets you pick where you want the items to be sorted. It'll attempt to show you the most optimized plan for storing the items in the destinations you pick.",
+    "translated": "此類清單在搜尋清單的基礎上，可指定物品要收納的位置，並提供合適的整理方案。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Example Usages:",
+    "translated": "使用範例："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Putting away materials after a craft and not having them double up.",
+    "translated": "製作後收納素材，避免分散重複堆疊。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Store items above a certain item level within your chocobo saddlebag for later.",
+    "translated": "將指定物品等級以上的物品存放於陸行鳥鞍囊備用。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Find items that are unique to your free company chest and put them there.",
+    "translated": "找出部隊倉庫特有的物品，並集中收納至該處。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Text",
+    "original": "Game Item Filter",
+    "translated": "遊戲物品篩選"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This filter allows you search across all the items that exist within the game's catalogue of items.",
+    "translated": "此篩選可搜尋遊戲物品圖鑑中的所有物品。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Example Usages:",
+    "translated": "使用範例："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Searching for glamours",
+    "translated": "搜尋投影裝備"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Seeing what mounts/minions you haven't obtained",
+    "translated": "查看尚未取得的坐騎／寵物"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "BulletText",
+    "original": "Tracking the prices of all the items within the game",
+    "translated": "追蹤遊戲內物品的價格"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Advanced Search/Filter Syntax:",
+    "translated": "進階搜尋／篩選語法："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "When creating a list or when searching through the results of a list it is possible to use a series of operators to make your search more specific. The available operators are dependant on what you searching against but at present support for !, <, >, >=, <=, = is present.",
+    "translated": "建立清單或搜尋清單結果時，可使用運算子精確篩選。可用語法依欄位類型而異，目前支援 !、<、>、>=、<=、=。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "! - Show any results that do not contain what is entered - available for text and numbers.",
+    "translated": "!－排除包含輸入內容的結果，適用於文字與數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "< - Show any results that have a value less than what is entered - available for numbers.",
+    "translated": "<－顯示小於輸入值的結果，適用於數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "> - Show any results that have a value greater than what is entered - available for numbers.",
+    "translated": ">－顯示大於輸入值的結果，適用於數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": ">= - Show any results that have a value greater or equal to what is entered - available for numbers.",
+    "translated": ">=－顯示大於或等於輸入值的結果，適用於數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "<= - Show any results that have a value less than or equal to what is entered - available for numbers.",
+    "translated": "<=－顯示小於或等於輸入值的結果，適用於數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "= - Show any results that have a value equal to exactly what is entered - available for text and numbers.",
+    "translated": "=－顯示完全等於輸入內容的結果，適用於文字與數字。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextWrapped",
+    "original": "&& and || AND and OR respectively - Can be used to chain operators together.",
+    "translated": "&& 與 || 分別代表「且」與「或」，可串接多個篩選條件。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "About:",
+    "translated": "關於："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "This plugin is written in some of the free time that I have, it's a labour of love and I will hopefully be actively releasing updates for a while.",
+    "translated": "原作者利用業餘時間開發此插件，並希望持續提供更新。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "If you run into any issues please submit feedback via the plugin installer feedback button.",
+    "translated": "如遇問題，請透過插件安裝器的意見回饋按鈕回報。"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Plugin Wiki: ",
+    "translated": "插件 Wiki："
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Button",
+    "original": "Open##WikiBtn",
+    "translated": "開啟###Open##WikiBtn"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Found a bug?",
+    "translated": "發現錯誤？"
+  },
+  {
+    "file": "Ui/Windows/HelpWindow.cs",
+    "call": "Button",
+    "original": "Open##BugBtn",
+    "translated": "開啟###Open##BugBtn"
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Submarine Exploration Point with the ID ",
+    "translated": "找不到潛水艇探索地點，ID："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Level: ",
+    "translated": "等級："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Duration: ",
+    "translated": "所需時間："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Experience: ",
+    "translated": "經驗值："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Venture Cost: ",
+    "translated": "探險幣費用："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Average iLvl: ",
+    "translated": "平均物品等級："
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Rewards (",
+    "translated": "獎勵（###Rewards ("
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/RetainerTaskWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Duty ID: ",
+    "translated": "任務 ID："
+  },
+  {
+    "file": "Ui/Windows/FiltersWindow.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Windows/ListDebugWindow.cs",
+    "call": "Text",
+    "original": "List: ",
+    "translated": "清單："
+  },
+  {
+    "file": "Ui/Windows/ListDebugWindow.cs",
+    "call": "Text",
+    "original": "Refreshing: ",
+    "translated": "正在重新整理："
+  },
+  {
+    "file": "Ui/Windows/ListDebugWindow.cs",
+    "call": "Text",
+    "original": "Needs Refresh: ",
+    "translated": "需要重新整理："
+  },
+  {
+    "file": "Ui/Windows/ItemWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/ItemWindow.cs",
+    "call": "TextUnformatted",
+    "original": "Item ID: ",
+    "translated": "物品 ID："
+  },
+  {
+    "file": "Ui/Windows/ItemWindow.cs",
+    "call": "Button",
+    "original": "Copy",
+    "translated": "複製###Copy"
+  },
+  {
+    "file": "Ui/Windows/ENpcsWindow.cs",
+    "call": "Text",
+    "original": "Yes",
+    "translated": "是"
+  },
+  {
+    "file": "Ui/Windows/ENpcsWindow.cs",
+    "call": "Text",
+    "original": "No",
+    "translated": "否"
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "TextUnformatted",
+    "original": "eNpc with the ID ",
+    "translated": "找不到 NPC，ID："
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "HoverTooltip",
+    "original": "Open in Garland Tools",
+    "translated": "在 Garland Tools 開啟"
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "HoverTooltip",
+    "original": "Open in Teamcraft",
+    "translated": "在 Teamcraft 開啟"
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Shops (",
+    "translated": "商店（###Shops ("
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "TextUnformatted",
+    "original": "No information available.",
+    "translated": "暫無資訊。"
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "CollapsingHeader",
+    "original": "Debug",
+    "translated": "偵錯###Debug"
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "TextUnformatted",
+    "original": "eNpc ID: ",
+    "translated": "NPC ID："
+  },
+  {
+    "file": "Ui/Windows/ENpcWindow.cs",
+    "call": "Button",
+    "original": "Copy",
+    "translated": "複製###Copy"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "CollapsingHeader",
+    "original": "Item Lists",
+    "translated": "物品清單###Item Lists"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Type",
+    "translated": "類型###Type"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Order",
+    "translated": "順序###Order"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "TextUnformatted",
+    "original": "No item lists created yet!",
+    "translated": "尚未建立物品清單！"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "SmallButton",
+    "original": "Up##",
+    "translated": "上移###Up##"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "SmallButton",
+    "original": "Down##",
+    "translated": "下移###Down##"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "CollapsingHeader",
+    "original": "Export",
+    "translated": "匯出###Export"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Type",
+    "translated": "類型###Type"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "TextUnformatted",
+    "original": "No lists created yet!",
+    "translated": "尚未建立清單！"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "SmallButton",
+    "original": "Export Configuration##",
+    "translated": "匯出設定###Export Configuration##"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "CollapsingHeader",
+    "original": "Import",
+    "translated": "匯入###Import"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "Button",
+    "original": "Import##ImportBtn",
+    "translated": "匯入###Import##ImportBtn"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "TextUnformatted",
+    "original": "Characters (",
+    "translated": "角色（"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "TextUnformatted",
+    "original": "Free Companies (",
+    "translated": "部隊（"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "TextUnformatted",
+    "original": "Residences (",
+    "translated": "房屋（"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "TextUnformatted",
+    "original": "Retainers (",
+    "translated": "雇員（"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "TextUnformatted",
+    "original": "Orphaned Retainers:",
+    "translated": "尚未配對角色的雇員："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "World: ",
+    "translated": "伺服器："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Selectable",
+    "original": "All",
+    "translated": "全部###All"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "HoverTooltip",
+    "original": "Edit name, set the name to blank to return it to the original name.",
+    "translated": "編輯名稱；留白可還原為原始名稱。"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Custom Name: ",
+    "translated": "自訂名稱："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Original Name: ",
+    "translated": "原始名稱："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Button",
+    "original": "Save",
+    "translated": "儲存###Save"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Level: ",
+    "translated": "等級："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Gil: ",
+    "translated": "金幣："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Gender: ",
+    "translated": "性別："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Free Company: ",
+    "translated": "部隊："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "World: ",
+    "translated": "伺服器："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Class/Job: ",
+    "translated": "職業／特職："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "World: ",
+    "translated": "伺服器："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Plot Size: ",
+    "translated": "土地大小："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Location: ",
+    "translated": "位置："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Owners: ",
+    "translated": "擁有者："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "World: ",
+    "translated": "伺服器："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Related Characters: ",
+    "translated": "相關角色："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Inventories: ",
+    "translated": "庫存："
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "No inventories found.",
+    "translated": "找不到庫存。"
+  },
+  {
+    "file": "Ui/Pages/CharacterRetainerPage.cs",
+    "call": "Text",
+    "original": "Invalid character selected.",
+    "translated": "選取的角色無效。"
+  },
+  {
+    "file": "Ui/Pages/FilterPage.cs",
+    "call": "CollapsingHeader",
+    "original": "General",
+    "translated": "一般###General"
+  },
+  {
+    "file": "Ui/Pages/FilterPage.cs",
+    "call": "Button",
+    "original": "Export Configuration to Clipboard",
+    "translated": "將設定匯出至剪貼簿###Export Configuration to Clipboard"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "CollapsingHeader",
+    "original": "Craft Lists",
+    "translated": "製作清單###Craft Lists"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Name",
+    "translated": "名稱###Name"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "TableSetupColumn",
+    "original": "Order",
+    "translated": "順序###Order"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "TextUnformatted",
+    "original": "No craft lists created yet!",
+    "translated": "尚未建立製作清單！"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "SmallButton",
+    "original": "Up##",
+    "translated": "上移###Up##"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "SmallButton",
+    "original": "Down##",
+    "translated": "下移###Down##"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSuggestionColumn.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Items",
+    "translated": "物品"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "Menu",
+    "original": "File",
+    "translated": "檔案###File"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "Menu",
+    "original": "Mode",
+    "translated": "模式###Mode"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "Menu",
+    "original": "View",
+    "translated": "檢視###View"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestWindow.cs",
+    "call": "Menu",
+    "original": "Windows",
+    "translated": "視窗###Windows"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Items",
+    "translated": "物品"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Menu",
+    "original": "Add to Craft List",
+    "translated": "加入製作清單###Add to Craft List"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedItemColumn.cs",
+    "call": "Menu",
+    "original": "Add to Curated List",
+    "translated": "加入自訂清單###Add to Curated List"
+  },
+  {
+    "file": "EquipmentSuggest/EquipmentSuggestSelectedSecondaryItemColumn.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Items",
+    "translated": "物品"
+  },
+  {
+    "file": "Logic/CraftItemTable.cs",
+    "call": "TabItem",
+    "original": "No Items",
+    "translated": "沒有物品###No Items"
+  },
+  {
+    "file": "Logic/Filters/ColumnsFilter.cs",
+    "call": "HelpMarker",
+    "original": "Original Column Name: ",
+    "translated": "原始欄位名稱："
+  },
+  {
+    "file": "Logic/Settings/TrackMobSpawnSetting.cs",
+    "call": "SaveFileDialog",
+    "original": "Save to csv",
+    "translated": "儲存為 CSV"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "RadioButton",
+    "original": "All",
+    "translated": "全部###All"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against all inventories",
+    "translated": "搜尋所有庫存"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "RadioButton",
+    "original": "Character",
+    "translated": "角色###Character"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against a specific character(player character, retainer, free company, etc)",
+    "translated": "搜尋指定角色（玩家角色、雇員、部隊等）"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "RadioButton",
+    "original": "Active Character",
+    "translated": "目前角色###Active Character"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against the currently logged in character. This includes all retainers/free companies/etc owned by the character. Use categories or character types to filter down further.",
+    "translated": "搜尋目前登入角色及其所屬的雇員、部隊等。可透過分類或角色類型進一步篩選。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "RadioButton",
+    "original": "World",
+    "translated": "伺服器###World"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against a specific world",
+    "translated": "搜尋指定伺服器"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "When a category is selected, only items from this category will be shown. Select an item again to unselect it.",
+    "translated": "選取分類後，只顯示該分類的物品。再次選取即可取消。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "When 'All' or 'World' is selected, choose the types of characters you want to filter against. Select an item again to unselect it.",
+    "translated": "選擇「全部」或「伺服器」時，可指定角色類型；再次選取即可取消。"
+  },
+  {
+    "file": "Logic/Editors/InventoryScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "When checked, match against the opposite of what is selected.",
+    "translated": "勾選後，改為搜尋所選條件以外的結果。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "RadioButton",
+    "original": "All",
+    "translated": "全部###All"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against all characters",
+    "translated": "搜尋所有角色"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "RadioButton",
+    "original": "Character",
+    "translated": "角色###Character"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against a specific character(player character, retainer, free company, etc)",
+    "translated": "搜尋指定角色（玩家角色、雇員、部隊等）"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "RadioButton",
+    "original": "Active Character",
+    "translated": "目前角色###Active Character"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against the currently logged in character.",
+    "translated": "搜尋目前登入的角色。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "RadioButton",
+    "original": "World",
+    "translated": "伺服器###World"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "Match against a specific world",
+    "translated": "搜尋指定伺服器"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "When 'All' or 'World' is selected, choose the types of characters you want to filter against. Select an item again to unselect it.",
+    "translated": "選擇「全部」或「伺服器」時，可指定角色類型；再次選取即可取消。"
+  },
+  {
+    "file": "Logic/Editors/CharacterScopePicker.cs",
+    "call": "HelpMarker",
+    "original": "When checked, match against the opposite of what is selected.",
+    "translated": "勾選後，改為搜尋所選條件以外的結果。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "How should the item be sourced? As there are multiple ways to source an item, you can either rely on your list's ingredient sourcing (tab inside the craft list's settings) or you can override the source here.",
+    "translated": "設定物品的取得方式。可沿用製作清單設定中的素材來源偏好，或在此個別指定。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Override the price for this item. This is only used when no pricing is available. Use this to give you a rough estimate of the gil cost of your item.",
+    "translated": "設定此物品的備用估價。僅在無法取得價格時使用，以估算金幣成本。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Override the market world preferences for this item. If you select a world here, the craft pricer will attempt to take prices from this world first then follow the normal rules for craft pricing.",
+    "translated": "個別設定市場伺服器偏好。估價時會先查詢此處指定的伺服器，再依一般估價規則處理。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Where should the item be sourced from? As there are sometimes multiple locations to source an item from, you can either rely on your list's zone preferences (tab inside the craft list's settings) or you can override the zone here.",
+    "translated": "設定物品的取得區域。可沿用製作清單設定中的區域偏好，或在此個別指定。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Should we source the item from your retainers? If there is a quantity available of the correct quality it will show up in the Items in Retainers/Bags section.",
+    "translated": "是否從雇員取得物品？若雇員持有符合品質的物品，會顯示於雇員／背包物品區段。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Should the item be HQ or NQ? For output items, the quantity needed will only reduce if you craft an item of the correct quality. For other materials this will dictate what is listed to retrieve and what counts towards the amount you need.",
+    "translated": "設定 HQ 或 NQ 需求。成品只有在製作出符合品質的物品時才會扣除需求；素材則依此決定取物清單與可計入的庫存。"
+  },
+  {
+    "file": "Logic/Columns/CraftSettingsColumn.cs",
+    "call": "HelpMarker",
+    "original": "Select which recipe you wish to use for this item. Some items can be crafted by multiple classes.",
+    "translated": "選擇此物品要使用的配方。部分物品可由不同職業製作。"
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Required Items: ",
+    "translated": "所需物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemQuestSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Rewards: ",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCraftLeveSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Possible Reward Items: ",
+    "translated": "可能獲得的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemZodiacWeaponSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Forms:",
+    "translated": "形態："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyCraftDraftSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Possible Reward Items: ",
+    "translated": "可能獲得的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyCraftDraftSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Ingredients: ",
+    "translated": "素材："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Reward Items: ",
+    "translated": "獎勵物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemSupplementSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Required Items: ",
+    "translated": "所需物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCollectablesShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Costs: ",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCollectablesShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Rewards: ",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCompanyCraftResultSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Ingredients: ",
+    "translated": "素材："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemBattleLeveSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Possible Reward Items: ",
+    "translated": "可能獲得的物品："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCalamitySalvagerShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Costs: ",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCalamitySalvagerShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Rewards: ",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCalamitySalvagerShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Costs: ",
+    "translated": "費用："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemCalamitySalvagerShopSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Rewards: ",
+    "translated": "獎勵："
+  },
+  {
+    "file": "Logic/ItemRenderers/ItemAnimaWeaponSourceRenderer.cs",
+    "call": "DrawItems",
+    "original": "Forms:",
+    "translated": "形態："
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Mob Window",
+    "translated": "怪物視窗###Mob Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Npcs Window",
+    "translated": "NPC 視窗###Npcs Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Duties Window",
+    "translated": "任務視窗###Duties Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Airships Window",
+    "translated": "飛空艇視窗###Airships Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Submarines Window",
+    "translated": "潛水艇視窗###Submarines Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Retainer Ventures Window",
+    "translated": "雇員探險視窗###Retainer Ventures Window"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Help",
+    "translated": "說明###Help"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "SaveFileDialog",
+    "original": "Save to csv",
+    "translated": "儲存為 CSV"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "SaveFileDialog",
+    "original": "Save to csv",
+    "translated": "儲存為 CSV"
+  },
+  {
+    "file": "Ui/Windows/CraftsWindow.cs",
+    "call": "TabItem",
+    "original": "Default Configuration",
+    "translated": "預設設定###Default Configuration"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Mob Window",
+    "translated": "怪物視窗###Mob Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Npcs Window",
+    "translated": "NPC 視窗###Npcs Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Duties Window",
+    "translated": "任務視窗###Duties Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Airships Window",
+    "translated": "飛空艇視窗###Airships Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Submarines Window",
+    "translated": "潛水艇視窗###Submarines Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Retainer Ventures Window",
+    "translated": "雇員探險視窗###Retainer Ventures Window"
+  },
+  {
+    "file": "Ui/Windows/FilterWindow.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Help",
+    "translated": "說明###Help"
+  },
+  {
+    "file": "Ui/Windows/AirshipsWindow.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Drops",
+    "translated": "掉落物"
+  },
+  {
+    "file": "Ui/Windows/SubmarinesWindow.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Drops",
+    "translated": "掉落物"
+  },
+  {
+    "file": "Ui/Windows/RetainerTasksWindow.cs",
+    "call": "WrapTableColumnElements",
+    "original": "Drops",
+    "translated": "掉落物"
+  },
+  {
+    "file": "Ui/Windows/TeamCraftImportWindow.cs",
+    "call": "HelpMarker",
+    "original": "Guide to importing lists.\\r\\n\\r\\n",
+    "translated": "清單匯入說明。\\r\\n\\r\\n"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Export Configuration",
+    "translated": "匯出設定###Export Configuration"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Move Up",
+    "translated": "上移###Move Up"
+  },
+  {
+    "file": "Ui/Pages/FiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Move Down",
+    "translated": "下移###Move Down"
+  },
+  {
+    "file": "Ui/Pages/ImportExportPage.cs",
+    "call": "InputTextMultiline",
+    "original": "Paste list here",
+    "translated": "在此貼上清單###Paste list here"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Export Configuration",
+    "translated": "匯出設定###Export Configuration"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Move Up",
+    "translated": "上移###Move Up"
+  },
+  {
+    "file": "Ui/Pages/CraftFiltersPage.cs",
+    "call": "PopupMenuItemSelectable",
+    "original": "Move Down",
+    "translated": "下移###Move Down"
+  }
+]

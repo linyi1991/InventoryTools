@@ -20,8 +20,8 @@ namespace InventoryTools.Logic.Filters
             _classJobSheet = classJobSheet;
         }
         public override string Key { get; set; } = "EquippableBy";
-        public override string Name { get; set; } = "Equippable By";
-        public override string HelpText { get; set; } = "Which classes can this equipment be equipped by?";
+        public override string Name { get; set; } = "可裝備職業";
+        public override string HelpText { get; set; } = "哪些職業可裝備此物品？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
 
         public override List<uint> DefaultValue { get; set; } = new();

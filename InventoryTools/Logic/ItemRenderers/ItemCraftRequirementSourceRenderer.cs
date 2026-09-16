@@ -30,10 +30,10 @@ public class ItemCraftRequirementSourceRenderer : ItemInfoRenderer<ItemCraftRequ
     }
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.CraftRecipe;
-    public override string SingularName => "Craft Ingredient";
+    public override string SingularName => "製作素材";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Crafting];
-    public override string HelpText => "Can the item be used as a material in a craft recipe?";
+    public override string HelpText => "此物品是否可用作製作配方的素材？";
 
     public override Func<List<ItemSource>, List<List<ItemSource>>>? CustomGroup => sources =>
     {
@@ -43,7 +43,7 @@ public class ItemCraftRequirementSourceRenderer : ItemInfoRenderer<ItemCraftRequ
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.TextUnformatted($"Ingredient of Craft Recipe:");
+        ImGui.TextUnformatted($"用於下列製作配方：");
         using (ImRaii.PushIndent())
         {
             ImGui.Image(_textureProvider.GetFromGameIcon(new GameIconLookup(asSource.Item.Icon)).GetWrapOrEmpty().Handle, new Vector2(16,16));
@@ -56,7 +56,7 @@ public class ItemCraftRequirementSourceRenderer : ItemInfoRenderer<ItemCraftRequ
     {
         var asSource = AsSource(source);
         asSource = asSource.DistinctBy(c => c.Item.RowId).ToList();
-        ImGui.TextUnformatted($"Ingredient of Craft Recipe:");
+        ImGui.TextUnformatted($"用於下列製作配方：");
         using (ImRaii.PushIndent())
         {
             foreach (var row in asSource)

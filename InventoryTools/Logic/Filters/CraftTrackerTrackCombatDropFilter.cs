@@ -17,10 +17,10 @@ public class CraftTrackerTrackCombatDropFilter : BooleanFilter
     public override FilterType AvailableIn { get; set; } = FilterType.CraftFilter;
     
     public override string Key { get; set; } = "CraftTrackerTrackCombatDrop";
-    public override string Name { get; set; } = "Track Combat Drops?";
+    public override string Name { get; set; } = "追蹤戰鬥掉落？";
     
     public override string HelpText { get; set; } =
-        "When you are in combat and an item drops and it matches one of the output items in this craft list, should it reduce the quantity of that item? The craft list must be active for this to count.";
+        "戰鬥中取得清單中的成品時，是否扣除所需數量？僅對目前啟用的製作清單生效。";
     
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.CompletionTracking;
     public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)

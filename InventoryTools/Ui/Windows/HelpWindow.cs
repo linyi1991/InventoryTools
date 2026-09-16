@@ -41,22 +41,22 @@ namespace InventoryTools.Ui
             {
                 if (sideBarChild.Success)
                 {
-                    if (ImGui.Selectable("1. General", _configuration.SelectedHelpPage == 0))
+                    if (ImGui.Selectable("1. 一般說明###1. General", _configuration.SelectedHelpPage == 0))
                     {
                         _configuration.SelectedHelpPage = 0;
                     }
 
-                    if (ImGui.Selectable("2. Filter Basics", _configuration.SelectedHelpPage == 1))
+                    if (ImGui.Selectable("2. 篩選基礎###2. Filter Basics", _configuration.SelectedHelpPage == 1))
                     {
                         _configuration.SelectedHelpPage = 1;
                     }
 
-                    if (ImGui.Selectable("3. Filtering", _configuration.SelectedHelpPage == 2))
+                    if (ImGui.Selectable("3. 篩選語法###3. Filtering", _configuration.SelectedHelpPage == 2))
                     {
                         _configuration.SelectedHelpPage = 2;
                     }
 
-                    if (ImGui.Selectable("4. About", _configuration.SelectedHelpPage == 3))
+                    if (ImGui.Selectable("4. 關於###4. About", _configuration.SelectedHelpPage == 3))
                     {
                         _configuration.SelectedHelpPage = 3;
                     }
@@ -72,34 +72,34 @@ namespace InventoryTools.Ui
                     if (_configuration.SelectedHelpPage == 0)
                     {
                         ImGui.TextWrapped(
-                            "Allagan Tools is a mult-purpose plugin providing 3 primary features, tracking/displaying your inventory data, helping you plan crafts and providing information about items. There are other features, and they are covered in 'Features'");
+                            "Allagan Tools 提供三項主要功能：追蹤與顯示庫存、規劃製作，以及查詢物品資訊。其他功能請參閱功能說明。");
                         ImGui.TextWrapped(
-                            "If you've used Teamcraft or Garland Tools, it takes some inspiration from both.");
+                            "本插件參考了 Teamcraft 與 Garland Tools 的部分設計。");
                         ImGui.NewLine();
-                        ImGui.TextUnformatted("Inventory Tracking:");
+                        ImGui.TextUnformatted("庫存追蹤：");
                         ImGui.Separator();
-                        ImGui.TextWrapped("The plugin will do it's best to keep track of your inventories. Some inventories are only cached when they are first accessed. If you aren't seeing your retainer/free company/glamour chest/etc then please be sure to view them first otherwise the plugin will not be able to cache them.");
-                        ImGui.TextWrapped("Once the plugin knows about the items, you can create lists to narrow down searches for specific items, help you sort the items and a myriad of other things.");
+                        ImGui.TextWrapped("插件會盡可能追蹤庫存，但部分庫存必須先在遊戲中開啟一次才能記錄。若看不到雇員、部隊倉庫或投影台等資料，請先開啟對應介面。");
+                        ImGui.TextWrapped("庫存記錄完成後，可建立清單縮小搜尋範圍、整理物品，並使用其他功能。");
                         ImGui.NewLine();
 
-                        ImGui.TextUnformatted("Craft Planning:");
+                        ImGui.TextUnformatted("製作規劃：");
                         ImGui.Separator();
-                        ImGui.TextWrapped("The plugin has a dedicated crafts window that lets you create lists of items you want to craft. It'll create a plan that breaks each item down into it's individual parts and will tell you what you're missing. It'll tell you where everything you need is and if you are missing anything, it'll direct you to the place to find/buy the missing items.");
-                        ImGui.TextWrapped("If you've ever used Teamcraft, you should be right at home.");
+                        ImGui.TextWrapped("製作視窗可建立待製作物品清單，將物品拆解成各項素材，列出缺少的數量、現有素材的位置，以及缺少素材的採集或購買地點。");
+                        ImGui.TextWrapped("如果使用過 Teamcraft，應該很快就能上手。");
                         ImGui.NewLine();
 
-                        ImGui.TextUnformatted("Item Information:");
+                        ImGui.TextUnformatted("物品資訊：");
                         ImGui.Separator();
-                        ImGui.TextWrapped("The plugin has a fairly comprehensive database of information about each item. If you've used garland tools, the information provided is very similar. Clicking on an item's icon within the plugin will always open the item's information window.");
+                        ImGui.TextWrapped("插件提供完整的物品資料，內容與 Garland Tools 類似。在插件中點擊物品圖示即可開啟詳細資訊視窗。");
                         ImGui.NewLine();
 
-                        ImGui.TextUnformatted("Highlighting:");
+                        ImGui.TextUnformatted("醒目標示：");
                         ImGui.Separator();
-                        ImGui.TextWrapped("When using either an item list or a craft list, you can toggle highlighting. This will highlight the items in game so that you can see exactly where the items are. When the plugins windows are active, you can hit the 'Highlight' checkbox to activate highlighting for that list. If you want to trigger this with a macro, please have a look at the commands section of help, you can toggle 'background' highlighting.");
+                        ImGui.TextWrapped("物品清單與製作清單皆可啟用醒目標示，在遊戲庫存中標出物品位置。視窗開啟時勾選「標示」即可啟用；若要使用巨集切換背景標示，請參閱指令說明。");
                         ImGui.NewLine();
 
-                        ImGui.TextUnformatted("This is a very basic guide, for more information please see the wiki.");
-                        if (ImGui.Button("Open Wiki"))
+                        ImGui.TextUnformatted("此處提供基本操作說明，更多資訊請參閱 Wiki。");
+                        if (ImGui.Button("開啟 Wiki###Open Wiki"))
                         {
                             "https://github.com/Critical-Impact/InventoryTools/wiki/1.-Overview".OpenBrowser();
                         }
@@ -107,85 +107,85 @@ namespace InventoryTools.Ui
                     else if (_configuration.SelectedHelpPage == 1)
                     {
                         ImGui.PushTextWrapPos();
-                        ImGui.Text("Lists are the core way the plugin provides a way for you to view the items you are looking for or are attempting to sort.");
-                        ImGui.Text("There are currently 3 types of list that can be created.");
+                        ImGui.Text("清單是查看、搜尋與整理物品的主要方式。");
+                        ImGui.Text("目前可建立三種類型的清單。");
                         ImGui.PopTextWrapPos();
                         ImGui.NewLine();
 
-                        ImGui.Text("Search List");
+                        ImGui.Text("搜尋清單");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
 
-                        ImGui.TextUnformatted("This type of list allows you search for specific items across all your inventories. If you just need to find an item, but don't want help sorting it, this is the list type you want.");
-                        ImGui.TextUnformatted("Example Usages:");
-                        ImGui.BulletText("Finding materials for a craft.");
-                        ImGui.BulletText("Finding a housing item you put somewhere.");
-                        ImGui.BulletText("Seeing how much an item you just picked up is worth.");
-                        ImGui.BulletText("Seeing if a specific item is already in your glamour chest or armoire.");
-                        ImGui.BulletText("Checking your retainers equipment without actually going to a retainer bell.");
-                        ImGui.BulletText("Checking if any items you have can go into the armoire.");
+                        ImGui.TextUnformatted("此類清單可搜尋所有庫存中的特定物品。若只需要找物品而不需要整理，請使用此類型。");
+                        ImGui.TextUnformatted("使用範例：");
+                        ImGui.BulletText("尋找製作所需的素材。");
+                        ImGui.BulletText("尋找存放在某處的家具。");
+                        ImGui.BulletText("查看剛取得物品的價值。");
+                        ImGui.BulletText("確認投影台或收藏櫃是否已存有特定物品。");
+                        ImGui.BulletText("不必前往傳喚鈴即可查看雇員裝備。");
+                        ImGui.BulletText("檢查持有的物品是否可存入收藏櫃。");
                         ImGui.PopTextWrapPos();
                         ImGui.NewLine();
 
-                        ImGui.Text("Sort Filter");
+                        ImGui.Text("整理篩選");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
-                        ImGui.TextUnformatted("This type of list builds on top of the 'Search List' but also lets you pick where you want the items to be sorted. It'll attempt to show you the most optimized plan for storing the items in the destinations you pick.");
-                        ImGui.TextUnformatted("Example Usages:");
-                        ImGui.BulletText("Putting away materials after a craft and not having them double up.");
-                        ImGui.BulletText("Store items above a certain item level within your chocobo saddlebag for later.");
-                        ImGui.BulletText("Find items that are unique to your free company chest and put them there.");
+                        ImGui.TextUnformatted("此類清單在搜尋清單的基礎上，可指定物品要收納的位置，並提供合適的整理方案。");
+                        ImGui.TextUnformatted("使用範例：");
+                        ImGui.BulletText("製作後收納素材，避免分散重複堆疊。");
+                        ImGui.BulletText("將指定物品等級以上的物品存放於陸行鳥鞍囊備用。");
+                        ImGui.BulletText("找出部隊倉庫特有的物品，並集中收納至該處。");
                         ImGui.PopTextWrapPos();
 
                         ImGui.NewLine();
-                        ImGui.Text("Game Item Filter");
+                        ImGui.Text("遊戲物品篩選");
                         ImGui.Separator();
                         ImGui.PushTextWrapPos();
-                        ImGui.TextUnformatted("This filter allows you search across all the items that exist within the game's catalogue of items.");
-                        ImGui.TextUnformatted("Example Usages:");
-                        ImGui.BulletText("Searching for glamours");
-                        ImGui.BulletText("Seeing what mounts/minions you haven't obtained");
-                        ImGui.BulletText("Tracking the prices of all the items within the game");
+                        ImGui.TextUnformatted("此篩選可搜尋遊戲物品圖鑑中的所有物品。");
+                        ImGui.TextUnformatted("使用範例：");
+                        ImGui.BulletText("搜尋投影裝備");
+                        ImGui.BulletText("查看尚未取得的坐騎／寵物");
+                        ImGui.BulletText("追蹤遊戲內物品的價格");
                         ImGui.PopTextWrapPos();
                     }
                     else if (_configuration.SelectedHelpPage == 2)
                     {
-                        ImGui.TextUnformatted("Advanced Search/Filter Syntax:");
+                        ImGui.TextUnformatted("進階搜尋／篩選語法：");
                         ImGui.Separator();
                         ImGui.TextWrapped(
-                            "When creating a list or when searching through the results of a list it is possible to use a series of operators to make your search more specific. The available operators are dependant on what you searching against but at present support for !, <, >, >=, <=, = is present.");
+                            "建立清單或搜尋清單結果時，可使用運算子精確篩選。可用語法依欄位類型而異，目前支援 !、<、>、>=、<=、=。");
                         ImGui.TextWrapped(
-                            "! - Show any results that do not contain what is entered - available for text and numbers.");
+                            "!－排除包含輸入內容的結果，適用於文字與數字。");
                         ImGui.TextWrapped(
-                            "< - Show any results that have a value less than what is entered - available for numbers.");
+                            "<－顯示小於輸入值的結果，適用於數字。");
                         ImGui.TextWrapped(
-                            "> - Show any results that have a value greater than what is entered - available for numbers.");
+                            ">－顯示大於輸入值的結果，適用於數字。");
                         ImGui.TextWrapped(
-                            ">= - Show any results that have a value greater or equal to what is entered - available for numbers.");
+                            ">=－顯示大於或等於輸入值的結果，適用於數字。");
                         ImGui.TextWrapped(
-                            "<= - Show any results that have a value less than or equal to what is entered - available for numbers.");
+                            "<=－顯示小於或等於輸入值的結果，適用於數字。");
                         ImGui.TextWrapped(
-                            "= - Show any results that have a value equal to exactly what is entered - available for text and numbers.");
+                            "=－顯示完全等於輸入內容的結果，適用於文字與數字。");
                         ImGui.TextWrapped(
-                            "&& and || AND and OR respectively - Can be used to chain operators together.");
+                            "&& 與 || 分別代表「且」與「或」，可串接多個篩選條件。");
                     }
                     else if (_configuration.SelectedHelpPage == 3)
                     {
-                        ImGui.TextUnformatted("About:");
+                        ImGui.TextUnformatted("關於：");
                         ImGui.TextUnformatted(
-                            "This plugin is written in some of the free time that I have, it's a labour of love and I will hopefully be actively releasing updates for a while.");
+                            "原作者利用業餘時間開發此插件，並希望持續提供更新。");
                         ImGui.TextUnformatted(
-                            "If you run into any issues please submit feedback via the plugin installer feedback button.");
-                        ImGui.TextUnformatted("Plugin Wiki: ");
+                            "如遇問題，請透過插件安裝器的意見回饋按鈕回報。");
+                        ImGui.TextUnformatted("插件 Wiki：");
                         ImGui.SameLine();
-                        if (ImGui.Button("Open##WikiBtn"))
+                        if (ImGui.Button("開啟###Open##WikiBtn"))
                         {
                             "https://github.com/Critical-Impact/InventoryTools/wiki/1.-Overview".OpenBrowser();
                         }
 
-                        ImGui.TextUnformatted("Found a bug?");
+                        ImGui.TextUnformatted("發現錯誤？");
                         ImGui.SameLine();
-                        if (ImGui.Button("Open##BugBtn"))
+                        if (ImGui.Button("開啟###Open##BugBtn"))
                         {
                             "https://github.com/Critical-Impact/InventoryTools/issues".OpenBrowser();
                         }

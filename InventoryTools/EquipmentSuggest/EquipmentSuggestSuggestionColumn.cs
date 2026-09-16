@@ -63,7 +63,7 @@ public sealed class EquipmentSuggestSuggestionColumn : StringFormField<Equipment
             var iconSize = _viewModeSetting.GetIconSize(_configuration);
             var containerSize = _viewModeSetting.GetIconContainerSize(_configuration);
             var items = item.SuggestedItems[Index].OrderByDescending(c => c.Item.Base.LevelItem.RowId).ToList();
-            ImGuiService.WrapTableColumnElements("Items", items,
+            ImGuiService.WrapTableColumnElements("物品", items,
                 iconSize * ImGui.GetIO().FontGlobalScale, containerSize * ImGui.GetIO().FontGlobalScale,
                 searchResult =>
                 {
@@ -140,7 +140,7 @@ public sealed class EquipmentSuggestSuggestionColumn : StringFormField<Equipment
                         {
                             ImGui.Separator();
                             ImGui.PushTextWrapPos();
-                            ImGui.Text("This item is from outside the range visible as it's the closest item that matches, it has a lower level than the level of this column.");
+                            ImGui.Text("此物品是最接近條件的結果，但等級低於此欄位的範圍，因此顯示在範圍外。");
                             ImGui.PopTextWrapPos();
                         }
                     }

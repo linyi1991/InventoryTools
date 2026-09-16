@@ -21,12 +21,12 @@ public class AddonOffsetFinderDebuggerPane : DebugLogPane
     public override string Name => "Addon Offset Finder";
     public override unsafe void DrawInfo()
     {
-        ImGui.InputText("Addon Name", ref _addonName, 100);
-        ImGui.InputInt("Component ID", ref _componentId);
-        ImGui.InputInt("Max Scan Size", ref _maxScanSize);
+        ImGui.InputText("介面名稱###Addon Name", ref _addonName, 100);
+        ImGui.InputInt("元件 ID###Component ID", ref _componentId);
+        ImGui.InputInt("最大掃描範圍###Max Scan Size", ref _maxScanSize);
 
 
-        if (ImGui.Button("Scan"))
+        if (ImGui.Button("掃描###Scan"))
         {
 
             var addon = _gameGui.GetAddonByName(_addonName);

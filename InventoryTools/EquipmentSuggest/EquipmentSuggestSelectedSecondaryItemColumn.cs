@@ -63,7 +63,7 @@ public class EquipmentSuggestSelectedSecondaryItemColumn  : StringFormField<Equi
             var containerSize = _viewModeSetting.GetIconContainerSize(_configuration);
             if (item.SecondarySelectedItem == null)
             {
-                ImGui.Text("No item selected");
+                ImGui.Text("尚未選擇物品");
             }
             else
             {
@@ -149,7 +149,7 @@ public class EquipmentSuggestSelectedSecondaryItemColumn  : StringFormField<Equi
                 //         {
                 //             var sources = item.SecondarySelectedItem.Item.Sources;
                 //             var groupedSources = _renderService.GetGroupedSources(sources);
-                //             ImGuiService.WrapTableColumnElements("Items", groupedSources,
+                //             ImGuiService.WrapTableColumnElements("物品", groupedSources,
                 //                 iconSize * ImGui.GetIO().FontGlobalScale, containerSize * ImGui.GetIO().FontGlobalScale,
                 //                 groupedSource =>
                 //                 {

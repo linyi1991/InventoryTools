@@ -40,9 +40,9 @@ public class ListDebugWindow : GenericWindow
     {
         foreach (var list in _lists)
         {
-            ImGui.Text("List: " + list.Name);
-            ImGui.Text("Refreshing: " + (list.Refreshing ? "Yes" : "No"));
-            ImGui.Text("Needs Refresh: " + (list.NeedsRefresh ? "Yes" : "No"));
+            ImGui.Text("清單：" + list.Name);
+            ImGui.Text("正在重新整理：" + (list.Refreshing ? "Yes" : "No"));
+            ImGui.Text("需要重新整理：" + (list.NeedsRefresh ? "Yes" : "No"));
         }
     }
 

@@ -18,9 +18,9 @@ public class ItemCustomDeliverySourceRenderer : ItemInfoRenderer<ItemCustomDeliv
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.CustomDelivery;
-    public override string SingularName => "Custom Delivery";
-    public override string PluralName => "Custom Deliveries";
-    public override string HelpText => "Can the item be delivered in a custom delivery quest?";
+    public override string SingularName => "老主顧交易";
+    public override string PluralName => "老主顧交易";
+    public override string HelpText => "此物品是否可用於老主顧交易？";
     public override bool ShouldGroup => false;
 
     public override Action<ItemSource> DrawTooltip => source =>
@@ -32,14 +32,14 @@ public class ItemCustomDeliverySourceRenderer : ItemInfoRenderer<ItemCustomDeliv
             var collectabilityLow = asSource.SupplyRow.Base.CollectabilityLow;
             var collectabilityMid = asSource.SupplyRow.Base.CollectabilityMid;
             var collectabilityHigh = asSource.SupplyRow.Base.CollectabilityHigh;
-            ImGui.Text("NPC: " + eNpcResident.Value.Singular.ExtractText());
-            ImGui.Text("Collectability (Low): " + collectabilityLow);
-            ImGui.Text("Collectability (Mid): " + collectabilityMid);
-            ImGui.Text("Collectability (High): " + collectabilityHigh);
+            ImGui.Text("NPC：" + eNpcResident.Value.Singular.ExtractText());
+            ImGui.Text("收藏價值（低）：" + collectabilityLow);
+            ImGui.Text("收藏價值（中）：" + collectabilityMid);
+            ImGui.Text("收藏價值（高）：" + collectabilityHigh);
         }
         else
         {
-            ImGui.Text("Unknown Npc");
+            ImGui.Text("未知 NPC");
         }
     };
 
@@ -69,6 +69,6 @@ public class ItemCustomDeliverySourceRenderer : ItemInfoRenderer<ItemCustomDeliv
             return $"{eNpcResident.Value.Singular.ExtractText()} ({collectabilityLow}, {collectabilityMid}, {collectabilityHigh})";
         }
 
-        return "Unknown NPC";
+        return "未知 NPC";
     };
 }

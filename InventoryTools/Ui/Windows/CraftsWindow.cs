@@ -137,20 +137,20 @@ namespace InventoryTools.Ui
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Mob Window", "mobs", OpenMobsWindow,
-                        "Open the mobs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Npcs Window", "npcs", OpenNpcsWindow,
-                        "Open the npcs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Duties Window", "duties", OpenDutiesWindow,
-                        "Open the duties window."),
-                    new PopupMenu.PopupMenuItemSelectable("Airships Window", "airships", OpenAirshipsWindow,
-                        "Open the airships window."),
-                    new PopupMenu.PopupMenuItemSelectable("Submarines Window", "submarines", OpenSubmarinesWindow,
-                        "Open the submarines window."),
-                    new PopupMenu.PopupMenuItemSelectable("Retainer Ventures Window", "ventures",
-                        OpenRetainerVenturesWindow, "Open the retainer ventures window."),
+                    new PopupMenu.PopupMenuItemSelectable("怪物視窗###Mob Window", "mobs", OpenMobsWindow,
+                        "開啟怪物視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("NPC 視窗###Npcs Window", "npcs", OpenNpcsWindow,
+                        "開啟 NPC 視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("任務視窗###Duties Window", "duties", OpenDutiesWindow,
+                        "開啟任務視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("飛空艇視窗###Airships Window", "airships", OpenAirshipsWindow,
+                        "開啟飛空艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("潛水艇視窗###Submarines Window", "submarines", OpenSubmarinesWindow,
+                        "開啟潛水艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("雇員探險視窗###Retainer Ventures Window", "ventures",
+                        OpenRetainerVenturesWindow, "開啟雇員探險視窗。"),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Help", "help", OpenHelpWindow, "Open the help window."),
+                    new PopupMenu.PopupMenuItemSelectable("說明###Help", "help", OpenHelpWindow, "Open the help window."),
                 });
             _menuWindows = _context.Resolve<IEnumerable<IMenuWindow>>().OrderBy(c => c.GenericName).Where(c => c.GetType() != this.GetType());
             MediatorService.Subscribe<ListInvalidatedMessage>(this, _ => Invalidate());
@@ -467,7 +467,7 @@ namespace InventoryTools.Ui
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
                                             _chatUtilities.Print(
-                                                "The craft list's contents were copied to your clipboard.");
+                                                "已將製作清單內容複製至剪貼簿。");
                                         }
 
                                         if (ImGui.MenuItem("製作清單（成品）"))
@@ -480,7 +480,7 @@ namespace InventoryTools.Ui
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
                                             _chatUtilities.Print(
-                                                "The craft list's outputs were copied to your clipboard.");
+                                                "已將成品清單複製至剪貼簿。");
                                         }
 
                                         if (ImGui.MenuItem("製作清單（預製品）"))
@@ -497,7 +497,7 @@ namespace InventoryTools.Ui
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
                                             _chatUtilities.Print(
-                                                "The craft list's outputs were copied to your clipboard.");
+                                                "已將成品清單複製至剪貼簿。");
                                         }
 
                                         if (ImGui.MenuItem("製作清單（可採集物）"))
@@ -510,7 +510,7 @@ namespace InventoryTools.Ui
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
                                             _chatUtilities.Print(
-                                                "The craft list's gatherables were copied to your clipboard.");
+                                                "已將可採集物品清單複製至剪貼簿。");
                                         }
 
                                         if (ImGui.MenuItem("製作清單（缺少的可採集物）"))
@@ -524,7 +524,7 @@ namespace InventoryTools.Ui
                                                 _importExportService.ToTCString(searchResults, TCExportMode.Missing);
                                             _clipboardService.CopyToClipboard(tcString);
                                             _chatUtilities.Print(
-                                                "The craft list's gatherables were copied to your clipboard.");
+                                                "已將可採集物品清單複製至剪貼簿。");
                                         }
 
                                         if (ImGui.MenuItem("雇員／背包清單"))
@@ -534,7 +534,7 @@ namespace InventoryTools.Ui
                                                 .ToList();
                                             var tcString = _importExportService.ToTCString(searchResults);
                                             _clipboardService.CopyToClipboard(tcString);
-                                            _chatUtilities.Print("The retainer/bag were copied to your clipboard.");
+                                            _chatUtilities.Print("已將雇員／背包清單複製至剪貼簿。");
                                         }
                                     }
                                 }
@@ -550,7 +550,7 @@ namespace InventoryTools.Ui
                                                 .ToList();
                                             _clipboardService.CopyToClipboard(craftTable.ExportToJson(searchResults));
                                             _chatUtilities.Print(
-                                                "The craft list's contents were copied to your clipboard.");
+                                                "已將製作清單內容複製至剪貼簿。");
                                         }
 
                                                 if (ImGui.MenuItem("製作清單（成品）"))
@@ -561,7 +561,7 @@ namespace InventoryTools.Ui
                                                 .ToList();
                                             _clipboardService.CopyToClipboard(craftTable.ExportToJson(searchResults));
                                             _chatUtilities.Print(
-                                                "The craft list's outputs were copied to your clipboard.");
+                                                "已將成品清單複製至剪貼簿。");
                                         }
 
                                                 if (ImGui.MenuItem("製作清單（預製品）"))
@@ -576,7 +576,7 @@ namespace InventoryTools.Ui
                                                 .ToList();
                                             _clipboardService.CopyToClipboard(craftTable.ExportToJson(searchResults));
                                             _chatUtilities.Print(
-                                                "The craft list's outputs were copied to your clipboard.");
+                                                "已將成品清單複製至剪貼簿。");
                                         }
 
                                                 if (ImGui.MenuItem("製作清單（可採集物）"))
@@ -588,7 +588,7 @@ namespace InventoryTools.Ui
                                                 .ToList();
                                             _clipboardService.CopyToClipboard(craftTable.ExportToJson(searchResults));
                                             _chatUtilities.Print(
-                                                "The craft list's gatherables were copied to your clipboard.");
+                                                "已將可採集物品清單複製至剪貼簿。");
                                         }
 
                                                 if (ImGui.MenuItem("雇員／背包清單"))
@@ -610,17 +610,17 @@ namespace InventoryTools.Ui
                                         if (importedList == null)
                                         {
                                             _chatUtilities.PrintError(
-                                                "The contents of your clipboard could not be parsed.");
+                                                "無法解析剪貼簿內容。");
                                         }
                                         else
                                         {
-                                            _chatUtilities.Print("The contents of your clipboard were imported.");
+                                            _chatUtilities.Print("已匯入剪貼簿內容。");
                                             this.SelectedConfiguration.AddItemsToList(importedList);
                                         }
                                     }
                                     else
                                     {
-                                        _chatUtilities.Print("The contents of your clipboard were imported.");
+                                        _chatUtilities.Print("已匯入剪貼簿內容。");
                                         this.SelectedConfiguration.AddItemsToList(importedList);
                                     }
                                 }
@@ -632,7 +632,7 @@ namespace InventoryTools.Ui
                                         if (tooltip)
                                         {
                                             ImGui.TextUnformatted(
-                                                "This will paste the contents of items copied via the 'Copy List Contents' menu above, it also will attempt to parse Teamcraft lists if one is in your clipboard. If you have a garland tools URL in your clipboard that points to a group, it will also attempt to parse that add it to your craft list.");
+                                                "貼上透過上方「複製清單內容」複製的物品。也會嘗試解析剪貼簿中的 Teamcraft 清單或 Garland Tools 群組網址，將物品加入製作清單。");
                                         }
                                     }
                                 }
@@ -640,7 +640,7 @@ namespace InventoryTools.Ui
                                 if (ImGui.MenuItem("清空清單"))
                                 {
                                     _popupService.AddPopup(new ConfirmPopup(GetType(), "craftListDelete",
-                                        "Are you sure you want to clear your craft list?",
+                                        "確定要清空製作清單嗎？",
                                         result =>
                                         {
                                             if (result)
@@ -1515,7 +1515,7 @@ namespace InventoryTools.Ui
                             {
                                 if (SelectedConfiguration != null)
                                 {
-                                    _fileDialogManager.SaveFileDialog("Save to csv", "*.csv",
+                                    _fileDialogManager.SaveFileDialog("儲存為 CSV", "*.csv",
                                         "export-craft-list.csv", ".csv",
                                         (b, s) =>
                                         {
@@ -1530,7 +1530,7 @@ namespace InventoryTools.Ui
                                 if (SelectedConfiguration != null)
                                 {
                                     var itemTable = _tableService.GetListTable(SelectedConfiguration);
-                                    _fileDialogManager.SaveFileDialog("Save to csv", "*.csv", "export.csv", ".csv",
+                                    _fileDialogManager.SaveFileDialog("儲存為 CSV", "*.csv", "export.csv", ".csv",
                                         (b, s) => { SaveCallback(itemTable, b, s); }, null, true);
                                 }
                             }
@@ -1718,28 +1718,28 @@ namespace InventoryTools.Ui
                 ImGui.Text("製作系統已更新，預設設定已重設。請依需求重新調整。");
                 ImGui.PopTextWrapPos();
 
-                ImGui.BulletText("You can now copy configurations between your craft lists.");
+                ImGui.BulletText("現在可以在製作清單之間複製設定。");
 
-                ImGui.BulletText("Two new columns have been added to your craft lists: 'Next Step' and 'Settings'.");
+                ImGui.BulletText("製作清單新增「下一步」與「設定」兩個欄位。");
 
                 ImGui.Indent();
-                ImGui.BulletText("The 'Next Step' column provides guidance on what you should do next.");
+                ImGui.BulletText("「下一步」欄位會提示接下來應執行的操作。");
                 ImGui.Unindent();
 
                 ImGui.Indent();
-                ImGui.BulletText("The 'Settings' column allows you to configure item sourcing, retainer settings, and recipes.");
+                ImGui.BulletText("「設定」欄位可調整物品來源、雇員設定與配方。");
                 ImGui.Unindent();
 
-                ImGui.BulletText("The update includes the following changes:");
+                ImGui.BulletText("本次更新包含下列變更：");
 
                 ImGui.Indent();
-                ImGui.BulletText("You can now change groupings for crafts based on class or required crafting order.");
-                ImGui.BulletText("Retrievable items can be prioritized in their own group.");
-                ImGui.BulletText("Gatherable and purchasable items can be grouped by zone.");
-                ImGui.BulletText("Improved handling of items that can be purchased with seals, poetics, and scrip currencies.");
+                ImGui.BulletText("現在可依職業或製作先後順序分組。");
+                ImGui.BulletText("可取出的物品能優先顯示於獨立群組。");
+                ImGui.BulletText("可採集與可購買的物品能依區域分組。");
+                ImGui.BulletText("改善以軍票、詩學神典石及工票購買物品的處理方式。");
                 ImGui.Unindent();
 
-                ImGui.BulletText("You can customize these options further by clicking the pencil icon in the top right corner of a list.");
+                ImGui.BulletText("點擊清單右上角的鉛筆圖示，可進一步調整這些選項。");
 
             });
 
@@ -1786,14 +1786,14 @@ namespace InventoryTools.Ui
             {
                 if (popup.Success)
                 {
-                    if (ImGui.Selectable("Normal List"))
+                    if (ImGui.Selectable("一般清單###Normal List"))
                     {
                         _ephemeralList = false;
                         openNewFilterNamePopup = true;
                     }
                     ImGuiUtil.HoverTooltip("新增製作清單。");
 
-                    if (ImGui.Selectable("Ephemeral List"))
+                    if (ImGui.Selectable("暫存清單###Ephemeral List"))
                     {
                         _ephemeralList = true;
                         openNewFilterNamePopup = true;
@@ -1829,7 +1829,7 @@ namespace InventoryTools.Ui
                             }
                         }
                     }
-                    using (var tabItem = ImRaii.TabItem("Default Configuration"))
+                    using (var tabItem = ImRaii.TabItem("預設設定###Default Configuration"))
                     {
                         if (_filters != null && tabItem.Success)
                         {
@@ -1875,7 +1875,7 @@ namespace InventoryTools.Ui
                             if (contentChild.Success)
                             {
                                 ImGui.TextUnformatted(
-                                    "Get started by adding a craft list by hitting the + button on the bottom left.");
+                                    "按左下角的 + 按鈕新增製作清單，即可開始使用。");
                             }
                         }
                     }
@@ -1981,7 +1981,7 @@ namespace InventoryTools.Ui
                                     if (!table || !table.Success)
                                         return;
 
-                                    ImGui.TableSetupColumn("Name", ImGuiTableColumnFlags.None, 200);
+                                    ImGui.TableSetupColumn("名稱###Name", ImGuiTableColumnFlags.None, 200);
                                     ImGui.TableSetupColumn("", ImGuiTableColumnFlags.None, 16);
 
                                     foreach (var datum in SearchItems)
@@ -2263,7 +2263,7 @@ namespace InventoryTools.Ui
                             }
 
                             ImGui.Separator();
-                            if (_filters != null && ImGui.Selectable("Default Configuration",
+                            if (_filters != null && ImGui.Selectable("預設設定###Default Configuration",
                                     filterConfigurations.Count + 1 == _selectedFilterTab))
                             {
                                 _selectedFilterTab = filterConfigurations.Count + 1;
@@ -2619,7 +2619,7 @@ namespace InventoryTools.Ui
                 {
                     var filterName = _newName ?? filterConfiguration.Name;
                     var labelName = "##" + filterConfiguration.Key;
-                    if (ImGui.CollapsingHeader("General",
+                    if (ImGui.CollapsingHeader("一般###General",
                             ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                     {
                         if (!filterConfiguration.CraftListDefault)
@@ -2649,13 +2649,13 @@ namespace InventoryTools.Ui
                             {
                                 var base64 = _importExportService.ToBase64(filterConfiguration);
                                 _clipboardService.CopyToClipboard(base64);
-                                _chatUtilities.PrintClipboardMessage("[Export] ", "Filter Configuration");
+                                _chatUtilities.PrintClipboardMessage("[匯出] ", "清單設定");
                             }
                         }
                         else
                         {
                             ImGui.TextWrapped(
-                                "This is the default configuration for new craft lists. Any new craft list will inherit this lists settings.");
+                                "這是新製作清單的預設設定，之後新增的製作清單會沿用這些設定。");
                         }
 
                         var filterType = filterConfiguration.FormattedFilterType;
@@ -2813,12 +2813,12 @@ namespace InventoryTools.Ui
                     if (filterConfiguration.CraftListDefault)
                     {
                         ImGuiService.VerticalCenter(
-                            "You are currently editing default craft list configuration.");
+                            "目前正在編輯預設製作清單設定。");
                     }
                     else
                     {
                         ImGuiService.VerticalCenter(
-                            "You are currently editing the craft list's configuration. Press the tick on the right hand side to save configuration.");
+                            "目前正在編輯製作清單設定。按右側的勾號即可儲存。");
                     }
                     float width = ImGui.GetWindowSize().X;
 
@@ -2846,7 +2846,7 @@ namespace InventoryTools.Ui
 
                         var result = InventoryTools.Ui.Widgets.ImGuiUtil.ConfirmPopup("confirmReset", new Vector2(400, 100), () =>
                         {
-                            ImGui.TextWrapped("Are you sure you want to reset your configuration to the default?");
+                            ImGui.TextWrapped("確定要將設定重設為預設值嗎？");
                         });
                         if (result == true)
                         {
@@ -2872,7 +2872,7 @@ namespace InventoryTools.Ui
                             if (popup.Success)
                             {
                                 ImGui.TextUnformatted(
-                                    "Are you sure you want to reset the default craft list?.\nThis operation cannot be undone!\n\n");
+                                    "確定要重設預設製作清單嗎？\n此操作無法復原！\n\n");
                                 ImGui.Separator();
 
                                 if (ImGui.Button("確定", new Vector2(120, 0) * ImGui.GetIO().FontGlobalScale))
@@ -2907,7 +2907,7 @@ namespace InventoryTools.Ui
                             var filterConfigurations = Filters.Where(c => c != SelectedConfiguration).ToList();
                             foreach (var filter in filterConfigurations)
                             {
-                                if (ImGui.Selectable("Copy configuration from '" + filter.Name + "'"))
+                                if (ImGui.Selectable("複製設定，來源：'###Copy configuration from '" + filter.Name + "'"))
                                 {
                                     _listService.ResetFilter(_filterService.AvailableFilters, filterConfiguration, filter);
                                 }

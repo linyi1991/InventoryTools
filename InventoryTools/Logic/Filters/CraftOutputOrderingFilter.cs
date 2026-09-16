@@ -29,10 +29,10 @@ public class CraftOutputOrderingFilter : ChoiceFilter<OutputOrderingSetting>
     }
 
     public override string Key { get; set; } = "CraftOutputOrderingFilter";
-    public override string Name { get; set; } = "Output Ordering";
+    public override string Name { get; set; } = "成品排序";
 
     public override string HelpText { get; set; } =
-        "Should the list of output items be ordered in a specific way?";
+        "是否以指定方式排列成品？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override OutputOrderingSetting DefaultValue { get; set; } = OutputOrderingSetting.AsAdded;

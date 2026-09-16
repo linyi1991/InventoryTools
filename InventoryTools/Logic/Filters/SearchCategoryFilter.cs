@@ -21,9 +21,9 @@ namespace InventoryTools.Logic.Filters
 
         public override string Key { get; set; } = "SchCategory";
 
-        public override string Name { get; set; } = "Market Board Categories";
+        public override string Name { get; set; } = "市場分類";
 
-        public override string HelpText { get; set; } = "Filter by the categories available on the market board.";
+        public override string HelpText { get; set; } = "依市場布告板分類篩選。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
 
         private Dictionary<uint, string> _choices = new();

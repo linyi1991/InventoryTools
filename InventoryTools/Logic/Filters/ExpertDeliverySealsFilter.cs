@@ -17,8 +17,8 @@ public class ExpertDeliverySealsFilter : StringFilter
     }
 
     public override string Key { get; set; } = "ExpertDeliverySeals";
-    public override string Name { get; set; } = "Expert Delivery Reward Seal Count";
-    public override string HelpText { get; set; } = "The number of seals that are rewarded when handing this item in as an expert delivery.";
+    public override string Name { get; set; } = "專家交納軍票獎勵";
+    public override string HelpText { get; set; } = "將此物品用於專家交納可獲得的軍票數量。";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Basic;
     public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)
     {

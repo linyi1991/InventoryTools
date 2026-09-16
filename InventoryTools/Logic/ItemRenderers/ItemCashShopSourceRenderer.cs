@@ -21,19 +21,19 @@ public class ItemCashShopSourceRenderer : ItemInfoRenderer<ItemCashShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CashShop;
-    public override string SingularName => "Bought on SQ Store(real money)";
+    public override string SingularName => "商城購買（現金商品）";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be purchased through the mogstation?";
+    public override string HelpText => "此物品是否可透過官方商城購買？";
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
         var priceUsd = asSource.PriceUsd.ToString("C2", CultureInfo.GetCultureInfo("en-US"));
-        ImGui.TextUnformatted($"Price(USD): {priceUsd}");
+        ImGui.TextUnformatted($"價格（美元）：{priceUsd}");
         if (asSource.FittingShopItemSetRow?.Items.Count > 1)
         {
-            ImGui.TextUnformatted($"Set: {asSource.FittingShopItemSetRow.Base.Unknown6.ExtractText()}");
-            ImGui.TextUnformatted($"Contains:");
+            ImGui.TextUnformatted($"套裝：{asSource.FittingShopItemSetRow.Base.Unknown6.ExtractText()}");
+            ImGui.TextUnformatted($"內含：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.FittingShopItemSetRow.Items)
@@ -56,7 +56,7 @@ public class ItemCashShopSourceRenderer : ItemInfoRenderer<ItemCashShopSource>
     {
         var asSource = AsSource(source);
         var priceUsd = asSource.PriceUsd.ToString("C2", CultureInfo.GetCultureInfo("en-US"));
-        var description = $"Price(USD): {priceUsd}";
+        var description = $"價格（美元）：{priceUsd}";
         if (asSource.FittingShopItemSetRow != null)
         {
             description += $" (Part of {asSource.FittingShopItemSetRow.Base.Unknown6.ExtractText()} set)";

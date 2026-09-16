@@ -24,8 +24,8 @@ public class ItemSubmarineDropSourceRenderer : ItemInfoRenderer<ItemSubmarineDro
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.Submarine;
-    public override string SingularName => "Submarine Exploration";
-    public override string HelpText => "Can the item be earned from a submarine exploration route?";
+    public override string SingularName => "潛水艇探索";
+    public override string HelpText => "此物品是否可透過潛水艇探索取得？";
     public override bool ShouldGroup => true;
 
     public override Func<ItemSource, List<MessageBase>?>? OnClick => source =>

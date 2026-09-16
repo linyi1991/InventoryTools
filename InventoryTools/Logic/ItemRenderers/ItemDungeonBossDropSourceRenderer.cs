@@ -26,16 +26,16 @@ public class ItemDungeonBossDropSourceRenderer : ItemInfoRenderer<ItemDungeonBos
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.DungeonBossDrop;
-    public override string SingularName => "Dungeon Boss Drop";
-    public override string PluralName => "Dungeon Boss Drops";
-    public override string HelpText => "Can the item be drop from a dungeon boss?";
+    public override string SingularName => "迷宮首領掉落";
+    public override string PluralName => "迷宮首領掉落";
+    public override string HelpText => "此物品是否由迷宮首領掉落？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Dungeon: " + asSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("迷宮：" + asSource.ContentFinderCondition.FormattedName);
         using (ImRaii.PushIndent())
         {
             ImGui.Text(asSource.BNpcName.Base.Singular.ExtractText().ToTitleCase() + " (Boss " + (asSource.DungeonBoss.FightNo + 1) + ")");
@@ -55,7 +55,7 @@ public class ItemDungeonBossDropSourceRenderer : ItemInfoRenderer<ItemDungeonBos
         var groupedByDungeon = asSources.GroupBy(c => c.DungeonBoss.ContentFinderCondition.RowId);
         foreach (var dungeon in groupedByDungeon)
         {
-            ImGui.Text("Dungeon: " + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
+            ImGui.Text("迷宮：" + dungeon.First().DungeonBoss.ContentFinderCondition.Value.Name.ExtractText());
             using (ImRaii.PushIndent())
             {
                 foreach (var itemSource in dungeon.DistinctBy(c => c.DungeonBoss.BNpcName.RowId))

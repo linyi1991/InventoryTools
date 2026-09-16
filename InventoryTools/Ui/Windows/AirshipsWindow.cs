@@ -212,7 +212,7 @@ public class AirshipsWindow : GenericTabbedTable<AirshipExplorationPointRow>, IM
                 Draw = (ex, contentTypeId) =>
                 {
                     var drops = _airshipExplorationPointSheet.GetItemsByAirshipExplorationPoint(ex.RowId);
-                    ImGuiService.WrapTableColumnElements("Drops" + ex.RowId, drops,
+                    ImGuiService.WrapTableColumnElements("掉落物" + ex.RowId, drops,
                     RowSize * ImGui.GetIO().FontGlobalScale - ImGui.GetStyle().FramePadding.X,
                     itemId =>
                     {

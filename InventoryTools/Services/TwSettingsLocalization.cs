@@ -12,6 +12,24 @@ public static class TwSettingsLocalization
 {
     private static readonly Dictionary<string, string> Text = new(StringComparer.Ordinal)
     {
+        ["N/A"] = "不適用",
+        ["Yes"] = "是",
+        ["No"] = "否",
+        ["Delete"] = "刪除",
+        ["Do Nothing"] = "不處理",
+        ["As Added"] = "依加入順序",
+        ["By Name"] = "依名稱",
+        ["By Class"] = "依職業",
+        ["Only"] = "僅限",
+        ["Single Table"] = "單一表格",
+        ["Together"] = "集中顯示",
+        ["Zone"] = "區域",
+        ["Retrieve First"] = "優先取物",
+        ["Retrieve Last"] = "最後取物",
+        ["Use Global Configuration"] = "使用全域設定",
+        ["Unknown"] = "未知",
+        ["Character"] = "角色",
+
         // Setting names
         ["Active Craft List"] = "目前製作清單",
         ["Add Title Menu Button?"] = "加入標題畫面按鈕？",

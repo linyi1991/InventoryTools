@@ -63,7 +63,7 @@ namespace InventoryTools.Logic.Columns
                     configuration.CraftList.RemoveCraftItem(searchResult.CraftItem.ItemId);
                     configuration.NeedsRefresh = true;
                 }
-                OtterGui.ImGuiUtil.HoverTooltip("Delete item");
+                OtterGui.ImGuiUtil.HoverTooltip("刪除物品");
 
             }
 
@@ -88,14 +88,14 @@ namespace InventoryTools.Logic.Columns
                                 ImGui.SameLine();
                                 ImGui.Image(ImGuiService.GetIconTexture(Icons.QuestionMarkIcon).Handle, new Vector2(16, 16));
                                 OtterGui.ImGuiUtil.HoverTooltip(
-                                    "The market price of this item is cheaper than buying it from a vendor and you prefer vendors over the current ingredient preference.");
+                                    "此物品的市場價格低於商店售價，而你設定的商店優先順序高於目前素材來源。");
                             }
                         }
                     }
                 }
                 else
                 {
-                    ImGui.Text("N/A");
+                    ImGui.Text("不適用");
                 }
 
                 var craftPrices = searchResult.CraftItem.CraftPrices;
@@ -122,11 +122,11 @@ namespace InventoryTools.Logic.Columns
                                     totalAvailable += price.Left;
                                 }
 
-                                ImGui.Text("Available: " + totalAvailable);
+                                ImGui.Text("可用：" + totalAvailable);
 
                                 if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                                 {
-                                    ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                                    ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                                 }
                             }
                         }
@@ -144,7 +144,7 @@ namespace InventoryTools.Logic.Columns
                 if (ImGui.IsItemHovered(ImGuiHoveredFlags.None))
                 {
                     using var tt = ImRaii.Tooltip();
-                    ImGui.Text("Missing Ingredients: ");
+                    ImGui.Text("缺少素材：");
                     foreach (var missingIngredient in searchResult.CraftItem.MissingIngredients)
                     {
                         var itemId = missingIngredient.Key.Item1;

@@ -11,8 +11,8 @@ public class FavouritesFilter : BooleanFilter
 {
     private readonly InventoryToolsConfiguration _configuration;
     public override string Key { get; set; } = "favourites";
-    public override string Name { get; set; } = "Is Favourite?";
-    public override string HelpText { get; set; } = "Is this item a favourite?";
+    public override string Name { get; set; } = "是否為最愛？";
+    public override string HelpText { get; set; } = "此物品是否已加入最愛？";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Searching;
 
     public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)

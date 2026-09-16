@@ -276,7 +276,7 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                         return exes;
                     }
 
-                    return specs == ImGuiSortDirection.Ascending ? exes.OrderBy(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown") : exes.OrderByDescending(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown");
+                    return specs == ImGuiSortDirection.Ascending ? exes.OrderBy(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "未知") : exes.OrderByDescending(c => c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "未知");
                 },
                 Filter = (s, exes) =>
                 {
@@ -284,11 +284,11 @@ public class DutiesWindow : GenericTabbedTable<ContentFinderConditionRow>, IMenu
                     {
                         return exes;
                     }
-                    return s == "" ? exes : exes.Where(c => (c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown").ToLower().PassesFilter(s.ToLower()));
+                    return s == "" ? exes : exes.Where(c => (c.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "未知").ToLower().PassesFilter(s.ToLower()));
                 },
                 Draw = (ex, contentTypeId) =>
                 {
-                    ImGui.TextUnformatted(ex.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "Unknown");
+                    ImGui.TextUnformatted(ex.AcceptClassJobCategory?.Base.Name.ExtractText() ?? "未知");
                 }
             },
         };

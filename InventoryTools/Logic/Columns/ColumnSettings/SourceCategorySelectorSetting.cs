@@ -48,8 +48,8 @@ public class SourceCategorySelectorSetting : MultiChoiceColumnSetting<(ItemInfoR
 
 
     public override string Key { get; set; } = "SourceCategories";
-    public override string Name { get; set; } = "Categories";
-    public override string HelpText { get; set; } = "Which source categories should this display?";
+    public override string Name { get; set; } = "分類";
+    public override string HelpText { get; set; } = "應顯示哪些來源分類？";
     public override List<(ItemInfoRenderCategory,string)>? DefaultValue { get; set; } = null;
     public override List<(ItemInfoRenderCategory,string)> GetChoices(ColumnConfiguration configuration)
     {

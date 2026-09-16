@@ -39,7 +39,7 @@ public class MarketBoardExtraWorldsSetting : MultipleChoiceSetting<uint>
     {
         if (_worldNames == null)
         {
-            _worldNames = _worldSheet.Where(c => c.IsPublic).OrderBy(c => c.Name.ExtractText())
+            _worldNames = _worldSheet.Where(c => TwMarketWorlds.IsAvailableForMarket(c.RowId, c.IsPublic)).OrderBy(c => c.Name.ExtractText())
                 .ToDictionary(c => c.RowId, c => c.Name.ExtractText());
         }
 

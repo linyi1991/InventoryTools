@@ -113,7 +113,7 @@ public class CraftBuyColumn : ButtonColumn
             ImGui.TableNextColumn();
             if (ImGui.TableGetColumnFlags().HasFlag(ImGuiTableColumnFlags.IsEnabled))
             {
-                if (ImGui.Button("Teleport##" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
+                if (ImGui.Button("傳送###Teleport##" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
                                  tuple.location.Map.RowId))
                 {
                     var nearestAetheryte = _teleporterService.GetNearestAetheryte(tuple.location);
@@ -140,7 +140,7 @@ public class CraftBuyColumn : ButtonColumn
         if (shops.Any())
         {
             ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 0.0f);
-            if (ImGui.Button("Buy##Buy" + rowIndex))
+            if (ImGui.Button("購買###Buy##Buy" + rowIndex))
             {
                 var vendor = GetLocations(item).FirstOrDefault();
                 if (vendor.location != null)

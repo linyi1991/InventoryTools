@@ -47,8 +47,8 @@ public class SourceTypeSelectorSetting : MultiChoiceColumnSetting<(ItemInfoType,
 
 
     public override string Key { get; set; } = "SourceTypes";
-    public override string Name { get; set; } = "Types";
-    public override string HelpText { get; set; } = "Which source types should this display?";
+    public override string Name { get; set; } = "類型";
+    public override string HelpText { get; set; } = "應顯示哪些來源類型？";
     public override List<(ItemInfoType,string)>? DefaultValue { get; set; } = null;
     public override List<(ItemInfoType,string)> GetChoices(ColumnConfiguration configuration)
     {

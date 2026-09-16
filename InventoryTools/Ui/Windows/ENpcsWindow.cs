@@ -107,7 +107,7 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
                         if (ImGui.IsItemHovered())
                         {
                             using var tt = ImRaii.Tooltip();
-                            ImGui.TextUnformatted((position.PlaceName.ValueNullable?.Name.ExtractText() ?? "Unknown") + " - " +
+                            ImGui.TextUnformatted((position.PlaceName.ValueNullable?.Name.ExtractText() ?? "未知") + " - " +
                                                   position.MapX +
                                                   " : " + position.MapY);
                         }
@@ -133,11 +133,11 @@ public class ENpcsWindow : GenericTabbedTable<ENpcResidentRow>, IMenuWindow
                 {
                     if (ex.ENpcBase.IsVendor)
                     {
-                        ImGui.Text("Yes");
+                        ImGui.Text("是");
                     }
                     else
                     {
-                        ImGui.Text("No");
+                        ImGui.Text("否");
                     }
                 }
             },

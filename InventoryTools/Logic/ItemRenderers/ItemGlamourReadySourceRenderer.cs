@@ -20,18 +20,18 @@ public class ItemGlamourReadySetItemSourceRenderer : ItemInfoRenderer<ItemGlamou
 
     public override RendererType RendererType => RendererType.Use;
     public override ItemInfoType Type => ItemInfoType.GlamourReadySetItem;
-    public override string SingularName => "Glamour Ready Set Item";
-    public override string HelpText => "Is the item part of a 'Glamour Ready' outfit set?";
+    public override string SingularName => "套裝投影物品";
+    public override string HelpText => "此物品是否為整套投影裝備的一部分？";
 
     public override bool ShouldGroup => true;
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text("Transforms into: " + asSource.ConvertedItem.NameString);
+        ImGui.Text("轉換為：" + asSource.ConvertedItem.NameString);
         if (asSource.SetItems.Count > 1)
         {
-            ImGui.Text("Set Items:");
+            ImGui.Text("套裝物品：");
             using (ImRaii.PushIndent())
             {
                 foreach (var item in asSource.SetItems)
@@ -48,6 +48,6 @@ public class ItemGlamourReadySetItemSourceRenderer : ItemInfoRenderer<ItemGlamou
     public override Func<ItemSource, string> GetDescription => source =>
     {
         var asSource = AsSource(source);
-        return $"Part of {asSource.ConvertedItem.NameString} which contains {string.Join(", ", asSource.SetItems.Select(c => c.NameString))}";
+        return $"屬於 {asSource.ConvertedItem.NameString}，包含：{string.Join(", ", asSource.SetItems.Select(c => c.NameString))}";
     };
 }

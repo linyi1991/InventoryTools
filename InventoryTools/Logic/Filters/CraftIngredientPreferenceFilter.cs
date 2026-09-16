@@ -60,10 +60,10 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
     }
 
     public override string Key { get; set; } = "CraftIngredientPreference";
-    public override string Name { get; set; } = "Default Ingredient Sourcing";
+    public override string Name { get; set; } = "預設素材來源";
 
     public override string HelpText { get; set; } =
-        "When generating the materials for a craft, the 'Ingredient Sourcing' setting determines the preferred method of acquisition. The craft list will refer to this sorted list to determine the appropriate method. Please note that this assumes the item in the craft list can be obtained through this method. If not, the next item in the ingredient sourcing list will be considered.";
+        "製作清單會依素材來源的排序選擇取得方式。若物品無法透過該方式取得，則嘗試下一種來源。";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.IngredientSourcing;
     public override Dictionary<(IngredientPreferenceType, uint?), (string, string?)> DefaultValue { get; set; } = new();
@@ -141,7 +141,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
         {
             if (combo.Success)
             {
-                if (ImGui.Selectable("None", false))
+                if (ImGui.Selectable("無###None", false))
                 {
                 }
                 foreach (var preferenceType in _preferenceTypes.Where(c => !currentValue.ContainsKey((c, null))))
@@ -172,7 +172,7 @@ public class CraftIngredientPreferenceFilter : SortedListFilter<(IngredientPrefe
                 ImGui.Separator();
                 if (_searchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("輸入文字以搜尋…");
                 }
                 foreach (var item in SearchItems.Where(c => !currentValue.ContainsKey((IngredientPreferenceType.Item, c.RowId))))
                 {

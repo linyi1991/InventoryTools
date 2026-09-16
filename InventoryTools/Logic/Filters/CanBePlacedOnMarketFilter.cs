@@ -11,7 +11,7 @@ namespace InventoryTools.Logic.Filters
     {
         public override string Key { get; set; } = "CanBePlacedOnMarket";
         public override string Name { get; set; } = "可放上市場？";
-        public override string HelpText { get; set; } = "Can this item be placed on the market?";
+        public override string HelpText { get; set; } = "此物品是否可上架市場？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Acquisition;
 
 

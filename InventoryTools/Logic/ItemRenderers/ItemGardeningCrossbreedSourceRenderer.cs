@@ -19,8 +19,8 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     private readonly ITextureProvider _textureProvider;
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GardeningCrossbreed;
-    public override string SingularName => "Gardening Crossbreed";
-    public override string HelpText => "Is this item created by crossbreeding 2 seeds?";
+    public override string SingularName => "園藝雜交";
+    public override string HelpText => "此物品是否由兩種種子雜交培育而成？";
     public override bool ShouldGroup => true;
 
     public ItemGardeningCrossbreedSourceRenderer(ItemSheet itemSheet, MapSheet mapSheet,
@@ -32,7 +32,7 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
-        ImGui.Text($"Result: {asSource.SeedResult.NameString}");
+        ImGui.Text($"結果：{asSource.SeedResult.NameString}");
         ImGui.Text($"{asSource.Seed1.NameString} + {asSource.Seed2.NameString}");
     };
     public override Func<ItemSource, string> GetName => source =>
@@ -44,7 +44,7 @@ public class ItemGardeningCrossbreedSourceRenderer : ItemInfoRenderer<ItemGarden
     public override Action<List<ItemSource>>? DrawTooltipGrouped => sources =>
     {
         var actualSources = AsSource(sources);
-        ImGui.Text("Crossbreeds:");
+        ImGui.Text("雜交組合：");
         var chunkedSources = actualSources.OrderBy(c =>c.Seed1.NameString).Chunk(actualSources.Count / MaxColumns);
         using (var table = ImRaii.Table("CrossbreedTable", this.MaxColumns, ImGuiTableFlags.SizingStretchProp))
         {
@@ -112,8 +112,8 @@ public class ItemGardeningCrossbreedSourceUseRenderer : ItemGardeningCrossbreedS
     }
 
     public override RendererType RendererType => RendererType.Use;
-    public override string SingularName => "Gardening Crossbreed Seed";
-    public override string HelpText => "Is this item part of a crossbreed when gardening?";
+    public override string SingularName => "園藝雜交種子";
+    public override string HelpText => "此物品是否為園藝雜交所需的種子？";
 
     public override Func<ItemSource, string> GetDescription => source =>
     {

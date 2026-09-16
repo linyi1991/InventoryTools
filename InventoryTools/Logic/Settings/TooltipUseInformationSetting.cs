@@ -102,10 +102,10 @@ public class TooltipUseInformationSetting : Setting<Dictionary<ItemInfoType, Too
                 }
 
 
-                ImGui.TableSetupColumn("Settings", ImGuiTableColumnFlags.NoHeaderLabel);
-                ImGui.TableSetupColumn("Name");
-                ImGui.TableSetupColumn("Show");
-                ImGui.TableSetupColumn("Group Mode");
+                ImGui.TableSetupColumn("設定###Settings", ImGuiTableColumnFlags.NoHeaderLabel);
+                ImGui.TableSetupColumn("名稱###Name");
+                ImGui.TableSetupColumn("顯示###Show");
+                ImGui.TableSetupColumn("分組模式###Group Mode");
 
                 ImGui.TableHeadersRow();
 

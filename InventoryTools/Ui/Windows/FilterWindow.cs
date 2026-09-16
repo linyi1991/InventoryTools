@@ -64,20 +64,20 @@ namespace InventoryTools.Ui
             _settingsMenu = new PopupMenu("configMenu", PopupMenu.PopupMenuButtons.All,
                 new List<PopupMenu.IPopupMenuItem>()
                 {
-                    new PopupMenu.PopupMenuItemSelectable("Mob Window", "mobs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(BNpcsWindow))),
-                        "Open the mobs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Npcs Window", "npcs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(ENpcsWindow))),
-                        "Open the npcs window."),
-                    new PopupMenu.PopupMenuItemSelectable("Duties Window", "duties", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(DutiesWindow))),
-                        "Open the duties window."),
-                    new PopupMenu.PopupMenuItemSelectable("Airships Window", "airships", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(AirshipsWindow))),
-                        "Open the airships window."),
-                    new PopupMenu.PopupMenuItemSelectable("Submarines Window", "submarines", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(SubmarinesWindow))),
-                        "Open the submarines window."),
-                    new PopupMenu.PopupMenuItemSelectable("Retainer Ventures Window", "ventures",_ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(RetainerTasksWindow))),
-                        "Open the retainer ventures window."),
+                    new PopupMenu.PopupMenuItemSelectable("怪物視窗###Mob Window", "mobs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(BNpcsWindow))),
+                        "開啟怪物視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("NPC 視窗###Npcs Window", "npcs", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(ENpcsWindow))),
+                        "開啟 NPC 視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("任務視窗###Duties Window", "duties", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(DutiesWindow))),
+                        "開啟任務視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("飛空艇視窗###Airships Window", "airships", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(AirshipsWindow))),
+                        "開啟飛空艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("潛水艇視窗###Submarines Window", "submarines", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(SubmarinesWindow))),
+                        "開啟潛水艇視窗。"),
+                    new PopupMenu.PopupMenuItemSelectable("雇員探險視窗###Retainer Ventures Window", "ventures",_ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(RetainerTasksWindow))),
+                        "開啟雇員探險視窗。"),
                     new PopupMenu.PopupMenuItemSeparator(),
-                    new PopupMenu.PopupMenuItemSelectable("Help", "help", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow))), "Open the help window."),
+                    new PopupMenu.PopupMenuItemSelectable("說明###Help", "help", _ => MediatorService.Publish(new OpenGenericWindowMessage(typeof(HelpWindow))), "Open the help window."),
                 });
         }
 

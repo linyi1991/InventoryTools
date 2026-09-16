@@ -10,9 +10,9 @@ namespace InventoryTools.Logic.Filters
     public class HighlightDestinationFilter : BooleanFilter
     {
         public override string Key { get; set; } = "HighlightDestination";
-        public override string Name { get; set; } = "Highlight Destination Duplicates?";
+        public override string Name { get; set; } = "標示目的地重複物品？";
         public override string HelpText { get; set; } =
-            "Should any items that match in the destination bag be highlighted?";
+            "是否標示目的地背包中符合條件的物品？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Display;
         public override FilterType AvailableIn { get; set; } = FilterType.SortingFilter;
         public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)

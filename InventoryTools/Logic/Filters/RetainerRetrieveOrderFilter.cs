@@ -47,8 +47,8 @@ public class RetainerRetrieveOrderFilter : ChoiceFilter<RetainerRetrieveOrder>
     }
 
     public override string Key { get; set; } = "RetainerRetrieveOrder";
-    public override string Name { get; set; } = "Retainer Retrieve Order";
-    public override string HelpText { get; set; } = "When displaying the items for a craft, if there are items to be retrieved should we display this before or after the shortfall is made up. If first is selected, it will make you retrieve items first, if last is selected, any missing items you'll need will have to be collected/purchased before the remainder will be shown for retrieval.";
+    public override string Name { get; set; } = "雇員取物順序";
+    public override string HelpText { get; set; } = "設定先取出庫存素材，或先補齊缺少素材。選擇優先時會先顯示取物；選擇最後時，需先採集或購買缺少素材才會顯示取物。";
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.Settings;
     public override RetainerRetrieveOrder DefaultValue { get; set; } = RetainerRetrieveOrder.RetrieveFirst;
     public override List<RetainerRetrieveOrder> GetChoices(FilterConfiguration configuration)

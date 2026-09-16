@@ -27,7 +27,7 @@ public class ItemLocalizer
         var cabinetCategory = inventoryItem.Item.CabinetCategory;
         if (cabinetCategory == null)
         {
-            return "Unknown Cabinet";
+            return "未知收藏櫃";
         }
 
         if (_cabinetNames.TryGetValue(cabinetCategory.Base.Category.RowId, out string? cabinetName))
@@ -36,7 +36,7 @@ public class ItemLocalizer
         }
 
         cabinetName = _addonSheet.GetRowOrDefault(cabinetCategory.Base.Category.RowId)?.Text.ExtractText() ??
-                      "Addon Text Not Found";
+                      "找不到介面文字";
 
         _cabinetNames[cabinetCategory.Base.Category.RowId] = cabinetName;
 
@@ -47,7 +47,7 @@ public class ItemLocalizer
     {
         if (inventoryItem.IsEmpty)
         {
-            return "Empty";
+            return "空白";
         }
 
         var _item = inventoryItem.Item.NameString.ToString();
@@ -57,7 +57,7 @@ public class ItemLocalizer
         }
         else if (inventoryItem.IsCollectible)
         {
-            _item += " (Collectible)";
+            _item += "（收藏品）";
         }
         else
         {

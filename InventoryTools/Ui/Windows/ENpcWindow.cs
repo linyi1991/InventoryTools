@@ -76,7 +76,7 @@ namespace InventoryTools.Ui
 
             if (ENpcResidentRow == null)
             {
-                ImGui.TextUnformatted("eNpc with the ID " + _eNpcId + " could not be found.");
+                ImGui.TextUnformatted("找不到 NPC，ID：" + _eNpcId + "，無對應資料。");
             }
             else
             {
@@ -85,18 +85,18 @@ namespace InventoryTools.Ui
                 {
                     $"https://www.garlandtools.org/db/#eNpc/{_eNpcId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Garland Tools");
+                ImGuiUtil.HoverTooltip("在 Garland Tools 開啟");
                 ImGui.SameLine();
                 if (ImGui.ImageButton(ImGuiService.GetImageTexture("teamcraft").Handle,
                         new Vector2(32, 32) * ImGui.GetIO().FontGlobalScale))
                 {
                     $"https://ffxivteamcraft.com/db/en/eNpc/{_eNpcId}".OpenBrowser();
                 }
-                ImGuiUtil.HoverTooltip("Open in Teamcraft");
+                ImGuiUtil.HoverTooltip("在 Teamcraft 開啟");
 
                 ImGui.Separator();
 
-                if (Shops != null && ImGui.CollapsingHeader("Shops (" + Shops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
+                if (Shops != null && ImGui.CollapsingHeader("商店（###Shops (" + Shops.Count + ")", ImGuiTreeNodeFlags.DefaultOpen | ImGuiTreeNodeFlags.CollapsingHeader))
                 {
                     ImGuiStylePtr style = ImGui.GetStyle();
                     float windowVisibleX2 = ImGui.GetWindowPos().X + ImGui.GetWindowContentRegionMax().X;
@@ -165,14 +165,14 @@ namespace InventoryTools.Ui
                 var hasInformation = false;
                 if (!hasInformation)
                 {
-                    ImGui.TextUnformatted("No information available.");
+                    ImGui.TextUnformatted("暫無資訊。");
                 }
 
                 #if DEBUG
-                if (ImGui.CollapsingHeader("Debug"))
+                if (ImGui.CollapsingHeader("偵錯###Debug"))
                 {
-                    ImGui.TextUnformatted("eNpc ID: " + _eNpcId);
-                    if (ImGui.Button("Copy"))
+                    ImGui.TextUnformatted("NPC ID：" + _eNpcId);
+                    if (ImGui.Button("複製###Copy"))
                     {
                         _clipboardService.CopyToClipboard(_eNpcId.ToString());
                     }

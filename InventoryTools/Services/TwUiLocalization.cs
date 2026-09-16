@@ -26,6 +26,111 @@ public static class TwUiLocalization
 
     private static readonly Dictionary<string, string> ColumnNames = new(StringComparer.OrdinalIgnoreCase)
     {
+        ["Equipped By (Race)"] = "可裝備種族",
+        ["Market Board Minimum Price NQ/HQ"] = "市場最低單價 NQ／HQ",
+        ["Spiritbond"] = "精煉度",
+        ["Equipped By (Gender)"] = "可裝備性別",
+        ["Is sold in Square Store?"] = "是否為商城販售物品？",
+        ["Is Square Store Item?"] = "是否為商城物品？",
+        ["Is GC Turn-in item?"] = "是否可交納軍隊？",
+        ["Is Desynthable?"] = "是否可分解？",
+        ["Market Board Average Total Price(Qty * Price) NQ/HQ"] = "市場平均總價 NQ／HQ",
+        ["Has Been Acquired?"] = "是否已取得？",
+        ["Acquired?"] = "已取得？",
+        ["Venture Type"] = "雇員探險類型",
+        ["History Event Date/Time"] = "歷史事件日期／時間",
+        ["Is Tradable?"] = "是否可交易？",
+        ["Is custom delivery item?"] = "是否為老主顧交易物品？",
+        ["Custom delivery item?"] = "老主顧交易物品？",
+        ["Is Purchasable?"] = "是否可購買？",
+        ["Gearset Number"] = "套裝編號",
+        ["Is from Calamity Salvager?"] = "是否可向失物管理人取得？",
+        ["Is Ishgardian Craft?"] = "是否為伊修加德重建製作？",
+        ["Desynthesis Class"] = "分解職業",
+        ["Desynth Class"] = "分解職業",
+        ["History Event Reason"] = "歷史事件原因",
+        ["Can be Equipped?"] = "是否可裝備？",
+        ["Is From Ephemeral Node?"] = "是否來自限時採集點？",
+        ["Ephemeral Node?"] = "限時採集點？",
+        ["Is Dyeable?"] = "是否可染色？",
+        ["Patch Added"] = "加入版本",
+        ["Is Leve(Craft) Item?"] = "是否為製作理符物品？",
+        ["Leve (Craft)"] = "製作理符",
+        ["Retainer Selling Unit Price"] = "雇員販售單價",
+        ["Market Board Average Price NQ"] = "市場平均單價 NQ",
+        ["Market Board Minimum Total Price(Qty * Price) NQ/HQ"] = "市場最低總價 NQ／HQ",
+        ["Expert Delivery Reward Seal Count"] = "專家交納軍票獎勵",
+        ["Craft Calculator"] = "製作計算器",
+        ["MB Category"] = "市場分類",
+        ["Is Housing Item?"] = "是否為房屋物品？",
+        ["Is Housing?"] = "房屋物品？",
+        ["Debug - Craft"] = "偵錯－製作",
+        ["Gathered By?"] = "採集職業",
+        ["Can be High Quality?"] = "是否可為 HQ？",
+        ["In Gearset?"] = "是否用於套裝？",
+        ["Buy from Vendor Price"] = "商店購買價格",
+        ["Logged in Gathering Log?"] = "是否已記錄於採集筆記？",
+        ["Logged?"] = "已記錄？",
+        ["Is Collectable?"] = "是否為收藏品？",
+        ["Sell to Vendor Price (Total)"] = "出售商店總價",
+        ["History Event Amount"] = "歷史事件數量",
+        ["Market Board Average Price HQ"] = "市場平均單價 HQ",
+        ["Can be Placed on Market?"] = "是否可上架市場？",
+        ["Market Board Minimum Price HQ"] = "市場最低單價 HQ",
+        ["Is Craftable?"] = "是否可製作？",
+        ["Is Dropped by Mobs?"] = "是否為怪物掉落物？",
+        ["Is Craft Component?"] = "是否為製作素材？",
+        ["Is Craft Item?"] = "製作物品？",
+        ["Equipped By (Class/Job)"] = "可裝備職業／特職",
+        ["Market Board Minimum Price NQ"] = "市場最低單價 NQ",
+        ["Is Aquarium Item?"] = "是否為水族箱物品？",
+        ["Relative Item Level"] = "相對物品等級",
+        ["Debug - General Information"] = "偵錯－一般資訊",
+        ["Recipe Total Count"] = "配方總數",
+        ["Is Gatherable?"] = "是否可採集？",
+        ["Amount Required"] = "需求數量",
+        ["Amount in Character Inventory"] = "角色庫存數量",
+        ["Next Step in Craft"] = "製作下一步",
+        ["Sell to Vendor Price"] = "出售商店單價",
+        ["Last Seen Date/Time"] = "最後出現日期／時間",
+        ["Is Armoire Item?"] = "是否可存入收藏櫃？",
+        ["Is Armoire?"] = "可存入收藏櫃？",
+        ["Outdated Gear?"] = "過時裝備？",
+        ["Next Gather Uptime"] = "下次採集出現時間",
+        ["Ingredient Patch Search"] = "素材版本搜尋",
+        ["Is From Timed Node?"] = "是否來自定時採集點？",
+        ["Timed Node?"] = "定時採集點？",
+        ["Market Board Average Price NQ/HQ"] = "市場平均單價 NQ／HQ",
+        ["MB "] = "市場 ",
+        ["Are Recipes Completed?"] = "是否已完成配方？",
+        ["Is From Fate?"] = "是否來自危命任務？",
+        ["Is From Hidden Node?"] = "是否來自隱藏採集點？",
+        ["Hidden Node?"] = "隱藏採集點？",
+        ["Gather/Purchase"] = "採集／購買",
+        ["Gather/Purchase/Buy"] = "採集／商店／市場購買",
+        ["Craft Button"] = "製作按鈕",
+        ["Custom Link Button"] = "自訂連結按鈕",
+        ["Gathering Log Button"] = "採集筆記按鈕",
+        ["Buy Button"] = "購買按鈕",
+        ["Remove"] = "移除",
+        ["Custom Button"] = "自訂按鈕",
+        ["Character Search Scope"] = "角色搜尋範圍",
+        ["Attribute"] = "屬性",
+        ["Types"] = "類型",
+        ["World"] = "伺服器",
+        ["Display Mode"] = "顯示模式",
+        ["Button Types"] = "按鈕類型",
+        ["Qualities"] = "品質",
+        ["Inventory Search Scope"] = "庫存搜尋範圍",
+        ["Categories"] = "分類",
+        ["iLevel"] = "物品等級",
+        ["Required Level"] = "所需等級",
+        ["Delay"] = "攻擊間隔",
+        ["Magical Damage"] = "魔法基本性能",
+        ["Dye Count"] = "染色數量",
+        ["Materia Count"] = "魔晶石數量",
+        ["Physical Damage"] = "物理基本性能",
+
         ["Favourite?"] = "最愛？",
         ["Name"] = "名稱",
         ["Type"] = "類型",
@@ -114,6 +219,34 @@ public static class TwUiLocalization
 
     private static readonly Dictionary<string, string> ItemInfoNames = new(StringComparer.OrdinalIgnoreCase)
     {
+        ["Quest"] = "任務",
+        ["Occult Crescent"] = "新月島",
+        ["PVP Series"] = "PvP 系列",
+        ["Gathering"] = "採集",
+        ["Botany"] = "園藝",
+        ["Venture"] = "雇員探險",
+        ["Venture (Exploration)"] = "雇員探索",
+        ["Crafting"] = "製作",
+        ["Leves"] = "理符",
+        ["Duties"] = "任務",
+        ["Shops"] = "商店",
+        ["Housing"] = "房屋",
+        ["Unsorted"] = "未分類",
+        ["Basic"] = "基本",
+        ["Stats"] = "屬性",
+        ["Market"] = "市場",
+        ["Tools"] = "工具",
+        ["Debug"] = "偵錯",
+        ["History"] = "歷史紀錄",
+        ["Buttons"] = "按鈕",
+        ["House Fixture (Door)"] = "房屋部件（門）",
+        ["House Fixture (Flooring)"] = "房屋部件（地板）",
+        ["House Fixture (Lighting)"] = "房屋部件（照明）",
+        ["House Fixture (Roof)"] = "房屋部件（屋頂）",
+        ["House Fixture (Wallpaper)"] = "房屋部件（壁紙）",
+        ["House Fixture (Wall)"] = "房屋部件（外牆）",
+        ["House Fixture (Window)"] = "房屋部件（窗戶）",
+
         ["Achievement"] = "成就",
         ["Airship Exploration"] = "飛空艇探索",
         ["Anima Shop"] = "元靈武器商店",
@@ -195,20 +328,29 @@ public static class TwUiLocalization
         => KnownListNames.TryGetValue(value, out var translated) ? translated : value;
 
     public static string ColumnName(string value)
-        => ColumnNames.TryGetValue(value, out var translated) ? translated : value;
+        => ColumnNames.TryGetValue(value, out var translated) ? translated : ItemInfoName(value);
+
+    private static readonly (string English, string Chinese)[] ItemInfoSuffixes =
+    {
+        (" (Hidden)", "（隱藏）"),
+        (" (Timed)", "（定時）"),
+        (" (Ephemeral)", "（限時）"),
+        (" (Treasure Coffer)", "（寶箱）"),
+        (" (Golden Coffer)", "（金色寶箱）"),
+        (" (Pot)", "（陶罐）"),
+    };
 
     public static string ItemInfoName(string value)
     {
         if (ItemInfoNames.TryGetValue(value, out var translated))
             return translated;
 
-        return value
-            .Replace(" (Hidden)", "（隱藏）", StringComparison.OrdinalIgnoreCase)
-            .Replace(" (Timed)", "（限時）", StringComparison.OrdinalIgnoreCase)
-            .Replace(" (Ephemeral)", "（傳說）", StringComparison.OrdinalIgnoreCase)
-            .Replace(" (Treasure Coffer)", "（寶箱）", StringComparison.OrdinalIgnoreCase)
-            .Replace(" (Golden Coffer)", "（金色寶箱）", StringComparison.OrdinalIgnoreCase)
-            .Replace(" (Pot)", "（陶罐）", StringComparison.OrdinalIgnoreCase);
+        foreach (var (english, chinese) in ItemInfoSuffixes)
+        {
+            if (value.EndsWith(english, StringComparison.OrdinalIgnoreCase))
+                return ItemInfoName(value[..^english.Length]) + chinese;
+        }
+        return value;
     }
 
     public static string TooltipLocation(string value)

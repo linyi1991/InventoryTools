@@ -58,7 +58,7 @@ namespace InventoryTools.Logic.Filters
         }
 
         public override string Key { get; set; } = "Craft Columns";
-        public override string Name { get; set; } = "Craft Columns";
+        public override string Name { get; set; } = "製作欄位";
         public override string HelpText { get; set; } = "";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.CraftColumns;
         public override bool ShowReset { get; set; } = false;
@@ -130,7 +130,7 @@ namespace InventoryTools.Logic.Filters
         {
             base.DrawButtons(configuration, item, index);
             ImGui.SameLine();
-            if (ImGui.Button("Edit##Column" + index))
+            if (ImGui.Button("編輯###Edit##Column" + index))
             {
                 EditItem(configuration, item.Key);
             }
@@ -160,7 +160,7 @@ namespace InventoryTools.Logic.Filters
                     var groupedItems = GetGroupedItems(configuration);
                     if (_selectedColumnKey == "")
                     {
-                        ImGui.Text("Add Column");
+                        ImGui.Text("新增欄位");
                         ImGui.Separator();
                         var searchString = SearchString;
                         ImGui.InputText("##ItemSearch", ref searchString, 50);
@@ -172,7 +172,7 @@ namespace InventoryTools.Logic.Filters
                         ImGui.Separator();
                         if (_searchString == "")
                         {
-                            ImGui.TextUnformatted("Start typing to search...");
+                            ImGui.TextUnformatted("輸入文字以搜尋…");
                         }
 
                         ImGui.Separator();
@@ -183,7 +183,7 @@ namespace InventoryTools.Logic.Filters
                             foreach (var column in groupedItem)
                             {
                                 if (parsedSearchString == "" ||
-                                    column.Value.Name.ToParseable().Contains(parsedSearchString) ||
+                                    (column.Value.Name.ToParseable().Contains(parsedSearchString) || TwUiLocalization.ColumnName(column.Value.Name).ToParseable().Contains(parsedSearchString)) ||
                                     column.Value.HelpText.ToParseable().Contains(parsedSearchString))
                                 {
                                     hasColumns = true;
@@ -195,12 +195,12 @@ namespace InventoryTools.Logic.Filters
                                 continue;
                             }
 
-                            if (ImGui.CollapsingHeader(groupedItem.Key.ToString(), ImGuiTreeNodeFlags.DefaultOpen))
+                            if (ImGui.CollapsingHeader(TwUiLocalization.ColumnName(groupedItem.Key.ToString()) + "###" + groupedItem.Key, ImGuiTreeNodeFlags.DefaultOpen))
                             {
                                 foreach (var column in groupedItem)
                                 {
                                     if (parsedSearchString != "" &&
-                                        !column.Value.Name.ToParseable().Contains(parsedSearchString) &&
+                                        !(column.Value.Name.ToParseable().Contains(parsedSearchString) || TwUiLocalization.ColumnName(column.Value.Name).ToParseable().Contains(parsedSearchString)) &&
                                         !column.Value.HelpText.ToParseable().Contains(parsedSearchString))
                                     {
                                         continue;
@@ -212,7 +212,7 @@ namespace InventoryTools.Logic.Filters
                                         pushColor = ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen);
                                     }
 
-                                    if (ImGui.Selectable(column.Value.Name))
+                                    if (ImGui.Selectable(TwUiLocalization.ColumnName(column.Value.Name) + "###" + column.Key))
                                     {
                                         if (_selectedColumn == column.Value)
                                         {
@@ -228,14 +228,14 @@ namespace InventoryTools.Logic.Filters
                                     {
                                         ImGui.SameLine();
                                         ImGui.Image(ImGuiService.GetIconTexture(Icons.SproutIcon).Handle, new Vector2(16,16));
-                                        ImGuiUtil.HoverTooltip("Default Column");
+                                        ImGuiUtil.HoverTooltip("預設欄位");
                                     }
 
                                     if (column.Value.IsConfigurable)
                                     {
                                         ImGui.SameLine();
                                         ImGui.Image(ImGuiService.GetIconTexture(Icons.WrenchIcon).Handle, new Vector2(16,16));
-                                        ImGuiUtil.HoverTooltip("Configurable");
+                                        ImGuiUtil.HoverTooltip("可自訂");
                                     }
 
                                     if (pushColor != null)
@@ -249,7 +249,7 @@ namespace InventoryTools.Logic.Filters
                                         ImGui.PushTextWrapPos();
                                         ImGui.Text(TwUiLocalization.ColumnHelp(column.Value.Name, column.Value.HelpText));
                                         ImGui.PopTextWrapPos();
-                                        if (ImGui.Button("Add"))
+                                        if (ImGui.Button("新增###Add"))
                                         {
                                             _selectedColumnName = column.Value.Name;
                                             _selectedColumnHelp = column.Value.HelpText;
@@ -339,7 +339,7 @@ namespace InventoryTools.Logic.Filters
                         }
                         ImGui.SameLine();
                         ImGui.SetCursorPosX(posX - ImGui.GetStyle().ItemSpacing.X - 50);
-                        if (ImGui.Button("Cancel", new Vector2(50, 20)))
+                        if (ImGui.Button("取消###Cancel", new Vector2(50, 20)))
                         {
                             _selectedColumnName = "";
                             _selectedColumnKey = "";
@@ -359,7 +359,7 @@ namespace InventoryTools.Logic.Filters
             {
                 if (table.Success)
                 {
-                    ImGui.Text("Current Columns:");
+                    ImGui.Text("目前欄位：");
                     ImGui.Separator();
                     DrawTable(configuration);
                 }

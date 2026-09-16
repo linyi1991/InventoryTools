@@ -55,8 +55,8 @@ public class CharacterScopePickerColumnSetting : ColumnSetting<List<CharacterSea
     }
 
     public override string Key { get; set; } = "CharacterScopePicker";
-    public override string Name { get; set; } = "Character Search Scope";
-    public override string HelpText { get; set; } = "Select the characters you want to search inside.";
+    public override string Name { get; set; } = "角色搜尋範圍";
+    public override string HelpText { get; set; } = "選擇要搜尋的角色。";
     public override List<CharacterSearchScope>? DefaultValue { get; set; } = null;
 
     public override bool DrawFilter(ColumnConfiguration configuration, string? helpText)
@@ -86,7 +86,7 @@ public class CharacterScopePickerColumnSetting : ColumnSetting<List<CharacterSea
 
         var currentValue = CurrentValue(configuration);
         using var disabled = ImRaii.Disabled(currentValue == null);
-        if (ImGui.Button("Test Scopes"))
+        if (ImGui.Button("測試範圍###Test Scopes"))
         {
             if (currentValue != null)
             {
@@ -98,7 +98,7 @@ public class CharacterScopePickerColumnSetting : ColumnSetting<List<CharacterSea
         if (_characters is not null && currentValue is not null)
         {
             ImGui.Separator();
-            ImGui.Text("The following characters will be searched in: ");
+            ImGui.Text("將搜尋下列角色：");
             foreach (var s in _characters)
             {
                 ImGui.TextUnformatted(s.Name);

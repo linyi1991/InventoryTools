@@ -25,7 +25,7 @@ public class ItemSpecialShopUseRenderer : ItemSpecialShopSourceRenderer
 
     public override RendererType RendererType => RendererType.Use;
 
-    public override string HelpText => "Can the item be spent at a special currency shop?";
+    public override string HelpText => "此物品是否可用於特殊貨幣商店交換物品？";
 
     public override Func<ItemSource, int> GetIcon => source =>
     {
@@ -49,9 +49,9 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.SpecialShop;
-    public override string SingularName => "Special Shop";
-    public override string PluralName => "Special Shops";
-    public override string HelpText => "Can the item be purchased from a special currency shop?";
+    public override string SingularName => "特殊商店";
+    public override string PluralName => "特殊商店";
+    public override string HelpText => "此物品是否可向特殊貨幣商店購買？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 3;
@@ -66,9 +66,9 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
     {
         var asSource = AsSource(source);
 
-        ImGui.Text($"Shop: {asSource.Shop.Name}");
+        ImGui.Text($"商店：{asSource.Shop.Name}");
 
-        ImGui.Text("Rewards:");
+        ImGui.Text("獎勵：");
         using (ImRaii.PushIndent())
         {
             foreach (var reward in asSource.ShopListing.Rewards)
@@ -87,7 +87,7 @@ public class ItemSpecialShopSourceRenderer : ItemInfoRenderer<ItemSpecialShopSou
                 }
             }
         }
-        ImGui.Text("Costs:");
+        ImGui.Text("費用：");
         using (ImRaii.PushIndent())
         {
             foreach (var cost in asSource.ShopListing.Costs)

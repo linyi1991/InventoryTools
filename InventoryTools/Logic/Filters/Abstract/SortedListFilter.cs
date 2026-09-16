@@ -77,23 +77,23 @@ namespace InventoryTools.Logic.Filters.Abstract
                 }
                 ImGui.SameLine();
             }
-            if (ImGui.Button("Top##Column" + index))
+            if (ImGui.Button("置頂###Top##Column" + index))
             {
                 MoveItemTop(configuration, item.Key);
             }
             ImGui.SameLine();
-            if (ImGui.Button("Up##Column" + index))
+            if (ImGui.Button("上移###Up##Column" + index))
             {
                 MoveItemUp(configuration, item.Key);
             }
 
             ImGui.SameLine();
-            if (ImGui.Button("Down##Column" + index))
+            if (ImGui.Button("下移###Down##Column" + index))
             {
                 MoveItemDown(configuration, item.Key);
             }
             ImGui.SameLine();
-            if (ImGui.Button("Bottom##Column" + index))
+            if (ImGui.Button("置底###Bottom##Column" + index))
             {
                 MoveItemBottom(configuration, item.Key);
             }
@@ -138,7 +138,7 @@ namespace InventoryTools.Logic.Filters.Abstract
             if (HasValueSet(configuration) && ShowReset)
             {
                 ImGui.SameLine();
-                if (ImGui.Button("Reset##" + Key + "Reset"))
+                if (ImGui.Button("重設###Reset##" + Key + "Reset"))
                 {
                     ResetFilter(configuration);
                 }

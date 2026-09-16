@@ -21,9 +21,9 @@ public class ItemQuickVentureSourceRenderer : ItemInfoRenderer<ItemQuickVentureS
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.QuickVenture;
-    public override string SingularName => "Quick Venture";
+    public override string SingularName => "快速探索";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be returned by retainers from quick ventures?";
+    public override string HelpText => "此物品是否可由雇員快速探索帶回？";
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
@@ -31,7 +31,7 @@ public class ItemQuickVentureSourceRenderer : ItemInfoRenderer<ItemQuickVentureS
          ImGui.Text($"{asSource.RetainerTaskRow.FormattedName}");
          using (ImRaii.PushIndent())
          {
-             ImGui.Text($"Venture Cost: {asSource.RetainerTaskRow.Base.VentureCost}");
+             ImGui.Text($"探險幣費用：{asSource.RetainerTaskRow.Base.VentureCost}");
              ImGui.Text(
                  $"Time: {asSource.RetainerTaskRow.Base.MaxTimemin.Minutes().ToHumanReadableString()}");
          }

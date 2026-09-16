@@ -23,8 +23,8 @@ namespace InventoryTools.Logic.Filters
             ShowOperatorTooltip = true;
         }
         public override string Key { get; set; } = "MBTotalPrice";
-        public override string Name { get; set; } = "Market Board Avg. Total Price";
-        public override string HelpText { get; set; } = "The total market board price of the item(price * quantity). For this to work you need to have automatic pricing enabled and also note that any background price updates will not be evaluated until an event that refreshes the inventory occurs(this happens fairly often).";
+        public override string Name { get; set; } = "市場平均總價";
+        public override string HelpText { get; set; } = "市場平均單價乘以數量。需啟用自動價格查詢；背景價格更新後，需等待庫存重新整理事件才會重新計算。";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Market;
 
         public override bool? FilterItem(FilterConfiguration configuration,InventoryItem item)

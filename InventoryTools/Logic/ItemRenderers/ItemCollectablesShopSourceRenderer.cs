@@ -18,7 +18,7 @@ namespace InventoryTools.Logic.ItemRenderers;
 public class ItemCollectablesShopUseRenderer : ItemCollectablesShopSourceRenderer
 {
     private readonly ItemSheet _itemSheet;
-    public override string HelpText => "Can the item be spent at a collectables exchange shop?";
+    public override string HelpText => "此物品是否可用於收藏品交易所交換物品？";
     public ItemCollectablesShopUseRenderer(MapSheet mapSheet, ItemSheet itemSheet, ITextureProvider textureProvider,
         IDalamudPluginInterface dalamudPluginInterface) : base(mapSheet, itemSheet, textureProvider, dalamudPluginInterface)
     {
@@ -33,7 +33,7 @@ public class ItemCollectablesShopUseRenderer : ItemCollectablesShopSourceRendere
             ? new List<string>()
             : shopSource.MapIds.Select(c => MapSheet.GetRow(c).FormattedName)).Distinct().ToList();
 
-        ImGui.Text("Items that can be purchased:");
+        ImGui.Text("可購買的物品：");
 
         using (ImRaii.PushIndent())
         {
@@ -63,9 +63,9 @@ public class ItemCollectablesShopSourceRenderer : ItemInfoRenderer<ItemCollectab
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CollectablesShop;
-    public override string SingularName => "Collectables Exchange Shop";
-    public override string PluralName => "Collectables Exchange Shops";
-    public override string HelpText => "Can the item be purchased from a collectables exchange shop?";
+    public override string SingularName => "收藏品交易所";
+    public override string PluralName => "收藏品交易所";
+    public override string HelpText => "此物品是否可向收藏品交易所購買？";
     public override bool ShouldGroup => true;
 
     public override byte MaxColumns => 1;
@@ -75,8 +75,8 @@ public class ItemCollectablesShopSourceRenderer : ItemInfoRenderer<ItemCollectab
     {
         var asSource = AsSource(source);
 
-        DrawItems("Costs: ", asSource.CostItems);
-        DrawItems("Rewards: ", asSource.RewardItems);
+        DrawItems("費用：", asSource.CostItems);
+        DrawItems("獎勵：", asSource.RewardItems);
 
         DrawMaps(source);
     };

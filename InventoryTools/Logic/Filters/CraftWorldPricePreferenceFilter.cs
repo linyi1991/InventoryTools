@@ -59,10 +59,10 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
     }
 
     public override string Key { get; set; } = "CraftWorldPricePreference";
-    public override string Name { get; set; } = "World Price Preference";
+    public override string Name { get; set; } = "市場價格伺服器偏好";
 
     public override string HelpText { get; set; } =
-        "Which worlds should prices be sourced from?";
+        "應從哪些伺服器取得價格？";
 
     public override FilterCategory FilterCategory { get; set; } = FilterCategory.WorldPricePreference;
     public override Dictionary<uint, (string, string?)> DefaultValue { get; set; } = new();
@@ -129,7 +129,7 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
                 ImGui.Separator();
                 if (_searchString == "")
                 {
-                    ImGui.TextUnformatted("Start typing to search...");
+                    ImGui.TextUnformatted("輸入文字以搜尋…");
                 }
                 foreach (var item in SearchWorlds.Where(c => !currentValue.ContainsKey(c.RowId)))
                 {
@@ -156,7 +156,7 @@ public class CraftWorldPricePreference : SortedListFilter<uint, uint>
             }
             if (_searchWorlds == null)
             {
-                _searchWorlds = _worldSheet.Where(c => c.IsPublic && c.Name.ExtractText().ToParseable().PassesFilter(SearchString.ToParseable())).Take(100).ToList();
+                _searchWorlds = _worldSheet.Where(c => TwMarketWorlds.IsAvailableForMarket(c.RowId, c.IsPublic) && c.Name.ExtractText().ToParseable().PassesFilter(SearchString.ToParseable())).Take(100).ToList();
             }
 
             return _searchWorlds;

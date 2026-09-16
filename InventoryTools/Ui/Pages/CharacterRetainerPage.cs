@@ -55,8 +55,8 @@ namespace InventoryTools.Ui.Pages
                 _popupMenus[character] = new PopupMenu("cm_" + character.CharacterId, PopupMenu.PopupMenuButtons.Right,
                     new List<PopupMenu.IPopupMenuItem>()
                     {
-                        new PopupMenu.PopupMenuItemSelectableConfirm("Clear Inventories", "ci_" + character.CharacterId, "Are you sure you want to clear the inventories of this " + character.CharacterType.FormattedName() + "?", ClearInventories, "Clear the inventories of this " + character.CharacterType.FormattedName() + "?"),
-                        new PopupMenu.PopupMenuItemSelectableConfirm("Delete " + character.CharacterType.FormattedName(), "dc_" + character.CharacterId, "Are you sure you want to delete this " + character.CharacterType.FormattedName() + "?", DeleteCharacter, "Delete the " + character.CharacterType.FormattedName() + "?"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("清除庫存紀錄", "ci_" + character.CharacterId, "確定要清除此對象的庫存紀錄嗎？對象：" + character.CharacterType.FormattedName() + "?", ClearInventories, "清除此對象的庫存紀錄：" + character.CharacterType.FormattedName() + "?"),
+                        new PopupMenu.PopupMenuItemSelectableConfirm("刪除：" + character.CharacterType.FormattedName(), "dc_" + character.CharacterId, "確定要刪除此對象嗎？對象：" + character.CharacterType.FormattedName() + "?", DeleteCharacter, "刪除對象：" + character.CharacterType.FormattedName() + "?"),
                     }
                 );
             }
@@ -92,7 +92,7 @@ namespace InventoryTools.Ui.Pages
                 {
                     var worldIds = _characterMonitor.GetWorldIds();
                     var characters = _characterMonitor.GetPlayerCharacters().Where(c => _currentWorld == 0 || _currentWorld == c.Value.WorldId).OrderBy(c => c.Value.FormattedName).ToList();
-                    ImGui.TextUnformatted("Characters (" + characters.Count + ")");
+                    ImGui.TextUnformatted("角色（" + characters.Count + ")");
                     ImGui.Separator();
                     for (var index = 0; index < characters.Count; index++)
                     {
@@ -130,7 +130,7 @@ namespace InventoryTools.Ui.Pages
                     ImGui.NewLine();
 
                     var freeCompanies = _characterMonitor.GetFreeCompanies().Where(c => _currentWorld == 0 || _currentWorld == c.Value.WorldId).OrderBy(c => c.Value.FormattedName).ToList();
-                    ImGui.TextUnformatted("Free Companies (" + freeCompanies.Count + ")");
+                    ImGui.TextUnformatted("部隊（" + freeCompanies.Count + ")");
                     ImGui.Separator();
                     for (var index = 0; index < freeCompanies.Count; index++)
                     {
@@ -160,7 +160,7 @@ namespace InventoryTools.Ui.Pages
                     ImGui.NewLine();
 
                     var houses = _characterMonitor.GetHouses().Where(c => _currentWorld == 0 || _currentWorld == c.Value.WorldId).OrderBy(c => c.Value.FormattedName).ToList();
-                    ImGui.TextUnformatted("Residences (" + houses.Count + ")");
+                    ImGui.TextUnformatted("房屋（" + houses.Count + ")");
                     ImGui.Separator();
                     for (var index = 0; index < houses.Count; index++)
                     {
@@ -191,7 +191,7 @@ namespace InventoryTools.Ui.Pages
                     ImGui.NewLine();
 
                     var retainers = _characterMonitor.GetRetainerCharacters().Where(c => _currentWorld == 0 || _currentWorld == c.Value.WorldId).OrderBy(c => c.Value.FormattedName).ToList();
-                    ImGui.TextUnformatted("Retainers (" + retainers.Count + ")");
+                    ImGui.TextUnformatted("雇員（" + retainers.Count + ")");
                     ImGui.Separator();
 
                     for (var index = 0; index < characters.Count; index++)
@@ -234,7 +234,7 @@ namespace InventoryTools.Ui.Pages
 
                     if (retainers.Count != 0)
                     {
-                        ImGui.TextUnformatted("Orphaned Retainers:");
+                        ImGui.TextUnformatted("尚未配對角色的雇員：");
                         ImGui.Separator();
                         for (var index2 = 0; index2 < retainers.Count; index2++)
                         {
@@ -275,11 +275,11 @@ namespace InventoryTools.Ui.Pages
                         selectedWorld = _worldSheet.GetRowOrDefault(_currentWorld);
                     }
 
-                    ImGui.Text("World: ");
+                    ImGui.Text("伺服器：");
                     using var combo = ImRaii.Combo("##activeWorld", selectedWorld?.Name.ExtractText() ?? "All");
                     if (combo.Success)
                     {
-                        if (ImGui.Selectable("All"))
+                        if (ImGui.Selectable("全部###All"))
                         {
                             _currentWorld = 0;
                         }
@@ -322,12 +322,12 @@ namespace InventoryTools.Ui.Pages
                                 _newName = character.AlternativeName ?? "";
                             }
 
-                            ImGuiUtil.HoverTooltip("Edit name, set the name to blank to return it to the original name.");
+                            ImGuiUtil.HoverTooltip("編輯名稱；留白可還原為原始名稱。");
 
                             if (_editMode)
                             {
                                 var newName = _newName;
-                                ImGui.Text("Custom Name: ");
+                                ImGui.Text("自訂名稱：");
                                 ImGui.SameLine();
                                 if (ImGui.InputText("##customName", ref newName, 100))
                                 {
@@ -336,10 +336,10 @@ namespace InventoryTools.Ui.Pages
 
                                 if (character.AlternativeName != null && character.AlternativeName != character.Name)
                                 {
-                                    ImGui.Text("Original Name: " + character.Name);
+                                    ImGui.Text("原始名稱：" + character.Name);
                                 }
 
-                                if (ImGui.Button("Save"))
+                                if (ImGui.Button("儲存###Save"))
                                 {
                                     if (_newName == "" || _newName == character.Name)
                                     {
@@ -360,20 +360,20 @@ namespace InventoryTools.Ui.Pages
                             ImGui.Separator();
                             if (character.CharacterType is CharacterType.Character or CharacterType.Retainer )
                             {
-                                ImGui.Text("Level: " + character.Level);
-                                ImGui.Text("Gil: " + character.Gil);
-                                ImGui.Text("Gender: " + character.Gender);
-                                ImGui.Text("Free Company: " + character.FreeCompanyName);
-                                ImGui.Text("World: " + (character.World?.Name.ExtractText() ?? "Unknown"));
-                                ImGui.Text("Class/Job: " +
-                                           (character.ActualClassJob?.Base.Name.ExtractText().ToTitleCase() ?? "Unknown"));
+                                ImGui.Text("等級：" + character.Level);
+                                ImGui.Text("金幣：" + character.Gil);
+                                ImGui.Text("性別：" + character.Gender);
+                                ImGui.Text("部隊：" + character.FreeCompanyName);
+                                ImGui.Text("伺服器：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("職業／特職：" +
+                                           (character.ActualClassJob?.Base.Name.ExtractText().ToTitleCase() ?? "未知"));
                             }
                             else if (character.CharacterType is CharacterType.Housing)
                             {
-                                ImGui.Text("World: " + (character.World?.Name.ExtractText() ?? "Unknown"));
-                                ImGui.Text("Plot Size: " + character.GetPlotSize());
-                                ImGui.Text("Location: " + character.HousingName);
-                                ImGui.Text("Owners: ");
+                                ImGui.Text("伺服器：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("土地大小：" + character.GetPlotSize());
+                                ImGui.Text("位置：" + character.HousingName);
+                                ImGui.Text("擁有者：");
                                 foreach (var ownerId in character.Owners)
                                 {
                                     var owner = _characterMonitor.GetCharacterById(ownerId);
@@ -383,8 +383,8 @@ namespace InventoryTools.Ui.Pages
                             }
                             else if (character.CharacterType is CharacterType.FreeCompanyChest)
                             {
-                                ImGui.Text("World: " + (character.World?.Name.ExtractText() ?? "Unknown"));
-                                ImGui.Text("Related Characters: ");
+                                ImGui.Text("伺服器：" + (character.World?.Name.ExtractText() ?? "未知"));
+                                ImGui.Text("相關角色：");
                                 foreach (var relatedCharacter in _characterMonitor.GetFreeCompanyCharacters(character.CharacterId))
                                 {
                                     var relatedCharacterName = relatedCharacter.Value.FormattedName;
@@ -393,7 +393,7 @@ namespace InventoryTools.Ui.Pages
                             }
 
                             ImGui.NewLine();
-                            ImGui.Text("Inventories: ");
+                            ImGui.Text("庫存：");
                             ImGui.Separator();
                             var inventories =
                                 _inventoryMonitor.Inventories.ContainsKey(character.CharacterId)
@@ -449,7 +449,7 @@ namespace InventoryTools.Ui.Pages
                                                                                     }
 
                                                                                     ImGuiUtil.HoverTooltip(item.FormattedName +
-                                                                                        " - " + item.Quantity + " in slot " +
+                                                                                        " - " + item.Quantity + "，格位：" +
                                                                                         realSlot);
                                                                                     ImGui.SameLine();
 
@@ -499,13 +499,13 @@ namespace InventoryTools.Ui.Pages
                             }
                             else
                             {
-                                ImGui.Text("No inventories found.");
+                                ImGui.Text("找不到庫存。");
                             }
 
                         }
                         else
                         {
-                            ImGui.Text("Invalid character selected.");
+                            ImGui.Text("選取的角色無效。");
                         }
                     }
                 }

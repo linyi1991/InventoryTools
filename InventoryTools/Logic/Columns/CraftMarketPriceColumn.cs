@@ -64,14 +64,14 @@ public class CraftMarketPriceColumn : GilColumn
                         ImGui.SameLine();
                         ImGui.Image(ImGuiService.GetIconTexture(Icons.QuestionMarkIcon).Handle, new Vector2(16, 16));
                         ImGuiUtil.HoverTooltip(
-                            "The market price of this item is cheaper than buying it from a vendor and you prefer vendors over the current ingredient preference.");
+                            "此物品的市場價格低於商店售價，而你設定的商店優先順序高於目前素材來源。");
                     }
                 }
             }
         }
         else
         {
-            ImGui.Text("N/A");
+            ImGui.Text("不適用");
         }
 
         var craftPrices = searchResult.CraftItem.CraftPrices;
@@ -98,11 +98,11 @@ public class CraftMarketPriceColumn : GilColumn
                             totalAvailable += price.Left;
                         }
 
-                        ImGui.Text("Available: " + totalAvailable);
+                        ImGui.Text("可用：" + totalAvailable);
 
                         if (searchResult.CraftItem.MarketAvailable != searchResult.CraftItem.QuantityNeeded)
                         {
-                            ImGui.Text("Missing: " + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
+                            ImGui.Text("缺少：" + (searchResult.CraftItem.QuantityNeeded - searchResult.CraftItem.MarketAvailable));
                         }
                     }
                 }

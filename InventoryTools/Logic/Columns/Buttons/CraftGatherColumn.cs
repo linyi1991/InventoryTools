@@ -121,7 +121,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                 ImGui.TableNextColumn();
                 if (ImGui.TableGetColumnFlags().HasFlag(ImGuiTableColumnFlags.IsEnabled))
                 {
-                    if (ImGui.Button("Teleport##" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
+                    if (ImGui.Button("傳送###Teleport##" + tuple.shop.RowId + "_" + tuple.npc.RowId + "_" +
                                      tuple.location.Map.RowId))
                     {
                         var nearestAetheryte = _teleporterService.GetNearestAetheryte(tuple.location);
@@ -189,7 +189,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                     {
                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudRed))
                         {
-                            ImGui.Text(" (Up in " +
+                            ImGui.Text("（距離出現：" +
                                        TimeInterval.DurationString(firstUptime.Value.Start, TimeStamp.UtcNow,
                                            true) + ")");
                         }
@@ -198,7 +198,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                     {
                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen))
                         {
-                            ImGui.Text(" (Up for " +
+                            ImGui.Text("（剩餘時間：" +
                                        TimeInterval.DurationString(firstUptime.Value.End, TimeStamp.UtcNow,
                                            true) + ")");
                         }
@@ -224,7 +224,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                                     {
                                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.DalamudRed))
                                         {
-                                            ImGui.Text( " (Up in " +
+                                            ImGui.Text( "（距離出現：" +
                                                         TimeInterval.DurationString(nextUptime.Item2.Start, TimeStamp.UtcNow,
                                                             true) + ")");
                                         }
@@ -233,7 +233,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                                     {
                                         using (ImRaii.PushColor(ImGuiCol.Text, ImGuiColors.HealerGreen))
                                         {
-                                            ImGui.Text(" (Up for " +
+                                            ImGui.Text("（剩餘時間：" +
                                                        TimeInterval.DurationString(nextUptime.Item2.End, TimeStamp.UtcNow,
                                                            true) + ")");
                                         }
@@ -255,7 +255,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                 {
                     ImGui.SameLine();
                 }
-                if (ImGui.Button("Gather##Gather" + rowIndex))
+                if (ImGui.Button("採集###Gather##Gather" + rowIndex))
                 {
                     _commandManager.ProcessCommand("/gather " + searchResult.Item.Base.Name.ExtractText());
                 }
@@ -268,7 +268,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                 {
                     ImGui.SameLine();
                 }
-                if (ImGui.Button("Gather##Gather" + rowIndex))
+                if (ImGui.Button("採集###Gather##Gather" + rowIndex))
                 {
                     _commandManager.ProcessCommand("/gatherfish " + searchResult.Item.Base.Name.ExtractText());
                 }
@@ -289,7 +289,7 @@ namespace InventoryTools.Logic.Columns.Buttons
                     ImGui.SameLine();
                 }
                 ImGui.PushStyleVar(ImGuiStyleVar.FrameRounding, 0.0f);
-                if (ImGui.Button("Buy##Buy" + rowIndex))
+                if (ImGui.Button("購買###Buy##Buy" + rowIndex))
                 {
                     uint? umapId = item.CraftItem?.MapId ?? null;
                     int mapId = umapId == null ? -1 : (int)umapId;

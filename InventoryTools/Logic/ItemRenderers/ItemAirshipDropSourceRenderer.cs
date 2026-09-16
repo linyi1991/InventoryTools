@@ -24,9 +24,9 @@ public class ItemAirshipDropSourceRenderer : ItemInfoRenderer<ItemAirshipDropSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.Airship;
-    public override string SingularName => "Airship Exploration";
+    public override string SingularName => "飛空艇探索";
     public override bool ShouldGroup => true;
-    public override string HelpText => "Can the item be earned from a airship exploration route?";
+    public override string HelpText => "此物品是否可透過飛空艇探索取得？";
 
     public override Func<ItemSource, List<MessageBase>?>? OnClick => source =>
     {

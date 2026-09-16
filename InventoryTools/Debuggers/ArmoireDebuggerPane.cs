@@ -22,7 +22,7 @@ public class ArmoireDebuggerPane : IDebugPane
         var uiState = UIState.Instance();
         if (uiState == null)
         {
-            ImGui.Text("UIState not found.");
+            ImGui.Text("找不到介面狀態。");
         }
         else
         {

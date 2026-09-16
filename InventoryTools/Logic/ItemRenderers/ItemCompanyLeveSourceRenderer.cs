@@ -19,20 +19,20 @@ public class ItemCompanyLeveSourceRenderer : ItemInfoRenderer<ItemCompanyLeveSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.CompanyLeve;
-    public override string SingularName => "Company Leve";
-    public override string PluralName => "Company Leves";
-    public override string HelpText => "Is this item obtained from a company leve?";
+    public override string SingularName => "部隊理符";
+    public override string PluralName => "部隊理符";
+    public override string HelpText => "此物品是否可從軍隊理符取得？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Leve];
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
-        ImGui.TextUnformatted("Leve: " + leveRow.Name.ExtractText());
-        ImGui.TextUnformatted("Class: " + leveRow.ClassJobCategory.Value.Name.ExtractText());
-        ImGui.TextUnformatted("EXP Reward: " + asSource.ExpReward);
-        ImGui.TextUnformatted("Seals Rewarded: " + asSource.SealsRewarded);
-        ImGui.TextUnformatted("Allowance Cost: " + leveRow.AllowanceCost);
+        ImGui.TextUnformatted("理符：" + leveRow.Name.ExtractText());
+        ImGui.TextUnformatted("職業：" + leveRow.ClassJobCategory.Value.Name.ExtractText());
+        ImGui.TextUnformatted("經驗值獎勵：" + asSource.ExpReward);
+        ImGui.TextUnformatted("軍票獎勵：" + asSource.SealsRewarded);
+        ImGui.TextUnformatted("消耗理符受理權：" + leveRow.AllowanceCost);
     };
 
     public override Func<ItemSource, string> GetName => source =>
@@ -49,6 +49,6 @@ public class ItemCompanyLeveSourceRenderer : ItemInfoRenderer<ItemCompanyLeveSou
         var asSource = AsSource(source);
         var leveRow = asSource.Leve.Value;
         return
-            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} xp) ({leveRow.AllowanceCost} allowances)";
+            $"{leveRow.Name.ExtractText()} ({leveRow.ClassJobCategory.Value.Name.ExtractText()}) ({leveRow.ExpReward} 經驗值) ({leveRow.AllowanceCost} allowances)";
     };
 }

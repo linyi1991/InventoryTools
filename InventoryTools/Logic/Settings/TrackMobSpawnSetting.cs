@@ -46,13 +46,13 @@ public class TrackMobSpawnSetting : BooleanSetting
         if (configuration.TrackMobSpawns)
         {
             ImGui.SameLine();
-            if (ImGui.Button("Export CSV"))
+            if (ImGui.Button("匯出 CSV###Export CSV"))
             {
-                _fileDialogManager.SaveFileDialog("Save to csv", "*.csv", "mob_spawns.csv", ".csv",
+                _fileDialogManager.SaveFileDialog("儲存為 CSV", "*.csv", "mob_spawns.csv", ".csv",
                     (b, s) => { SaveMobSpawns(b, s); }, null, true);
             }
 
-            ImGuiUtil.HoverTooltip("Export a CSV containing the mob spawn IDs and their positions.");
+            ImGuiUtil.HoverTooltip("匯出包含怪物生成 ID 與座標的 CSV。");
         }
     }
 

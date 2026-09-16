@@ -31,8 +31,8 @@ namespace InventoryTools.Logic.Filters
 
 
         public override string Key { get; set; } = "HighlightWhen";
-        public override string Name { get; set; } = "Highlight When?";
-        public override string HelpText { get; set; } = "When should the highlighting apply?";
+        public override string Name { get; set; } = "何時標示？";
+        public override string HelpText { get; set; } = "何時套用醒目標示？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Display;
 
         public override bool? FilterItem(FilterConfiguration configuration, InventoryItem item)

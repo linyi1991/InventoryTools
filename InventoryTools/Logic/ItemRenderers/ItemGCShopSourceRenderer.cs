@@ -25,13 +25,13 @@ public class ItemGCShopUseRenderer : ItemGCShopSourceRenderer
     {
     }
 
-    public override string HelpText => "Can the item be spent at a grand company shop?";
+    public override string HelpText => "此物品是否可用於大國防聯軍商店交換物品？";
 
     public override Action<List<ItemSource>>? DrawTooltipGrouped => sources =>
     {
         var asSources = AsSource(sources);
 
-        ImGui.Text("Items that can be purchased:");
+        ImGui.Text("可購買的物品：");
 
         using (ImRaii.PushIndent())
         {
@@ -65,9 +65,9 @@ public class ItemGCShopSourceRenderer : ItemInfoRenderer<ItemGCShopSource>
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.GCShop;
-    public override string SingularName => "Grand Company Shop";
-    public override string PluralName => "Grand Company Shops";
-    public override string HelpText => "Can the item be purchased at your grand company shop?";
+    public override string SingularName => "軍隊商店";
+    public override string PluralName => "軍隊商店";
+    public override string HelpText => "此物品是否可向大國防聯軍商店購買？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Shop];
 
@@ -79,13 +79,13 @@ public class ItemGCShopSourceRenderer : ItemInfoRenderer<ItemGCShopSource>
 
         ImGui.Image(_textureProvider.GetFromGameIcon(new GameIconLookup(asSource.CostItem!.Icon)).GetWrapOrEmpty().Handle, new Vector2(18, 18) * ImGui.GetIO().FontGlobalScale);
         ImGui.SameLine();
-        ImGui.Text($"Cost: {asSource.CostItem.NameString} x {asSource.GCScripShopItem.Base.CostGCSeals}");
+        ImGui.Text($"費用：{asSource.CostItem.NameString} x {asSource.GCScripShopItem.Base.CostGCSeals}");
         if (asSource.GCScripShopItem.Base.RequiredGrandCompanyRank.IsValid)
         {
             var genericRank = _rankSheet
                 .GetRow(asSource.GCScripShopItem.Base.RequiredGrandCompanyRank.RowId).NameRank.ExtractText()
                 .ToTitleCase();
-            ImGui.Text($"Rank Required: " + genericRank);
+            ImGui.Text($"所需階級：" + genericRank);
         }
 
         DrawMaps(source);

@@ -11,7 +11,7 @@ namespace InventoryTools.Logic.Filters
     {
         public override string Key { get; set; } = "CanBeTraded";
         public override string Name { get; set; } = "可交易？";
-        public override string HelpText { get; set; } = "Can this item be traded?";
+        public override string HelpText { get; set; } = "此物品是否可交易？";
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.Acquisition;
 
 

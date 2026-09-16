@@ -23,23 +23,23 @@ public class ItemDungeonDropSourceRenderer : ItemInfoRenderer<ItemDungeonDropSou
 
     public override RendererType RendererType => RendererType.Source;
     public override ItemInfoType Type => ItemInfoType.DungeonDrop;
-    public override string SingularName => "Dungeon Drop";
-    public override string PluralName => "Dungeon Drops";
-    public override string HelpText => "Can the item be dropped from monsters in dungeons?";
+    public override string SingularName => "迷宮掉落";
+    public override string PluralName => "迷宮掉落";
+    public override string HelpText => "此物品是否由迷宮中的怪物掉落？";
     public override bool ShouldGroup => true;
     public override IReadOnlyList<ItemInfoRenderCategory> Categories => [ItemInfoRenderCategory.Duty];
 
     public override Action<ItemSource> DrawTooltip => source =>
     {
         var dungeonDropSource = AsSource(source);
-        ImGui.Text("Dungeon: " + dungeonDropSource.ContentFinderCondition.FormattedName);
+        ImGui.Text("迷宮：" + dungeonDropSource.ContentFinderCondition.FormattedName);
     };
 
     public override Func<ItemSource, string> GetName => source =>
     {
         var dungeonDropSource = AsSource(source);
 
-        return "Dungeon: " + dungeonDropSource.ContentFinderCondition.FormattedName;
+        return "迷宮：" + dungeonDropSource.ContentFinderCondition.FormattedName;
     };
 
     public override Func<ItemSource, int> GetIcon => _ => Icons.DutyIcon;

@@ -10,10 +10,10 @@ namespace InventoryTools.Logic.Filters
     public class TableCraftFreezeRowsFilter : IntegerFilter
     {
         public override string Key { get; set; } = "TableCraftFreezeRows";
-        public override string Name { get; set; } = "Freeze Columns";
+        public override string Name { get; set; } = "固定欄位數量";
 
         public override string HelpText { get; set; } =
-            "The number of columns starting at 1 to freeze(always display when scrolling).";
+            "從第一欄起固定顯示的欄位數，捲動時仍會保留。";
 
         public override FilterCategory FilterCategory { get; set; } = FilterCategory.CraftColumns;
 
